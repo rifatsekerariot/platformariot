@@ -32,7 +32,7 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Restructure workspace (monorepo no-op)
         run: sh scripts/restructure-ci-workspace.sh
