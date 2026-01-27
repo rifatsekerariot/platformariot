@@ -1,5 +1,7 @@
 #!/bin/sh
-# platformariot: Tek curl ile PostgreSQL + Beaver IoT (Alarm, widget'lar) ayağa kaldırır.
+# platformariot: Tek curl ile PostgreSQL + Beaver IoT (Alarm, widget'lar).
+# İlk kurulum ve güncelleme için aynı komut. down -v asla kullanılmaz;
+# beaver-postgres-data, beaver-monolith-logs volume'leri korunur -> güncellemede veri kaybı olmaz.
 # Linux. Prebuilt: ghcr.io/rifatsekerariot/beaver-iot:latest
 #
 #   curl -sSL https://raw.githubusercontent.com/rifatsekerariot/platformariot/main/scripts/deploy-zero-touch.sh | sudo sh -s -- [--workspace DIR] [--skip-docker-install] [--postgres-password PWD] [--tenant-id ID]
@@ -99,7 +101,7 @@ else
   (cd platformariot && git fetch origin "$REPO_BRANCH" 2>/dev/null && git checkout "$REPO_BRANCH" 2>/dev/null && git reset --hard "origin/$REPO_BRANCH" 2>/dev/null) || true
 fi
 
-# Compose up
+# Compose up (down/down -v yok; volume'ler korunur)
 echo "[deploy] Pulling image and starting stack (examples/stack.yaml)..."
 cd "$WORKSPACE/platformariot/examples"
 $COMPOSE_CMD -f stack.yaml pull
@@ -113,4 +115,5 @@ echo ""
 echo "[deploy] Tamamlandı."
 echo "  UI:    http://${SERVER_IP}:9080"
 echo "  Logs:  docker logs -f beaver-iot"
+echo "  Güncelleme: aynı curl'ü tekrar çalıştırın; en son imaj çekilir, PostgreSQL ve loglar korunur."
 echo "  (ChirpStack webhook: http://${SERVER_IP}:9080/public/integration/chirpstack/webhook?event=uplink)"

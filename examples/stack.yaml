@@ -44,6 +44,7 @@ services:
     volumes:
       - beaver-monolith-logs:/root/beaver-iot/logs
 
+# Kalıcı volume'ler; deploy script down -v kullanmaz. Güncellemede veri korunur.
 volumes:
   beaver-postgres-data:
   beaver-monolith-logs:

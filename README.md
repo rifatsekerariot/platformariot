@@ -4,13 +4,17 @@
 
 ---
 
-## Tek komutla kurulum (Linux)
+## Tek komut – kurulum ve güncelleme (Linux)
+
+**İlk kurulum ve her güncelleme için aynı komut.** Farklı bir komut yok.
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/rifatsekerariot/platformariot/main/scripts/deploy-zero-touch.sh | sudo sh -s --
 ```
 
 - Docker yoksa kurar, `platformariot`'u clone eder, `examples/stack.yaml` ile **PostgreSQL + monolith** ayağa kaldırır.
+- **Güncelleme:** Geliştirme yapıp `main`'e push ettiğinizde CI imajı GHCR'a atar. Sunucuda **aynı curl'ü** tekrar çalıştırın: en son imaj çekilir, konteynerler yenilenir.
+- **Veri:** `beaver-postgres-data` (PostgreSQL) ve `beaver-monolith-logs` volume'lerde tutulur; script `down -v` kullanmaz → **güncellemede veri kaybı olmaz.**
 - **UI:** `http://<sunucu-ip>:9080`
 - Opsiyonel: `--workspace /opt/platformariot` `--skip-docker-install` `--postgres-password xxx` `--tenant-id xxx`
 
@@ -46,7 +50,8 @@ curl -sSL https://raw.githubusercontent.com/rifatsekerariot/platformariot/main/s
 
 ---
 
-## Sonraki geliştirmeler
+## Geliştirme ve güncelleme
 
-- Tüm değişiklikler bu repo üzerinden; `main` → Build workflow → imaj GHCR’da.
+- Tüm geliştirmeler bu repo üzerinden. `main`'e push → Build workflow → `ghcr.io/rifatsekerariot/beaver-iot:latest` güncellenir.
+- Sunucuda güncellemek için **sadece aynı curl'ü** tekrar çalıştırın; ek komut yok. Veriler volume'de kalır.
 - Alarm / widget / rapor: `backend/`, `web/`. ChirpStack: `integrations/`. Compose: `examples/stack.yaml`.
