@@ -11,6 +11,7 @@ on:
       - backend/**
       - web/**
       - integrations/**
+      - blueprint/**
       - build-docker/**
       - scripts/**
       - examples/**
@@ -33,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Restructure workspace (monorepo: no-op)
+      - name: Restructure workspace (monorepo no-op)
         run: sh scripts/restructure-ci-workspace.sh
 
       - name: Build ChirpStack JAR from integrations/
