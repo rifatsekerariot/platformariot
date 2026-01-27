@@ -45,13 +45,13 @@ jobs:
         with:
           buildkitd-flags: "--allow-insecure-entitlement network.host"
 
-      # GHCR_PAT: PAT with write:packages (repo Secret). Değer: gittoken.txt içeriği.
+      # password: GHCR_PAT (gittoken.txt) tercih; yoksa GITHUB_TOKEN. GHCR_PAT = repo Secret.
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_PAT }}
+          password: ${{ secrets.GHCR_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Create .env for build
         run: sh scripts/create-build-env.sh
