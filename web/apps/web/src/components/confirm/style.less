@@ -1,0 +1,109 @@
+.@{prefix}-confirm {
+    .@{mui-prefix}DialogTitle-root {
+        display: flex;
+        align-items: center;
+        padding: @padding-md @padding-xl 0;
+        margin-bottom: @margin-xs;
+
+        .@{prefix}-confirm-title {
+            display: flex;
+            align-items: center;
+            line-height: 28px;
+
+            .@{prefix}-confirm-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2px;
+                margin-right: @margin-xs;
+
+                .@{mui-prefix}SvgIcon-root {
+                    font-size: @font-size-6;
+                }
+            }
+        }
+
+        .@{mui-prefix}DialogContent-root {
+            color: var(--text-color-secondary);
+        }
+    }
+
+    .@{mui-prefix}DialogActions-root {
+        padding-top: @padding-xxs;
+    }
+
+    &.@{prefix}-confirm-without-title {
+        .@{mui-prefix}DialogTitle-root {
+            padding-top: @padding-xl;
+        }
+    }
+
+    &.@{prefix}-confirm-with-icon {
+        .@{mui-prefix}DialogContent-root {
+            padding-left: @padding-xxl + 32px;
+        }
+    }
+
+    &.@{prefix}-confirm-info {
+        .@{prefix}-confirm-title .@{prefix}-confirm-icon {
+            color: var(--icon-color-info);
+        }
+    }
+
+    &.@{prefix}-confirm-error {
+        .@{prefix}-confirm-title .@{prefix}-confirm-icon {
+            color: var(--icon-color-error);
+        }
+    }
+
+    &.@{prefix}-confirm-success {
+        .@{prefix}-confirm-title .@{prefix}-confirm-icon {
+            color: var(--icon-color-success);
+        }
+    }
+
+    &.@{prefix}-confirm-warning {
+        .@{prefix}-confirm-title .@{prefix}-confirm-icon {
+            color: var(--icon-color-warning);
+        }
+    }
+
+    // Mobile Responsive
+    .bp-down(@grid-breakpoints[md], {
+        .@{mui-prefix}Dialog-paper {
+            margin: @margin-lg;
+            width: calc(100% - @margin-lg * 2);
+        }
+
+        .@{mui-prefix}DialogTitle-root {
+            padding: @padding-lg @padding-xl 0;
+            justify-content: center;
+
+            .@{prefix}-confirm-title {
+                .text-size(@font-size-xxl);
+
+                .@{prefix}-confirm-icon {
+                    display: none;
+                }
+            }
+        }
+
+        .@{mui-prefix}DialogContent-root {
+            width: auto !important;
+            min-width: auto !important;
+            padding-left: @padding-xl !important;
+            padding-bottom: @padding-xl;
+            text-align: center;
+        }
+
+        .@{mui-prefix}DialogActions-root {
+            justify-content: space-between;
+            gap: @margin-sm;
+
+            .@{mui-prefix}ButtonBase-root {
+                flex: 1;
+                margin: 0;
+            }
+        }
+    });
+}

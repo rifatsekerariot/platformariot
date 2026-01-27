@@ -1,0 +1,24 @@
+.resources-container {
+    height: 100%;
+    padding-left: @padding-lg;
+    border: @border-base;
+
+    &__tabs {
+        border-bottom: @border-base;
+    }
+
+    &__tab-panel {
+        height: calc(100% - 50px);
+        padding: @padding-lg @padding-lg @padding-lg 0;
+
+        :global {
+            .ms-tabpanel {
+                height: 100%;
+            }
+        }
+    }
+
+    .flex-layout {
+        display: flex;
+    }
+}

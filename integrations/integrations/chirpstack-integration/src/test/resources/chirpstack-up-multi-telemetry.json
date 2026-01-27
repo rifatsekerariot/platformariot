@@ -1,0 +1,30 @@
+{
+  "deduplicationId": "b2c3d4e5-6789-01bc-def2-222222222222",
+  "time": "2022-07-18T10:00:00Z",
+  "deviceInfo": {
+    "tenantId": "52f14cd4-c6f1-4fbd-8f87-4025e1d49242",
+    "tenantName": "ChirpStack",
+    "applicationId": "17c82e96-be03-4f38-aef3-f83d48582d97",
+    "applicationName": "Test application",
+    "deviceProfileId": "14855bf7-d10d-4aee-b618-ebfcb64dc7ad",
+    "deviceProfileName": "Test device-profile",
+    "deviceName": "Multi-sensor",
+    "devEui": "0101010101010101"
+  },
+  "devAddr": "00189440",
+  "dr": 1,
+  "fPort": 1,
+  "data": "e30=",
+  "object": {
+    "temperature": 22.3,
+    "humidity": 58.5,
+    "co2": 412,
+    "pressure": 1013.25,
+    "battery": 87,
+    "pm25": 8.2,
+    "pm10": 12.1,
+    "luminosity": 320,
+    "voltage": 3.65
+  },
+  "rxInfo": [{"gatewayId": "0016c001f153a14c", "uplinkId": 4217106256, "rssi": -42, "snr": 9.2}]
+}

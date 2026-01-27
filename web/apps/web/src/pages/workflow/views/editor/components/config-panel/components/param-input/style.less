@@ -1,0 +1,76 @@
+.@{prefix}-param-input {
+    padding: @padding-md;
+    background-color: var(--component-background-gray);
+    border-radius: @border-radius-base;
+
+    &-item {
+        display: flex;
+        gap: @margin-xs;
+        align-items: center;
+        margin-bottom: @margin-sm;
+
+        &:first-child {
+            > [class^=~"@{prefix}-param-input-"] {
+                .label {
+                    height: auto;
+                    margin-bottom: @margin-xxs;
+                    visibility: visible;
+                    .text-size(@font-size-base);
+                }
+            }
+
+            .@{mui-prefix}FormControl-root {
+                margin-bottom: 0;
+            }
+        }
+
+        > [class^=~"@{prefix}-param-input-"] {
+            flex: 1;
+
+            .label {
+                height: 1px;
+                margin-bottom: -1px;
+                overflow: hidden;
+                visibility: hidden;
+                .text-size(@font-size-base);
+            }
+        }
+
+        > .@{prefix}-param-input-required {
+            flex: 0;
+
+            .@{mui-prefix}Checkbox-root {
+                &:not(.@{mui-prefix}-checked):not(.@{mui-prefix}-disabled) {
+                    &::after {
+                        position: absolute;
+                        inset: 9px 8px 8px 9px;
+                        background-color: var(--component-background);
+                        border-radius: 2px;
+                        content: '';
+                    }
+                }
+            }
+        }
+
+        .@{prefix}-param-input-name .@{mui-prefix}FormControl-root,
+        .@{prefix}-param-input-type .@{mui-prefix}InputBase-root {
+            margin: 0;
+            background-color: var(--component-background);
+            border-radius: @border-radius-base;
+        }
+
+        .btn-delete {
+            align-self: end;
+            color: var(--icon-color-gray-light);
+
+            &:hover {
+                color: var(--icon-color-gray-secondary);
+            }
+        }
+    }
+
+    .btn-add {
+        min-width: auto;
+        padding: @padding-xxs @padding-xs;
+    }
+}

@@ -1,0 +1,34 @@
+.search-result {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    /* stylelint-disable-next-line custom-property-pattern */
+    z-index: var(--mui-zIndex-modal, 1300);
+    width: 100%;
+    padding-top: @padding-xxs;
+    background-color: var(--component-background);
+
+    .item {
+        padding: @padding-xs @padding-md;
+        cursor: pointer;
+
+        &.active {
+            background-color: var(--purple-1);
+        }
+
+        .name {
+            .text-size(@font-size-base);
+        }
+
+        .identifier {
+            color: var(--text-color-tertiary);
+            .text-size(@font-size-sm);
+        }
+    }
+
+    :global {
+        .ms-mobile-infinite-scroll-root .ms-mobile-infinite-scroll-indicator {
+            display: none;
+        }
+    }
+}

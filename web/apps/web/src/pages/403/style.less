@@ -1,0 +1,43 @@
+.@{prefix}-view-403 {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+
+    .@{prefix}-mobile-topbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__img {
+        width: 200px;
+        height: 160px;
+    }
+
+    &__title {
+        margin-top: @margin-md;
+        font-size: @font-size-xxl;
+        font-weight: @font-weight-bold;
+        .line-height(@font-size-xxl);
+    }
+
+    &__description {
+        margin-top: @margin-xs;
+        margin-bottom: @margin-xl;
+        font-size: @font-size-base;
+        color: var(--text-color-secondary);
+        .line-height(@font-size-base);
+    }
+}

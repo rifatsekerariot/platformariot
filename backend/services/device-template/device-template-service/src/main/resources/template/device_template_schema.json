@@ -1,0 +1,302 @@
+{
+  "type": "object",
+  "required": ["definition", "initial_entities"],
+  "properties": {
+    "definition": {
+      "type": "object",
+      "required": ["input"],
+      "properties": {
+        "input": {
+          "type": "object",
+          "required": ["type", "properties"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["object"]
+            },
+            "properties": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/InputProperty"
+              }
+            }
+          }
+        },
+        "output": {
+          "type": "object",
+          "required": ["type", "properties"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["object"]
+            },
+            "properties": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/OutputProperty"
+              }
+            }
+          }
+        }
+      }
+    },
+    "initial_entities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Entity"
+      }
+    }
+  },
+  "definitions": {
+    "BaseProperty": {
+      "type": "object",
+      "required": ["key", "type"],
+      "properties": {
+        "key": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["object", "string", "long", "double", "boolean"]
+        },
+        "entity_mapping": { "type": "string" }
+      }
+    },
+    "InputProperty": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseProperty" },
+        {
+          "type": "object",
+          "properties": {
+            "required": { "type": "boolean" },
+            "is_device_id": { "type": "boolean" },
+            "is_device_name": { "type": "boolean" },
+            "properties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InputProperty"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "OutputProperty": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseProperty" },
+        {
+          "type": "object",
+          "properties": {
+            "value": {},
+            "properties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OutputProperty"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "object" }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "not": {
+              "required": ["value"]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "boolean" },
+              "value": {}
+            },
+            "required": ["type", "value"]
+          },
+          "then": {
+            "properties": {
+              "value": { "type": "boolean" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "string" },
+              "value": {}
+            },
+            "required": ["type", "value"]
+          },
+          "then": {
+            "properties": {
+              "value": { "type": "string" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "long" },
+              "value": {}
+            },
+            "required": ["type", "value"]
+          },
+          "then": {
+            "properties": {
+              "value": { "type": "integer" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "double" },
+              "value": {}
+            },
+            "required": ["type", "value"]
+          },
+          "then": {
+            "properties": {
+              "value": { "type": "number" }
+            }
+          }
+        }
+      ]
+    },
+    "BaseEntity": {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "pattern": "^(?!@)[A-Za-z0-9_@#$\\-/\\[\\]:]+$"
+        },
+        "name": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["property", "service", "event"]
+        },
+        "value_type": {
+          "type": "string",
+          "enum": ["object", "string", "long", "double", "boolean"]
+        },
+        "access_mod": {
+          "type": "string",
+          "enum": ["R", "W", "RW"]
+        },
+        "value_store_mod": {
+          "type": "string",
+          "enum": ["LATEST", "HISTORY", "ALL", "NONE"]
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "unit": {"type": "string"},
+            "min": {"type": "number"},
+            "max": {"type": "number"},
+            "min_length": {"type": "integer"},
+            "max_length": {"type": "integer"},
+            "length_range": {"type": "string"},
+            "fraction_digits": {"type": "integer"},
+            "format": {"type": "string"},
+            "enum": {"type": "object"},
+            "optional": {"type": "boolean"},
+            "important": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "important": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChildEntity"
+          }
+        }
+      }
+    },
+    "Entity": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseEntity" },
+        {
+          "oneOf": [
+            {
+              "required": ["identifier", "name", "type", "value_type"],
+              "properties": {
+                "identifier": { "type": "string" },
+                "name": { "type": "string" },
+                "type": { "type": "string" },
+                "value_type": { "type": "string" }
+              },
+              "if": {
+                "properties": {
+                  "value_type": { "const": "object" }
+                },
+                "required": ["value_type"]
+              },
+              "then": {
+                "required": ["children"]
+              },
+              "else": {
+                "not": {
+                  "required": ["children"]
+                }
+              }
+            },
+            {
+              "required": ["entity_ref"],
+              "properties": {
+                "entity_ref": { "type": "string" }
+              }
+            }
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "type": { "const": "property" }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["access_mod"]
+          }
+        }
+      ]
+    },
+    "ChildEntity": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseEntity" },
+        {
+          "required": ["identifier", "name", "value_type"]
+        },
+        {
+          "if": {
+            "properties": {
+              "value_type": { "const": "object" }
+            },
+            "required": ["value_type"]
+          },
+          "then": {
+            "required": ["children"]
+          },
+          "else": {
+            "not": {
+              "required": ["children"]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

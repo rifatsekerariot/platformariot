@@ -1,0 +1,55 @@
+.@{prefix}-enums-input {
+    position: relative;
+    padding: @padding-md;
+    border: 1px solid var(--border-color-base);
+    border-radius: @border-radius-base;
+
+    &.error {
+        border-color: var(--border-color-red);
+
+        .@{prefix}-enums-input-label {
+            color: var(--text-color-error);
+        }
+    }
+
+    &.disabled {
+        .@{prefix}-enums-input-label {
+            color: var(--gray-color-3);
+        }
+    }
+
+    &-label {
+        position: absolute;
+        top: -(@font-size-sm / 2);
+        left: @margin-xs;
+        padding: 0 @padding-xxs;
+        font-size: @font-size-sm;
+        line-height: 1;
+        color: var(--text-color-secondary);
+        background-color: var(--component-background);
+
+        .asterisk {
+            margin-left: @margin-xxs;
+            color: var(--text-color-error);
+        }
+    }
+
+    &-field {
+        display: flex;
+        gap: @margin-xs;
+        align-items: flex-end;
+        margin-bottom: @margin-md;
+
+        .field-key {
+            flex: 1;
+        }
+
+        .field-value {
+            flex: 1;
+        }
+
+        .field-btn-delete {
+            margin-bottom: @margin-xxs;
+        }
+    }
+}

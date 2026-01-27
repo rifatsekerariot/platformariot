@@ -1,0 +1,45 @@
+.ms-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .ms-header-type {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+
+        .@{prefix}-workflow-node-avatar {
+            margin-right: @margin-xs;
+        }
+
+        &__name {
+            flex: 1;
+            overflow: hidden;
+            font-weight: @font-weight-medium;
+            .text-size(@font-size-base);
+        }
+    }
+
+    .ms-header-status,
+    .ms-header-ms {
+        display: flex;
+        align-items: center;
+        margin-left: @margin-xxs;
+        color: var(--text-color-secondary);
+        .text-size(@font-size-base);
+    }
+
+    .ms-log-status {
+        &__success {
+            color: var(--icon-color-success);
+        }
+
+        &__error {
+            color: var(--icon-color-error);
+        }
+
+        &__loading {
+            padding: 0 2px;
+        }
+    }
+}

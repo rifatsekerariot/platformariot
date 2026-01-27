@@ -1,0 +1,64 @@
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id                 # json key
+        type: string                   # data type
+        required: true
+        is_device_id: true
+        entity_mapping: 'device_id'    # entity identifier
+      - key: device_name               # json key
+        type: string                   # data type
+        is_device_name: true
+      - key: temperature               # json key
+        type: double                   # data type
+        entity_mapping: 'temperature'  # entity identifier
+      - key: humidity                  # json key
+        type: double                   # data type
+        entity_mapping: 'humidity'     # entity identifier
+      - key: time                      # json key
+        type: string                   # data type
+        entity_mapping: 'time'         # entity identifier
+  output:
+    type: object
+    properties:
+      - key: device_id                 # json key
+        type: string                   # data type
+        entity_mapping: 'device_id'    # entity identifier
+      - key: temperature               # json key
+        type: double                   # data type
+        entity_mapping: 'temperature'  # entity identifier
+      - key: humidity                  # json key
+        type: double                   # data type
+        entity_mapping: 'humidity'     # entity identifier
+      - key: status                    # json key
+        type: long                     # data type
+        entity_mapping: 'status'       # entity identifier
+      - key: time                      # json key
+        type: string                   # data type
+        entity_mapping: 'time'         # entity identifier
+initial_entities:
+  - identifier: 'device_id'  # entity identifier
+    name: 'device_id'        # entity name
+    value_type: string       # entity value type
+    type: property           # entity type
+    access_mod: R
+  - identifier: 'temperature'   # entity identifier
+    name: 'temperature'         # entity name
+    value_type: double          # entity value type
+    type: property              # entity type
+    access_mod: R
+    attributes:
+      unit: '℃'
+  - identifier: 'humidity'     # entity identifier
+    name: 'humidity'           # entity name
+    value_type: double         # entity value type
+    type: property             # entity type
+    access_mod: R
+    attributes:
+      unit: '%'
+  - identifier: 'time'     # entity identifier
+    name: 'time'           # entity name
+    value_type: string     # entity value type
+    type: property         # entity type
+    access_mod: R

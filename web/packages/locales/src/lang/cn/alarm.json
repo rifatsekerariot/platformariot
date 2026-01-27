@@ -1,0 +1,7 @@
+{
+    "alarm.title": "告警",
+    "alarm.tab_list": "告警列表",
+    "alarm.tab_rules": "告警规则",
+    "alarm.placeholder_rules": "告警规则（如果-那么）即将推出。",
+    "alarm.manage_rules": "管理规则"
+}

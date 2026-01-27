@@ -1,0 +1,18 @@
+.user-role {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    :global {
+        .@{prefix}-tab-content {
+            position: relative;
+            flex: 1;
+            padding: @padding-lg;
+            overflow: auto;
+
+            > div {
+                height: 100%;
+            }
+        }
+    }
+}

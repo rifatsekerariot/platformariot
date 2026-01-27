@@ -1,0 +1,45 @@
+.@{prefix}-action-input {
+    width: 100%;
+
+    .@{mui-prefix}InputBase-root.@{mui-prefix}InputBase-adornedEnd {
+        padding-right: 0;
+
+        .@{mui-prefix}InputAdornment-positionEnd {
+            max-height: none;
+            background-color: var(--gray-color-2);
+            border-radius: 0 @border-radius-base @border-radius-base 0;
+
+            .@{mui-prefix}ButtonBase-root {
+                padding: 10px;
+                border-left: 1px solid var(--border-color-base);
+                border-radius: 0;
+
+                &:hover {
+                    color: var(--text-color-main);
+                }
+
+                &.@{mui-prefix}-disabled {
+                    color: var(--text-color-quaternary);
+                }
+            }
+
+            .@{mui-prefix}SvgIcon-root {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &.@{mui-prefix}InputBase-sizeSmall {
+            .@{mui-prefix}InputAdornment-positionEnd {
+                .@{mui-prefix}ButtonBase-root {
+                    padding: 7px;
+                }
+            }
+
+            .@{mui-prefix}SvgIcon-root {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+}

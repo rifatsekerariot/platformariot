@@ -1,0 +1,96 @@
+# Build and push prebuilt image + PostgreSQL stack (ayri CI/CD).
+# Ayni imaj (monolith); derleme sonrasi Postgres compose ile smoke test, sonra GHCR push.
+# Tetik: workflow_dispatch veya examples/*postgres* / bu workflow degisince.
+
+name: Build and push prebuilt (PostgreSQL)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - build-docker/**
+      - scripts/**
+      - examples/chirpstack-prebuilt-postgres.yaml
+      - .github/workflows/build-push-prebuilt-postgres.yaml
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE: ghcr.io/rifatsekerariot/beaver-iot
+
+jobs:
+  build-push-postgres:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: "1"
+      COMPOSE_DOCKER_CLI_BUILD: "1"
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Restructure workspace (match local layout)
+        run: sh scripts/restructure-ci-workspace.sh
+
+      - name: Clone integrations and build ChirpStack JAR
+        run: cd beaver-iot-docker && sh scripts/ci-build-jar.sh
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          buildkitd-flags: "--allow-insecure-entitlement network.host"
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create .env for build
+        run: sh beaver-iot-docker/scripts/create-build-env.sh
+
+      - name: Clone beaver-iot-web (sibling of beaver-iot-docker)
+        env:
+          WEB_GIT_REPO_URL: "https://github.com/rifatsekerariot/beaver-iot-web.git"
+          WEB_GIT_BRANCH: "main"
+          CI_CLONE_WEB_DEST: "beaver-iot-web"
+        run: sh beaver-iot-docker/scripts/ci-clone-web.sh
+
+      - name: Verify web source (our repo, widget fixes present)
+        run: sh beaver-iot-docker/scripts/verify-web-source.sh beaver-iot-web
+
+      - name: Build web + api + monolith (local dockerfile, root context)
+        run: sh beaver-iot-docker/scripts/build-prebuilt.sh
+
+      - name: Log web image widget chunks (diagnostic)
+        run: |
+          echo "=== Web image /web/assets/js (first 60) ==="
+          docker run --rm --entrypoint sh milesight/beaver-iot-web:latest -c "ls /web/assets/js | head -60"
+          echo "=== useAlarmEmphasis / DrawingBoard chunks ==="
+          docker run --rm --entrypoint sh milesight/beaver-iot-web:latest -c "ls /web/assets/js | grep -E '^useAlarmEmphasis-|^DrawingBoard-' || true"
+
+      - name: Verify web image
+        run: sh beaver-iot-docker/scripts/verify-web-image.sh
+
+      - name: PostgreSQL stack smoke test (compose up, curl, down)
+        run: |
+          cd beaver-iot-docker/examples
+          BEAVER_IMAGE=milesight/beaver-iot:latest docker compose -f chirpstack-prebuilt-postgres.yaml up -d
+          echo "Waiting 90s for monolith (Java+Postgres) to be ready..."
+          sleep 90
+          HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:9080/ || true)
+          echo "GET http://localhost:9080/ -> $HTTP"
+          if [ "$HTTP" != "200" ] && [ "$HTTP" != "302" ]; then
+            echo "Smoke test failed: expected 200/302, got $HTTP"
+            docker compose -f chirpstack-prebuilt-postgres.yaml logs monolith 2>&1 | tail -80
+            docker compose -f chirpstack-prebuilt-postgres.yaml down -v
+            exit 1
+          fi
+          docker compose -f chirpstack-prebuilt-postgres.yaml down -v
+          echo "PostgreSQL smoke test OK."
+
+      - name: Tag and push monolith to GHCR
+        run: sh beaver-iot-docker/scripts/tag-push-ghcr.sh

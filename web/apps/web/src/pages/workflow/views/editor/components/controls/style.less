@@ -1,0 +1,43 @@
+.@{prefix}-workflow-controls-root {
+    &.react-flow__panel {
+        margin: @margin-lg;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    .@{mui-prefix}Paper-root {
+        box-shadow: @shadow-2;
+    }
+
+    .@{mui-prefix}ButtonGroup-root {
+        .@{mui-prefix}ButtonBase-root {
+            padding: (@padding-xs - 2) @padding-xs;
+            color: var(--text-color-secondary);
+            border-color: var(--border-color-base);
+
+            &.@{mui-prefix}-disabled {
+                opacity: 0.5;
+            }
+
+            // &.btn-add {
+            //     color: var(--text-color-main);
+            // }
+
+            &.active {
+                color: var(--text-color-main);
+            }
+        }
+    }
+}
+
+.@{prefix}-workflow-controls-tooltip-popper {
+    .@{mui-prefix}Tooltip-tooltip b {
+        display: inline-block;
+        padding: 0 @padding-xxs;
+        text-align: center;
+        background-color: var(--gray-color-8);
+        border-radius: 2px;
+    }
+}

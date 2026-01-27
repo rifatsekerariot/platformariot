@@ -1,0 +1,36 @@
+.main {
+    position: relative;
+}
+
+.main:hover .track {
+    opacity: 1;
+}
+
+.wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.inner {
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden scroll;
+}
+
+.track {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 8px;
+    min-height: 30px;
+    max-height: 100%;
+    background: var(--scrollbar-thumb-color);
+    border-radius: 4px;
+    opacity: 0;
+    cursor: default;
+    user-select: none;
+    transition: opacity 0.25s ease-in;
+}

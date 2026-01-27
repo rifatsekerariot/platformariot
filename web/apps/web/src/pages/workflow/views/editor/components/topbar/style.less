@@ -1,0 +1,38 @@
+.@{prefix}-workflow-topbar {
+    padding: @padding-xs @padding-md;
+    background-color: var(--component-background);
+    border-bottom: 1px solid var(--border-color-base);
+
+    .@{mui-prefix}Grid2-root > .@{mui-prefix}Grid2-root {
+        display: flex;
+        align-items: center;
+    }
+
+    .@{prefix}-workflow-topbar-left {
+        .title {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            width: 0;
+            margin-left: @margin-md;
+
+            .@{prefix}-tooltip {
+                max-width: calc(100% - 150px);
+            }
+
+            .@{mui-prefix}IconButton-root {
+                margin-left: @margin-xs;
+                font-size: @font-size-lg;
+            }
+        }
+    }
+
+    .@{prefix}-workflow-topbar-center {
+        justify-content: center;
+    }
+
+    .@{prefix}-workflow-topbar-right {
+        gap: @margin-sm;
+        justify-content: end;
+    }
+}

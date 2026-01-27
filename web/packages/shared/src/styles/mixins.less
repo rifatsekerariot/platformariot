@@ -1,0 +1,105 @@
+/**
+ * Common Mixin，It has been injected into the global scope through the engineering tool,
+ * you can use it directly without manually introduce it
+ */
+
+// ---------- Font ----------
+// Line Height
+.line-height(@font-size) {
+    line-height: @font-size + 8;
+}
+
+// Font Size & Line Height
+.text-size(@font-size) {
+    font-size: @font-size;
+    .line-height(@font-size);
+}
+
+// Ellipsis single line
+.ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Ellipsis multiple lines (Not compatible with all browsers)
+.multipleEllipsis(@line: 2) {
+    display: box;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line;
+}
+
+// ---------- UI ----------
+// Required mark *
+.required-mark(@color: var(--text-color-red), @font-size: @font-size-base) {
+    display: inline-block;
+    margin-right: @margin-xxs;
+    font-family: SimSun, sans-serif;
+    font-size: @font-size;
+    color: @color;
+    content: '*';
+}
+
+/**
+ * Triangle
+ * @width: Border width
+ * @config: The position and color of the triangle
+ *
+ * eg:
+ * - bottom arrow `{ top: #f00 }`
+ */
+.triangle(@width, @config) {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border: @width solid transparent;
+
+    /* stylelint-disable */
+    each(@config, {
+        border-@{key}-color: @value;
+    });
+    /* stylelint-enable */
+}
+
+/**
+ * Opacity background
+ * @bg: Background color
+ * @opacity: Opacity
+ */
+.opacity-background(@bg, @opacity) {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        inset: 0;
+        background-color: @bg;
+        opacity: @opacity;
+        content: '';
+    }
+}
+
+// ---------- Breakpoints ----------
+/* stylelint-disable media-query-no-invalid */
+.bp-up (@points, @content) {
+    @media (min-width: @points) {
+        @content();
+    }
+}
+
+.bp-down (@points, @content) {
+    @media (max-width: (@points - 0.05px)) {
+        @content();
+    }
+}
+
+.bp-between (@min, @max, @content) {
+    @media (min-width: @min) and (max-width: (@max - 0.05px)) {
+        @content();
+    }
+}
+/* stylelint-enable */

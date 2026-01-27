@@ -1,0 +1,38 @@
+.@{prefix}-logo {
+    width: 162px;
+    height: 40px;
+
+    &-inner {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        text-indent: -999px;
+        background: url('./assets/logo-light.svg') no-repeat;
+        background-size: 100% auto;
+    }
+
+    &-mini {
+        width: 40px;
+        height: 40px;
+
+        .@{prefix}-logo-inner {
+            background: url('./assets/logo-light-mini.svg') no-repeat;
+            background-size: 100% auto;
+        }
+    }
+}
+
+// Dark theme
+[data-theme='dark'] .@{prefix}-logo {
+    &-inner {
+        background: url('./assets/logo-dark.svg') no-repeat;
+        background-size: 100% auto;
+    }
+
+    &-mini {
+        .@{prefix}-logo-inner {
+            background: url('./assets/logo-dark-mini.svg') no-repeat;
+            background-size: 100% auto;
+        }
+    }
+}

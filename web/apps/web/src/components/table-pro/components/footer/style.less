@@ -1,0 +1,45 @@
+@ms-table-pro-footer-button-height: 28px;
+
+.@{prefix}-table-pro {
+    & &__footer {
+        height: @ms-table-pro-footer-button-height + @padding-sm;
+        min-height: @ms-table-pro-footer-button-height + @padding-sm;
+        max-height: @ms-table-pro-footer-button-height + @padding-sm;
+        padding-top: @padding-xxs;
+        border-top: none;
+    }
+
+    & &__refresh-btn {
+        width: @ms-table-pro-footer-button-height;
+        height: @ms-table-pro-footer-button-height;
+        color: var(--text-color-secondary);
+        border: 1px solid var(--border-color-base);
+        border-radius: @border-radius-base;
+    }
+
+    .@{mui-prefix}Pagination-root {
+        .@{mui-prefix}PaginationItem-root {
+            min-width: 28px;
+            height: 28px;
+        }
+        .@{mui-prefix}PaginationItem-root:hover {
+            color: var(--primary-color-7);
+            background-color: var(--component-background);
+            border-color: var(--primary-color-7);
+        }
+        .@{mui-prefix}PaginationItem-root.@{mui-prefix}-selected {
+            color: var(--primary-color-7);
+            background-color: var(--component-background);
+            border-color: var(--primary-color-7);
+        }
+        .@{mui-prefix}PaginationItem-root.@{mui-prefix}-selected:hover {
+            color: var(--primary-color-8);
+            border-color: var(--primary-color-8);
+        }
+        .@{mui-prefix}PaginationItem-root.@{mui-prefix}-disabled {
+            background-color: var(--gray-3);
+        } 
+    }
+}
+
+

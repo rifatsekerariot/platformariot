@@ -1,0 +1,45 @@
+.@{prefix}-service-invocation-setting {
+    .@{prefix}-entity-select {
+        .@{mui-prefix}FormControl-root {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.@{prefix}-service-param-assign-input {
+    .@{prefix}-empty-img {
+        width: 96px;
+        height: 96px;
+    }
+
+    .param-item {
+        margin-top: @margin-md;
+
+        &-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: @margin-xs;
+            .text-size(@font-size-md);
+        }
+
+        &-asterisk {
+            margin-right: @margin-xxs;
+            color: var(--text-color-error);
+        }
+
+        &-name {
+            font-weight: @font-weight-medium;
+        }
+
+        &-type {
+            margin-left: @margin-xs;
+            color: var(--text-color-secondary);
+        }
+
+        .@{prefix}-param-input-select {
+            &-chip {
+                top: 8px;
+            }
+        }
+    }
+}

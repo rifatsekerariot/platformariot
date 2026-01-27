@@ -1,0 +1,82 @@
+.@{prefix}-view-device-detail {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    .topbar {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .@{prefix}-tabs {
+            flex: 1;
+        }
+
+        .btn-wrap {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 @padding-lg;
+            background-color: var(--component-background);
+            border-bottom: 1px solid var(--border-color-base);
+        }
+
+        &__right {
+            position: absolute;
+            top: 6px;
+            right: 16px;
+        }
+    }
+
+    .@{prefix}-tab-content {
+        flex: 1;
+        height: 0;
+        padding: @padding-lg;
+        margin: @margin-lg;
+        background-color: var(--component-background);
+        border-radius: @border-radius-base;
+
+        .@{prefix}-tabpanel {
+            height: 100%;
+        }
+    }
+
+    .drawing-board__tab {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+    }
+}
+
+.@{prefix}-device-entity-data {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        margin: @margin-xl 0 @margin-md;
+
+        div {
+            flex: 1;
+            font-size: @font-size-lg;
+            font-weight: @font-weight-medium;
+        }
+    }
+
+    &-table {
+        height: calc(100% - 165px);
+
+        & .@{prefix}-table-pro {
+            height: 100%;
+        }
+    }
+}
+
+.my-layout__drawing-board--fullscreen {
+    .@{prefix}-main.@{prefix}-main-device-detail .@{prefix}-breadcrumbs,
+    .@{prefix}-view.@{prefix}-view-device-detail .topbar {
+        display: none;
+    }
+}

@@ -1,0 +1,40 @@
+.@{prefix}-tag-multiple-select {
+    padding: @padding-md;
+    background-color: var(--component-background-gray);
+    border-radius: @border-radius-base;
+
+    &-item {
+        display: flex;
+        gap: @margin-xs;
+        align-items: center;
+        margin-bottom: @margin-sm;
+
+        .@{mui-prefix}FormControl-root {
+            margin: 0 !important;
+
+            .@{mui-prefix}InputBase-root {
+                background-color: var(--component-background);
+                border-radius: @border-radius-base;
+            }
+        }
+
+        > .@{mui-prefix}FormControl-root,
+        > .@{mui-prefix}Autocomplete-root {
+            flex: 1;
+        }
+
+        .btn-delete {
+            align-self: end;
+            color: var(--icon-color-gray-light);
+
+            &:hover {
+                color: var(--icon-color-gray-secondary);
+            }
+        }
+    }
+
+    .btn-add {
+        min-width: auto;
+        padding: @padding-xxs @padding-xs;
+    }
+}

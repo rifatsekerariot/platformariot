@@ -1,0 +1,51 @@
+# Beaver IoT Monolith + PostgreSQL + ChirpStack v4 (prebuilt image)
+#
+# Production-oriented: PostgreSQL, named volumes (veri ve log kalici).
+# H2 yerine PostgreSQL; ayni monolith imaji, sadece env farkli.
+#
+# Env (opsiyonel): BEAVER_IMAGE, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, CHIRPSTACK_DEFAULT_TENANT_ID
+
+services:
+  postgresql:
+    container_name: beaver-iot-postgresql
+    image: postgres:17.0-alpine3.20
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - beaver-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  monolith:
+    container_name: beaver-iot
+    image: ${BEAVER_IMAGE:-ghcr.io/rifatsekerariot/beaver-iot:latest}
+    restart: always
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    ports:
+      - "9080:80"
+      - "1883:1883"
+      - "8083:8083"
+    environment:
+      - "JAVA_OPTS=-Xmx1024m -Xms1024m"
+      - "SPRING_OPTS=--spring.profiles.active=dev"
+      - "DB_TYPE=postgres"
+      - "SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver"
+      - "SPRING_DATASOURCE_USERNAME=${POSTGRES_USER:-postgres}"
+      - "SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD:-postgres}"
+      - "SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/${POSTGRES_DB:-postgres}"
+      - "CHIRPSTACK_DEFAULT_TENANT_ID=${CHIRPSTACK_DEFAULT_TENANT_ID:-default}"
+    volumes:
+      - beaver-monolith-logs:/root/beaver-iot/logs
+
+volumes:
+  beaver-postgres-data:
+  beaver-monolith-logs:

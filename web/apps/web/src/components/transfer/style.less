@@ -1,0 +1,48 @@
+.@{prefix}-transfer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__operation {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 @padding-md;
+    }
+
+    &__list {
+        flex: 1 1 50%;
+        max-width: calc(50% - 36px);
+        border: @border-base;
+        border-radius: @border-radius-base;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        padding: @padding-sm 0;
+
+        &-checkbox {
+            padding-left: @padding-md;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;
+            padding-left: @padding-md;
+        }
+
+        &-title {
+            font-size: @font-size-lg;
+            .line-height(@font-size-lg);
+        }
+
+        &-value {
+            font-size: @font-size-base;
+            color: var(--text-color-secondary);
+            .line-height(@font-size-base);
+        }
+    }
+}

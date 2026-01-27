@@ -1,0 +1,61 @@
+# Server Log Kontrolü - Manuel Komutlar
+# Bu komutları SSH ile bağlandıktan sonra çalıştırın:
+# ssh ubuntu@188.132.211.171
+# Şifre: Adana4455*
+
+# 1. Sistem bilgileri
+hostname
+whoami
+date
+
+# 2. Docker container'ları
+docker ps -a
+
+# 3. Beaver IoT container log'ları (son 100 satır)
+docker ps | grep beaver-iot
+# Container ID'yi bulduktan sonra:
+docker logs --tail 100 <CONTAINER_ID>
+
+# 4. Nginx log'ları
+sudo tail -50 /var/log/nginx/error.log
+sudo tail -50 /var/log/nginx/access.log
+
+# 5. Docker compose log'ları (eğer compose kullanılıyorsa)
+cd /path/to/docker-compose
+docker-compose logs --tail 100
+
+# 6. Container içindeki dosyalar
+docker exec <CONTAINER_ID> ls -la /web/
+docker exec <CONTAINER_ID> ls -la /web/assets/
+docker exec <CONTAINER_ID> ls -lt /web/assets/js/ | head -20
+docker exec <CONTAINER_ID> head -50 /web/index.html
+
+# 7. Console log'ları için - Browser'da F12 açıp console'u kontrol edin
+# Veya container log'larında console.log çıktılarını arayın:
+docker logs <CONTAINER_ID> | grep -i "console\|log\|error"
+
+# 8. Son değişiklikler
+docker exec <CONTAINER_ID> find /web -type f -mtime -1 -ls
+
+# 9. Disk kullanımı
+df -h
+
+# 10. Docker image'ları
+docker images | grep -E "beaver|milesight"
+
+# 11. Container'ın çalışma durumu
+docker inspect <CONTAINER_ID> | grep -A 10 "State"
+
+# 12. Network bağlantıları
+docker network ls
+docker network inspect bridge | grep -A 5 beaver
+
+# 13. Environment variables
+docker exec <CONTAINER_ID> env | grep -E "BEAVER|API|MQTT"
+
+# 14. Process'ler
+docker exec <CONTAINER_ID> ps aux
+
+# 15. Nginx config
+docker exec <CONTAINER_ID> cat /etc/nginx/nginx.conf
+docker exec <CONTAINER_ID> cat /etc/nginx/conf.d/default.conf

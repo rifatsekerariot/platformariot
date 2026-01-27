@@ -1,0 +1,50 @@
+.ms-network-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--main-background);
+    container-type: size;
+
+    &--preview {
+        flex: none;
+        width: 312px;
+        min-width: auto;
+        height: 96px;
+        border-radius: @border-radius-md;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        padding: @padding-md;
+        overflow: hidden;
+    }
+
+    &__header { line-height: 24px; }
+    &__title {
+        color: var(--text-color-secondary);
+        font-weight: @font-weight-regular;
+    }
+
+    &__body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    &__value {
+        font-weight: @font-weight-medium;
+        color: var(--text-color-primary);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre-wrap;
+        word-break: break-all;
+    }
+}

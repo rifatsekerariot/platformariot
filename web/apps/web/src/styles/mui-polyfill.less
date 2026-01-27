@@ -1,0 +1,416 @@
+// ---------- Button ----------
+.@{mui-prefix}ButtonBase-root.@{mui-prefix}Button-root {
+    text-transform: none;
+}
+
+// ---------- IconButton ----------
+.@{mui-prefix}ButtonBase-root.@{mui-prefix}IconButton-root {
+    &:hover {
+        color: var(--primary-color-7);
+        background-color: unset;
+    }
+}
+
+.@{mui-prefix}ButtonBase-root.@{mui-prefix}Button-outlinedPrimary {
+    color: var(--text-color-primary);
+    background-color: var(--component-background);
+    border: 1px solid var(--border-color-base);
+
+    &:hover {
+        color: var(--text-color-main);
+        border-color: var(--border-color-main);
+    }
+
+    &.@{mui-prefix}-disabled {
+        color: var(--text-color-quaternary);
+        background-color: var(--gray-color-2);
+        border-color: var(--border-color-base);
+    }
+}
+
+.@{mui-prefix}ButtonBase-root.@{mui-prefix}Button-containedPrimary {
+    color: var(--white);
+    background-color: var(--primary-color-7);
+
+    &:hover {
+        color: var(--white);
+        background-color: var(--primary-color-8);
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+
+    &.@{mui-prefix}-disabled {
+        color: var(--white);
+        background-color: var(--primary-color-4);
+    }
+}
+
+// ---------- Tabs ----------
+.@{mui-prefix}Tabs-root {
+    .@{mui-prefix}Tab-root {
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 32px;
+        text-transform: none;
+
+        &.@{mui-prefix}-selected {
+            font-weight: @font-weight-medium;
+        }
+
+        &::after {
+            display: block;
+            height: 1px;
+            margin-bottom: -1px;
+            overflow: hidden;
+            font-weight: @font-weight-medium;
+            visibility: hidden;
+            content: attr(title);
+        }
+    }
+}
+
+// ---------- Switch ----------
+.@{mui-prefix}Switch-root {
+    .@{mui-prefix}Switch-switchBase {
+        &.@{mui-prefix}-checked,
+        & {
+            &:hover {
+                background-color: unset;
+            }
+        }
+    }
+
+    .@{mui-prefix}-checked {
+        .@{mui-prefix}Switch-thumb {
+            background-color: var(--primary-color-7);
+        }
+    }
+}
+
+// ---------- Date Picker ----------
+.@{mui-prefix}PickersLayout-root {
+    .@{mui-prefix}PickersYear-yearButton.@{mui-prefix}-selected,
+    .@{mui-prefix}PickersMonth-monthButton.@{mui-prefix}-selected,
+    .@{mui-prefix}PickersWeek-weekButton.@{mui-prefix}-selected,
+    .@{mui-prefix}DateCalendar-root .@{mui-prefix}ButtonBase-root.@{mui-prefix}-selected,
+    .@{mui-prefix}MultiSectionDigitalClockSection-root
+        .@{mui-prefix}MenuItem-root.@{mui-prefix}-selected {
+        background-color: var(--primary-color-7);
+
+        &:hover {
+            background-color: var(--primary-color-8);
+        }
+    }
+
+    .@{mui-prefix}MultiSectionDigitalClockSection-root {
+        .@{mui-prefix}MenuItem-root.@{mui-prefix}-selected {
+            border-radius: @border-radius-xs;
+        }
+    }
+
+    .@{mui-prefix}DialogActions-root {
+        .@{mui-prefix}ButtonBase-root {
+            color: var(--primary-color-7);
+        }
+    }
+}
+
+// ---------- DataGrid ----------
+.@{mui-prefix}DataGrid-columnHeader .@{mui-prefix}Checkbox-root,
+.@{mui-prefix}DataGrid-cellCheckbox .@{mui-prefix}Checkbox-root {
+    &:not(.@{mui-prefix}-checked):not(.@{mui-prefix}-disabled) {
+        color: var(--text-color-tertiary);
+    }
+}
+
+.@{mui-prefix}DataGrid-filterForm {
+    .@{mui-prefix}FormControl-root > .@{mui-prefix}FormControl-root {
+        margin: 0;
+    }
+}
+
+// ---------- InputBase ----------
+// Removes the browser's default fill style
+input.@{mui-prefix}InputBase-input {
+    &:focus {
+        box-shadow: 0 0 0 1000px var(--main-background) inset;
+    }
+
+    &:-webkit-autofill {
+        border-radius: unset;
+        box-shadow: 0 0 0 1000px var(--main-background) inset;
+        -webkit-text-fill-color: var(--text-color-base);
+    }
+}
+
+// Adjust the default border style for the Input component
+.@{mui-prefix}InputBase-root.@{mui-prefix}OutlinedInput-root {
+    &:hover {
+        .@{mui-prefix}OutlinedInput-notchedOutline {
+            border-color: var(--primary-color-7);
+            box-shadow: 0 0 0 2px fade(#7b4efa, 10%);
+            transition: border 0.3s;
+        }
+    }
+
+    &.@{mui-prefix}-focused {
+        .@{mui-prefix}OutlinedInput-notchedOutline {
+            border-width: 1px;
+            box-shadow: 0 0 0 2px fade(#7b4efa, 10%);
+        }
+
+        &:hover {
+            .@{mui-prefix}OutlinedInput-notchedOutline {
+                transition: none;
+            }
+        }
+    }
+}
+
+// ---------- Dialog ----------
+.@{mui-prefix}Dialog-root {
+    .@{mui-prefix}Backdrop-root {
+        background-color: rgba(0, 0, 0, 0.38);
+    }
+}
+
+.@{mui-prefix}Dialog-container {
+    .@{mui-prefix}Paper-root.@{mui-prefix}Dialog-paper:not(.@{mui-prefix}Dialog-paperFullScreen) {
+        border-radius: @border-radius-md;
+
+        .@{mui-prefix}DialogContent-root {
+            min-width: 444px; // all dialog min width
+        }
+    }
+}
+
+[data-theme='dark'] input.@{mui-prefix}InputBase-input {
+    &:focus {
+        box-shadow: 0 0 0 1000px #2b2b2b inset;
+    }
+
+    &:-webkit-autofill {
+        border-radius: unset;
+        box-shadow: 0 0 0 1000px #2b2b2b inset;
+        -webkit-text-fill-color: var(--text-color-base);
+    }
+}
+
+// ---------- Checkbox ----------
+.@{mui-prefix}Checkbox-root.@{mui-prefix}-disabled {
+    color: var(--border-color-gray);
+
+    &:not(.@{mui-prefix}-checked):not(.@{mui-prefix}Checkbox-indeterminate) {
+        color: var(--border-color-gray);
+
+        &::after {
+            position: absolute;
+            inset: 13px;
+            background-color: var(--gray-color-1);
+            border-radius: 2px;
+            content: '';
+        }
+    }
+
+    &.@{mui-prefix}-checked,
+    &.@{mui-prefix}Checkbox-indeterminate {
+        color: var(--border-color-gray);
+    }
+}
+.@{mui-prefix}Checkbox-root:hover {
+    background-color: unset;
+}
+
+// ---------- Paper ----------
+.@{mui-prefix}Paper-root {
+    &.@{mui-prefix}Paper-elevation {
+        box-shadow: @shadow-2;
+
+        &.@{mui-prefix}Alert-root {
+            box-shadow: none;
+        }
+    }
+
+    .@{mui-prefix}List-root {
+        .@{mui-prefix}MenuItem-root {
+            .text-size(@font-size-md);
+        }
+    }
+}
+
+// ---------- Autocomplete ----------
+.@{mui-prefix}Autocomplete-listbox {
+    .@{mui-prefix}Autocomplete-option {
+        .text-size(@font-size-md);
+
+        &.@{mui-prefix}-focused:hover {
+            background-color: var(--component-background-gray);
+            transition: background-color 0.1s ease;
+        }
+    }
+}
+
+// ---------- Menu ----------
+.@{mui-prefix}List-root {
+    .@{mui-prefix}MenuItem-root {
+        &:hover {
+            background-color: var(--component-background-gray);
+            transition: background-color 0.1s ease;
+        }
+    }
+}
+
+// ---------- Form ----------
+.@{mui-prefix}FormLabel-asterisk,
+.@{mui-prefix}FormControlLabel-asterisk {
+    color: var(--text-color-error);
+}
+
+label.@{mui-prefix}FormControlLabel-root {
+    // display: flex;
+    // flex-direction: column-reverse;
+    // align-items: flex-start;
+    margin-left: 0;
+
+    & > div {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .@{mui-prefix}FormControlLabel-label {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: @margin-xxs;
+        color: var(--text-color-primary);
+        .text-size(@font-size-md);
+
+        .@{prefix}-form-label-help {
+            display: flex;
+            align-items: center;
+            margin-left: @margin-xxs;
+            color: var(--icon-color-gray-tertiary);
+        }
+    }
+
+    .@{mui-prefix}FormControlLabel-asterisk {
+        margin-right: @margin-xxs;
+    }
+}
+
+.@{mui-prefix}FormControl-root {
+    div&,
+    &.@{mui-prefix}FormControl-fullWidth&,
+    &.@{mui-prefix}FormControl-marginDense {
+        margin: 0 0 @margin-md 0;
+    }
+
+    .@{mui-prefix}InputBase-root {
+        padding-right: @padding-sm;
+        padding-left: @padding-sm;
+        background-color: var(--component-background);
+
+        .@{mui-prefix}InputAdornment-root {
+            color: var(--text-color-tertiary);
+            .text-size(@font-size-1);
+
+            .@{mui-prefix}ButtonBase-root {
+                color: var(--icon-color-gray-secondary);
+
+                &:hover {
+                    color: var(--primary-color-7);
+
+                    // Mobile Responsive: Don't change color on hover
+                    .bp-down(@grid-breakpoints[sm], {
+                        color: var(--icon-color-gray-secondary);
+                    });
+                }
+
+                .@{mui-prefix}SvgIcon-root {
+                    &:hover {
+                        fill: var(--primary-color-7);
+
+                        // Mobile Responsive: Don't change color on hover
+                        .bp-down(@grid-breakpoints[sm], {
+                            fill: var(--icon-color-gray-secondary);
+                        });
+                    }
+                }
+            }
+        }
+
+        .@{mui-prefix}InputBase-input,
+        .@{mui-prefix}Select-select.@{mui-prefix}InputBase-input {
+            padding-left: 0;
+        }
+    }
+
+    .@{mui-prefix}FormLabel-root {
+        position: relative;
+        display: flex;
+        margin-bottom: @margin-xxs;
+        color: var(--text-color-primary);
+        transform: unset;
+        .text-size(@font-size-md);
+
+        .@{mui-prefix}FormLabel-asterisk {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .@{prefix}-form-label-help {
+            display: flex;
+            align-items: center;
+            margin-left: @margin-xxs;
+            color: var(--icon-color-gray-tertiary);
+        }
+
+        &.@{mui-prefix}-required {
+            padding-left: @padding-xs;
+        }
+
+        &.@{mui-prefix}-focused {
+            color: var(--text-color-primary);
+        }
+
+        &.@{mui-prefix}-disabled {
+            color: var(--text-color-primary);
+        }
+
+        &.@{mui-prefix}-error {
+            color: var(--text-color-primary);
+        }
+    }
+
+    .@{mui-prefix}-disabled {
+        &.@{mui-prefix}InputBase-root {
+            background: var(--border-color-gray-light);
+
+            .@{mui-prefix}InputBase-input {
+                -webkit-text-fill-color: var(--text-color-secondary);
+            }
+
+            .@{mui-prefix}OutlinedInput-notchedOutline {
+                border: 1px solid var(--gray-4);
+            }
+        }
+    }
+
+    .@{mui-prefix}OutlinedInput-notchedOutline {
+        top: 0;
+        border: @border-base;
+
+        legend {
+            display: none;
+        }
+    }
+
+    .@{mui-prefix}FormHelperText-root {
+        margin: 0;
+        color: var(--text-color-tertiary);
+        .text-size(@font-size-md);
+    }
+}

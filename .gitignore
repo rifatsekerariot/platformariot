@@ -1,0 +1,17 @@
+# Token / secrets – never commit
+gittoken.txt
+*.token
+.env
+!.env.example
+
+# Built artefacts
+build-docker/integrations/*.jar
+!build-docker/integrations/.gitkeep
+
+# Examples runtime
+examples/target/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

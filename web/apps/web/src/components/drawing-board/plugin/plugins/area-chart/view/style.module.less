@@ -1,0 +1,33 @@
+.area-chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    height: 100%;
+    padding: @padding-md;
+    background: var(--main-background);
+
+    &__preview {
+        min-height: 400px;
+    }
+}
+
+.area-chart-content {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    margin-top: @margin-xs;
+    overflow: hidden;
+
+    &__chart {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.name {
+    padding-right: 50px;
+    font-weight: @font-weight-medium;
+    .text-size(@font-size-lg);
+}

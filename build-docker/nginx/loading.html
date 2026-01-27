@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIOT - Initializing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+        }
+        .logo {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 0.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .message {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .status {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">ARIOT</div>
+        <div class="spinner"></div>
+        <div class="message">Initializing backend...</div>
+        <div class="description">Please wait while the system is starting up.</div>
+        <div class="status" id="status">Checking backend status...</div>
+    </div>
+    <script>
+        (function() {
+            let retryCount = 0;
+            const maxRetries = 120; // 2 minutes max (120 * 1s)
+            const statusEl = document.getElementById('status');
+            
+            function checkBackend() {
+                fetch('/api/v1/user/status', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    cache: 'no-cache'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Backend is ready, redirect to main app
+                        statusEl.textContent = 'Backend ready! Redirecting...';
+                        setTimeout(() => {
+                            window.location.href = '/';
+                        }, 500);
+                        return;
+                    }
+                    throw new Error('Backend not ready: ' + response.status);
+                })
+                .catch(error => {
+                    retryCount++;
+                    
+                    if (retryCount >= maxRetries) {
+                        statusEl.textContent = 'Backend initialization is taking longer than expected. Please refresh the page.';
+                        statusEl.style.color = '#ffcccc';
+                        return;
+                    }
+                    
+                    // Update status
+                    statusEl.textContent = 'Checking backend status... (' + retryCount + '/' + maxRetries + ')';
+                    
+                    // Exponential backoff: 1s, 2s, 3s, 4s, then 5s max
+                    const delay = Math.min(1000 + retryCount * 1000, 5000);
+                    setTimeout(checkBackend, delay);
+                });
+            }
+            
+            // Start checking immediately
+            checkBackend();
+        })();
+    </script>
+</body>
+</html>

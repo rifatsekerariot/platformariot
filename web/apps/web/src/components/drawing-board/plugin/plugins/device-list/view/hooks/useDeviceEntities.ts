@@ -1,0 +1,132 @@
+import { useMemo, useState, useContext, useEffect } from 'react';
+import { isEmpty } from 'lodash-es';
+import { useRequest } from 'ahooks';
+
+import {
+    type ImportEntityProps,
+    type DeviceDetail,
+    type EntityAPISchema,
+    entityAPI,
+    isRequestSuccess,
+    getResponseData,
+    awaitWrap,
+} from '@/services/http';
+import { useActivityEntity } from '@/components/drawing-board/plugin/hooks';
+import { DrawingBoardContext } from '@/components/drawing-board/context';
+import { DEVICE_STATUS_ENTITY_UNIQUE_ID } from '@/constants';
+
+export interface useDeviceEntitiesProps {
+    isPreview?: boolean;
+    data?: DeviceDetail[];
+}
+
+/**
+ * Handle Devices entities
+ */
+export function useDeviceEntities(props: useDeviceEntitiesProps) {
+    const { data } = props || {};
+
+    const [entitiesStatus, setEntitiesStatus] = useState<
+        EntityAPISchema['getEntitiesStatus']['response']
+    >({});
+
+    const importantEntities = useMemo(() => {
+        if (!Array.isArray(data) || isEmpty(data)) {
+            return;
+        }
+
+        return data
+            .reduce((a: ImportEntityProps[], c) => {
+                const deviceStatusEntity = c?.common_entities?.find(c =>
+                    c.key?.includes(DEVICE_STATUS_ENTITY_UNIQUE_ID),
+                );
+
+                const propertiesEntities = c?.important_entities?.filter(
+                    e => e.type === 'PROPERTY',
+                );
+
+                return [
+                    ...a,
+                    ...(deviceStatusEntity ? [deviceStatusEntity] : []),
+                    ...(propertiesEntities || []),
+                ];
+            }, [])
+            .map(d => d.id)
+            .filter(Boolean);
+    }, [data]);
+
+    const { run: getNewestEntitiesStatus } = useRequest(
+        async () => {
+            if (!Array.isArray(importantEntities) || isEmpty(importantEntities)) {
+                return;
+            }
+
+            const [error, resp] = await awaitWrap(
+                entityAPI.getEntitiesStatus({
+                    entity_ids: importantEntities,
+                }),
+            );
+            if (error || !isRequestSuccess(resp)) {
+                return;
+            }
+
+            const result = getResponseData(resp);
+            if (!result) {
+                return;
+            }
+
+            setEntitiesStatus(result);
+        },
+        {
+            debounceWait: 300,
+            refreshDeps: [importantEntities],
+        },
+    );
+
+    /** ---------- Entity status management ---------- */
+    const { addEntityListener } = useActivityEntity();
+    const context = useContext(DrawingBoardContext);
+    const { widget, drawingBoardDetail } = context || {};
+
+    /**
+     * Widget id is required to listen entity status changes
+     */
+    const widgetId = useMemo(() => {
+        return widget?.widget_id || widget?.tempId;
+    }, [widget]);
+
+    useEffect(() => {
+        if (
+            !widgetId ||
+            !drawingBoardDetail?.id ||
+            !Array.isArray(importantEntities) ||
+            isEmpty(importantEntities)
+        ) {
+            return;
+        }
+
+        const removeEventListener = addEntityListener(importantEntities, {
+            widgetId,
+            dashboardId: drawingBoardDetail.id,
+            callback: getNewestEntitiesStatus,
+            isRecord: false,
+        });
+
+        return () => {
+            removeEventListener();
+        };
+    }, [
+        widgetId,
+        drawingBoardDetail?.id,
+        importantEntities,
+        addEntityListener,
+        getNewestEntitiesStatus,
+    ]);
+
+    return {
+        /**
+         * Current devices all entities status
+         */
+        entitiesStatus,
+    };
+}

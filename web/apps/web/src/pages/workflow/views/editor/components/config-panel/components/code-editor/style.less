@@ -1,0 +1,61 @@
+.@{prefix}-workflow-code-editor {
+    .@{prefix}-code-editor {
+        height: 200px;
+    }
+
+    // &-header {
+    //     & &__title {
+    //         div.@{mui-prefix}FormControl-root {
+    //             margin: 0;
+
+    //             .@{mui-prefix}-focused {
+    //                 .@{mui-prefix}OutlinedInput-notchedOutline {
+    //                     box-shadow: unset;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        padding: @padding-xs @padding-sm;
+        background-color: var(--component-background-gray);
+        border-bottom: 1px solid var(--border-color-base);
+        .text-size(@font-size-base);
+
+        &-title {
+            display: flex;
+            align-items: center;
+            color: var(--text-color-secondary);
+            user-select: none;
+
+            .@{mui-prefix}FormControl-root.@{mui-prefix}FormControl-fullWidth {
+                margin: 0 !important;
+
+                .@{mui-prefix}InputBase-root {
+                    padding: 0;
+                }
+
+                .@{mui-prefix}OutlinedInput-notchedOutline {
+                    border: none !important;
+                    box-shadow: none !important;
+                }
+            }
+        }
+
+        &-action {
+            display: flex;
+            gap: @margin-xs;
+
+            .@{mui-prefix}ButtonBase-root {
+                padding: @padding-xxs;
+
+                .@{mui-prefix}SvgIcon-root {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+}

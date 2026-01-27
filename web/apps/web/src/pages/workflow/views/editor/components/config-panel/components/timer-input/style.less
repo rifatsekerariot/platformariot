@@ -1,0 +1,121 @@
+.@{prefix}-timer-input {
+    &-exec-queue {
+        position: relative;
+
+        > .label {
+            display: flex;
+            margin-bottom: @margin-xxs;
+            .text-size(@font-size-base);
+
+            .asterisk {
+                margin-right: @margin-xxs;
+                color: var(--text-color-red);
+                .text-size(@font-size-base);
+            }
+        }
+
+        .queue-list {
+            padding: @padding-md;
+            background-color: var(--component-background-gray);
+            border-radius: @border-radius-base;
+
+            &-labels {
+                display: flex;
+                gap: @margin-xs;
+                margin-bottom: @margin-xxs;
+                .text-size(@font-size-base);
+
+                &.narrow {
+                    padding-right: (@margin-xs + 28px);
+                }
+            }
+
+            &-label {
+                flex: 1;
+            }
+        }
+
+        .queue-item {
+            display: flex;
+            gap: @margin-xs;
+            align-items: center;
+            margin-bottom: @margin-sm;
+
+            .@{mui-prefix}InputBase-root .@{mui-prefix}Select-select {
+                padding-left: 0;
+            }
+
+            > div.@{mui-prefix}FormControl-root {
+                flex: 1;
+                margin: 0;
+                background-color: var(--component-background);
+                border-radius: @border-radius-base;
+
+                &.@{prefix}-timer-input-queue-time {
+                    .@{mui-prefix}InputBase-root {
+                        padding-right: @padding-xs;
+                    }
+
+                    .@{mui-prefix}InputBase-input {
+                        padding: 3px @padding-sm 3px 0;
+                    }
+
+                    .@{mui-prefix}InputAdornment-root .@{mui-prefix}ButtonBase-root {
+                        padding: @padding-xxs;
+                    }
+                }
+            }
+
+            // &-last {
+            //     margin-bottom: @margin-sm;
+            // }
+
+            .btn-delete {
+                color: var(--icon-color-gray-light);
+
+                &:hover {
+                    color: var(--icon-color-gray-secondary);
+                }
+            }
+        }
+
+        .btn-add {
+            min-width: auto;
+            padding: @padding-xxs @padding-xs;
+        }
+    }
+
+    div& > :not(style) ~ :not(style) {
+        // margin: @margin-md 0;
+
+        &.@{prefix}-timer-input-exec-interval {
+            margin-top: 0;
+        }
+    }
+
+    &-exec-interval {
+        display: flex;
+        gap: @margin-xs;
+        align-items: center;
+
+        > .@{mui-prefix}FormControl-root {
+            flex: 1;
+            margin: 0 !important;
+        }
+    }
+
+    &-queue-time-picker {
+        .@{mui-prefix}List-root {
+            .@{mui-prefix}MenuItem-root {
+                padding: @padding-xxs @padding-md;
+            }
+        }
+
+        .@{mui-prefix}DialogActions-root {
+            .@{mui-prefix}Button-root {
+                min-width: auto;
+                padding: 2px @padding-sm;
+            }
+        }
+    }
+}

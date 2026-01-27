@@ -1,0 +1,53 @@
+# Zero-touch deploy script + PostgreSQL: deploy-zero-touch.sh --postgres ile smoke test.
+# Script degisiklikleri, chirpstack-prebuilt-postgres.yaml veya ZERO_TOUCH_DEPLOY.md guncellemesinde calisir.
+
+name: Zero-touch (PostgreSQL)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/deploy-zero-touch.sh
+      - scripts/deploy-zero-touch.ps1
+      - scripts/verify-postgres-stack.ps1
+      - ZERO_TOUCH_DEPLOY.md
+      - examples/chirpstack-prebuilt-postgres.yaml
+      - .github/workflows/zero-touch-postgres.yaml
+
+jobs:
+  zero-touch-postgres:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Syntax check deploy-zero-touch.sh
+        run: sh -n scripts/deploy-zero-touch.sh
+
+      - name: Run deploy-zero-touch.sh --postgres
+        run: |
+          sudo sh scripts/deploy-zero-touch.sh --postgres --skip-docker-install --workspace "$RUNNER_TEMP/zt"
+        env:
+          CHIRPSTACK_DEFAULT_TENANT_ID: default
+
+      - name: Wait for monolith
+        run: |
+          echo "Waiting 90s for monolith (Java+PostgreSQL)..."
+          sleep 90
+
+      - name: Verify HTTP 200/302
+        run: |
+          HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:9080/ || true)
+          echo "GET http://localhost:9080/ -> $HTTP"
+          if [ "$HTTP" != "200" ] && [ "$HTTP" != "302" ]; then
+            echo "Zero-touch smoke test failed: expected 200/302, got $HTTP"
+            docker logs beaver-iot 2>&1 | tail -100
+            exit 1
+          fi
+          echo "Zero-touch (PostgreSQL) smoke test OK."
+
+      - name: Compose down
+        if: always()
+        run: |
+          (cd "$RUNNER_TEMP/zt/beaver-iot-docker/examples" && docker compose -f chirpstack-prebuilt-postgres.yaml down -v) || true

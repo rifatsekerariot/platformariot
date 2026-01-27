@@ -1,0 +1,20 @@
+.@{prefix}-http-curl-import {
+    position: relative;
+
+    &-trigger {
+        display: flex;
+        gap: @margin-xxs;
+        align-items: center;
+        font-weight: @font-weight-bold;
+        color: var(--text-color-main);
+        cursor: pointer;
+        user-select: none;
+        .text-size(@font-size-base);
+    }
+
+    &-modal {
+        .@{prefix}-code-editor {
+            height: 200px;
+        }
+    }
+}

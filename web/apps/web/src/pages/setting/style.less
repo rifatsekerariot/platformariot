@@ -1,0 +1,27 @@
+.@{prefix}-view-credentials {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    .topbar {
+        display: flex;
+        align-items: center;
+
+        .@{prefix}-tabs {
+            flex: 1;
+        }
+
+        .btn-wrap {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 @padding-lg;
+            background-color: var(--component-background);
+            border-bottom: 1px solid var(--border-color-base);
+        }
+    }
+
+    .@{prefix}-tab-content {
+        padding: @padding-lg;
+    }
+}

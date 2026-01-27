@@ -1,0 +1,32 @@
+.appearance-icon {
+    padding-top: @padding-xs;
+    margin-bottom: @margin-md;
+
+    &__container {
+        position: relative;
+        display: flex;
+        padding: @padding-md @padding-sm 0;
+        border: @border-base;
+        border-radius: @border-radius-base;
+    }
+
+    &__label {
+        position: absolute;
+        top: -20px;
+        left: 16px;
+        max-width: calc(100% - 32px);
+        padding: @padding-xs;
+        color: var(--text-color-primary);
+        background: var(--main-background);
+
+        .text-size(@font-size-base);
+    }
+
+    div.@{mui-prefix}FormControl-root {
+        flex: 1;
+
+        &:not(:last-child) {
+            padding-right: @padding-sm;
+        }
+    }
+}

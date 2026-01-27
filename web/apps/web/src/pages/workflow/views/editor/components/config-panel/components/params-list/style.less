@@ -1,0 +1,55 @@
+.@{prefix}-params-list {
+    position: relative;
+
+    &-item {
+        display: flex;
+        gap: @margin-xxs;
+        margin-bottom: @margin-sm;
+        .text-size(@font-size-sm);
+
+        &:hover {
+            .@{prefix}-params-list-item-value {
+                .@{mui-prefix}ButtonBase-root {
+                    visibility: visible;
+                }
+            }
+        }
+
+        &-label {
+            flex-shrink: 0;
+            color: var(--text-color-secondary);
+
+            &::after {
+                content: ':';
+            }
+        }
+
+        &-value {
+            display: flex;
+            flex: 1;
+            gap: @margin-xxs;
+            align-items: center;
+            width: 0;
+
+            .@{mui-prefix}ButtonBase-root {
+                padding: (@padding-xxs - 1px);
+                visibility: hidden;
+
+                .@{mui-prefix}SvgIcon-root {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+
+            .content {
+                overflow: hidden;
+            }
+
+            .actions {
+                display: flex;
+                flex-shrink: 0;
+                gap: @margin-xxs;
+            }
+        }
+    }
+}

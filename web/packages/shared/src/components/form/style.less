@@ -1,0 +1,59 @@
+.form {
+    &-contain {
+        margin-top: @margin-sm;
+
+        .MuiFormHelperText-root {
+            margin-left: 0;
+        }
+
+        .MuiFormControl-root.MuiTextField-root {
+            margin: 0;
+        }
+    }
+
+    &-box {
+        position: relative;
+        padding: @padding-md @padding-sm 0 @padding-sm;
+        margin-top: @margin-sm;
+        margin-bottom: @margin-md;
+        border: @border-base;
+        border-radius: @border-radius-base;
+
+        &-label {
+            position: absolute;
+            top: -(@padding-sm + @padding-xs);
+            left: @padding-md;
+            max-width: calc(100% - 32px);
+            padding: @padding-xs;
+            color: var(--text-color-primary);
+            background: var(--main-background);
+            .text-size(@font-size-md);
+
+            span {
+                display: inline-block;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        &-item {
+            margin: 0 @margin-xxs;
+
+            .MuiFormControl-root {
+                margin: 0;
+            }
+        }
+
+        &-contain {
+            margin-bottom: -@margin-xl;
+        }
+    }
+
+    // &-item {
+    //     margin: 0 !important;
+    //     // margin-top: @margin-sm !important;
+    //     margin-bottom: @margin-xl !important;
+    // }
+}

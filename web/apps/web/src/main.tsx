@@ -1,0 +1,31 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { baseUrl } from '@milesight/shared/src/config';
+import { i18n, theme } from '@milesight/shared/src/services';
+import '@milesight/shared/src/utils/lang-polyfill';
+import routes from '@/routes';
+import { BackendReadyCheck } from '@/components';
+import '@/styles/index.less';
+
+const router = createBrowserRouter(routes, { basename: baseUrl || '/' });
+const root = createRoot(document.getElementById('root')!);
+
+// Internationalization initialization
+i18n.initI18n('web', 'EN');
+
+// System topic initialization
+theme.initTheme();
+
+/**
+ * Note: Strict mode, and in development environments, React applications are intentionally rendered twice during initialization to highlight potential problems.
+ *
+ * https://zh-hans.react.dev/reference/react/StrictMode
+ */
+root.render(
+    <React.StrictMode>
+        <BackendReadyCheck>
+            <RouterProvider router={router} />
+        </BackendReadyCheck>
+    </React.StrictMode>,
+);

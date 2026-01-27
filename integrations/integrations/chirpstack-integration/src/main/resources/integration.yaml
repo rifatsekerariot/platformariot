@@ -1,0 +1,8 @@
+integration:
+  chirpstack-integration:
+    name: ChirpStack HTTP
+    description: "ChirpStack v4 HTTP Integration – receive LoRaWAN uplinks and events (no token/password)."
+    icon-url: "public/chirpstack-logo.svg"
+    enabled: true
+    entity-identifier-add-device: add_device
+    entity-identifier-delete-device: delete_device

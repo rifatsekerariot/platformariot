@@ -1,0 +1,31 @@
+.@{prefix}-http-output-info {
+    &-item {
+        margin-bottom: @margin-sm;
+
+        &-title {
+            margin-bottom: @margin-xxs;
+            .text-size(@font-size-sm);
+
+            .label {
+                font-weight: @font-weight-medium;
+                color: var(--text-color-primary);
+            }
+
+            .type {
+                display: inline-block;
+                padding: 0 @padding-xxs;
+                margin-left: @margin-xs;
+                color: var(--text-color-secondary);
+                background-color: var(--gray-color-2);
+                border-radius: @border-radius-base;
+            }
+        }
+
+        &-body {
+            .placeholder {
+                color: var(--text-color-secondary);
+                .text-size(@font-size-sm);
+            }
+        }
+    }
+}

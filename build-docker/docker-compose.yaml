@@ -1,0 +1,45 @@
+services:
+  # Monorepo: context=.. (repo root), local dockerfiles for backend/ and web/
+  web:
+    image: "${DOCKER_REPO:-milesight}/beaver-iot-web"
+    build:
+      context: ..
+      dockerfile: build-docker/beaver-iot-web-local.dockerfile
+      target: web
+      network: host
+      args:
+        - "WEB_GIT_REPO_URL=${WEB_GIT_REPO_URL:-}"
+        - "WEB_GIT_BRANCH=${WEB_GIT_BRANCH:-origin/develop}"
+      tags:
+        - "${DOCKER_REPO:-milesight}/beaver-iot-web:${PRODUCTION_TAG:-latest}"
+  api:
+    image: "${DOCKER_REPO:-milesight}/beaver-iot-api"
+    build:
+      context: ..
+      dockerfile: build-docker/beaver-iot-api-local.dockerfile
+      target: api
+      network: host
+      args:
+        - "API_GIT_REPO_URL=${API_GIT_REPO_URL:-}"
+        - "API_GIT_BRANCH=${API_GIT_BRANCH:-origin/dev}"
+      tags:
+        - "${DOCKER_REPO:-milesight}/beaver-iot-api:${PRODUCTION_TAG:-latest}"
+  monolith:
+    image: "${DOCKER_REPO:-milesight}/beaver-iot"
+    depends_on:
+      - web
+      - api
+    build:
+      context: .
+      dockerfile: ./beaver-iot.dockerfile
+      target: monolith
+      network: host
+      args:
+        - "API_GIT_REPO_URL=${API_GIT_REPO_URL:-}"
+        - "API_GIT_BRANCH=${API_GIT_BRANCH:-origin/main}"
+        - "WEB_GIT_REPO_URL=${WEB_GIT_REPO_URL:-}"
+        - "WEB_GIT_BRANCH=${WEB_GIT_BRANCH:-origin/main}"
+        - "BASE_API_IMAGE=${DOCKER_REPO:-milesight}/beaver-iot-api:${PRODUCTION_TAG:-latest}"
+        - "BASE_WEB_IMAGE=${BASE_WEB_IMAGE:-${DOCKER_REPO:-milesight}/beaver-iot-web:${PRODUCTION_TAG:-latest}}"
+      tags:
+        - "${DOCKER_REPO:-milesight}/monolith:${PRODUCTION_TAG:-latest}"

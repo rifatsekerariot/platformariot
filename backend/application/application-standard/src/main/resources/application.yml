@@ -1,0 +1,296 @@
+server:
+  port: 9200
+  undertow:
+    max-http-post-size: 10MB
+
+spring:
+  config:
+    import:
+      - optional:classpath:entity-template.yml
+  main:
+    allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+  jackson:
+    default-property-inclusion: non_null
+    property-naming-strategy: SNAKE_CASE
+    mapper:
+      accept-case-insensitive-enums: true
+  jpa:
+    show-sql: false
+    properties:
+      jakarta.persistence.query.timeout: "${JAVAX_PERSISTENCE_QUERY_TIMEOUT:30000}" # General timeout for JDBC queries
+      hibernate.type.wrapper_array_handling: ALLOW
+      hibernate.naming.physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+  datasource:
+    #    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://192.168.45.115:5432/postgres}"
+    #    username: "${SPRING_DATASOURCE_USERNAME:postgres}"
+    #    password: "${SPRING_DATASOURCE_PASSWORD:postgres}"
+    #    driverClassName: "${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.postgresql.Driver}"
+    url: "${SPRING_DATASOURCE_URL:jdbc:h2:file:~/beaver-iot/h2/beaver;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}"
+    username: "${SPRING_DATASOURCE_USERNAME:sa}"
+    password: "${SPRING_DATASOURCE_PASSWORD:}"
+    driverClassName: "${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}"
+    hikari:
+      connection-timeout: 5000
+  liquibase:
+    enabled: true
+    contexts: init,dev,prod,test
+    change-log: 'classpath*:db/${DB_TYPE:h2}/changelog.yaml'
+  h2:
+    console:
+      enabled: ${SPRING_H2_CONSOLE_ENABLED:false}
+      path: /public/h2-console
+      settings:
+        webAllowOthers: true
+  cache:
+    #    type: caffeine
+    #    cache-names: "resource:data-pre-sign"
+    caffeine:
+      spec: maximumSize=50000,expireAfterWrite=${spring.cache.specs.time-to-live:1h}
+    redis:
+      cache-null-values: true
+      value-serializer-class: org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
+      time-to-live: ${spring.cache.specs.time-to-live:1h}
+    specs:
+      time-to-live: 1h
+      time-to-lives:
+        '[resource:data-pre-sign]': ${resource.pre_sign_expire}
+        '[resource:data]': 2m
+        '[entity:latest-value]': 15m
+  data:
+    redis:
+      ssl:
+        enabled: ${REDIS_SSL:false}
+      host: ${REDIS_HOST:}
+      password: ${REDIS_PASSWORD:}
+      port: ${REDIS_PORT:6379}
+      database: ${REDIS_DB:0}
+  redis:
+    redisson:
+      config: |
+        singleServerConfig:
+          address: "${spring.data.redis.host}"
+          password: "${spring.data.redis.password}"
+          clientName: null
+          database: ${spring.data.redis.database}
+          idleConnectionTimeout: 10000
+          connectTimeout: 10000
+          timeout: 10000
+          retryAttempts: 3
+          connectionMinimumIdleSize: 10
+          pingConnectionInterval: 10000
+        threads: 32
+        nettyThreads: 64
+        codec:
+          class: "org.redisson.codec.JsonJacksonCodec"
+        transportMode: "NIO"
+  # i18n
+  messages:
+    basename: i18n/messages
+    cache-duration: 3600
+
+task:
+  executor:
+    max-queue-capacity: 1024
+    pool:
+      default:
+        core-size: 16
+        max-size: 32
+        queue-capacity: 256
+      mqtt:
+        max-size: 32
+      mqtt-subscriber:
+        core-size: 32
+        max-size: 64
+        rejected-policy: block_policy
+      request-coalescer:
+        core-size: 8
+        max-size: 16
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,metrics,prometheus,info"
+        exclude: shutdown,beans
+  metrics:
+    enable:
+      logback: false
+      spring.data: false
+      spring.security: false
+      disk: false
+#eventbus:
+#  execution:
+#    core-pool-size: 16
+#    max-pool-size: 50
+#    queue-capacity: 1000
+camel:
+  springboot:
+    routes-include-pattern: classpath:routes/*.yaml
+  rule:
+    components:
+      entry:
+        - name: "simpleTimer"
+          title: "Timer"
+        - name: "trigger"
+          title: "Trigger"
+        - name: "eventListener"
+          title: "Event Listener"
+        - name: "simpleMqtt"
+          title: "MQTT"
+        - name: "httpIn"
+          title: "HTTP in"
+      control:
+        - name: "choice"
+          title: "IF/ELSE"
+      action:
+        - name: "entityAssigner"
+          title: "Entity Assigner"
+        - name: "entitySelector"
+          title: "Entity Selector"
+        - name: "serviceInvocation"
+          title: "Service Invocation"
+        - name: "code"
+          title: "Code"
+      external:
+        - name: "email"
+          title: "email"
+        - name: "webhook"
+          title: "Webhook"
+        - name: "output"
+          title: "Output Node"
+        - name: "httpRequest"
+          title: "Http Request"
+    languages:
+      - code:
+          - "groovy"
+          - "javascript"
+          - "python"
+          - "mvel"
+      - "choice":
+          - "jsonPath"
+          - "groovy"
+          - "javascript"
+          - "python"
+          - "mvel"
+
+workflow:
+  rate-limit:
+    enabled: false
+    timeout: 3000
+    tenant-concurrency:
+      default: 5
+
+websocket:
+  enabled: true
+  port: ${WEBSOCKET_PORT:9201}
+  context-path: ${WEBSOCKET_CONTEXT_PATH:/websocket}
+oauth2:
+  registered-client-id: ${OAUTH2_REGISTERED_CLIENT_ID:default}
+  client-id: ${OAUTH2_CLIENT_ID:iab}
+  client-secret: ${OAUTH2_CLIENT_SECRET:milesight*iab}
+  rsa:
+    private-key: ${OAUTH2_RSA_PRIVATE_KEY:}
+    public-key: ${OAUTH2_RSA_PUBLIC_KEY:}
+  ignore-urls:
+    - "/oauth2/token"
+    - "/user/register"
+    - "/user/status"
+    - "/public/**"
+    - "/actuator/**"
+    - "/db-resource/**"
+    - "/workflow-http-in/**"
+
+mqtt:
+  broker:
+    mqtt_port: 1883
+    ws_path: /mqtt
+    ws_port: 8083
+    moquette:
+      port: ${mqtt.broker.mqtt_port:1883}
+      host: 0.0.0.0
+      allow_anonymous: false
+      persistence_enabled: false
+      websocket_port: ${mqtt.broker.ws_port:8083}
+      websocket_path: ${mqtt.broker.ws_path:/mqtt}
+      netty:
+        mqtt:
+          message_size: 1048576
+
+resource:
+  storage: ${RESOURCE_STORAGE:db}
+  pre_sign_expire: 15m
+  s3:
+    endpoint: ${RESOURCE_STORAGE_S3_ENDPOINT:} # starts with http / https
+    region: ${RESOURCE_STORAGE_S3_REGION:}
+    access_key: ${RESOURCE_STORAGE_S3_ACCESS_KEY:}
+    access_secret: ${RESOURCE_STORAGE_S3_ACCESS_SECRET:}
+    bucket: ${RESOURCE_STORAGE_S3_BUCKET:}
+
+application:
+  version: ${beaver-iot.version}
+
+blueprint:
+  library:
+    default_address:
+      type: GITHUB
+      url: https://github.com/Milesight-IoT/beaver-iot-blueprint.git
+      branch: main
+      local_zip_file: ${BLUEPRINT_LIBRARY_DEFAULT_ADDRESS_LOCAL_ZIP_FILE:}
+    sync_frequency: 3h
+    clean_frequency: 1d
+
+timeseries:
+  # supports jpa, influxdb, dynamodb
+  database: jpa
+  retention:
+    "beaver_iot_telemetry": ${TIMESERIES_RETENTION_BEAVER_IOT_TELEMETRY:365d}
+    "beaver_iot_running_log": ${TIMESERIES_RETENTION_BEAVER_IOT_RUNNING_LOG:30d}
+  #influxdb:
+  #  url: ${TIMESERIES_INFLUXDB_URL:http://localhost:8086}
+  #  token: ${TIMESERIES_INFLUXDB_TOKEN:token}
+  #  org: ${TIMESERIES_INFLUXDB_ORG:milesight}
+  #dynamodb:
+  #  endpoint: ${TIMESERIES_DYNAMODB_ENDPOINT:http://localhost:8000}
+  #  region: ${TIMESERIES_DYNAMODB_REGION:us-east-1}
+  #  access_id: ${TIMESERIES_DYNAMODB_ACCESS_ID:defaultAccessId}
+  #  access_key: ${TIMESERIES_DYNAMODB_ACCESS_KEY:defaultAccessKey}
+
+
+logging:
+  level:
+    com.milesight.beaveriot: ${LOGGING_LEVEL_BEAVER_IOT:info}
+
+OAUTH2_RSA_PRIVATE_KEY: |
+  MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCtCpHZwvZf9hUQgYGpQoK3Y7fn
+  RRWb4ZrsVdpD8bf3GezPQEKmsyYSdKvXhg3vq6oLcYqjlg8SV7XmytNqjjVkOMR8BOaVMkIvujCI
+  pJemxbR08U7FVW4ShFyxL+mSV5PlLPqHbPbOF5MHtxxHByx4zzwmja+kQ5YokhtQd6+TVkDLUw66
+  0YUO364mEMXrT351n0M4gDHLQzq1xyCyURmU+ELCjh8PUYzFePNkWj0XbjTGeQQZpZRbuqm8XZgY
+  aoN37TydaBLB0z1KipB7CprDNyFnzaGUntBPvUMX/YBFVL05u7Ny5E3AyalwJpEdtRKK+lFnzCB1
+  QXndx0gbuoFxAgMBAAECggEAB4jFx/L+sjfvO9w/roR4V47Oc5Hk+ngMvEySp9Gu/mHRF0cHf+Wd
+  +0C8OLKcCbryOPRVIoFGn7hU8bsUEHgnp/j2ySWXepiJHDXhphlwhvDlxg+5q8rn84Ny274nz9jj
+  Vh+qutnKNzf8jWHyJ7+OtqXjSxRxONg+gf62lL7ZVLNi42HA2VI8Qq2sJ+j4eCsQ5+lYZ9WFRd/Y
+  ZoD5wvua4FG7F6OXp8G65gRcrg4M8Uj5BWX7BAo3KZJMEuVR64TRgTgNkt/1kbWVYyUKNR82x5BR
+  Y5o5tZ+aRW+pXZv2EAHeHqTvYh4U950IfXpdMo71r/ocEPDZaw+JGN7NKfpj6QKBgQDVRIfXmqwL
+  XEaWwjnLgo8tmo3GtByTgdIwO0vj6V7gvWjRlq4LMqeOfzlfuDjnCSwt/4oyNKgtddx2I7GzrdDR
+  qx9e0XceYt2zr/9UyPaV+ZExD6vhwUvQ/gCcgzGb693xZspyLxRo+Qi6yfwxMA8LMKD4nZhJeqU1
+  zsihAGUuNQKBgQDPtqTL//npZljH8MULzSNxjwNId3oVCIXJAB9Bohyf7j+arQwlUy/gx/O0pl4p
+  qW0yTNTa9Cz6LuYsT+wwa0B4sYabXp8M5Ie367JznjaoRGnhGZczy321+WtMK3FD2m9LLCiPtySf
+  Df/9/T8VP3+y2P/DXbNWKDv89+cCi6adzQKBgQCn+EbJcD/q3q2WFblxaQ4dy+m4Q6lyIECMzlcS
+  VX7toSDKWlQP68B+ggONOUpP5TCPtgGBU2nWDEssHSbbrp2WVaHqiy23mASnfomqnHFiY+KP8pjc
+  wOJW44dVvhq3hIkUlXIDhsMbfnD6tRVVJFXk6VMPHQiRbvBqNchczjPitQKBgBVn+z/S14yIMaoZ
+  VBVNRNPVKz9yoLA+OptmWdJHxK9uvDtSjifilNKTiLgbVSTyAwDmDiGqfGAkKTBz5CFxTCmkEf09
+  GSMZAiugLLnhmjxpIIhEPOLnm8L/O2GUMI4PmtyiZmO5OhryNGmWicPE0YI6/tDBfVPpvZTqb3JB
+  tiAZAoGACp2pp29vghRRA617LhDoawWG1FoRYmD+pfUXi2twPmOpM8wNicEq2KblARQa93JQHyCV
+  b4KXFLAItUD24a6+0OwPNLQ3AEaShRM0OSOdcqfV4Dsr5SgacBGky6su/0CbMEiNE0UNKuDe+13i
+  1xDAeCLhl0C0nRG6OyS8EDKRV2o=
+OAUTH2_RSA_PUBLIC_KEY: |
+  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArQqR2cL2X/YVEIGBqUKCt2O350UVm+Ga
+  7FXaQ/G39xnsz0BCprMmEnSr14YN76uqC3GKo5YPEle15srTao41ZDjEfATmlTJCL7owiKSXpsW0
+  dPFOxVVuEoRcsS/pkleT5Sz6h2z2zheTB7ccRwcseM88Jo2vpEOWKJIbUHevk1ZAy1MOutGFDt+u
+  JhDF609+dZ9DOIAxy0M6tccgslEZlPhCwo4fD1GMxXjzZFo9F240xnkEGaWUW7qpvF2YGGqDd+08
+  nWgSwdM9SoqQewqawzchZ82hlJ7QT71DF/2ARVS9ObuzcuRNwMmpcCaRHbUSivpRZ8wgdUF53cdI
+  G7qBcQIDAQAB

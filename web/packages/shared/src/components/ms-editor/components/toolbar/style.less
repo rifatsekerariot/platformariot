@@ -1,0 +1,57 @@
+.ms-editor-toolbar {
+    .ms-toolbar {
+        &__container {
+            position: relative;
+            z-index: 1;
+
+            &--editable {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: var(--main-background);
+                border-bottom: @border-base;
+                box-shadow: @shadow-1;
+            }
+
+            &--readonly {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                margin-bottom: 1px;
+            }
+        }
+
+        &__operator {
+            padding: @padding-md;
+        }
+
+        &__functions {
+            display: flex;
+            align-items: center;
+            padding: @padding-md;
+        }
+
+        &__group {
+            display: flex;
+            align-items: center;
+        }
+
+        &__divider {
+            width: 1px;
+            height: 20px;
+            margin: 0 @margin-sm;
+            background-color: var(--border-color-gray);
+            content: '';
+        }
+
+        &__icon {
+            display: flex;
+            padding: @padding-xxs;
+            font-size: @font-size-7;
+        }
+
+        &__btn {
+            background-color: transparent;
+        }
+    }
+}

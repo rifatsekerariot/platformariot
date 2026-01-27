@@ -1,0 +1,239 @@
+@import url('@milesight/shared/src/styles/index.less');
+@import url('@milesight/responsive-style/less');
+@import url('./mui-polyfill.less');
+
+html {
+    font-family: @font-family;
+}
+
+// body {
+//     background-color: var(--body-background);
+//     .text-size(@font-size-base);
+// }
+
+// ---------- Utilities ----------
+@enable-mobile-first: false;
+@enable-utilities-important: true;
+
+@custom-utilities: {
+    @border-radius: {
+        responsive: true;
+        property: border-radius;
+        class: rounded;
+        @values: {
+            none: 0;
+            2xs: @border-radius-xxs;
+            xs: @border-radius-xs;
+            sm: @border-radius-sm;
+            md: @border-radius-md;
+            lg: @border-radius-lg;
+            2xl: @border-radius-xxl;
+        };
+    };
+};
+
+.gen-utils();
+.gen-breakpoints-utils();
+
+.gen-utils('', @custom-utilities);
+.gen-breakpoints-utils(@enable-mobile-first, @grid-breakpoints, @custom-utilities);
+
+// ---------- Layout ----------
+.@{prefix}-layout {
+    display: flex;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+
+    &-left {
+        flex-shrink: 0;
+        width: 240px;
+    }
+
+    &-right {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        width: 0;
+        height: 100%;
+        background-color: var(--body-background);
+    }
+}
+
+.@{prefix}-main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    > .@{prefix}-view {
+        flex: 1;
+        height: 0;
+        // padding: @padding-lg;
+
+        > .@{prefix}-view__inner {
+            height: 100%;
+            background-color: var(--component-background);
+            border-radius: @border-radius-base;
+        }
+    }
+}
+
+.@{prefix}-main-blank {
+    flex: 1;
+}
+
+// ---------- Custom Tabs ----------
+.@{prefix}-tabs {
+    &.@{mui-prefix}Tabs-root {
+        position: relative;
+        min-height: 48px;
+        padding-top: @padding-xs;
+        background-color: var(--component-background);
+
+        &::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-color-base);
+            content: '';
+        }
+    }
+
+    .@{mui-prefix}Tabs-scroller {
+        .@{mui-prefix}Tabs-flexContainer {
+            padding: 0 0 0 @padding-md;
+            background-color: var(--component-background);
+        }
+    }
+
+    .@{mui-prefix}Tab-root {
+        position: relative;
+        min-width: auto;
+        min-height: 24px;
+        padding: @padding-xs @padding-md (@padding-xs + 1);
+        margin-right: 0;
+        font-weight: @font-weight-base;
+        color: var(--text-color-secondary);
+        border: 1px solid transparent;
+        border-bottom: unset;
+        .text-size(@font-size-md);
+
+        &:not(:first-child)::before {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 1px;
+            height: 14px;
+            background-color: var(--gray-3);
+            content: '';
+            transform: translateY(-50%);
+        }
+
+        &.@{mui-prefix}-selected {
+            z-index: 1;
+            font-weight: @font-weight-medium;
+            color: var(--text-color-base);
+            background-color: var(--body-background);
+            border-color: var(--border-color-base);
+            border-bottom: unset;
+            border-radius: @border-radius-base @border-radius-base 0 0;
+
+            &,
+            & + .@{mui-prefix}Tab-root {
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &:not(.@{mui-prefix}-selected):hover {
+            color: var(--text-color-main);
+        }
+    }
+
+    .@{mui-prefix}Tabs-scrollButtons {
+        margin-top: 1px;
+        color: var(--text-color-secondary);
+    }
+
+    .@{mui-prefix}Tabs-indicator {
+        bottom: -1px;
+        display: none;
+        background-color: var(--body-background);
+        transition: none;
+    }
+}
+
+// ---------- Custom Icon ----------
+.@{prefix}-icon {
+    fill: currentcolor;
+}
+
+// ---------- Custom ToggleButtonGroup ----------
+.@{prefix}-toggle-button-group {
+    .@{mui-prefix}ButtonBase-root {
+        text-transform: none;
+    }
+
+    &.@{mui-prefix}ToggleButtonGroup-horizontal {
+        background-color: var(--gray-color-2);
+        border: 2px solid var(--gray-color-2);
+
+        .@{mui-prefix}ToggleButtonGroup-grouped {
+            display: inline-block;
+            padding-right: @padding-sm;
+            padding-left: @padding-sm;
+            border: none;
+            border-radius: @border-radius-base;
+            .text-size(@font-size-base);
+
+            &::after {
+                display: block;
+                height: 1px;
+                margin-bottom: -1px;
+                overflow: hidden;
+                font-weight: @font-weight-medium;
+                visibility: hidden;
+                content: attr(aria-label);
+            }
+
+            &.@{mui-prefix}-selected {
+                font-weight: @font-weight-medium;
+                background-color: var(--component-background);
+
+                &.@{mui-prefix}-disabled {
+                    color: var(--text-color-secondary);
+                }
+            }
+        }
+    }
+}
+
+// Beautiful scrollbar just for PC
+.bp-up(@grid-breakpoints[md], {
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border-radius: 8px;
+    }
+
+    .ms-perfect-scrollbar {
+        &::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb-color);
+        }
+    }
+});

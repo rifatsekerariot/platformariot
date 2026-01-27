@@ -1,0 +1,41 @@
+.@{prefix}-mobile-device-item {
+    padding: @padding-sm @padding-md;
+    margin: 0 @margin-md @margin-xs;
+    background-color: var(--component-background);
+    border-radius: @border-radius-md;
+
+    &__header {
+        display: flex;
+        gap: @margin-md;
+        align-items: center;
+        justify-content: space-between;
+        height: 24px;
+        margin-bottom: @margin-sm;
+    }
+
+    &__name {
+        flex: 1;
+        width: 0;
+        font-weight: @font-weight-medium;
+        .text-size(@font-size-base);
+    }
+
+    &__status {
+        display: flex;
+        gap: @margin-sm;
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: @margin-xxs @margin-xs;
+
+        &-label {
+            color: var(--text-color-secondary);
+        }
+
+        &-value {
+            min-width: 0;
+        }
+    }
+}

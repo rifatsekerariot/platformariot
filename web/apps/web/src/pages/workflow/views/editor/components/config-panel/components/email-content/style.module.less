@@ -1,0 +1,21 @@
+.email-content {
+    position: relative;
+    height: 280px;
+
+    &__toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: @padding-xs @padding-sm;
+        background: var(--component-background-gray);
+        border-bottom: @border-base;
+
+        .text {
+            font-size: @font-size-base;
+            font-weight: @font-weight-medium;
+            .line-height(@font-size-base);
+
+            color: var(--text-color-secondary);
+        }
+    }
+}

@@ -1,0 +1,255 @@
+@ms-sidebar-footer-height: 72px;
+@ms-sidebar-footer-height-shrink: 112px;
+
+.@{prefix}-sidebar {
+    position: relative;
+    transition: width 0.3s;
+
+    .@{mui-prefix}Drawer-paper {
+        box-sizing: content-box;
+        justify-content: space-between;
+        width: 240px;
+        padding-bottom: @ms-sidebar-footer-height;
+        margin: 0;
+        background-color: var(--component-background);
+        border-right: 1px solid var(--border-color-base);
+        box-shadow: none !important;
+        transition: width 0.3s;
+    }
+
+    &.hidden {
+        display: none;
+    }
+
+    &-logo {
+        margin: @margin-xs;
+        margin-left: @margin-xs;
+    }
+
+    & &-menus {
+        flex: 1;
+        height: 0;
+        padding: @padding-xs;
+        overflow: auto;
+    }
+
+    & &-menu-item {
+        padding: 0;
+        margin-bottom: @margin-xxs;
+        border-radius: @border-radius-base;
+
+        &-link {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            padding: @padding-xs;
+            overflow: hidden;
+            color: var(--text-color-base);
+            text-decoration: none;
+
+            .bp-down(@grid-breakpoints[sm], {
+                padding: @padding-xs @padding-sm;
+            });
+
+            .@{mui-prefix}SvgIcon-root {
+                margin: 2px;
+                color: var(--icon-color-gray-secondary);
+            }
+
+            .@{prefix}-tooltip {
+                display: flex;
+                align-items: center;
+            }
+
+            .@{prefix}-name {
+                margin-left: @margin-sm;
+                .text-size(@font-size-md);
+            }
+        }
+
+        &.@{mui-prefix}-selected,
+        &.@{mui-prefix}-selected:hover {
+            background-color: var(--primary-color-1);
+
+            .@{prefix}-sidebar-menu-item-link {
+                color: var(--text-color-main);
+
+                .@{mui-prefix}SvgIcon-root {
+                    color: var(--text-color-dark);
+                }
+
+                .@{prefix}-name {
+                    font-weight: @font-weight-medium;
+                }
+            }
+        }
+    }
+
+    &-footer {
+        // position: absolute;
+        // bottom: 0;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: @ms-sidebar-footer-height;
+        padding: 0 14px;
+
+        .@{prefix}-sidebar-user {
+            flex: 1;
+        }
+
+        .@{prefix}-sidebar-user-trigger {
+            cursor: pointer;
+            transition: transform 0.3s ease-out;
+
+            .@{mui-prefix}Avatar-root {
+                font-family: Helvetica;
+                vertical-align: middle;
+            }
+
+            .@{prefix}-name {
+                margin-left: @margin-sm;
+            }
+
+            .@{prefix}-name > .@{prefix}-tooltip-cont {
+                display: block;
+                max-width: 120px;
+                .ellipsis();
+            }
+
+            // .@{prefix}-icon {
+            //     transition: 0.3s;
+            // }
+
+            // &.active {
+            //     .@{prefix}-icon {
+            //         transform: rotate(180deg);
+            //     }
+            // }
+        }
+
+        .@{prefix}-oprt-shrink {
+            position: absolute;
+            right: 8px;
+            color: var(--icon-color-gray-secondary);
+        }
+    }
+
+    &&-shrink {
+        width: 56px;
+        padding-bottom: @ms-sidebar-footer-height-shrink;
+
+        .@{mui-prefix}Drawer-paper {
+            width: 56px;
+        }
+
+        .@{prefix}-sidebar-footer {
+            .@{prefix}-sidebar-user-trigger {
+                transform: translateY(-46px);
+
+                .@{prefix}-name {
+                    display: none;
+                }
+            }
+            .@{prefix}-oprt-shrink {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.@{prefix}-sidebar-menu {
+    .@{mui-prefix}Paper-root {
+        .@{mui-prefix}List-root {
+            padding: 0 0 @padding-xxs 0;
+        }
+
+        .@{prefix}-sidebar-menu__user-info.@{mui-prefix}ListItem-root {
+            padding: @padding-lg;
+        }
+    }
+
+    & &__avatar {
+        min-width: unset;
+        margin-right: @margin-sm;
+        font-family: Helvetica;
+    }
+
+    & &__text {
+        margin: 0;
+        .@{mui-prefix}ListItemText-primary {
+            font-weight: @font-weight-bold;
+        }
+
+        .@{mui-prefix}ListItemText-secondary {
+            .text-size(@font-size-sm);
+        }
+    }
+
+    & &__link {
+        &.@{mui-prefix}MenuItem-root {
+            padding: 0;
+        }
+
+        > a {
+            display: flex;
+            align-items: center;
+            padding: @padding-xs @padding-lg;
+            color: var(--text-color-base);
+            text-decoration: none;
+        }
+    }
+
+    & &__version {
+        gap: @margin-sm;
+        padding: @padding-xs @padding-lg;
+
+        .@{mui-prefix}ListItemIcon-root {
+            min-width: auto;
+        }
+
+        .version {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: space-between;
+
+            .value {
+                color: var(--text-color-secondary);
+            }
+        }
+    }
+
+    &__divider {
+        &.@{mui-prefix}Divider-root {
+            margin-bottom: @margin-xxs;
+            border-color: var(--border-color-base);
+        }
+    }
+
+    .@{mui-prefix}MenuItem-root {
+        padding: @padding-xs @padding-lg;
+
+        .@{mui-prefix}ListItemIcon-root {
+            min-width: unset;
+            margin-right: @margin-sm;
+        }
+    }
+}
+
+.ms-sidebar-submenu__item {
+    .@{mui-prefix}MenuItem-root {
+        padding: @padding-xs @padding-md;
+    }
+    .@{mui-prefix}Paper-root {
+        .@{mui-prefix}List-root {
+            padding: @padding-xxs 0;
+        }
+    }
+}
+
+.my-layout__drawing-board--fullscreen .@{prefix}-sidebar {
+    display: none;
+}

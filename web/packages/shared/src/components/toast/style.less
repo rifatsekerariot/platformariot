@@ -1,0 +1,50 @@
+.@{prefix}-toast {
+    display: flex;
+    align-items: center;
+    padding: @padding-sm @padding-md;
+    background-color: var(--component-background);
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-2;
+
+    .text-size(@font-size-base);
+
+    // Multiple error line breaks
+    &-content {
+        white-space: pre-line;
+    }
+
+    &-icon {
+        display: flex;
+        align-items: center;
+        margin-right: @margin-xs;
+
+        .@{mui-prefix}SvgIcon-root {
+            font-size: 22px;
+        }
+    }
+
+    &.info {
+        .@{prefix}-toast-icon {
+            color: var(--icon-color-info);
+        }
+    }
+
+    &.success {
+        .@{prefix}-toast-icon {
+            color: var(--icon-color-success);
+        }
+    }
+
+    &.warning {
+        .@{prefix}-toast-icon {
+            color: var(--icon-color-warning);
+        }
+    }
+
+    &.error {
+        .@{prefix}-toast-icon {
+            color: var(--icon-color-error);
+        }
+    }
+
+}

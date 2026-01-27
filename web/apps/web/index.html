@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ARIOT</title>
+        <meta charset="UTF-8" />
+        <meta name="description" content="An open-source platform designed for rapid and intuitive IoT application development." />
+        <meta name ="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1,user-scalable=no">
+        <meta name="google" content="notranslate" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
+        <link rel="apple-touch-icon-precomposed" href="/icons/logo-168.png">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+        <script>
+            // Check backend status before loading React app
+            // If backend is not ready, redirect to loading page
+            (function() {
+                // Check if we're already on loading page
+                if (window.location.pathname === '/loading.html') {
+                    return; // Let loading.html handle it
+                }
+                
+                // Quick backend check before React app loads
+                fetch('/api/v1/user/status', {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' },
+                    cache: 'no-cache'
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        // Backend not ready, redirect to loading page
+                        window.location.href = '/loading.html';
+                        return;
+                    }
+                    // Backend is ready, React app will load normally via script tag above
+                })
+                .catch(error => {
+                    // Backend not ready, redirect to loading page
+                    window.location.href = '/loading.html';
+                });
+            })();
+        </script>
+    </body>
+</html>

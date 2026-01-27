@@ -1,0 +1,38 @@
+.ms-toolbar {
+    &__item {
+        margin: 0 @margin-xxs;
+        border-radius: @border-radius-xs;
+
+        &:hover {
+            background-color: var(--body-background);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        &--active {
+            background: var(--primary-color-1);
+
+            &:hover {
+                background: var(--primary-color-1);
+            }
+
+            .ysd-icon {
+                color: var(--text-color-active);
+            }
+        }
+
+        &--disabled {
+            color: var(--text-color-disable);
+            background-color: unset;
+
+            &:hover {
+                background-color: unset;
+                cursor: not-allowed;
+            }
+
+            .ysd-icon {
+                color: var(--text-color-disable);
+            }
+        }
+    }
+}

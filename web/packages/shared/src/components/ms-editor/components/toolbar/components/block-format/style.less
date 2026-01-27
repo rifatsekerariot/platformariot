@@ -1,0 +1,44 @@
+.ms-toolbar {
+    &__block-dropdown {
+        display: flex;
+        align-items: center;
+        min-width: 60px;
+        padding: @padding-xxs @margin-xs;
+        font-size: @font-size-sm;
+    }
+
+    &__block-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 208px;
+
+        h1 {
+            display: block;
+            padding: 0;
+            margin: 0;
+            font-size: @font-size-6;
+            font-weight: @font-weight-bold;
+            color: var(--text-color-primary);
+            .line-height(@font-size-6);
+        }
+
+        h2 {
+            display: block;
+            padding: 0;
+            margin: 0;
+            font-size: @font-size-xxl;
+            font-weight: @font-weight-bold;
+            color: var(--text-color-primary);
+            .line-height(@font-size-xxl);
+        }
+
+        h3 {
+            padding: 0;
+            margin: 0;
+            font-size: @font-size-lg;
+            color: var(--text-color-primary);
+            .line-height(@font-size-lg);
+        }
+    }
+}

@@ -1,0 +1,1 @@
+export { useFontColor } from './useFontColor';
