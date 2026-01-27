@@ -1,7 +1,7 @@
-# Build and push pre-built Beaver IoT image (monorepo platformariot) to GHCR.
-# Uses local backend/, web/, integrations/, build-docker/ – no git clone.
+# platformariot: Tek CI – PostgreSQL + Alarm + widget'lar. Imaj GHCR'a push.
+# backend/, web/, integrations/, build-docker/ yerel; git clone yok.
 
-name: Build and push prebuilt image
+name: Build
 
 on:
   workflow_dispatch:
@@ -54,9 +54,6 @@ jobs:
       - name: Create .env for build
         run: sh scripts/create-build-env.sh
 
-      - name: Ensure web/ present (monorepo: no-op if exists)
-        run: sh scripts/ci-clone-web.sh
-
       - name: Verify web source (widget fixes)
         run: sh scripts/verify-web-source.sh web
 
@@ -76,18 +73,18 @@ jobs:
       - name: PostgreSQL stack smoke test
         run: |
           cd examples
-          BEAVER_IMAGE=milesight/beaver-iot:latest docker compose -f chirpstack-prebuilt-postgres.yaml up -d
-          echo "Waiting 90s for monolith (Java+PostgreSQL, t_alarm migration)..."
+          BEAVER_IMAGE=milesight/beaver-iot:latest docker compose -f stack.yaml up -d
+          echo "Waiting 90s for monolith (Java+PostgreSQL, t_alarm)..."
           sleep 90
           HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:9080/ || true)
           echo "GET http://localhost:9080/ -> $HTTP"
           if [ "$HTTP" != "200" ] && [ "$HTTP" != "302" ]; then
             echo "PostgreSQL smoke test failed: expected 200/302, got $HTTP"
-            docker compose -f chirpstack-prebuilt-postgres.yaml logs monolith 2>&1 | tail -80
-            docker compose -f chirpstack-prebuilt-postgres.yaml down -v
+            docker compose -f stack.yaml logs monolith 2>&1 | tail -80
+            docker compose -f stack.yaml down -v
             exit 1
           fi
-          docker compose -f chirpstack-prebuilt-postgres.yaml down -v
+          docker compose -f stack.yaml down -v
           echo "PostgreSQL smoke test OK."
 
       - name: Tag and push monolith to GHCR

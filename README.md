@@ -1,49 +1,52 @@
 # platformariot
 
-Tek repo altında birleşik **Beaver IoT** platformu: backend, web, integrations ve Docker build.
+**PostgreSQL + Alarm + widget geliştirmeleri.** Tek repo, tek build, tek compose, tek `curl` ile ayağa kalkan yapı.
 
-## Yapı
+---
 
-| Klasör        | Açıklama |
-|---------------|----------|
-| `backend/`    | Beaver IoT API (Java/Spring, Alarm, t_alarm, PostgreSQL) |
-| `web/`        | Beaver IoT Web (React, ARIOT, PDF rapor, widget’lar) |
-| `integrations/` | ChirpStack v4 HTTP integration (JAR) ve diğer entegrasyonlar |
-| `build-docker/` | Dockerfile’lar, docker-compose, nginx, entrypoint |
-| `examples/`   | Örnek compose (ChirpStack, PostgreSQL, monolith, standalone) |
-| `scripts/`    | CI build, JAR, prebuilt, tag-push, vb. |
+## Tek komutla kurulum (Linux)
 
-## Gereksinimler
+```bash
+curl -sSL https://raw.githubusercontent.com/rifatsekerariot/platformariot/main/scripts/deploy-zero-touch.sh | sudo sh -s --
+```
 
-- Docker, Docker Compose
-- Maven 3.8+ (JAR yerel build için)
-- Node 20, pnpm (web yerel build için)
+- Docker yoksa kurar, `platformariot`'u clone eder, `examples/stack.yaml` ile **PostgreSQL + monolith** ayağa kaldırır.
+- **UI:** `http://<sunucu-ip>:9080`
+- Opsiyonel: `--workspace /opt/platformariot` `--skip-docker-install` `--postgres-password xxx` `--tenant-id xxx`
 
-## Hızlı başlangıç
+---
 
-1. ChirpStack JAR’ı derleyin:
-   ```bash
-   sh scripts/ci-build-jar.sh
-   ```
+## Yapı (sadeleştirilmiş)
 
-2. `build-docker/.env` oluşturun (`build-docker/.env.example` örnek).
+| Klasör | Açıklama |
+|--------|----------|
+| `backend/` | Beaver IoT API (Alarm, t_alarm, PostgreSQL migration) |
+| `web/` | Beaver IoT Web (Alarm widget, ARIOT, PDF rapor, diğer widget’lar) |
+| `integrations/` | ChirpStack JAR (monolith imajına gömülü; webhook isteğe bağlı) |
+| `build-docker/` | Dockerfile’lar, `docker-compose`, nginx |
+| `examples/stack.yaml` | **Tek compose:** PostgreSQL + monolith |
+| `scripts/` | `deploy-zero-touch.sh` (curl), `ci-build-jar`, `build-prebuilt`, `create-build-env`, `tag-push-ghcr`, `verify-*` |
 
-3. Görüntüleri derleyin (repo kökünden):
-   ```bash
-   cd build-docker
-   docker compose build
-   ```
+---
 
-4. Örnek compose ile çalıştırın:
-   ```bash
-   cd examples
-   docker compose -f chirpstack-prebuilt-postgres.yaml up -d
-   ```
+## Geliştirme ve build
 
-## CI
+1. **JAR (ChirpStack):** `sh scripts/ci-build-jar.sh`
+2. **.env:** `build-docker/.env` (`.env.example` örnek)
+3. **Build:** `cd build-docker && docker compose build`
+4. **Çalıştır:** `cd examples && docker compose -f stack.yaml up -d`
 
-`main`’e push’ta `.github/workflows/build-push-prebuilt.yaml` web, api ve monolith’i derleyip `ghcr.io/rifatsekerariot/beaver-iot` ve `ghcr.io/rifatsekerariot/beaver-iot-web`’e push eder.
+---
 
-## Lisans
+## CI/CD
 
-Bileşenlere ait lisanslar ilgili alt projelerde yer alır.
+- **Tek workflow:** `.github/workflows/build-push-prebuilt.yaml`
+- **Yapılan iş:** JAR → web + api + monolith build → PostgreSQL smoke test → `ghcr.io/rifatsekerariot/beaver-iot:latest` push
+- **Tetikleyen:** `main`’e push (backend, web, integrations, build-docker, scripts, examples)
+
+---
+
+## Sonraki geliştirmeler
+
+- Tüm değişiklikler bu repo üzerinden; `main` → Build workflow → imaj GHCR’da.
+- Alarm / widget / rapor: `backend/`, `web/`. ChirpStack: `integrations/`. Compose: `examples/stack.yaml`.

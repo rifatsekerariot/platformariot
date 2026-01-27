@@ -1,7 +1,5 @@
-# Beaver IoT Monolith + PostgreSQL + ChirpStack v4 (prebuilt image)
-#
-# Production-oriented: PostgreSQL, named volumes (veri ve log kalici).
-# H2 yerine PostgreSQL; ayni monolith imaji, sadece env farkli.
+# platformariot: PostgreSQL + Beaver IoT (Alarm, widget'lar). Tek compose.
+# Prebuilt: ghcr.io/rifatsekerariot/beaver-iot:latest (ChirpStack JAR dahil; webhook isteğe bağlı).
 #
 # Env (opsiyonel): BEAVER_IMAGE, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, CHIRPSTACK_DEFAULT_TENANT_ID
 

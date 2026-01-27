@@ -1,7 +1,0 @@
-services:
-  monolith:
-    container_name: beaver-iot
-    image: milesight/beaver-iot:latest
-    restart: always
-    ports:
-      - "80:80"
