@@ -9,7 +9,7 @@ import {
     LoadingWrapper,
 } from '@milesight/shared/src/components';
 import { objectToCamelCase, linkDownload, genRandomString } from '@milesight/shared/src/utils/tools';
-import { HoverSearchInput, TablePro, Tooltip } from '@/components';
+import { HoverSearchInput, TablePro, Tooltip, type ColumnType } from '@/components';
 import { toSixDecimals, openGoogleMap } from '@/components/drawing-board/plugin/utils';
 import { deviceAPI, awaitWrap, getResponseData, isRequestSuccess } from '@/services/http';
 
@@ -145,7 +145,6 @@ const AlarmList: React.FC = () => {
             },
             {
                 field: '$operation',
-                type: 'string',
                 headerName: getIntlText('common.label.operation'),
                 width: 100,
                 fixed: 'right',
@@ -174,7 +173,7 @@ const AlarmList: React.FC = () => {
                     </Stack>
                 ),
             },
-        ],
+        ] as ColumnType<any>[],
         [getIntlText, getTimeFormat, claimLoading, claimAlarm],
     );
 
