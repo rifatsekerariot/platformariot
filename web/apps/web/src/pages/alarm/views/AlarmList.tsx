@@ -145,6 +145,7 @@ const AlarmList: React.FC = () => {
             },
             {
                 field: '$operation',
+                type: 'string',
                 headerName: getIntlText('common.label.operation'),
                 width: 100,
                 fixed: 'right',
