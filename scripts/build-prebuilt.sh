@@ -1,13 +1,17 @@
 #!/bin/sh
 # Monorepo: build web (web/) + api (backend/) with local dockerfiles, push web to GHCR,
-# then build api + monolith. Monolith uses BASE_WEB_IMAGE=ghcr.io/.../beaver-iot-web.
+# then build api + monolith. Monolith uses BASE_WEB_IMAGE from .env.
 # Run from repo root. Expects { web/, backend/, build-docker/ }.
+#
+# Web image: ghcr.io/rifatsekerariot/platformariot-web (repo-specific name to avoid
+# GHCR permission_denied: write_package when beaver-iot-web is owned by another repo).
+# Override with WEB_GHCR_IMAGE env if needed.
 
 set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 BD="$ROOT/build-docker"
-WEB_GHCR="${WEB_GHCR_IMAGE:-ghcr.io/rifatsekerariot/beaver-iot-web:latest}"
+WEB_GHCR="${WEB_GHCR_IMAGE:-ghcr.io/rifatsekerariot/platformariot-web:latest}"
 
 cd "$ROOT"
 # 1. Web – beaver-iot-web-local.dockerfile (context: repo root, web/)
