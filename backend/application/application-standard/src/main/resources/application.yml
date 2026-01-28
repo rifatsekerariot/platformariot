@@ -25,6 +25,7 @@ spring:
       hibernate.type.wrapper_array_handling: ALLOW
       hibernate.naming.physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
   datasource:
+    # PostgreSQL (production): DB_TYPE=postgres + SPRING_DATASOURCE_* zorunlu. Yoksa H2 kullanilir (t_alarm yok, /alarms/search 500).
     #    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://192.168.45.115:5432/postgres}"
     #    username: "${SPRING_DATASOURCE_USERNAME:postgres}"
     #    password: "${SPRING_DATASOURCE_PASSWORD:postgres}"
@@ -237,7 +238,9 @@ blueprint:
   library:
     default_address:
       type: GITHUB
-      url: https://github.com/Milesight-IoT/beaver-iot-blueprint.git
+      # Oncelik: BLUEPRINT_LIBRARY_DEFAULT_ADDRESS_LOCAL_ZIP_FILE (platformariot/blueprint zip, imajda).
+      # url yalnizca local_zip yoksa kullanilir; platformariot kendi blueprint/ ile gelir.
+      url: https://github.com/rifatsekerariot/beaver-iot-blueprint.git
       branch: main
       local_zip_file: ${BLUEPRINT_LIBRARY_DEFAULT_ADDRESS_LOCAL_ZIP_FILE:}
     sync_frequency: 3h
