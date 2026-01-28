@@ -9,10 +9,14 @@ spring:
       - optional:classpath:entity-template.yml
   main:
     allow-bean-definition-overriding: true
+  mvc:
+    throw-exception-if-no-handler-found: true
   servlet:
     multipart:
       max-file-size: 5MB
       max-request-size: 10MB
+  resources:
+    add-mappings: false
   jackson:
     default-property-inclusion: non_null
     property-naming-strategy: SNAKE_CASE

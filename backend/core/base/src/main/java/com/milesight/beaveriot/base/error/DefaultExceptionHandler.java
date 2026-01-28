@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 /**
  * @author leon
@@ -24,6 +26,22 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 @ControllerAdvice
 @Slf4j
 public class DefaultExceptionHandler {
+
+    @ResponseBody
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public ResponseEntity<Object> noHandlerFoundException(NoHandlerFoundException e) {
+        log.warn("No handler found for {} {}", e.getHttpMethod(), e.getRequestURL());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ResponseBuilder.fail(ErrorCode.DATA_NO_FOUND.getErrorCode(), "No handler found for " + e.getHttpMethod() + " " + e.getRequestURL()));
+    }
+
+    @ResponseBody
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<Object> noResourceFoundException(NoResourceFoundException e) {
+        log.warn("No resource found: {}", e.getResourcePath());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ResponseBuilder.fail(ErrorCode.DATA_NO_FOUND.getErrorCode(), "No resource found: " + e.getResourcePath()));
+    }
 
     @ResponseBody
     @ExceptionHandler(InvalidFormatException.class)

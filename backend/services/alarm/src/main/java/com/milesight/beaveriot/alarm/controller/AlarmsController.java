@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/alarms")
+@RequestMapping(value = { "/alarms", "/api/v1/alarms" })
 @RequiredArgsConstructor
 public class AlarmsController {
 
