@@ -134,7 +134,9 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
             );
             if (err || !isRequestSuccess(resp)) return [];
             const d = getResponseData(resp);
-            return (objectToCamelCase(d)?.content || []) as { id: ApiKey; name: string }[];
+            if (d == null || typeof d !== 'object') return [];
+            const converted = objectToCamelCase(d) as { content?: { id: ApiKey; name: string }[] };
+            return converted?.content ?? [];
         },
         { manual: true },
     );
@@ -170,6 +172,10 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
         );
         return [...fromApi, ...fromSel];
     }, [deviceList, devices]);
+
+    const validateDevicesRequired = useMemoizedFn((v: { id: ApiKey; name: string }[] | undefined) =>
+        v?.length ? true : (getIntlText('common.placeholder.select') || 'Required'),
+    );
 
     const onSubmit: SubmitHandler<AlarmRuleFormValues> = useMemoizedFn(values => {
         onOk(values);
@@ -212,7 +218,7 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
                 <Controller
                     name="devices"
                     control={control}
-                    rules={{ validate: { checkRequired: (v: { id: ApiKey }[]) => (v?.length ? true : (getIntlText('common.placeholder.select') || 'Required') } } }}
+                    rules={{ validate: { checkRequired: validateDevicesRequired } }}
                     render={({ field, fieldState }) => (
                         <Autocomplete
                             multiple
@@ -263,8 +269,7 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
                                 <InputLabel>{getIntlText('alarm.rule_condition_op')}</InputLabel>
                                 <Select
                                     {...field}
-                                    label={getIntlText('alarm.rule_condition_op')}
-                                >
+                                    label={getIntlText('alarm.rule_condition_op')}>
                                     {CONDITION_OPS.map(o => (
                                         <MenuItem key={o.value} value={o.value}>
                                             {getIntlText(o.labelKey)}
@@ -371,4 +376,5 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
     );
 };
 
+export { OperateAlarmRuleModal };
 export default OperateAlarmRuleModal;
