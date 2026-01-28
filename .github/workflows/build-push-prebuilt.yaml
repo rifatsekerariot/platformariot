@@ -1,5 +1,6 @@
 # platformariot: Tek CI – PostgreSQL + Alarm + widget'lar. Imaj GHCR'a push.
 # backend/, web/, integrations/, build-docker/ yerel; git clone yok.
+# Tetikleme: push (main, paths) veya workflow_dispatch.
 
 name: Build
 
