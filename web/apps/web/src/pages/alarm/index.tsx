@@ -14,15 +14,17 @@ const AlarmPage: React.FC = () => {
     const [tab, setTab] = useState<TabValue>('list');
 
     return (
-        <Box className="alarm-page">
+        <div className="ms-main">
             <Breadcrumbs />
-            <Tabs value={tab} onChange={(_, v: TabValue) => setTab(v)} sx={{ mb: 2 }}>
-                <Tab label={getIntlText('alarm.tab_list') || 'Alarm listesi'} value="list" />
-                <Tab label={getIntlText('alarm.tab_rules') || 'Alarm kuralları'} value="rules" />
-            </Tabs>
-            {tab === 'list' && <AlarmList />}
-            {tab === 'rules' && <AlarmRules />}
-        </Box>
+            <div className="ms-view ms-view-alarm">
+                <Tabs value={tab} onChange={(_, v: TabValue) => setTab(v)} sx={{ mb: 2 }}>
+                    <Tab label={getIntlText('alarm.tab_list') || 'Alarm listesi'} value="list" />
+                    <Tab label={getIntlText('alarm.tab_rules') || 'Alarm kuralları'} value="rules" />
+                </Tabs>
+                {tab === 'list' && <AlarmList />}
+                {tab === 'rules' && <AlarmRules />}
+            </div>
+        </div>
     );
 };
 

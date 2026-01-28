@@ -1,12 +1,13 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useRequest, useMemoizedFn } from 'ahooks';
-import { Box, Stack, Select, MenuItem, FormControl, InputLabel, IconButton } from '@mui/material';
+import { Box, Stack, Select, MenuItem, FormControl, InputLabel, IconButton, Alert } from '@mui/material';
 import { useI18n, useTime } from '@milesight/shared/src/hooks';
 import {
     SaveAltIcon,
     CheckCircleOutlineIcon,
     NearMeOutlinedIcon,
     LoadingWrapper,
+    toast,
 } from '@milesight/shared/src/components';
 import { objectToCamelCase, linkDownload, genRandomString } from '@milesight/shared/src/utils/tools';
 import { HoverSearchInput, TablePro, Tooltip, type ColumnType } from '@/components';
@@ -14,6 +15,15 @@ import { toSixDecimals, openGoogleMap } from '@/components/drawing-board/plugin/
 import { deviceAPI, awaitWrap, getResponseData, isRequestSuccess } from '@/services/http';
 
 import './style.less';
+
+/** Error codes to ignore for alarm APIs (no global toast). authentication_failed is never ignored. */
+const ALARM_IGNORE_ERROR_CODES = [
+    'ERR_BAD_REQUEST',
+    'ERR_BAD_RESPONSE',
+    'ERR_NETWORK',
+    'ECONNABORTED',
+    'server_error',
+];
 
 type AlarmStatusFilter = 'all' | 'unclaimed' | 'claimed';
 
@@ -38,6 +48,7 @@ const AlarmList: React.FC = () => {
     const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
     const [exportLoading, setExportLoading] = useState(false);
     const [claimLoading, setClaimLoading] = useState<Record<string, boolean>>({});
+    const [listError, setListError] = useState<string | null>(null);
 
     const alarmStatusApi = useMemo((): boolean[] | undefined => {
         if (statusFilter === 'all') return undefined;
@@ -47,21 +58,27 @@ const AlarmList: React.FC = () => {
 
     const { loading, data, run: refreshList } = useRequest(
         async () => {
+            setListError(null);
             const [start, end] = getAlarmTimeRange(selectTime);
             const [error, resp] = await awaitWrap(
-                deviceAPI.getDeviceAlarms({
-                    keyword: keyword || undefined,
-                    device_ids: [],
-                    start_timestamp: start,
-                    end_timestamp: end,
-                    alarm_status: alarmStatusApi,
-                    page_number: paginationModel.page + 1,
-                    page_size: paginationModel.pageSize,
-                }),
+                deviceAPI.getDeviceAlarms(
+                    {
+                        keyword: keyword || undefined,
+                        device_ids: [],
+                        start_timestamp: start,
+                        end_timestamp: end,
+                        alarm_status: alarmStatusApi,
+                        page_number: paginationModel.page + 1,
+                        page_size: paginationModel.pageSize,
+                    },
+                    { $ignoreError: ALARM_IGNORE_ERROR_CODES },
+                ),
             );
+            const errCode = (error?.response?.data as ApiResponse)?.error_code ?? (resp?.data as ApiResponse)?.error_code;
+            if (errCode === 'authentication_failed') return;
             const d = getResponseData(resp);
             if (error || !isRequestSuccess(resp) || !d) {
-                if ((resp?.data as ApiResponse)?.error_code === 'authentication_failed') return;
+                setListError(getIntlText('alarm.message.load_failed') ?? 'Unable to load alarm list.');
                 return;
             }
             return objectToCamelCase(d);
@@ -74,17 +91,22 @@ const AlarmList: React.FC = () => {
             setExportLoading(true);
             const [start, end] = getAlarmTimeRange(selectTime);
             const [err, resp] = await awaitWrap(
-                deviceAPI.exportDeviceAlarms({
-                    start_timestamp: start,
-                    end_timestamp: end,
-                    device_ids: [],
-                    alarm_status: alarmStatusApi,
-                    keyword: keyword || undefined,
-                    timezone,
-                }),
+                deviceAPI.exportDeviceAlarms(
+                    {
+                        start_timestamp: start,
+                        end_timestamp: end,
+                        device_ids: [],
+                        alarm_status: alarmStatusApi,
+                        keyword: keyword || undefined,
+                        timezone,
+                    },
+                    { $ignoreError: ALARM_IGNORE_ERROR_CODES },
+                ),
             );
+            const errCode = (err?.response?.data as ApiResponse)?.error_code ?? (resp?.data as ApiResponse)?.error_code;
+            if (errCode === 'authentication_failed') return;
             if (err || !isRequestSuccess(resp)) {
-                if ((resp?.data as ApiResponse)?.error_code === 'authentication_failed') return;
+                toast.error(getIntlText('alarm.message.export_failed') ?? 'Export failed.');
                 return;
             }
             const blob = getResponseData(resp);
@@ -98,8 +120,16 @@ const AlarmList: React.FC = () => {
     const claimAlarm = useMemoizedFn(async (deviceId: ApiKey) => {
         try {
             setClaimLoading(prev => ({ ...prev, [String(deviceId)]: true }));
-            const [err, resp] = await awaitWrap(deviceAPI.claimDeviceAlarm({ device_id: deviceId }));
-            if (!err && isRequestSuccess(resp)) refreshList();
+            const [err, resp] = await awaitWrap(
+                deviceAPI.claimDeviceAlarm({ device_id: deviceId }, { $ignoreError: ALARM_IGNORE_ERROR_CODES }),
+            );
+            const errCode = (err?.response?.data as ApiResponse)?.error_code ?? (resp?.data as ApiResponse)?.error_code;
+            if (errCode === 'authentication_failed') return;
+            if (!err && isRequestSuccess(resp)) {
+                refreshList();
+            } else {
+                toast.error(getIntlText('alarm.message.claim_failed') ?? 'Claim failed.');
+            }
         } finally {
             setClaimLoading(prev => ({ ...prev, [String(deviceId)]: false }));
         }
@@ -230,6 +260,11 @@ const AlarmList: React.FC = () => {
                     </IconButton>
                 </LoadingWrapper>
             </Stack>
+            {listError && (
+                <Alert severity="warning" sx={{ mb: 2 }} onClose={() => setListError(null)}>
+                    {listError}
+                </Alert>
+            )}
             <TablePro
                 loading={loading}
                 columns={columns}

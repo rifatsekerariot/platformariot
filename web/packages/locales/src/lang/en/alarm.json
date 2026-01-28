@@ -28,5 +28,8 @@
     "alarm.rule_op_neq": "≠",
     "alarm.rule_op_between": "between",
     "alarm.rule_op_is_not_empty": "is not empty",
-    "alarm.rule_tip_no_backend": "Rules are stored locally. Backend API will be connected in a future release."
+    "alarm.rule_tip_no_backend": "Rules are stored locally. Backend API will be connected in a future release.",
+    "alarm.message.load_failed": "Unable to load alarm list. The alarm service may be unavailable.",
+    "alarm.message.export_failed": "Export failed. Please try again later.",
+    "alarm.message.claim_failed": "Claim failed. Please try again."
 }

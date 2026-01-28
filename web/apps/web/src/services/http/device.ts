@@ -333,10 +333,11 @@ export default attachAPI<DeviceAPISchema>(client, {
         getLocation: `GET ${API_PREFIX}/device/:id/location`,
         clearLocation: `POST ${API_PREFIX}/device/:id/clear-location`,
         getDeviceAlarms: `POST ${API_PREFIX}/alarms/search`,
-        async exportDeviceAlarms(params) {
+        async exportDeviceAlarms(params, options?) {
             const resp = await client.get(`${API_PREFIX}/alarms/export`, {
                 responseType: 'blob',
                 params,
+                ...options,
             });
 
             return resp;
