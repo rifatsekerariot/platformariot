@@ -9,7 +9,7 @@ import {
     pLimit,
 } from '@milesight/shared/src/utils/request';
 import { getCurrentComponentLang } from '@milesight/shared/src/services/i18n';
-import oauthHandler from './oauth-handler';
+import oauthHandler, { refreshAccessToken } from './oauth-handler';
 import errorHandler from './error-handler';
 
 /**
@@ -111,6 +111,27 @@ const client = createRequestClient({
         return error;
     },
 });
+
+// 401 retry: refresh token then retry once. Avoids "Full authentication is required" when token just expired.
+client.interceptors.response.use(
+    r => r,
+    async (err: AxiosError) => {
+        const resp = err.response;
+        const cfg = err.config as (AxiosRequestConfig & { _retried401?: boolean }) | undefined;
+        const code = (resp?.data as ApiResponse)?.error_code;
+        const isAuthFailed = resp?.status === 401 && code === 'authentication_failed';
+        const isOauth = !!cfg?.url?.includes?.('oauth2/token');
+
+        if (isAuthFailed && !isOauth && cfg && !cfg._retried401) {
+            cfg._retried401 = true;
+            const result = await refreshAccessToken();
+            if (result.ok) {
+                return client.request(cfg);
+            }
+        }
+        throw err;
+    },
+);
 
 const unauthClient = createRequestClient({
     baseURL: '/',

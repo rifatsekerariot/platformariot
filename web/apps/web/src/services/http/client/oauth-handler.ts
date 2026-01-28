@@ -7,7 +7,7 @@ import {
     REFRESH_TOKEN_TOPIC,
 } from '@milesight/shared/src/config';
 import eventEmitter from '@milesight/shared/src/utils/event-emitter';
-import { getResponseData } from '@milesight/shared/src/utils/request';
+import { getResponseData, isRequestSuccess } from '@milesight/shared/src/utils/request';
 import iotStorage, { TOKEN_CACHE_KEY } from '@milesight/shared/src/utils/storage';
 import { API_PREFIX } from './constant';
 
@@ -39,6 +39,57 @@ const genAuthorization = (token?: string) => {
 };
 
 /**
+ * Refresh access token (raw axios, no interceptors).
+ * On success: store new token, return { ok: true, access_token }.
+ * On failure: remove token, return { ok: false }.
+ */
+export async function refreshAccessToken(): Promise<
+    | { ok: true; access_token: string }
+    | { ok: false }
+> {
+    const token = iotStorage.getItem<TokenDataType>(TOKEN_CACHE_KEY);
+    if (!token?.access_token || !token?.refresh_token) {
+        return { ok: false };
+    }
+    const requestConfig = {
+        baseURL: apiOrigin || '/',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        withCredentials: true,
+    };
+    const requestData = new URLSearchParams({
+        refresh_token: token.refresh_token,
+        grant_type: 'refresh_token',
+        client_id: oauthClientID,
+        client_secret: oauthClientSecret,
+    }).toString();
+    try {
+        const resp = await axios.post<ApiResponse<TokenDataType>>(
+            tokenApiPath,
+            requestData,
+            requestConfig,
+        );
+        if (!isRequestSuccess(resp)) {
+            iotStorage.removeItem(TOKEN_CACHE_KEY);
+            return { ok: false };
+        }
+        const data = getResponseData(resp);
+        if (!data?.access_token) {
+            iotStorage.removeItem(TOKEN_CACHE_KEY);
+            return { ok: false };
+        }
+        (data as TokenDataType).expires_in = Date.now() + 60 * 60 * 1000;
+        iotStorage.setItem(TOKEN_CACHE_KEY, data as TokenDataType);
+        eventEmitter.publish(REFRESH_TOKEN_TOPIC);
+        return { ok: true, access_token: (data as TokenDataType).access_token };
+    } catch {
+        iotStorage.removeItem(TOKEN_CACHE_KEY);
+        return { ok: false };
+    }
+}
+
+/**
  * Token Processing Logic (Silent processing)
  *
  * 1. Check whether the token in the cache is valid. If yes, write the token into the request header
@@ -68,35 +119,7 @@ const oauthHandler = async (config: AxiosRequestConfig) => {
      */
     if (timer) window.clearTimeout(timer);
     timer = window.setTimeout(() => {
-        const requestConfig = {
-            baseURL: apiOrigin,
-            headers: {
-                Authorization: genAuthorization(token?.access_token),
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            withCredentials: true,
-        };
-        const requestData = {
-            refresh_token: token.refresh_token,
-            grant_type: 'refresh_token',
-            client_id: oauthClientID,
-            client_secret: oauthClientSecret,
-        };
-
-        axios
-            .post<ApiResponse<TokenDataType>>(tokenApiPath, requestData, requestConfig)
-            .then(resp => {
-                const data = getResponseData(resp)!;
-
-                // The token is refreshed every 60 minutes
-                data.expires_in = Date.now() + 60 * 60 * 1000;
-                iotStorage.setItem(TOKEN_CACHE_KEY, data);
-                eventEmitter.publish(REFRESH_TOKEN_TOPIC);
-            })
-            .catch(_ => {
-                // TODO: If the token is invalid, the token is directly removed
-                // iotStorage.removeItem(TOKEN_CACHE_KEY);
-            });
+        refreshAccessToken();
     }, REFRESH_TOKEN_TIMEOUT);
 
     return config;
