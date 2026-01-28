@@ -60,7 +60,10 @@ const AlarmList: React.FC = () => {
                 }),
             );
             const d = getResponseData(resp);
-            if (error || !isRequestSuccess(resp) || !d) return;
+            if (error || !isRequestSuccess(resp) || !d) {
+                if ((resp?.data as ApiResponse)?.error_code === 'authentication_failed') return;
+                return;
+            }
             return objectToCamelCase(d);
         },
         { debounceWait: 300, refreshDeps: [keyword, selectTime, alarmStatusApi, paginationModel] },
@@ -80,7 +83,10 @@ const AlarmList: React.FC = () => {
                     timezone,
                 }),
             );
-            if (err || !isRequestSuccess(resp)) return;
+            if (err || !isRequestSuccess(resp)) {
+                if ((resp?.data as ApiResponse)?.error_code === 'authentication_failed') return;
+                return;
+            }
             const blob = getResponseData(resp);
             const fileName = `AlarmData_${dayjs().format('YYYY_MM_DD')}_${genRandomString(6, { upperCase: false, lowerCase: true })}.csv`;
             linkDownload(blob!, fileName);

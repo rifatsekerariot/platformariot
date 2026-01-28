@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.core.OAuth2ErrorCodes;
 import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 /**
  * @author loong
@@ -27,6 +28,9 @@ public class CustomTokenCustomizer implements OAuth2TokenCustomizer<JwtEncodingC
         UserDTO userDTO = userFacade.getEnableUserByEmail(username);
         if (userDTO == null) {
             OAuth2EndpointUtils.throwError(OAuth2ErrorCodes.INVALID_REQUEST, "user not found.", null);
+        }
+        if (!StringUtils.hasText(userDTO.getTenantId())) {
+            OAuth2EndpointUtils.throwError(OAuth2ErrorCodes.INVALID_REQUEST, "tenantId is required for the user", null);
         }
         context.getClaims().claims(claims -> {
             claims.put(TenantContext.TENANT_ID, userDTO.getTenantId());

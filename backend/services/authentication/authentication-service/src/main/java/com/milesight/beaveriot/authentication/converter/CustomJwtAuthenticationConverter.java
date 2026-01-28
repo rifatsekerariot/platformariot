@@ -14,6 +14,7 @@ import org.springframework.security.oauth2.server.authorization.OAuth2Authorizat
 import org.springframework.security.oauth2.server.authorization.OAuth2TokenType;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
+import org.springframework.util.StringUtils;
 
 import java.util.Collection;
 import java.util.Map;
@@ -44,6 +45,9 @@ public class CustomJwtAuthenticationConverter implements Converter<Jwt, Abstract
 
         Map<String, Object> claims = jwt.getClaims();
         SecurityUser securityUser = SecurityUser.create(claims);
+        if (!StringUtils.hasText(securityUser.getTenantId())) {
+            OAuth2EndpointUtils.throwError(OAuth2ErrorCodes.INVALID_REQUEST, "tenantId is required in the access token", null);
+        }
         SecurityUserContext.setSecurityUser(securityUser);
 
         String principalClaimValue = jwt.getClaimAsString(this.principalClaimName);

@@ -18,11 +18,9 @@ try {
     $envOut = docker exec $MonolithContainer env 2>$null
     $dbType = ($envOut | Select-String "DB_TYPE=") -replace "DB_TYPE=",""
     $dsUrl  = ($envOut | Select-String "SPRING_DATASOURCE_URL=") -replace "SPRING_DATASOURCE_URL=",""
-    if ($dbType) { Write-Host "   DB_TYPE= $dbType" } else { Write-Host "   DB_TYPE= (ayarlanmamis; varsayilan H2 - t_alarm YOK, 500 olur)" -ForegroundColor Red }
-    if ($dsUrl)  { Write-Host "   SPRING_DATASOURCE_URL= $($dsUrl.Substring(0, [Math]::Min(60, $dsUrl.Length)))..." } else { Write-Host "   SPRING_DATASOURCE_URL= (ayarlanmamis)" -ForegroundColor Red }
-    if (-not $dbType -or $dbType -eq "h2") {
-        Write-Host "   UYARI: PostgreSQL kullanmak icin DB_TYPE=postgres ve SPRING_DATASOURCE_* gerekli. H2'de t_alarm yok." -ForegroundColor Red
-    }
+    if ($dbType) { Write-Host "   DB_TYPE= $dbType" } else { Write-Host "   DB_TYPE= (ayarlanmamis; varsayilan: postgres)" }
+    if ($dsUrl)  { Write-Host "   SPRING_DATASOURCE_URL= $($dsUrl.Substring(0, [Math]::Min(60, $dsUrl.Length)))..." } else { Write-Host "   SPRING_DATASOURCE_URL= (ayarlanmamis; PostgreSQL baglantisi gerekli)" -ForegroundColor Red }
+    if ($dbType -eq "h2") { Write-Host "   UYARI: H2 artik desteklenmiyor. Proje yalnizca PostgreSQL kullaniyor." -ForegroundColor Red }
 } catch {
     Write-Host "   Container env alinamadi: $($_.Exception.Message). Monolith ayakta mi?" -ForegroundColor Red
 }
@@ -36,8 +34,8 @@ try {
         $cnt = docker exec $PostgresContainer psql -U postgres -d postgres -t -c "SELECT count(*) FROM t_alarm;" 2>$null
         Write-Host "   t_alarm MEVCUT. Satir sayisi: $($cnt.Trim())" -ForegroundColor Green
     } else {
-        Write-Host "   t_alarm BULUNAMADI. Liquibase v1.4.0 (alarm.sql) calismamis veya DB_TYPE!=postgres." -ForegroundColor Red
-        Write-Host "   Cozum: DB_TYPE=postgres ile monolith'i yeniden baslatin; ilk acilista Liquibase t_alarm'i olusturur." -ForegroundColor Yellow
+        Write-Host "   t_alarm BULUNAMADI. Liquibase v1.4.0 (alarm.sql) calismamis." -ForegroundColor Red
+        Write-Host "   Cozum: Monolith'i yeniden baslatin; ilk acilista Liquibase t_alarm'i olusturur." -ForegroundColor Yellow
     }
 } catch {
     Write-Host "   Postgres kontrol edilemedi: $($_.Exception.Message). Container ayakta mi?" -ForegroundColor Red
@@ -54,7 +52,7 @@ try {
     if ($code -eq 401) { Write-Host "   HTTP 401 - Endpoint var, auth gerekli (normal)" -ForegroundColor Green }
     elseif ($code -eq 500) {
         Write-Host "   HTTP 500 - Sunucu hatasi." -ForegroundColor Red
-        Write-Host "   Olası nedenler: t_alarm yok (H2/eksik migration), 'tenantId is not provided' (TenantContext), veya baska exception. Monolith log: docker logs $MonolithContainer 2>&1 | tail -100" -ForegroundColor Yellow
+        Write-Host "   Olası nedenler: t_alarm yok (eksik migration), 'tenantId is not provided' (TenantContext), veya baska exception. Monolith log: docker logs $MonolithContainer 2>&1 | tail -100" -ForegroundColor Yellow
     }
     else { Write-Host "   HTTP $code - $($_.Exception.Message)" -ForegroundColor Red }
 }
@@ -62,7 +60,7 @@ Write-Host ""
 
 # 4) Ozet
 Write-Host "=== Ozet ===" -ForegroundColor Cyan
-Write-Host "- PostgreSQL kullanimi: DB_TYPE=postgres + SPRING_DATASOURCE_* (orn. examples/stack.yaml)."
+Write-Host "- Proje yalnizca PostgreSQL kullanir. SPRING_DATASOURCE_* (orn. examples/stack.yaml) gerekli."
 Write-Host "- t_alarm: db/postgres/sql/v1.4.0/alarm.sql, Liquibase ile ilk acilista olusur."
 Write-Host "- 500 'tenantId is not provided': giris yapilmis olmali; JWT tenant icermeli."
 Write-Host "- Monolith log: docker logs $MonolithContainer 2>&1 | Select-Object -Last 80"

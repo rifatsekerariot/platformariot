@@ -34,7 +34,8 @@ public class SecurityUser extends TenantId{
     }
 
     private static String getClaimAsString(Map<String, Object> jwtClaims, String nickName) {
-        return jwtClaims.containsKey(nickName) ? jwtClaims.get(nickName).toString() : null;
+        Object v = jwtClaims.get(nickName);
+        return (v != null && org.springframework.util.StringUtils.hasText(v.toString())) ? v.toString() : null;
     }
 
     private static Long getClaimAsLong(Map<String, Object> claims, String key) {

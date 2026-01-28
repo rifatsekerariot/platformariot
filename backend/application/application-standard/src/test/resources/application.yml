@@ -9,7 +9,7 @@ spring:
     allow-bean-definition-overriding: true
   liquibase:
     enabled: true
-    change-log: 'classpath*:db/${DB_TYPE:h2}/changelog.yaml'
+    change-log: 'classpath*:db/${DB_TYPE:postgres}/changelog.yaml'
   jackson:
     default-property-inclusion: non_null
     property-naming-strategy: SNAKE_CASE
@@ -22,14 +22,10 @@ spring:
   #      hibernate.hbm2ddl.auto: update
   #      hibernate.dialect: org.hibernate.dialect.H2Dialect
   datasource:
-    url: "${SPRING_DATASOURCE_URL:jdbc:h2:file:~/beaver-iot/h2/beaver-dev;AUTO_SERVER=TRUE}"
-    username: "${SPRING_DATASOURCE_USERNAME:sa}"
-    password: "${SPRING_DATASOURCE_PASSWORD:}"
-    driverClassName: "${SPRING_DRIVER_CLASS_NAME:org.h2.Driver}"
-  h2:
-    console:
-      enabled: ${SPRING_H2_CONSOLE_ENABLED:true}
-      path: /public/h2-console
+    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/beaver_test}"
+    username: "${SPRING_DATASOURCE_USERNAME:postgres}"
+    password: "${SPRING_DATASOURCE_PASSWORD:postgres}"
+    driverClassName: "${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.postgresql.Driver}"
   cache:
     #    type: caffeine
     #    cache-names: "demo:cache1,demo:oss:cache2"

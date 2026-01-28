@@ -20,7 +20,7 @@ public class SecurityUserContext {
 
     public static void setSecurityUser(SecurityUser securityUser) {
         securityUserThreadLocal.set(securityUser);
-        if (securityUser != null) {
+        if (securityUser != null && org.springframework.util.StringUtils.hasText(securityUser.getTenantId())) {
             TenantContext.setTenantId(securityUser.getTenantId());
         }
     }

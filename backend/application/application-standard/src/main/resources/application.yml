@@ -25,27 +25,17 @@ spring:
       hibernate.type.wrapper_array_handling: ALLOW
       hibernate.naming.physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
   datasource:
-    # PostgreSQL (production): DB_TYPE=postgres + SPRING_DATASOURCE_* zorunlu. Yoksa H2 kullanilir (t_alarm yok, /alarms/search 500).
-    #    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://192.168.45.115:5432/postgres}"
-    #    username: "${SPRING_DATASOURCE_USERNAME:postgres}"
-    #    password: "${SPRING_DATASOURCE_PASSWORD:postgres}"
-    #    driverClassName: "${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.postgresql.Driver}"
-    url: "${SPRING_DATASOURCE_URL:jdbc:h2:file:~/beaver-iot/h2/beaver;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}"
-    username: "${SPRING_DATASOURCE_USERNAME:sa}"
-    password: "${SPRING_DATASOURCE_PASSWORD:}"
-    driverClassName: "${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}"
+    # Proje yalnizca PostgreSQL kullanir. Ornek: SPRING_DATASOURCE_URL, USERNAME, PASSWORD, DRIVER_CLASS_NAME.
+    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}"
+    username: "${SPRING_DATASOURCE_USERNAME:postgres}"
+    password: "${SPRING_DATASOURCE_PASSWORD:postgres}"
+    driverClassName: "${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.postgresql.Driver}"
     hikari:
       connection-timeout: 5000
   liquibase:
     enabled: true
     contexts: init,dev,prod,test
-    change-log: 'classpath*:db/${DB_TYPE:h2}/changelog.yaml'
-  h2:
-    console:
-      enabled: ${SPRING_H2_CONSOLE_ENABLED:false}
-      path: /public/h2-console
-      settings:
-        webAllowOthers: true
+    change-log: 'classpath*:db/${DB_TYPE:postgres}/changelog.yaml'
   cache:
     #    type: caffeine
     #    cache-names: "resource:data-pre-sign"

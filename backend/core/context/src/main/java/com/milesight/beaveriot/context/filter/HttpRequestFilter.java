@@ -12,6 +12,8 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import org.springframework.util.StringUtils;
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -38,9 +40,12 @@ public class HttpRequestFilter implements Filter {
             if (user == null || user.isEmpty()) {
                 throw ServiceException.with(ErrorCode.AUTHENTICATION_FAILED).detailMessage("token is invalid").build();
             }
-            String tenantId = user.get(TenantContext.TENANT_ID).toString();
-            TenantContext.setTenantId(tenantId);
-        }else {
+            Object t = user.get(TenantContext.TENANT_ID);
+            if (t == null || !StringUtils.hasText(t.toString())) {
+                throw ServiceException.with(ErrorCode.AUTHENTICATION_FAILED).detailMessage("tenantId is missing").build();
+            }
+            TenantContext.setTenantId(t.toString());
+        } else {
             String tenantId = httpRequest.getParameter("tenantId");
             if (tenantId != null && !tenantId.isEmpty()) {
                 TenantContext.setTenantId(tenantId);
