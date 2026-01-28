@@ -1,0 +1,707 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: gpio_input_1
+        type: boolean
+        entity_mapping: gpio_input_1
+      - key: gpio_input_2
+        type: boolean
+        entity_mapping: gpio_input_2
+      - key: gpio_counter_1
+        type: long
+        entity_mapping: gpio_counter_1
+      - key: gpio_counter_2
+        type: long
+        entity_mapping: gpio_counter_2
+      - key: gpio_output_1
+        type: boolean
+        entity_mapping: gpio_output_1
+      - key: gpio_output_2
+        type: boolean
+        entity_mapping: gpio_output_2
+      - key: analog_input_1_type
+        type: long
+        entity_mapping: analog_input_1_type
+      - key: analog_input_1
+        type: double
+        entity_mapping: analog_input_1
+      - key: analog_input_1_max
+        type: double
+        entity_mapping: analog_input_1_max
+      - key: analog_input_1_min
+        type: double
+        entity_mapping: analog_input_1_min
+      - key: analog_input_1_avg
+        type: double
+        entity_mapping: analog_input_1_avg
+      - key: analog_input_1_alarm
+        type: long
+        entity_mapping: analog_input_1_alarm
+      - key: analog_input_2_type
+        type: long
+        entity_mapping: analog_input_2_type
+      - key: analog_input_2
+        type: double
+        entity_mapping: analog_input_2
+      - key: analog_input_2_max
+        type: double
+        entity_mapping: analog_input_2_max
+      - key: analog_input_2_min
+        type: double
+        entity_mapping: analog_input_2_min
+      - key: analog_input_2_avg
+        type: double
+        entity_mapping: analog_input_2_avg
+      - key: analog_input_2_alarm
+        type: long
+        entity_mapping: analog_input_2_alarm
+      - key: sid12
+        type: string
+        entity_mapping: sid12
+      - key: modbus_chn_1
+        type: double
+        entity_mapping: modbus_chn_1
+      - key: modbus_chn_2
+        type: double
+        entity_mapping: modbus_chn_2
+      - key: modbus_chn_3
+        type: double
+        entity_mapping: modbus_chn_3
+      - key: modbus_chn_4
+        type: double
+        entity_mapping: modbus_chn_4
+      - key: modbus_chn_5
+        type: double
+        entity_mapping: modbus_chn_5
+      - key: modbus_chn_6
+        type: double
+        entity_mapping: modbus_chn_6
+      - key: modbus_chn_7
+        type: double
+        entity_mapping: modbus_chn_7
+      - key: modbus_chn_8
+        type: double
+        entity_mapping: modbus_chn_8
+      - key: modbus_chn_9
+        type: double
+        entity_mapping: modbus_chn_9
+      - key: modbus_chn_10
+        type: double
+        entity_mapping: modbus_chn_10
+      - key: modbus_chn_11
+        type: double
+        entity_mapping: modbus_chn_11
+      - key: modbus_chn_12
+        type: double
+        entity_mapping: modbus_chn_12
+      - key: modbus_chn_13
+        type: double
+        entity_mapping: modbus_chn_13
+      - key: modbus_chn_14
+        type: double
+        entity_mapping: modbus_chn_14
+      - key: modbus_chn_15
+        type: double
+        entity_mapping: modbus_chn_15
+      - key: modbus_chn_16
+        type: double
+        entity_mapping: modbus_chn_16
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+  output:
+    type: object
+    properties:
+      - key: gpio_output_1
+        type: boolean
+        entity_mapping: gpio_output_1
+      - key: gpio_output_2
+        type: boolean
+        entity_mapping: gpio_output_2
+      - key: modbus_chn_1
+        type: double
+        entity_mapping: modbus_chn_1
+      - key: modbus_chn_2
+        type: double
+        entity_mapping: modbus_chn_2
+      - key: modbus_chn_3
+        type: double
+        entity_mapping: modbus_chn_3
+      - key: modbus_chn_4
+        type: double
+        entity_mapping: modbus_chn_4
+      - key: modbus_chn_5
+        type: double
+        entity_mapping: modbus_chn_5
+      - key: modbus_chn_6
+        type: double
+        entity_mapping: modbus_chn_6
+      - key: modbus_chn_7
+        type: double
+        entity_mapping: modbus_chn_7
+      - key: modbus_chn_8
+        type: double
+        entity_mapping: modbus_chn_8
+      - key: modbus_chn_9
+        type: double
+        entity_mapping: modbus_chn_9
+      - key: modbus_chn_10
+        type: double
+        entity_mapping: modbus_chn_10
+      - key: modbus_chn_11
+        type: double
+        entity_mapping: modbus_chn_11
+      - key: modbus_chn_12
+        type: double
+        entity_mapping: modbus_chn_12
+      - key: modbus_chn_13
+        type: double
+        entity_mapping: modbus_chn_13
+      - key: modbus_chn_14
+        type: double
+        entity_mapping: modbus_chn_14
+      - key: modbus_chn_15
+        type: double
+        entity_mapping: modbus_chn_15
+      - key: modbus_chn_16
+        type: double
+        entity_mapping: modbus_chn_16
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: timestamp
+        type: long
+        entity_mapping: timestamp
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: GPIO Input (Channel 1)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: gpio_input_1
+  - name: GPIO Input (Channel 2)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: gpio_input_2
+  - name: GPIO Counter (Channel 1)
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: gpio_counter_1
+  - name: GPIO Counter (Channel 2)
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: gpio_counter_2
+  - name: GPIO Output (Channel 1)
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: gpio_output_1
+  - name: GPIO Output (Channel 2)
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: gpio_output_2
+  - name: Analog Input Type (Channel 1)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': current
+        '1': voltage
+    identifier: analog_input_1_type
+  - name: Analog Input (Channel 1)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_1
+  - name: Analog Input Max (Channel 1)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_1_max
+  - name: Analog Input Min (Channel 1)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_1_min
+  - name: Analog Input Avg (Channel 1)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_1_avg
+  - name: Analog Input Alarm (Channel 1)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': threshold alarm
+        '2': value change alarm
+    identifier: analog_input_1_alarm
+  - name: Analog Input Type (Channel 2)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': current
+        '1': voltage
+    identifier: analog_input_2_type
+  - name: Analog Input (Channel 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_2
+  - name: Analog Input Max (Channel 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_2_max
+  - name: Analog Input Min (Channel 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_2_min
+  - name: Analog Input Avg (Channel 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: analog_input_2_avg
+  - name: Analog Input Alarm (Channel 2)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': threshold alarm
+        '2': value change alarm
+    identifier: analog_input_2_alarm
+  - name: SID-12
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 255
+    identifier: sid12
+  - name: Modbus Channel 1
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_1
+  - name: Modbus Channel 2
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_2
+  - name: Modbus Channel 3
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_3
+  - name: Modbus Channel 4
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_4
+  - name: Modbus Channel 5
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_5
+  - name: Modbus Channel 6
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_6
+  - name: Modbus Channel 7
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_7
+  - name: Modbus Channel 8
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_8
+  - name: Modbus Channel 9
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_9
+  - name: Modbus Channel 10
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_10
+  - name: Modbus Channel 11
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_11
+  - name: Modbus Channel 12
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_12
+  - name: Modbus Channel 13
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_13
+  - name: Modbus Channel 14
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_14
+  - name: Modbus Channel 15
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_15
+  - name: Modbus Channel 16
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_16
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: collection_interval
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: History (Timestamp)
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      unit: s
+    identifier: timestamp
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+codec:
+  id: default
+  ref: uc501/codec/device-codec.yaml

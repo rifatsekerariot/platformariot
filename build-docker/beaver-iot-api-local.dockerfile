@@ -9,6 +9,12 @@ ARG API_MVN_SNAPSHOT_REPO_URL=https://central.sonatype.com/repository/maven-snap
 
 WORKDIR /beaver-iot-api
 COPY backend/ .
+COPY blueprint/ /tmp/blueprint/
+
+# Blueprint: zip from repo (Milesight clone yok; platformariot/blueprint kendi icinde)
+RUN apt-get update -qq && apt-get install -y -qq zip \
+  && (cd /tmp/blueprint && zip -r /default_local_blueprint.zip .) \
+  && apt-get remove -y zip && rm -rf /var/lib/apt/lists/*
 
 RUN mvn package -U -Dmaven.repo.local=.m2/repository -P${API_MVN_PROFILE} \
   -Dsnapshot-repository-id=${API_MVN_SNAPSHOT_REPO_ID} \
@@ -17,6 +23,7 @@ RUN mvn package -U -Dmaven.repo.local=.m2/repository -P${API_MVN_PROFILE} \
 
 FROM amazoncorretto:17-alpine3.20-jdk AS api
 COPY --from=api-builder /beaver-iot-api/application/application-standard/target/application-standard-exec.jar /application.jar
+COPY --from=api-builder /default_local_blueprint.zip /default_local_blueprint.zip
 
 RUN apk add --no-cache fontconfig ttf-dejavu font-noto font-noto-cjk font-noto-emoji
 

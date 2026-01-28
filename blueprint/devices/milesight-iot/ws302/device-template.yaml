@@ -1,0 +1,433 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: freq_weight
+        type: long
+        entity_mapping: freq_weight
+      - key: time_weight
+        type: long
+        entity_mapping: time_weight
+      - key: LZeq
+        type: double
+        entity_mapping: LZeq
+      - key: LZI
+        type: double
+        entity_mapping: LZI
+      - key: LZImax
+        type: double
+        entity_mapping: LZImax
+      - key: LZF
+        type: double
+        entity_mapping: LZF
+      - key: LZFmax
+        type: double
+        entity_mapping: LZFmax
+      - key: LZS
+        type: double
+        entity_mapping: LZS
+      - key: LZSmax
+        type: double
+        entity_mapping: LZSmax
+      - key: LAeq
+        type: double
+        entity_mapping: LAeq
+      - key: LAI
+        type: double
+        entity_mapping: LAI
+      - key: LAImax
+        type: double
+        entity_mapping: LAImax
+      - key: LAF
+        type: double
+        entity_mapping: LAF
+      - key: LAFmax
+        type: double
+        entity_mapping: LAFmax
+      - key: LAS
+        type: double
+        entity_mapping: LAS
+      - key: LASmax
+        type: double
+        entity_mapping: LASmax
+      - key: LCeq
+        type: double
+        entity_mapping: LCeq
+      - key: LCI
+        type: double
+        entity_mapping: LCI
+      - key: LCImax
+        type: double
+        entity_mapping: LCImax
+      - key: LCF
+        type: double
+        entity_mapping: LCF
+      - key: LCFmax
+        type: double
+        entity_mapping: LCFmax
+      - key: LCS
+        type: double
+        entity_mapping: LCS
+      - key: LCSmax
+        type: double
+        entity_mapping: LCSmax
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: time_sync_enable
+        type: long
+        entity_mapping: time_sync_enable
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: time_sync_enable
+        type: long
+        entity_mapping: time_sync_enable
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Frequency Weight
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: freq_weight
+  - name: Time Weighting
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: time_weight
+  - name: LZeq
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LZeq
+  - name: LZI
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LZI
+  - name: LZImax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LZImax
+  - name: LZF
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LZF
+  - name: LZFmax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LZFmax
+  - name: LZS
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LZS
+  - name: LZSmax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LZSmax
+  - name: LAeq
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LAeq
+  - name: LAI
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LAI
+  - name: LAImax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LAImax
+  - name: LAF
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LAF
+  - name: LAFmax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LAFmax
+  - name: LAS
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LAS
+  - name: LASmax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LASmax
+  - name: LCeq
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LCeq
+  - name: LCI
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LCI
+  - name: LCImax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LCImax
+  - name: LCF
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LCF
+  - name: LCFmax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LCFmax
+  - name: LCS
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LCS
+  - name: LCSmax
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: dBA
+    identifier: LCSmax
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - name: Time Sync Enable
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': disable
+        '2': enable
+    identifier: time_sync_enable
+  - name: LED Indicator Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: led_indicator_enable
+codec:
+  id: default
+  ref: ws302/codec/device-codec.yaml

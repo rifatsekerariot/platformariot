@@ -1,0 +1,901 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: temperature_sensor_status
+        type: long
+        entity_mapping: temperature_sensor_status
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: humidity_alarm
+        type: long
+        entity_mapping: humidity_alarm
+      - key: humidity_sensor_status
+        type: long
+        entity_mapping: humidity_sensor_status
+      - key: people_total_counts
+        type: long
+        entity_mapping: people_total_counts
+      - key: region_1_enable
+        type: boolean
+        entity_mapping: region_1_enable
+      - key: region_1
+        type: long
+        entity_mapping: region_1
+      - key: region_2_enable
+        type: boolean
+        entity_mapping: region_2_enable
+      - key: region_2
+        type: long
+        entity_mapping: region_2
+      - key: region_3_enable
+        type: boolean
+        entity_mapping: region_3_enable
+      - key: region_3
+        type: long
+        entity_mapping: region_3
+      - key: region_4_enable
+        type: boolean
+        entity_mapping: region_4_enable
+      - key: region_4
+        type: long
+        entity_mapping: region_4
+      - key: region_5_enable
+        type: boolean
+        entity_mapping: region_5_enable
+      - key: region_5
+        type: long
+        entity_mapping: region_5
+      - key: region_6_enable
+        type: boolean
+        entity_mapping: region_6_enable
+      - key: region_6
+        type: long
+        entity_mapping: region_6
+      - key: region_7_enable
+        type: boolean
+        entity_mapping: region_7_enable
+      - key: region_7
+        type: long
+        entity_mapping: region_7
+      - key: region_8_enable
+        type: boolean
+        entity_mapping: region_8_enable
+      - key: region_8
+        type: long
+        entity_mapping: region_8
+      - key: region_9_enable
+        type: boolean
+        entity_mapping: region_9_enable
+      - key: region_9
+        type: long
+        entity_mapping: region_9
+      - key: region_10_enable
+        type: boolean
+        entity_mapping: region_10_enable
+      - key: region_10
+        type: long
+        entity_mapping: region_10
+      - key: illuminance_status
+        type: long
+        entity_mapping: illuminance_status
+      - key: detection_status
+        type: long
+        entity_mapping: detection_status
+      - key: timestamp
+        type: long
+        entity_mapping: timestamp
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_type
+        type: long
+        entity_mapping: report_type
+      - key: detection_mode
+        type: long
+        entity_mapping: detection_mode
+      - key: adr_enable
+        type: boolean
+        entity_mapping: adr_enable
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_alarm_config.lock_time
+        type: long
+        entity_mapping: temperature_alarm_config.lock_time
+      - key: temperature_alarm_config.continue_time
+        type: long
+        entity_mapping: temperature_alarm_config.continue_time
+      - key: humidity_alarm_config.condition
+        type: long
+        entity_mapping: humidity_alarm_config.condition
+      - key: humidity_alarm_config.threshold_min
+        type: double
+        entity_mapping: humidity_alarm_config.threshold_min
+      - key: humidity_alarm_config.threshold_max
+        type: double
+        entity_mapping: humidity_alarm_config.threshold_max
+      - key: humidity_alarm_config.lock_time
+        type: long
+        entity_mapping: humidity_alarm_config.lock_time
+      - key: humidity_alarm_config.continue_time
+        type: long
+        entity_mapping: humidity_alarm_config.continue_time
+      - key: illuminance_alarm_config.condition
+        type: long
+        entity_mapping: illuminance_alarm_config.condition
+      - key: illuminance_alarm_config.threshold_min
+        type: long
+        entity_mapping: illuminance_alarm_config.threshold_min
+      - key: illuminance_alarm_config.threshold_max
+        type: long
+        entity_mapping: illuminance_alarm_config.threshold_max
+      - key: illuminance_alarm_config.lock_time
+        type: long
+        entity_mapping: illuminance_alarm_config.lock_time
+      - key: illuminance_alarm_config.continue_time
+        type: long
+        entity_mapping: illuminance_alarm_config.continue_time
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: lora_port
+        type: long
+        entity_mapping: lora_port
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: detect
+        type: boolean
+        entity_mapping: detect
+      - key: reset
+        type: boolean
+        entity_mapping: reset
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_type
+        type: long
+        entity_mapping: report_type
+      - key: detection_mode
+        type: long
+        entity_mapping: detection_mode
+      - key: adr_enable
+        type: boolean
+        entity_mapping: adr_enable
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_alarm_config.lock_time
+        type: long
+        entity_mapping: temperature_alarm_config.lock_time
+      - key: temperature_alarm_config.continue_time
+        type: long
+        entity_mapping: temperature_alarm_config.continue_time
+      - key: humidity_alarm_config.condition
+        type: long
+        entity_mapping: humidity_alarm_config.condition
+      - key: humidity_alarm_config.threshold_min
+        type: double
+        entity_mapping: humidity_alarm_config.threshold_min
+      - key: humidity_alarm_config.threshold_max
+        type: double
+        entity_mapping: humidity_alarm_config.threshold_max
+      - key: humidity_alarm_config.lock_time
+        type: long
+        entity_mapping: humidity_alarm_config.lock_time
+      - key: humidity_alarm_config.continue_time
+        type: long
+        entity_mapping: humidity_alarm_config.continue_time
+      - key: illuminance_alarm_config.condition
+        type: long
+        entity_mapping: illuminance_alarm_config.condition
+      - key: illuminance_alarm_config.threshold_min
+        type: long
+        entity_mapping: illuminance_alarm_config.threshold_min
+      - key: illuminance_alarm_config.threshold_max
+        type: long
+        entity_mapping: illuminance_alarm_config.threshold_max
+      - key: illuminance_alarm_config.lock_time
+        type: long
+        entity_mapping: illuminance_alarm_config.lock_time
+      - key: illuminance_alarm_config.continue_time
+        type: long
+        entity_mapping: illuminance_alarm_config.continue_time
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+      - key: lora_port
+        type: long
+        entity_mapping: lora_port
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold_alarm_release
+        '1': threshold_alarm
+    identifier: temperature_alarm
+  - name: Temperature Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': over_range
+        '2': read_failed
+    identifier: temperature_sensor_status
+  - name: Humidity
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: '%r.h.'
+    identifier: humidity
+  - name: Humidity Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold_alarm_release
+        '1': threshold_alarm
+    identifier: humidity_alarm
+  - name: Humidity Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': over_range
+        '2': read_failed
+    identifier: humidity_sensor_status
+  - name: People Total Counts
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: people_total_counts
+  - name: Region 1 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_1_enable
+  - name: Region 1 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_1
+  - name: Region 2 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_2_enable
+  - name: Region 2 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_2
+  - name: Region 3 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_3_enable
+  - name: Region 3 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_3
+  - name: Region 4 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_4_enable
+  - name: Region 4 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_4
+  - name: Region 5 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_5_enable
+  - name: Region 5 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_5
+  - name: Region 6 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_6_enable
+  - name: Region 6 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_6
+  - name: Region 7 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_7_enable
+  - name: Region 7 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_7
+  - name: Region 8 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_8_enable
+  - name: Region 8 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_8
+  - name: Region 9 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_9_enable
+  - name: Region 9 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_9
+  - name: Region 10 (Enable)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: region_10_enable
+  - name: Region 10 (Status)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: region_10
+  - name: Illuminance Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': dim
+        '1': bright
+    identifier: illuminance_status
+  - name: Detection Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': unavailable
+    identifier: detection_status
+  - name: Timestamp
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: s
+    identifier: timestamp
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Detect
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: detect
+  - name: Reset
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reset
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: collection_interval
+  - name: Report Type
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': period
+        '1': immediately
+    identifier: report_type
+  - name: Detection Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': auto
+        '1': 'on'
+    identifier: detection_mode
+  - name: ADR Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: adr_enable
+  - identifier: temperature_alarm_config
+    name: Temperature Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Config (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Config (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+      - name: Temperature Alarm Config (Lock Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: lock_time
+      - name: Temperature Alarm Config (Continue Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: continue_time
+  - identifier: humidity_alarm_config
+    name: Humidity Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Humidity Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Humidity Alarm Config (Threshold Min)
+        value_type: double
+        attributes:
+          unit: '%r.h.'
+        identifier: threshold_min
+      - name: Humidity Alarm Config (Threshold Max)
+        value_type: double
+        attributes:
+          unit: '%r.h.'
+        identifier: threshold_max
+      - name: Humidity Alarm Config (Lock Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: lock_time
+      - name: Humidity Alarm Config (Continue Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: continue_time
+  - identifier: illuminance_alarm_config
+    name: Illuminance Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Illuminance Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Illuminance Alarm Config (Threshold Min)
+        value_type: long
+        attributes:
+          unit: lx
+        identifier: threshold_min
+      - name: Illuminance Alarm Config (Threshold Max)
+        value_type: long
+        attributes:
+          unit: lx
+        identifier: threshold_max
+      - name: Illuminance Alarm Config (Lock Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: lock_time
+      - name: Illuminance Alarm Config (Continue Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: continue_time
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+  - name: LoRa Port
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: lora_port
+codec:
+  id: default
+  ref: vs321/codec/device-codec.yaml

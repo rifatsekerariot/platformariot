@@ -1,0 +1,379 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: liquid
+        type: long
+        entity_mapping: liquid
+      - key: calibration_result
+        type: boolean
+        entity_mapping: calibration_result
+      - key: liquid_alarm
+        type: long
+        entity_mapping: liquid_alarm
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: alarm_config.enable
+        type: boolean
+        entity_mapping: alarm_config.enable
+      - key: alarm_config.alarm_release_enable
+        type: boolean
+        entity_mapping: alarm_config.alarm_release_enable
+      - key: alarm_config.alarm_interval
+        type: long
+        entity_mapping: alarm_config.alarm_interval
+      - key: alarm_config.alarm_counts
+        type: long
+        entity_mapping: alarm_config.alarm_counts
+      - key: capacitor_config.c1
+        type: long
+        entity_mapping: capacitor_config.c1
+      - key: capacitor_config.c2
+        type: long
+        entity_mapping: capacitor_config.c2
+      - key: capacitor_config.delta
+        type: long
+        entity_mapping: capacitor_config.delta
+      - key: capacitor_judge_config.c1
+        type: long
+        entity_mapping: capacitor_judge_config.c1
+      - key: capacitor_judge_config.c2
+        type: long
+        entity_mapping: capacitor_judge_config.c2
+      - key: capacitor_judge_config.delta
+        type: long
+        entity_mapping: capacitor_judge_config.delta
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: query_capacitor_calibration_value
+        type: boolean
+        entity_mapping: query_capacitor_calibration_value
+      - key: query_capacitor_value
+        type: boolean
+        entity_mapping: query_capacitor_value
+      - key: query_capacitor_judge_value
+        type: boolean
+        entity_mapping: query_capacitor_judge_value
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: alarm_config.enable
+        type: boolean
+        entity_mapping: alarm_config.enable
+      - key: alarm_config.alarm_release_enable
+        type: boolean
+        entity_mapping: alarm_config.alarm_release_enable
+      - key: alarm_config.alarm_interval
+        type: long
+        entity_mapping: alarm_config.alarm_interval
+      - key: alarm_config.alarm_counts
+        type: long
+        entity_mapping: alarm_config.alarm_counts
+      - key: calibrate
+        type: boolean
+        entity_mapping: calibrate
+      - key: calibrate_delay_time
+        type: long
+        entity_mapping: calibrate_delay_time
+      - key: capacitor_config.c1
+        type: long
+        entity_mapping: capacitor_config.c1
+      - key: capacitor_config.c2
+        type: long
+        entity_mapping: capacitor_config.c2
+      - key: capacitor_config.delta
+        type: long
+        entity_mapping: capacitor_config.delta
+      - key: capacitor_judge_config.c1
+        type: long
+        entity_mapping: capacitor_judge_config.c1
+      - key: capacitor_judge_config.c2
+        type: long
+        entity_mapping: capacitor_judge_config.c2
+      - key: capacitor_judge_config.delta
+        type: long
+        entity_mapping: capacitor_judge_config.delta
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Liquid
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': uncalibrated
+        '1': full
+        '2': empty
+    identifier: liquid
+  - name: Calibration Result
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': failed
+        'true': success
+    identifier: calibration_result
+  - name: Liquid Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': empty alarm release
+        '1': empty alarm
+        '255': read error
+    identifier: liquid_alarm
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Query Capacitor Calibration Value
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_capacitor_calibration_value
+  - name: Query Capacitor Value
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_capacitor_value
+  - name: Query Capacitor Judge Value
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_capacitor_judge_value
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: collection_interval
+  - identifier: alarm_config
+    name: Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Alarm Config (Alarm Release Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: alarm_release_enable
+      - name: Alarm Config (Alarm Interval)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: alarm_interval
+      - name: Alarm Config (Alarm Counts)
+        value_type: long
+        identifier: alarm_counts
+  - name: Calibrate
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: calibrate
+  - name: Calibrate Delay Time
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      unit: s
+    identifier: calibrate_delay_time
+  - identifier: capacitor_config
+    name: Capacitor Config (C1)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Capacitor Config (C1)
+        value_type: long
+        identifier: c1
+      - name: Capacitor Config (C2)
+        value_type: long
+        identifier: c2
+      - name: Capacitor Config (Delta)
+        value_type: long
+        identifier: delta
+  - identifier: capacitor_judge_config
+    name: Capacitor Judge Config (C1)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Capacitor Judge Config (C1)
+        value_type: long
+        identifier: c1
+      - name: Capacitor Judge Config (C2)
+        value_type: long
+        identifier: c2
+      - name: Capacitor Judge Config (Delta)
+        value_type: long
+        identifier: delta
+codec:
+  id: default
+  ref: em300_cl/codec/device-codec.yaml

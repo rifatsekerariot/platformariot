@@ -1,0 +1,28 @@
+codecs:
+  - id: default
+    decoder:
+      chain:
+        - script: em500_swl/codec/decoder.js
+          entry: Decode
+          args:
+            - id: fPort
+            - id: bytes
+              is_payload: true
+        - script: common/codec/flatten.js
+          entry: process
+          args:
+            - id: obj
+              is_payload: true
+    encoder:
+      chain:
+        - script: common/codec/unflatten.js
+          entry: process
+          args:
+            - id: obj
+              is_payload: true
+        - script: em500_swl/codec/encoder.js
+          entry: Encode
+          args:
+            - id: fPort
+            - id: obj
+              is_payload: true

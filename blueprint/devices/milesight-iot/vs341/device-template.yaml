@@ -1,0 +1,313 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: occupancy
+        type: boolean
+        entity_mapping: occupancy
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: vacancy_reporting_interval
+        type: long
+        entity_mapping: vacancy_reporting_interval
+      - key: pir_collect_settings.enable
+        type: boolean
+        entity_mapping: pir_collect_settings.enable
+      - key: pir_collect_settings.count
+        type: long
+        entity_mapping: pir_collect_settings.count
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: thermopile_collect_settings.enable
+        type: boolean
+        entity_mapping: thermopile_collect_settings.enable
+      - key: thermopile_collect_settings.separate
+        type: double
+        entity_mapping: thermopile_collect_settings.separate
+      - key: thermopile_collect_settings.threshold_l
+        type: double
+        entity_mapping: thermopile_collect_settings.threshold_l
+      - key: thermopile_collect_settings.threshold_h
+        type: double
+        entity_mapping: thermopile_collect_settings.threshold_h
+      - key: thermopile_negative_threshold
+        type: long
+        entity_mapping: thermopile_negative_threshold
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: vacancy_reporting_interval
+        type: long
+        entity_mapping: vacancy_reporting_interval
+      - key: pir_collect_settings.enable
+        type: boolean
+        entity_mapping: pir_collect_settings.enable
+      - key: pir_collect_settings.count
+        type: long
+        entity_mapping: pir_collect_settings.count
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: thermopile_collect_settings.enable
+        type: boolean
+        entity_mapping: thermopile_collect_settings.enable
+      - key: thermopile_collect_settings.separate
+        type: double
+        entity_mapping: thermopile_collect_settings.separate
+      - key: thermopile_collect_settings.threshold_l
+        type: double
+        entity_mapping: thermopile_collect_settings.threshold_l
+      - key: thermopile_collect_settings.threshold_h
+        type: double
+        entity_mapping: thermopile_collect_settings.threshold_h
+      - key: thermopile_negative_threshold
+        type: long
+        entity_mapping: thermopile_negative_threshold
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Occupancy
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': vacant
+        'true': occupied
+    identifier: occupancy
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: LED Indicator Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: led_indicator_enable
+  - name: Vacancy Reporting Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: vacancy_reporting_interval
+  - identifier: pir_collect_settings
+    name: PIR Collect Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PIR Collect Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: PIR Collect Settings (Count)
+        value_type: long
+        identifier: count
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - identifier: thermopile_collect_settings
+    name: Thermopile Collect Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Thermopile Collect Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Thermopile Collect Settings (Separate)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: separate
+      - name: Thermopile Collect Settings (Threshold L)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_l
+      - name: Thermopile Collect Settings (Threshold H)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_h
+  - name: Thermopile Negative Threshold
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: °C
+    identifier: thermopile_negative_threshold
+codec:
+  id: default
+  ref: vs341/codec/device-codec.yaml

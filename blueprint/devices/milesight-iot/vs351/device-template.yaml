@@ -1,0 +1,897 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: power_status
+        type: long
+        entity_mapping: power_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: total_in
+        type: long
+        entity_mapping: total_in
+      - key: total_out
+        type: long
+        entity_mapping: total_out
+      - key: period_in
+        type: long
+        entity_mapping: period_in
+      - key: period_out
+        type: long
+        entity_mapping: period_out
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: total_count_alarm
+        type: long
+        entity_mapping: total_count_alarm
+      - key: period_count_alarm
+        type: long
+        entity_mapping: period_count_alarm
+      - key: timestamp
+        type: long
+        entity_mapping: timestamp
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: installation_height
+        type: long
+        entity_mapping: installation_height
+      - key: reset_cumulative_enable
+        type: boolean
+        entity_mapping: reset_cumulative_enable
+      - key: reset_cumulative_schedule_config.weekday
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.weekday
+      - key: reset_cumulative_schedule_config.hour
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.hour
+      - key: reset_cumulative_schedule_config.minute
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.minute
+      - key: report_cumulative_enable
+        type: boolean
+        entity_mapping: report_cumulative_enable
+      - key: report_temperature_enable
+        type: boolean
+        entity_mapping: report_temperature_enable
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: detection_direction
+        type: long
+        entity_mapping: detection_direction
+      - key: hibernate_config.enable
+        type: boolean
+        entity_mapping: hibernate_config.enable
+      - key: hibernate_config.start_time
+        type: long
+        entity_mapping: hibernate_config.start_time
+      - key: hibernate_config.end_time
+        type: long
+        entity_mapping: hibernate_config.end_time
+      - key: people_period_alarm_config.condition
+        type: long
+        entity_mapping: people_period_alarm_config.condition
+      - key: people_period_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_out
+      - key: people_period_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_in
+      - key: people_cumulative_alarm_config.condition
+        type: long
+        entity_mapping: people_cumulative_alarm_config.condition
+      - key: people_cumulative_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_out
+      - key: people_cumulative_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_in
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: adr_enable
+        type: boolean
+        entity_mapping: adr_enable
+      - key: lora_port
+        type: long
+        entity_mapping: lora_port
+      - key: rejoin_config.enable
+        type: boolean
+        entity_mapping: rejoin_config.enable
+      - key: rejoin_config.max_count
+        type: long
+        entity_mapping: rejoin_config.max_count
+      - key: data_rate
+        type: long
+        entity_mapping: data_rate
+      - key: tx_power_level
+        type: long
+        entity_mapping: tx_power_level
+      - key: lorawan_version
+        type: long
+        entity_mapping: lorawan_version
+      - key: rx2_data_rate
+        type: long
+        entity_mapping: rx2_data_rate
+      - key: rx2_frequency
+        type: long
+        entity_mapping: rx2_frequency
+      - key: lora_join_mode
+        type: long
+        entity_mapping: lora_join_mode
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: report_type
+        type: long
+        entity_mapping: report_type
+      - key: installation_scene
+        type: long
+        entity_mapping: installation_scene
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: installation_height
+        type: long
+        entity_mapping: installation_height
+      - key: reset_cumulative_enable
+        type: boolean
+        entity_mapping: reset_cumulative_enable
+      - key: reset_cumulative_schedule_config.weekday
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.weekday
+      - key: reset_cumulative_schedule_config.hour
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.hour
+      - key: reset_cumulative_schedule_config.minute
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.minute
+      - key: reset_cumulative_in
+        type: boolean
+        entity_mapping: reset_cumulative_in
+      - key: reset_cumulative_out
+        type: boolean
+        entity_mapping: reset_cumulative_out
+      - key: report_cumulative_enable
+        type: boolean
+        entity_mapping: report_cumulative_enable
+      - key: report_temperature_enable
+        type: boolean
+        entity_mapping: report_temperature_enable
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: detection_direction
+        type: long
+        entity_mapping: detection_direction
+      - key: hibernate_config.enable
+        type: boolean
+        entity_mapping: hibernate_config.enable
+      - key: hibernate_config.start_time
+        type: long
+        entity_mapping: hibernate_config.start_time
+      - key: hibernate_config.end_time
+        type: long
+        entity_mapping: hibernate_config.end_time
+      - key: people_period_alarm_config.condition
+        type: long
+        entity_mapping: people_period_alarm_config.condition
+      - key: people_period_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_out
+      - key: people_period_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_in
+      - key: people_cumulative_alarm_config.condition
+        type: long
+        entity_mapping: people_cumulative_alarm_config.condition
+      - key: people_cumulative_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_out
+      - key: people_cumulative_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_in
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: adr_enable
+        type: boolean
+        entity_mapping: adr_enable
+      - key: lora_port
+        type: long
+        entity_mapping: lora_port
+      - key: rejoin_config.enable
+        type: boolean
+        entity_mapping: rejoin_config.enable
+      - key: rejoin_config.max_count
+        type: long
+        entity_mapping: rejoin_config.max_count
+      - key: data_rate
+        type: long
+        entity_mapping: data_rate
+      - key: tx_power_level
+        type: long
+        entity_mapping: tx_power_level
+      - key: lorawan_version
+        type: long
+        entity_mapping: lorawan_version
+      - key: rx2_data_rate
+        type: long
+        entity_mapping: rx2_data_rate
+      - key: rx2_frequency
+        type: long
+        entity_mapping: rx2_frequency
+      - key: lora_join_mode
+        type: long
+        entity_mapping: lora_join_mode
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: report_type
+        type: long
+        entity_mapping: report_type
+      - key: installation_scene
+        type: long
+        entity_mapping: installation_scene
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Power Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': battery supply
+        '1': external power supply
+        '2': battery charging
+    identifier: power_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: total_in
+  - name: Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: total_out
+  - name: Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: period_in
+  - name: Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: period_out
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+        '3': high temperature alarm
+        '4': high temperature alarm release
+    identifier: temperature_alarm
+  - name: Total Count Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+    identifier: total_count_alarm
+  - name: Period Count Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+    identifier: period_count_alarm
+  - name: Timestamp
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: s
+    identifier: timestamp
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Installation Height
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: mm
+    identifier: installation_height
+  - name: Clear Cumulative Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: reset_cumulative_enable
+  - identifier: reset_cumulative_schedule_config
+    name: Reset Cumulative Schedule Config (Weekday)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Reset Cumulative Schedule Config (Weekday)
+        value_type: long
+        attributes:
+          enum:
+            '0': everyday
+            '1': sunday
+            '2': monday
+            '3': tuesday
+            '4': wednesday
+            '5': thursday
+            '6': friday
+            '7': saturday
+        identifier: weekday
+      - name: Reset Cumulative Schedule Config (Hour)
+        value_type: long
+        attributes:
+          unit: h
+        identifier: hour
+      - name: Reset Cumulative Schedule Config (Minute)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: minute
+  - name: Reset Cumulative In
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reset_cumulative_in
+  - name: Reset Cumulative Out
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reset_cumulative_out
+  - name: Report Cumulative Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: report_cumulative_enable
+  - name: Report Temperature Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: report_temperature_enable
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration Settings (Calibration Value)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - name: Detection Direction
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': forward
+        '1': reverse
+    identifier: detection_direction
+  - identifier: hibernate_config
+    name: Hibernate Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Hibernate Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Hibernate Config (Start Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: start_time
+      - name: Hibernate Config (End Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: end_time
+  - identifier: people_period_alarm_config
+    name: Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Period People Alarm Config (Threshold Out)
+        value_type: long
+        identifier: threshold_out
+      - name: Period People Alarm Config (Threshold In)
+        value_type: long
+        identifier: threshold_in
+  - identifier: people_cumulative_alarm_config
+    name: Cumulative People Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Cumulative People Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Cumulative People Alarm Config (Threshold Min)
+        value_type: long
+        identifier: threshold_out
+      - name: Cumulative People Alarm Config (Threshold Max)
+        value_type: long
+        identifier: threshold_in
+  - identifier: temperature_alarm_config
+    name: Temperature Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Config (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Config (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - name: Confirm Mode Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: confirm_mode_enable
+  - name: ADR Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: adr_enable
+  - name: LoRa Port
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: lora_port
+  - identifier: rejoin_config
+    name: Rejoin Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Rejoin Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Rejoin Config (Max Count)
+        value_type: long
+        identifier: max_count
+  - name: Data Rate
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: data_rate
+  - name: TX Power Level
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: tx_power_level
+  - name: LoRaWAN Version
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '1': v1.0.2
+        '2': v1.0.3
+    identifier: lorawan_version
+  - name: RX2 Data Rate
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: rx2_data_rate
+  - name: RX2 Frequency
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: rx2_frequency
+  - name: LoRa Join Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': OTAA
+        '1': ABP
+    identifier: lora_join_mode
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - name: Report Type
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': period
+        '1': immediately
+    identifier: report_type
+  - name: Installation Scene
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': no_door_access
+        '1': door_controlled_access
+    identifier: installation_scene
+codec:
+  id: default
+  ref: vs351/codec/device-codec.yaml

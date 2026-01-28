@@ -1,0 +1,2156 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: modbus_chn_1
+        type: double
+        entity_mapping: modbus_chn_1
+      - key: modbus_chn_2
+        type: double
+        entity_mapping: modbus_chn_2
+      - key: modbus_chn_3
+        type: double
+        entity_mapping: modbus_chn_3
+      - key: modbus_chn_4
+        type: double
+        entity_mapping: modbus_chn_4
+      - key: modbus_chn_5
+        type: double
+        entity_mapping: modbus_chn_5
+      - key: modbus_chn_6
+        type: double
+        entity_mapping: modbus_chn_6
+      - key: modbus_chn_7
+        type: double
+        entity_mapping: modbus_chn_7
+      - key: modbus_chn_8
+        type: double
+        entity_mapping: modbus_chn_8
+      - key: modbus_chn_9
+        type: double
+        entity_mapping: modbus_chn_9
+      - key: modbus_chn_10
+        type: double
+        entity_mapping: modbus_chn_10
+      - key: modbus_chn_11
+        type: double
+        entity_mapping: modbus_chn_11
+      - key: modbus_chn_12
+        type: double
+        entity_mapping: modbus_chn_12
+      - key: modbus_chn_13
+        type: double
+        entity_mapping: modbus_chn_13
+      - key: modbus_chn_14
+        type: double
+        entity_mapping: modbus_chn_14
+      - key: modbus_chn_15
+        type: double
+        entity_mapping: modbus_chn_15
+      - key: modbus_chn_16
+        type: double
+        entity_mapping: modbus_chn_16
+      - key: modbus_chn_17
+        type: double
+        entity_mapping: modbus_chn_17
+      - key: modbus_chn_18
+        type: double
+        entity_mapping: modbus_chn_18
+      - key: modbus_chn_19
+        type: double
+        entity_mapping: modbus_chn_19
+      - key: modbus_chn_20
+        type: double
+        entity_mapping: modbus_chn_20
+      - key: modbus_chn_21
+        type: double
+        entity_mapping: modbus_chn_21
+      - key: modbus_chn_22
+        type: double
+        entity_mapping: modbus_chn_22
+      - key: modbus_chn_23
+        type: double
+        entity_mapping: modbus_chn_23
+      - key: modbus_chn_24
+        type: double
+        entity_mapping: modbus_chn_24
+      - key: modbus_chn_25
+        type: double
+        entity_mapping: modbus_chn_25
+      - key: modbus_chn_26
+        type: double
+        entity_mapping: modbus_chn_26
+      - key: modbus_chn_27
+        type: double
+        entity_mapping: modbus_chn_27
+      - key: modbus_chn_28
+        type: double
+        entity_mapping: modbus_chn_28
+      - key: modbus_chn_29
+        type: double
+        entity_mapping: modbus_chn_29
+      - key: modbus_chn_30
+        type: double
+        entity_mapping: modbus_chn_30
+      - key: modbus_chn_31
+        type: double
+        entity_mapping: modbus_chn_31
+      - key: modbus_chn_32
+        type: double
+        entity_mapping: modbus_chn_32
+      - key: modbus_chn_1_reg_2
+        type: double
+        entity_mapping: modbus_chn_1_reg_2
+      - key: modbus_chn_2_reg_2
+        type: double
+        entity_mapping: modbus_chn_2_reg_2
+      - key: modbus_chn_3_reg_2
+        type: double
+        entity_mapping: modbus_chn_3_reg_2
+      - key: modbus_chn_4_reg_2
+        type: double
+        entity_mapping: modbus_chn_4_reg_2
+      - key: modbus_chn_5_reg_2
+        type: double
+        entity_mapping: modbus_chn_5_reg_2
+      - key: modbus_chn_6_reg_2
+        type: double
+        entity_mapping: modbus_chn_6_reg_2
+      - key: modbus_chn_7_reg_2
+        type: double
+        entity_mapping: modbus_chn_7_reg_2
+      - key: modbus_chn_8_reg_2
+        type: double
+        entity_mapping: modbus_chn_8_reg_2
+      - key: modbus_chn_9_reg_2
+        type: double
+        entity_mapping: modbus_chn_9_reg_2
+      - key: modbus_chn_10_reg_2
+        type: double
+        entity_mapping: modbus_chn_10_reg_2
+      - key: modbus_chn_11_reg_2
+        type: double
+        entity_mapping: modbus_chn_11_reg_2
+      - key: modbus_chn_12_reg_2
+        type: double
+        entity_mapping: modbus_chn_12_reg_2
+      - key: modbus_chn_13_reg_2
+        type: double
+        entity_mapping: modbus_chn_13_reg_2
+      - key: modbus_chn_14_reg_2
+        type: double
+        entity_mapping: modbus_chn_14_reg_2
+      - key: modbus_chn_15_reg_2
+        type: double
+        entity_mapping: modbus_chn_15_reg_2
+      - key: modbus_chn_16_reg_2
+        type: double
+        entity_mapping: modbus_chn_16_reg_2
+      - key: modbus_chn_17_reg_2
+        type: double
+        entity_mapping: modbus_chn_17_reg_2
+      - key: modbus_chn_18_reg_2
+        type: double
+        entity_mapping: modbus_chn_18_reg_2
+      - key: modbus_chn_19_reg_2
+        type: double
+        entity_mapping: modbus_chn_19_reg_2
+      - key: modbus_chn_20_reg_2
+        type: double
+        entity_mapping: modbus_chn_20_reg_2
+      - key: modbus_chn_21_reg_2
+        type: double
+        entity_mapping: modbus_chn_21_reg_2
+      - key: modbus_chn_22_reg_2
+        type: double
+        entity_mapping: modbus_chn_22_reg_2
+      - key: modbus_chn_23_reg_2
+        type: double
+        entity_mapping: modbus_chn_23_reg_2
+      - key: modbus_chn_24_reg_2
+        type: double
+        entity_mapping: modbus_chn_24_reg_2
+      - key: modbus_chn_25_reg_2
+        type: double
+        entity_mapping: modbus_chn_25_reg_2
+      - key: modbus_chn_26_reg_2
+        type: double
+        entity_mapping: modbus_chn_26_reg_2
+      - key: modbus_chn_27_reg_2
+        type: double
+        entity_mapping: modbus_chn_27_reg_2
+      - key: modbus_chn_28_reg_2
+        type: double
+        entity_mapping: modbus_chn_28_reg_2
+      - key: modbus_chn_29_reg_2
+        type: double
+        entity_mapping: modbus_chn_29_reg_2
+      - key: modbus_chn_30_reg_2
+        type: double
+        entity_mapping: modbus_chn_30_reg_2
+      - key: modbus_chn_31_reg_2
+        type: double
+        entity_mapping: modbus_chn_31_reg_2
+      - key: modbus_chn_32_reg_2
+        type: double
+        entity_mapping: modbus_chn_32_reg_2
+      - key: modbus_chn_1_mutation
+        type: double
+        entity_mapping: modbus_chn_1_mutation
+      - key: modbus_chn_2_mutation
+        type: double
+        entity_mapping: modbus_chn_2_mutation
+      - key: modbus_chn_3_mutation
+        type: double
+        entity_mapping: modbus_chn_3_mutation
+      - key: modbus_chn_4_mutation
+        type: double
+        entity_mapping: modbus_chn_4_mutation
+      - key: modbus_chn_5_mutation
+        type: double
+        entity_mapping: modbus_chn_5_mutation
+      - key: modbus_chn_6_mutation
+        type: double
+        entity_mapping: modbus_chn_6_mutation
+      - key: modbus_chn_7_mutation
+        type: double
+        entity_mapping: modbus_chn_7_mutation
+      - key: modbus_chn_8_mutation
+        type: double
+        entity_mapping: modbus_chn_8_mutation
+      - key: modbus_chn_9_mutation
+        type: double
+        entity_mapping: modbus_chn_9_mutation
+      - key: modbus_chn_10_mutation
+        type: double
+        entity_mapping: modbus_chn_10_mutation
+      - key: modbus_chn_11_mutation
+        type: double
+        entity_mapping: modbus_chn_11_mutation
+      - key: modbus_chn_12_mutation
+        type: double
+        entity_mapping: modbus_chn_12_mutation
+      - key: modbus_chn_13_mutation
+        type: double
+        entity_mapping: modbus_chn_13_mutation
+      - key: modbus_chn_14_mutation
+        type: double
+        entity_mapping: modbus_chn_14_mutation
+      - key: modbus_chn_15_mutation
+        type: double
+        entity_mapping: modbus_chn_15_mutation
+      - key: modbus_chn_16_mutation
+        type: double
+        entity_mapping: modbus_chn_16_mutation
+      - key: modbus_chn_17_mutation
+        type: double
+        entity_mapping: modbus_chn_17_mutation
+      - key: modbus_chn_18_mutation
+        type: double
+        entity_mapping: modbus_chn_18_mutation
+      - key: modbus_chn_19_mutation
+        type: double
+        entity_mapping: modbus_chn_19_mutation
+      - key: modbus_chn_20_mutation
+        type: double
+        entity_mapping: modbus_chn_20_mutation
+      - key: modbus_chn_21_mutation
+        type: double
+        entity_mapping: modbus_chn_21_mutation
+      - key: modbus_chn_22_mutation
+        type: double
+        entity_mapping: modbus_chn_22_mutation
+      - key: modbus_chn_23_mutation
+        type: double
+        entity_mapping: modbus_chn_23_mutation
+      - key: modbus_chn_24_mutation
+        type: double
+        entity_mapping: modbus_chn_24_mutation
+      - key: modbus_chn_25_mutation
+        type: double
+        entity_mapping: modbus_chn_25_mutation
+      - key: modbus_chn_26_mutation
+        type: double
+        entity_mapping: modbus_chn_26_mutation
+      - key: modbus_chn_27_mutation
+        type: double
+        entity_mapping: modbus_chn_27_mutation
+      - key: modbus_chn_28_mutation
+        type: double
+        entity_mapping: modbus_chn_28_mutation
+      - key: modbus_chn_29_mutation
+        type: double
+        entity_mapping: modbus_chn_29_mutation
+      - key: modbus_chn_30_mutation
+        type: double
+        entity_mapping: modbus_chn_30_mutation
+      - key: modbus_chn_31_mutation
+        type: double
+        entity_mapping: modbus_chn_31_mutation
+      - key: modbus_chn_32_mutation
+        type: double
+        entity_mapping: modbus_chn_32_mutation
+      - key: modbus_chn_1_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_1_reg_2_mutation
+      - key: modbus_chn_2_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_2_reg_2_mutation
+      - key: modbus_chn_3_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_3_reg_2_mutation
+      - key: modbus_chn_4_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_4_reg_2_mutation
+      - key: modbus_chn_5_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_5_reg_2_mutation
+      - key: modbus_chn_6_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_6_reg_2_mutation
+      - key: modbus_chn_7_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_7_reg_2_mutation
+      - key: modbus_chn_8_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_8_reg_2_mutation
+      - key: modbus_chn_9_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_9_reg_2_mutation
+      - key: modbus_chn_10_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_10_reg_2_mutation
+      - key: modbus_chn_11_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_11_reg_2_mutation
+      - key: modbus_chn_12_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_12_reg_2_mutation
+      - key: modbus_chn_13_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_13_reg_2_mutation
+      - key: modbus_chn_14_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_14_reg_2_mutation
+      - key: modbus_chn_15_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_15_reg_2_mutation
+      - key: modbus_chn_16_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_16_reg_2_mutation
+      - key: modbus_chn_17_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_17_reg_2_mutation
+      - key: modbus_chn_18_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_18_reg_2_mutation
+      - key: modbus_chn_19_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_19_reg_2_mutation
+      - key: modbus_chn_20_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_20_reg_2_mutation
+      - key: modbus_chn_21_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_21_reg_2_mutation
+      - key: modbus_chn_22_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_22_reg_2_mutation
+      - key: modbus_chn_23_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_23_reg_2_mutation
+      - key: modbus_chn_24_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_24_reg_2_mutation
+      - key: modbus_chn_25_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_25_reg_2_mutation
+      - key: modbus_chn_26_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_26_reg_2_mutation
+      - key: modbus_chn_27_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_27_reg_2_mutation
+      - key: modbus_chn_28_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_28_reg_2_mutation
+      - key: modbus_chn_29_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_29_reg_2_mutation
+      - key: modbus_chn_30_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_30_reg_2_mutation
+      - key: modbus_chn_31_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_31_reg_2_mutation
+      - key: modbus_chn_32_reg_2_mutation
+        type: double
+        entity_mapping: modbus_chn_32_reg_2_mutation
+      - key: custom_message
+        type: string
+        entity_mapping: custom_message
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: modbus_serial_port_config.baud_rate
+        type: long
+        entity_mapping: modbus_serial_port_config.baud_rate
+      - key: modbus_serial_port_config.data_bits
+        type: long
+        entity_mapping: modbus_serial_port_config.data_bits
+      - key: modbus_serial_port_config.stop_bits
+        type: long
+        entity_mapping: modbus_serial_port_config.stop_bits
+      - key: modbus_serial_port_config.parity
+        type: long
+        entity_mapping: modbus_serial_port_config.parity
+      - key: modbus_config.exec_interval
+        type: long
+        entity_mapping: modbus_config.exec_interval
+      - key: modbus_config.max_response_time
+        type: long
+        entity_mapping: modbus_config.max_response_time
+      - key: modbus_config.retry_times
+        type: long
+        entity_mapping: modbus_config.retry_times
+      - key: modbus_config.pass_through_enable
+        type: boolean
+        entity_mapping: modbus_config.pass_through_enable
+      - key: modbus_config.pass_through_direct
+        type: boolean
+        entity_mapping: modbus_config.pass_through_direct
+      - key: modbus_config.pass_through_port
+        type: long
+        entity_mapping: modbus_config.pass_through_port
+      - key: retransmit_config.enable
+        type: boolean
+        entity_mapping: retransmit_config.enable
+      - key: retransmit_config.interval
+        type: long
+        entity_mapping: retransmit_config.interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: modbus_serial_port_config.baud_rate
+        type: long
+        entity_mapping: modbus_serial_port_config.baud_rate
+      - key: modbus_serial_port_config.data_bits
+        type: long
+        entity_mapping: modbus_serial_port_config.data_bits
+      - key: modbus_serial_port_config.stop_bits
+        type: long
+        entity_mapping: modbus_serial_port_config.stop_bits
+      - key: modbus_serial_port_config.parity
+        type: long
+        entity_mapping: modbus_serial_port_config.parity
+      - key: modbus_config.exec_interval
+        type: long
+        entity_mapping: modbus_config.exec_interval
+      - key: modbus_config.max_response_time
+        type: long
+        entity_mapping: modbus_config.max_response_time
+      - key: modbus_config.retry_times
+        type: long
+        entity_mapping: modbus_config.retry_times
+      - key: modbus_config.pass_through_enable
+        type: boolean
+        entity_mapping: modbus_config.pass_through_enable
+      - key: modbus_config.pass_through_direct
+        type: boolean
+        entity_mapping: modbus_config.pass_through_direct
+      - key: modbus_config.pass_through_port
+        type: long
+        entity_mapping: modbus_config.pass_through_port
+      - key: query_modbus_serial_port_config
+        type: boolean
+        entity_mapping: query_modbus_serial_port_config
+      - key: query_modbus_config
+        type: boolean
+        entity_mapping: query_modbus_config
+      - key: retransmit_config.enable
+        type: boolean
+        entity_mapping: retransmit_config.enable
+      - key: retransmit_config.interval
+        type: long
+        entity_mapping: retransmit_config.interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: batch_enable_rules.rule_1
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_1
+      - key: batch_enable_rules.rule_2
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_2
+      - key: batch_enable_rules.rule_3
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_3
+      - key: batch_enable_rules.rule_4
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_4
+      - key: batch_enable_rules.rule_5
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_5
+      - key: batch_enable_rules.rule_6
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_6
+      - key: batch_enable_rules.rule_7
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_7
+      - key: batch_enable_rules.rule_8
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_8
+      - key: batch_enable_rules.rule_9
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_9
+      - key: batch_enable_rules.rule_10
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_10
+      - key: batch_enable_rules.rule_11
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_11
+      - key: batch_enable_rules.rule_12
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_12
+      - key: batch_enable_rules.rule_13
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_13
+      - key: batch_enable_rules.rule_14
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_14
+      - key: batch_enable_rules.rule_15
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_15
+      - key: batch_enable_rules.rule_16
+        type: boolean
+        entity_mapping: batch_enable_rules.rule_16
+      - key: batch_disable_rules.rule_1
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_1
+      - key: batch_disable_rules.rule_2
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_2
+      - key: batch_disable_rules.rule_3
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_3
+      - key: batch_disable_rules.rule_4
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_4
+      - key: batch_disable_rules.rule_5
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_5
+      - key: batch_disable_rules.rule_6
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_6
+      - key: batch_disable_rules.rule_7
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_7
+      - key: batch_disable_rules.rule_8
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_8
+      - key: batch_disable_rules.rule_9
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_9
+      - key: batch_disable_rules.rule_10
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_10
+      - key: batch_disable_rules.rule_11
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_11
+      - key: batch_disable_rules.rule_12
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_12
+      - key: batch_disable_rules.rule_13
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_13
+      - key: batch_disable_rules.rule_14
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_14
+      - key: batch_disable_rules.rule_15
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_15
+      - key: batch_disable_rules.rule_16
+        type: boolean
+        entity_mapping: batch_disable_rules.rule_16
+      - key: batch_remove.rule_1
+        type: boolean
+        entity_mapping: batch_remove.rule_1
+      - key: batch_remove.rule_2
+        type: boolean
+        entity_mapping: batch_remove.rule_2
+      - key: batch_remove.rule_3
+        type: boolean
+        entity_mapping: batch_remove.rule_3
+      - key: batch_remove.rule_4
+        type: boolean
+        entity_mapping: batch_remove.rule_4
+      - key: batch_remove.rule_5
+        type: boolean
+        entity_mapping: batch_remove.rule_5
+      - key: batch_remove.rule_6
+        type: boolean
+        entity_mapping: batch_remove.rule_6
+      - key: batch_remove.rule_7
+        type: boolean
+        entity_mapping: batch_remove.rule_7
+      - key: batch_remove.rule_8
+        type: boolean
+        entity_mapping: batch_remove.rule_8
+      - key: batch_remove.rule_9
+        type: boolean
+        entity_mapping: batch_remove.rule_9
+      - key: batch_remove.rule_10
+        type: boolean
+        entity_mapping: batch_remove.rule_10
+      - key: batch_remove.rule_11
+        type: boolean
+        entity_mapping: batch_remove.rule_11
+      - key: batch_remove.rule_12
+        type: boolean
+        entity_mapping: batch_remove.rule_12
+      - key: batch_remove.rule_13
+        type: boolean
+        entity_mapping: batch_remove.rule_13
+      - key: batch_remove.rule_14
+        type: boolean
+        entity_mapping: batch_remove.rule_14
+      - key: batch_remove.rule_15
+        type: boolean
+        entity_mapping: batch_remove.rule_15
+      - key: batch_remove.rule_16
+        type: boolean
+        entity_mapping: batch_remove.rule_16
+      - key: query_rule_config
+        type: long
+        entity_mapping: query_rule_config
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Modbus Channel 1
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_1
+  - name: Modbus Channel 2
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_2
+  - name: Modbus Channel 3
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_3
+  - name: Modbus Channel 4
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_4
+  - name: Modbus Channel 5
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_5
+  - name: Modbus Channel 6
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_6
+  - name: Modbus Channel 7
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_7
+  - name: Modbus Channel 8
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_8
+  - name: Modbus Channel 9
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_9
+  - name: Modbus Channel 10
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_10
+  - name: Modbus Channel 11
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_11
+  - name: Modbus Channel 12
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_12
+  - name: Modbus Channel 13
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_13
+  - name: Modbus Channel 14
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_14
+  - name: Modbus Channel 15
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_15
+  - name: Modbus Channel 16
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_16
+  - name: Modbus Channel 17
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_17
+  - name: Modbus Channel 18
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_18
+  - name: Modbus Channel 19
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_19
+  - name: Modbus Channel 20
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_20
+  - name: Modbus Channel 21
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_21
+  - name: Modbus Channel 22
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_22
+  - name: Modbus Channel 23
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_23
+  - name: Modbus Channel 24
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_24
+  - name: Modbus Channel 25
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_25
+  - name: Modbus Channel 26
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_26
+  - name: Modbus Channel 27
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_27
+  - name: Modbus Channel 28
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_28
+  - name: Modbus Channel 29
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_29
+  - name: Modbus Channel 30
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_30
+  - name: Modbus Channel 31
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_31
+  - name: Modbus Channel 32
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_32
+  - name: Modbus Channel 1 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_1_reg_2
+  - name: Modbus Channel 2 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_2_reg_2
+  - name: Modbus Channel 3 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_3_reg_2
+  - name: Modbus Channel 4 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_4_reg_2
+  - name: Modbus Channel 5 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_5_reg_2
+  - name: Modbus Channel 6 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_6_reg_2
+  - name: Modbus Channel 7 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_7_reg_2
+  - name: Modbus Channel 8 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_8_reg_2
+  - name: Modbus Channel 9 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_9_reg_2
+  - name: Modbus Channel 10 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_10_reg_2
+  - name: Modbus Channel 11 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_11_reg_2
+  - name: Modbus Channel 12 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_12_reg_2
+  - name: Modbus Channel 13 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_13_reg_2
+  - name: Modbus Channel 14 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_14_reg_2
+  - name: Modbus Channel 15 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_15_reg_2
+  - name: Modbus Channel 16 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_16_reg_2
+  - name: Modbus Channel 17 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_17_reg_2
+  - name: Modbus Channel 18 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_18_reg_2
+  - name: Modbus Channel 19 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_19_reg_2
+  - name: Modbus Channel 20 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_20_reg_2
+  - name: Modbus Channel 21 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_21_reg_2
+  - name: Modbus Channel 22 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_22_reg_2
+  - name: Modbus Channel 23 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_23_reg_2
+  - name: Modbus Channel 24 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_24_reg_2
+  - name: Modbus Channel 25 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_25_reg_2
+  - name: Modbus Channel 26 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_26_reg_2
+  - name: Modbus Channel 27 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_27_reg_2
+  - name: Modbus Channel 28 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_28_reg_2
+  - name: Modbus Channel 29 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_29_reg_2
+  - name: Modbus Channel 30 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_30_reg_2
+  - name: Modbus Channel 31 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_31_reg_2
+  - name: Modbus Channel 32 (Register 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_32_reg_2
+  - name: Modbus Channel 1 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_1_mutation
+  - name: Modbus Channel 2 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_2_mutation
+  - name: Modbus Channel 3 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_3_mutation
+  - name: Modbus Channel 4 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_4_mutation
+  - name: Modbus Channel 5 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_5_mutation
+  - name: Modbus Channel 6 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_6_mutation
+  - name: Modbus Channel 7 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_7_mutation
+  - name: Modbus Channel 8 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_8_mutation
+  - name: Modbus Channel 9 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_9_mutation
+  - name: Modbus Channel 10 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_10_mutation
+  - name: Modbus Channel 11 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_11_mutation
+  - name: Modbus Channel 12 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_12_mutation
+  - name: Modbus Channel 13 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_13_mutation
+  - name: Modbus Channel 14 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_14_mutation
+  - name: Modbus Channel 15 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_15_mutation
+  - name: Modbus Channel 16 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_16_mutation
+  - name: Modbus Channel 17 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_17_mutation
+  - name: Modbus Channel 18 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_18_mutation
+  - name: Modbus Channel 19 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_19_mutation
+  - name: Modbus Channel 20 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_20_mutation
+  - name: Modbus Channel 21 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_21_mutation
+  - name: Modbus Channel 22 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_22_mutation
+  - name: Modbus Channel 23 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_23_mutation
+  - name: Modbus Channel 24 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_24_mutation
+  - name: Modbus Channel 25 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_25_mutation
+  - name: Modbus Channel 26 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_26_mutation
+  - name: Modbus Channel 27 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_27_mutation
+  - name: Modbus Channel 28 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_28_mutation
+  - name: Modbus Channel 29 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_29_mutation
+  - name: Modbus Channel 30 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_30_mutation
+  - name: Modbus Channel 31 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_31_mutation
+  - name: Modbus Channel 32 (Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_32_mutation
+  - name: Modbus Channel 1 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_1_reg_2_mutation
+  - name: Modbus Channel 2 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_2_reg_2_mutation
+  - name: Modbus Channel 3 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_3_reg_2_mutation
+  - name: Modbus Channel 4 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_4_reg_2_mutation
+  - name: Modbus Channel 5 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_5_reg_2_mutation
+  - name: Modbus Channel 6 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_6_reg_2_mutation
+  - name: Modbus Channel 7 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_7_reg_2_mutation
+  - name: Modbus Channel 8 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_8_reg_2_mutation
+  - name: Modbus Channel 9 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_9_reg_2_mutation
+  - name: Modbus Channel 10 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_10_reg_2_mutation
+  - name: Modbus Channel 11 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_11_reg_2_mutation
+  - name: Modbus Channel 12 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_12_reg_2_mutation
+  - name: Modbus Channel 13 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_13_reg_2_mutation
+  - name: Modbus Channel 14 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_14_reg_2_mutation
+  - name: Modbus Channel 15 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_15_reg_2_mutation
+  - name: Modbus Channel 16 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_16_reg_2_mutation
+  - name: Modbus Channel 17 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_17_reg_2_mutation
+  - name: Modbus Channel 18 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_18_reg_2_mutation
+  - name: Modbus Channel 19 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_19_reg_2_mutation
+  - name: Modbus Channel 20 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_20_reg_2_mutation
+  - name: Modbus Channel 21 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_21_reg_2_mutation
+  - name: Modbus Channel 22 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_22_reg_2_mutation
+  - name: Modbus Channel 23 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_23_reg_2_mutation
+  - name: Modbus Channel 24 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_24_reg_2_mutation
+  - name: Modbus Channel 25 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_25_reg_2_mutation
+  - name: Modbus Channel 26 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_26_reg_2_mutation
+  - name: Modbus Channel 27 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_27_reg_2_mutation
+  - name: Modbus Channel 28 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_28_reg_2_mutation
+  - name: Modbus Channel 29 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_29_reg_2_mutation
+  - name: Modbus Channel 30 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_30_reg_2_mutation
+  - name: Modbus Channel 31 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_31_reg_2_mutation
+  - name: Modbus Channel 32 (Register 2 Mutation)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: modbus_chn_32_reg_2_mutation
+  - name: Custom Message
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 255
+    identifier: custom_message
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Confirm Mode Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: confirm_mode_enable
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - identifier: dst_config
+    name: Daylight Saving Time (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Daylight Saving Time (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Daylight Saving Time (Offset)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: offset
+      - name: Daylight Saving Time (Start Month)
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: start_month
+      - name: Daylight Saving Time (Start Week Number)
+        value_type: long
+        identifier: start_week_num
+      - name: Daylight Saving Time (Start Week Day)
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: start_week_day
+      - name: Daylight Saving Time (Start Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: start_time
+      - name: Daylight Saving Time (End Month)
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: end_month
+      - name: Daylight Saving Time (End Week Number)
+        value_type: long
+        identifier: end_week_num
+      - name: Daylight Saving Time (End Week Day)
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: end_week_day
+      - name: Daylight Saving Time (End Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: end_time
+  - identifier: modbus_serial_port_config
+    name: Modbus Serial Port Config (Baud Rate)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Modbus Serial Port Config (Baud Rate)
+        value_type: long
+        identifier: baud_rate
+      - name: Modbus Serial Port Config (Data Bits)
+        value_type: long
+        identifier: data_bits
+      - name: Modbus Serial Port Config (Stop Bits)
+        value_type: long
+        identifier: stop_bits
+      - name: Modbus Serial Port Config (Parity)
+        value_type: long
+        identifier: parity
+  - identifier: modbus_config
+    name: Modbus Config (Exec Interval)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Modbus Config (Exec Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: exec_interval
+      - name: Modbus Config (Max Response Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: max_response_time
+      - name: Modbus Config (Retry Times)
+        value_type: long
+        identifier: retry_times
+      - name: Modbus Config (Pass Through Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: pass_through_enable
+      - name: Modbus Config (Pass Through Direct)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': active
+            'true': bidirectional
+        identifier: pass_through_direct
+      - name: Modbus Config (Pass Through Port)
+        value_type: long
+        identifier: pass_through_port
+  - name: Query Modbus Serial Port Config
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_modbus_serial_port_config
+  - name: Query Modbus Config
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_modbus_config
+  - identifier: retransmit_config
+    name: Retransmit Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Retransmit Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Retransmit Config (Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - identifier: batch_enable_rules
+    name: Batch Enable Rules (Rule 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Batch Enable Rules (Rule 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_1
+      - name: Batch Enable Rules (Rule 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_2
+      - name: Batch Enable Rules (Rule 3)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_3
+      - name: Batch Enable Rules (Rule 4)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_4
+      - name: Batch Enable Rules (Rule 5)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_5
+      - name: Batch Enable Rules (Rule 6)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_6
+      - name: Batch Enable Rules (Rule 7)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_7
+      - name: Batch Enable Rules (Rule 8)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_8
+      - name: Batch Enable Rules (Rule 9)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_9
+      - name: Batch Enable Rules (Rule 10)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_10
+      - name: Batch Enable Rules (Rule 11)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_11
+      - name: Batch Enable Rules (Rule 12)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_12
+      - name: Batch Enable Rules (Rule 13)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_13
+      - name: Batch Enable Rules (Rule 14)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_14
+      - name: Batch Enable Rules (Rule 15)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_15
+      - name: Batch Enable Rules (Rule 16)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_16
+  - identifier: batch_disable_rules
+    name: Batch Disable Rules (Rule 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Batch Disable Rules (Rule 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_1
+      - name: Batch Disable Rules (Rule 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_2
+      - name: Batch Disable Rules (Rule 3)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_3
+      - name: Batch Disable Rules (Rule 4)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_4
+      - name: Batch Disable Rules (Rule 5)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_5
+      - name: Batch Disable Rules (Rule 6)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_6
+      - name: Batch Disable Rules (Rule 7)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_7
+      - name: Batch Disable Rules (Rule 8)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_8
+      - name: Batch Disable Rules (Rule 9)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_9
+      - name: Batch Disable Rules (Rule 10)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_10
+      - name: Batch Disable Rules (Rule 11)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_11
+      - name: Batch Disable Rules (Rule 12)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_12
+      - name: Batch Disable Rules (Rule 13)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_13
+      - name: Batch Disable Rules (Rule 14)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_14
+      - name: Batch Disable Rules (Rule 15)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_15
+      - name: Batch Disable Rules (Rule 16)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_16
+  - identifier: batch_remove
+    name: Batch Remove Rules (Rule 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Batch Remove Rules (Rule 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_1
+      - name: Batch Remove Rules (Rule 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_2
+      - name: Batch Remove Rules (Rule 3)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_3
+      - name: Batch Remove Rules (Rule 4)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_4
+      - name: Batch Remove Rules (Rule 5)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_5
+      - name: Batch Remove Rules (Rule 6)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_6
+      - name: Batch Remove Rules (Rule 7)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_7
+      - name: Batch Remove Rules (Rule 8)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_8
+      - name: Batch Remove Rules (Rule 9)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_9
+      - name: Batch Remove Rules (Rule 10)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_10
+      - name: Batch Remove Rules (Rule 11)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_11
+      - name: Batch Remove Rules (Rule 12)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_12
+      - name: Batch Remove Rules (Rule 13)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_13
+      - name: Batch Remove Rules (Rule 14)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_14
+      - name: Batch Remove Rules (Rule 15)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_15
+      - name: Batch Remove Rules (Rule 16)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: rule_16
+  - name: Query Rule Config
+    type: service
+    access_mod: W
+    value_type: long
+    identifier: query_rule_config
+codec:
+  id: default
+  ref: uc100_v2/codec/device-codec.yaml

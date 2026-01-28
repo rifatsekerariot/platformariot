@@ -1,0 +1,416 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: switch_1
+        type: boolean
+        entity_mapping: switch_1
+      - key: switch_1_change
+        type: boolean
+        entity_mapping: switch_1_change
+      - key: switch_2
+        type: boolean
+        entity_mapping: switch_2
+      - key: switch_2_change
+        type: boolean
+        entity_mapping: switch_2_change
+      - key: switch_3
+        type: boolean
+        entity_mapping: switch_3
+      - key: switch_3_change
+        type: boolean
+        entity_mapping: switch_3_change
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: led_mode
+        type: long
+        entity_mapping: led_mode
+      - key: reset_button_enable
+        type: boolean
+        entity_mapping: reset_button_enable
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: child_lock_config.lock_time
+        type: long
+        entity_mapping: child_lock_config.lock_time
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+  output:
+    type: object
+    properties:
+      - key: switch_1
+        type: boolean
+        entity_mapping: switch_1
+      - key: switch_2
+        type: boolean
+        entity_mapping: switch_2
+      - key: switch_3
+        type: boolean
+        entity_mapping: switch_3
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: report_attribute
+        type: boolean
+        entity_mapping: report_attribute
+      - key: delay_task.switch_1
+        type: boolean
+        entity_mapping: delay_task.switch_1
+      - key: delay_task.switch_2
+        type: boolean
+        entity_mapping: delay_task.switch_2
+      - key: delay_task.switch_3
+        type: boolean
+        entity_mapping: delay_task.switch_3
+      - key: delay_task.frame_count
+        type: long
+        entity_mapping: delay_task.frame_count
+      - key: delay_task.delay_time
+        type: long
+        entity_mapping: delay_task.delay_time
+      - key: cancel_delay_task
+        type: boolean
+        entity_mapping: cancel_delay_task
+      - key: led_mode
+        type: long
+        entity_mapping: led_mode
+      - key: reset_button_enable
+        type: boolean
+        entity_mapping: reset_button_enable
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: child_lock_config.lock_time
+        type: long
+        entity_mapping: child_lock_config.lock_time
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Switch 1
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: switch_1
+  - name: Changing Status of Switch 1
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: switch_1_change
+  - name: Switch 2
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: switch_2
+  - name: Changing Status of Switch 2
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: switch_2_change
+  - name: Switch 3
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: switch_3
+  - name: Changing Status of Switch 3
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: switch_3_change
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Report Attribute
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_attribute
+  - identifier: delay_task
+    name: Delay Task (Switch 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Delay Task (Switch 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: switch_1
+      - name: Delay Task (Switch 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: switch_2
+      - name: Delay Task (Switch 3)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: switch_3
+      - name: Delay Task (Frame Count)
+        value_type: long
+        identifier: frame_count
+      - name: Delay Task (Delay Time)
+        value_type: long
+        identifier: delay_time
+  - name: Cancel Delay Task
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: cancel_delay_task
+  - name: LED Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': on_inverted
+        '2': on_synced
+    identifier: led_mode
+  - name: Reset Button Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: reset_button_enable
+  - identifier: child_lock_config
+    name: Child Lock Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Child Lock Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Child Lock Config (Lock Time)
+        value_type: long
+        identifier: lock_time
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+codec:
+  id: default
+  ref: ws503_2w_w11/codec/device-codec.yaml

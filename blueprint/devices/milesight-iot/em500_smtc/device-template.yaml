@@ -1,0 +1,866 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: moisture
+        type: double
+        entity_mapping: moisture
+      - key: electricity
+        type: long
+        entity_mapping: electricity
+      - key: temperature_mutation
+        type: double
+        entity_mapping: temperature_mutation
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: temperature_error
+        type: long
+        entity_mapping: temperature_error
+      - key: electricity_error
+        type: long
+        entity_mapping: electricity_error
+      - key: moisture_error
+        type: long
+        entity_mapping: moisture_error
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: recollection_config.counts
+        type: long
+        entity_mapping: recollection_config.counts
+      - key: recollection_config.interval
+        type: long
+        entity_mapping: recollection_config.interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: sensor_all_enable
+        type: boolean
+        entity_mapping: sensor_all_enable
+      - key: sensor_temperature_enable
+        type: boolean
+        entity_mapping: sensor_temperature_enable
+      - key: sensor_moisture_enable
+        type: boolean
+        entity_mapping: sensor_moisture_enable
+      - key: sensor_electricity_enable
+        type: boolean
+        entity_mapping: sensor_electricity_enable
+      - key: time_sync_enable
+        type: boolean
+        entity_mapping: time_sync_enable
+      - key: electricity_alarm_config.enable
+        type: boolean
+        entity_mapping: electricity_alarm_config.enable
+      - key: electricity_alarm_config.condition
+        type: long
+        entity_mapping: electricity_alarm_config.condition
+      - key: electricity_alarm_config.threshold_min
+        type: long
+        entity_mapping: electricity_alarm_config.threshold_min
+      - key: electricity_alarm_config.threshold_max
+        type: long
+        entity_mapping: electricity_alarm_config.threshold_max
+      - key: temperature_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_alarm_config.enable
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_mutation_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_mutation_alarm_config.enable
+      - key: temperature_mutation_alarm_config.mutation
+        type: double
+        entity_mapping: temperature_mutation_alarm_config.mutation
+      - key: moisture_alarm_config.enable
+        type: boolean
+        entity_mapping: moisture_alarm_config.enable
+      - key: moisture_alarm_config.condition
+        type: long
+        entity_mapping: moisture_alarm_config.condition
+      - key: moisture_alarm_config.threshold_min
+        type: long
+        entity_mapping: moisture_alarm_config.threshold_min
+      - key: moisture_alarm_config.threshold_max
+        type: long
+        entity_mapping: moisture_alarm_config.threshold_max
+      - key: alarm_release_enable
+        type: boolean
+        entity_mapping: alarm_release_enable
+      - key: alarm_report_counts
+        type: long
+        entity_mapping: alarm_report_counts
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: moisture_calibration_settings.enable
+        type: boolean
+        entity_mapping: moisture_calibration_settings.enable
+      - key: moisture_calibration_settings.calibration_value
+        type: long
+        entity_mapping: moisture_calibration_settings.calibration_value
+      - key: electricity_calibration_settings.enable
+        type: boolean
+        entity_mapping: electricity_calibration_settings.enable
+      - key: electricity_calibration_settings.calibration_value
+        type: long
+        entity_mapping: electricity_calibration_settings.calibration_value
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: recollection_config.counts
+        type: long
+        entity_mapping: recollection_config.counts
+      - key: recollection_config.interval
+        type: long
+        entity_mapping: recollection_config.interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: timestamp
+        type: long
+        entity_mapping: timestamp
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: sensor_all_enable
+        type: boolean
+        entity_mapping: sensor_all_enable
+      - key: sensor_temperature_enable
+        type: boolean
+        entity_mapping: sensor_temperature_enable
+      - key: sensor_moisture_enable
+        type: boolean
+        entity_mapping: sensor_moisture_enable
+      - key: sensor_electricity_enable
+        type: boolean
+        entity_mapping: sensor_electricity_enable
+      - key: time_sync_enable
+        type: boolean
+        entity_mapping: time_sync_enable
+      - key: electricity_alarm_config.enable
+        type: boolean
+        entity_mapping: electricity_alarm_config.enable
+      - key: electricity_alarm_config.condition
+        type: long
+        entity_mapping: electricity_alarm_config.condition
+      - key: electricity_alarm_config.threshold_min
+        type: long
+        entity_mapping: electricity_alarm_config.threshold_min
+      - key: electricity_alarm_config.threshold_max
+        type: long
+        entity_mapping: electricity_alarm_config.threshold_max
+      - key: temperature_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_alarm_config.enable
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_mutation_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_mutation_alarm_config.enable
+      - key: temperature_mutation_alarm_config.mutation
+        type: double
+        entity_mapping: temperature_mutation_alarm_config.mutation
+      - key: moisture_alarm_config.enable
+        type: boolean
+        entity_mapping: moisture_alarm_config.enable
+      - key: moisture_alarm_config.condition
+        type: long
+        entity_mapping: moisture_alarm_config.condition
+      - key: moisture_alarm_config.threshold_min
+        type: long
+        entity_mapping: moisture_alarm_config.threshold_min
+      - key: moisture_alarm_config.threshold_max
+        type: long
+        entity_mapping: moisture_alarm_config.threshold_max
+      - key: alarm_release_enable
+        type: boolean
+        entity_mapping: alarm_release_enable
+      - key: alarm_report_counts
+        type: long
+        entity_mapping: alarm_report_counts
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: moisture_calibration_settings.enable
+        type: boolean
+        entity_mapping: moisture_calibration_settings.enable
+      - key: moisture_calibration_settings.calibration_value
+        type: long
+        entity_mapping: moisture_calibration_settings.calibration_value
+      - key: electricity_calibration_settings.enable
+        type: boolean
+        entity_mapping: electricity_calibration_settings.enable
+      - key: electricity_calibration_settings.calibration_value
+        type: long
+        entity_mapping: electricity_calibration_settings.calibration_value
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Moisture
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: '%r.h.'
+    identifier: moisture
+  - name: Electrical Conductivity
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: electricity
+  - name: Temperature Mutation
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature_mutation
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm
+        '1': threshold alarm release
+        '2': mutation alarm
+    identifier: temperature_alarm
+  - name: Temperature Error
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': collection failed
+        '2': out of range
+    identifier: temperature_error
+  - name: Electricity Error
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': collection failed
+        '2': out of range
+    identifier: electricity_error
+  - name: Moisture Error
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': collection failed
+        '2': out of range
+    identifier: moisture_error
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: collection_interval
+  - identifier: recollection_config
+    name: Recollection Config (Counts)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Recollection Config (Counts)
+        value_type: long
+        identifier: counts
+      - name: Recollection Config (Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: interval
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Timestamp
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      unit: s
+    identifier: timestamp
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - name: Sensor All Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: sensor_all_enable
+  - name: Sensor Temperature Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: sensor_temperature_enable
+  - name: Sensor Moisture Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: sensor_moisture_enable
+  - name: Sensor Electricity Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: sensor_electricity_enable
+  - name: Time Sync Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: time_sync_enable
+  - identifier: electricity_alarm_config
+    name: Electricity Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Electricity Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Electricity Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Electricity Alarm Config (Threshold Min)
+        value_type: long
+        identifier: threshold_min
+      - name: Electricity Alarm Config (Threshold Max)
+        value_type: long
+        identifier: threshold_max
+  - identifier: temperature_alarm_config
+    name: Temperature Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Config (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Config (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+  - identifier: temperature_mutation_alarm_config
+    name: Temperature Mutation Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Mutation Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Mutation Alarm Config (Mutation)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: mutation
+  - identifier: moisture_alarm_config
+    name: Moisture Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Moisture Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Moisture Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Moisture Alarm Config (Threshold Min)
+        value_type: long
+        attributes:
+          unit: '%r.h.'
+        identifier: threshold_min
+      - name: Moisture Alarm Config (Threshold Max)
+        value_type: long
+        attributes:
+          unit: '%r.h.'
+        identifier: threshold_max
+  - name: Alarm Release Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: alarm_release_enable
+  - name: Alarm Report Counts
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: alarm_report_counts
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration Settings (Calibration Value)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - identifier: moisture_calibration_settings
+    name: Moisture Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Moisture Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Moisture Calibration Settings (Calibration Value)
+        value_type: long
+        attributes:
+          unit: '%r.h.'
+        identifier: calibration_value
+  - identifier: electricity_calibration_settings
+    name: Electricity Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Electricity Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Electricity Calibration Settings (Calibration Value)
+        value_type: long
+        identifier: calibration_value
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+codec:
+  id: default
+  ref: em500_smtc/codec/device-codec.yaml

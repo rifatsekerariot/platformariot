@@ -1,0 +1,1597 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: valve_1_type
+        type: long
+        entity_mapping: valve_1_type
+      - key: valve_1_opening
+        type: long
+        entity_mapping: valve_1_opening
+      - key: valve_1_direction
+        type: long
+        entity_mapping: valve_1_direction
+      - key: valve_2_type
+        type: long
+        entity_mapping: valve_2_type
+      - key: valve_2_opening
+        type: long
+        entity_mapping: valve_2_opening
+      - key: valve_2_direction
+        type: long
+        entity_mapping: valve_2_direction
+      - key: valve_1_pulse
+        type: long
+        entity_mapping: valve_1_pulse
+      - key: valve_2_pulse
+        type: long
+        entity_mapping: valve_2_pulse
+      - key: gpio_1
+        type: boolean
+        entity_mapping: gpio_1
+      - key: gpio_2
+        type: boolean
+        entity_mapping: gpio_2
+      - key: pressure_1
+        type: long
+        entity_mapping: pressure_1
+      - key: pressure_2
+        type: long
+        entity_mapping: pressure_2
+      - key: pressure_1_alarm_event.source
+        type: long
+        entity_mapping: pressure_1_alarm_event.source
+      - key: pressure_1_alarm_event.condition
+        type: long
+        entity_mapping: pressure_1_alarm_event.condition
+      - key: pressure_1_alarm_event.threshold_min
+        type: long
+        entity_mapping: pressure_1_alarm_event.threshold_min
+      - key: pressure_1_alarm_event.threshold_max
+        type: long
+        entity_mapping: pressure_1_alarm_event.threshold_max
+      - key: pressure_1_alarm_event.pressure
+        type: long
+        entity_mapping: pressure_1_alarm_event.pressure
+      - key: pressure_1_alarm_event.alarm
+        type: long
+        entity_mapping: pressure_1_alarm_event.alarm
+      - key: pressure_2_alarm_event.source
+        type: long
+        entity_mapping: pressure_2_alarm_event.source
+      - key: pressure_2_alarm_event.condition
+        type: long
+        entity_mapping: pressure_2_alarm_event.condition
+      - key: pressure_2_alarm_event.threshold_min
+        type: long
+        entity_mapping: pressure_2_alarm_event.threshold_min
+      - key: pressure_2_alarm_event.threshold_max
+        type: long
+        entity_mapping: pressure_2_alarm_event.threshold_max
+      - key: pressure_2_alarm_event.pressure
+        type: long
+        entity_mapping: pressure_2_alarm_event.pressure
+      - key: pressure_2_alarm_event.alarm
+        type: long
+        entity_mapping: pressure_2_alarm_event.alarm
+      - key: valve_1_calibration_event.source_value
+        type: long
+        entity_mapping: valve_1_calibration_event.source_value
+      - key: valve_1_calibration_event.target_value
+        type: long
+        entity_mapping: valve_1_calibration_event.target_value
+      - key: valve_1_calibration_event.result
+        type: long
+        entity_mapping: valve_1_calibration_event.result
+      - key: valve_1_sensor_status
+        type: long
+        entity_mapping: valve_1_sensor_status
+      - key: valve_2_sensor_status
+        type: long
+        entity_mapping: valve_2_sensor_status
+      - key: pressure_1_sensor_status
+        type: long
+        entity_mapping: pressure_1_sensor_status
+      - key: pressure_2_sensor_status
+        type: long
+        entity_mapping: pressure_2_sensor_status
+      - key: valve_1_opening_duration
+        type: long
+        entity_mapping: valve_1_opening_duration
+      - key: valve_2_opening_duration
+        type: long
+        entity_mapping: valve_2_opening_duration
+      - key: custom_message
+        type: string
+        entity_mapping: custom_message
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: pressure_1_collection_interval.enable
+        type: boolean
+        entity_mapping: pressure_1_collection_interval.enable
+      - key: pressure_1_collection_interval.collection_interval
+        type: long
+        entity_mapping: pressure_1_collection_interval.collection_interval
+      - key: pressure_2_collection_interval.enable
+        type: boolean
+        entity_mapping: pressure_2_collection_interval.enable
+      - key: pressure_2_collection_interval.collection_interval
+        type: long
+        entity_mapping: pressure_2_collection_interval.collection_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: valve_1_task.task_id
+        type: long
+        entity_mapping: valve_1_task.task_id
+      - key: valve_1_task.valve_opening
+        type: long
+        entity_mapping: valve_1_task.valve_opening
+      - key: valve_1_task.time
+        type: long
+        entity_mapping: valve_1_task.time
+      - key: valve_1_task.pulse
+        type: long
+        entity_mapping: valve_1_task.pulse
+      - key: valve_2_task.task_id
+        type: long
+        entity_mapping: valve_2_task.task_id
+      - key: valve_2_task.valve_opening
+        type: long
+        entity_mapping: valve_2_task.valve_opening
+      - key: valve_2_task.time
+        type: long
+        entity_mapping: valve_2_task.time
+      - key: valve_2_task.pulse
+        type: long
+        entity_mapping: valve_2_task.pulse
+      - key: valve_1_config.valve_type
+        type: long
+        entity_mapping: valve_1_config.valve_type
+      - key: valve_1_config.auto_calibration_enable
+        type: boolean
+        entity_mapping: valve_1_config.auto_calibration_enable
+      - key: valve_1_config.report_after_calibration_enable
+        type: boolean
+        entity_mapping: valve_1_config.report_after_calibration_enable
+      - key: valve_1_config.stall_strategy
+        type: long
+        entity_mapping: valve_1_config.stall_strategy
+      - key: valve_1_config.open_time_1
+        type: long
+        entity_mapping: valve_1_config.open_time_1
+      - key: valve_1_config.open_time_2
+        type: long
+        entity_mapping: valve_1_config.open_time_2
+      - key: valve_1_config.stall_current
+        type: long
+        entity_mapping: valve_1_config.stall_current
+      - key: valve_1_config.stall_time
+        type: long
+        entity_mapping: valve_1_config.stall_time
+      - key: valve_1_config.protect_time
+        type: long
+        entity_mapping: valve_1_config.protect_time
+      - key: valve_1_config.close_delay_time
+        type: long
+        entity_mapping: valve_1_config.close_delay_time
+      - key: valve_1_config.open_delay_time
+        type: long
+        entity_mapping: valve_1_config.open_delay_time
+      - key: valve_2_config.valve_type
+        type: long
+        entity_mapping: valve_2_config.valve_type
+      - key: valve_2_config.auto_calibration_enable
+        type: boolean
+        entity_mapping: valve_2_config.auto_calibration_enable
+      - key: valve_2_config.report_after_calibration_enable
+        type: boolean
+        entity_mapping: valve_2_config.report_after_calibration_enable
+      - key: valve_2_config.stall_strategy
+        type: long
+        entity_mapping: valve_2_config.stall_strategy
+      - key: valve_2_config.open_time_1
+        type: long
+        entity_mapping: valve_2_config.open_time_1
+      - key: valve_2_config.open_time_2
+        type: long
+        entity_mapping: valve_2_config.open_time_2
+      - key: valve_2_config.stall_current
+        type: long
+        entity_mapping: valve_2_config.stall_current
+      - key: valve_2_config.stall_time
+        type: long
+        entity_mapping: valve_2_config.stall_time
+      - key: valve_2_config.protect_time
+        type: long
+        entity_mapping: valve_2_config.protect_time
+      - key: valve_2_config.close_delay_time
+        type: long
+        entity_mapping: valve_2_config.close_delay_time
+      - key: valve_2_config.open_delay_time
+        type: long
+        entity_mapping: valve_2_config.open_delay_time
+      - key: valve_filter_config.mode
+        type: long
+        entity_mapping: valve_filter_config.mode
+      - key: valve_filter_config.time
+        type: long
+        entity_mapping: valve_filter_config.time
+      - key: pressure_1_calibration_settings.enable
+        type: boolean
+        entity_mapping: pressure_1_calibration_settings.enable
+      - key: pressure_1_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pressure_1_calibration_settings.calibration_value
+      - key: pressure_2_calibration_settings.enable
+        type: boolean
+        entity_mapping: pressure_2_calibration_settings.enable
+      - key: pressure_2_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pressure_2_calibration_settings.calibration_value
+      - key: wiring_switch_enable
+        type: boolean
+        entity_mapping: wiring_switch_enable
+      - key: valve_change_report_enable
+        type: boolean
+        entity_mapping: valve_change_report_enable
+      - key: gpio_1_type
+        type: long
+        entity_mapping: gpio_1_type
+      - key: gpio_2_type
+        type: long
+        entity_mapping: gpio_2_type
+      - key: pressure_1_config.enable
+        type: boolean
+        entity_mapping: pressure_1_config.enable
+      - key: pressure_1_config.collection_interval
+        type: long
+        entity_mapping: pressure_1_config.collection_interval
+      - key: pressure_1_config.display_unit
+        type: long
+        entity_mapping: pressure_1_config.display_unit
+      - key: pressure_1_config.mode
+        type: long
+        entity_mapping: pressure_1_config.mode
+      - key: pressure_1_config.signal_type
+        type: long
+        entity_mapping: pressure_1_config.signal_type
+      - key: pressure_1_config.osl
+        type: long
+        entity_mapping: pressure_1_config.osl
+      - key: pressure_1_config.osh
+        type: long
+        entity_mapping: pressure_1_config.osh
+      - key: pressure_1_config.power_supply_time
+        type: long
+        entity_mapping: pressure_1_config.power_supply_time
+      - key: pressure_1_config.range_min
+        type: long
+        entity_mapping: pressure_1_config.range_min
+      - key: pressure_1_config.range_max
+        type: long
+        entity_mapping: pressure_1_config.range_max
+      - key: pressure_2_config.enable
+        type: boolean
+        entity_mapping: pressure_2_config.enable
+      - key: pressure_2_config.collection_interval
+        type: long
+        entity_mapping: pressure_2_config.collection_interval
+      - key: pressure_2_config.display_unit
+        type: long
+        entity_mapping: pressure_2_config.display_unit
+      - key: pressure_2_config.mode
+        type: long
+        entity_mapping: pressure_2_config.mode
+      - key: pressure_2_config.signal_type
+        type: long
+        entity_mapping: pressure_2_config.signal_type
+      - key: pressure_2_config.osl
+        type: long
+        entity_mapping: pressure_2_config.osl
+      - key: pressure_2_config.osh
+        type: long
+        entity_mapping: pressure_2_config.osh
+      - key: pressure_2_config.power_supply_time
+        type: long
+        entity_mapping: pressure_2_config.power_supply_time
+      - key: pressure_2_config.range_min
+        type: long
+        entity_mapping: pressure_2_config.range_min
+      - key: pressure_2_config.range_max
+        type: long
+        entity_mapping: pressure_2_config.range_max
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: response_enable
+        type: boolean
+        entity_mapping: response_enable
+      - key: class_a_response_time
+        type: long
+        entity_mapping: class_a_response_time
+      - key: gpio_jitter_time
+        type: long
+        entity_mapping: gpio_jitter_time
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: pressure_1_collection_interval.enable
+        type: boolean
+        entity_mapping: pressure_1_collection_interval.enable
+      - key: pressure_1_collection_interval.collection_interval
+        type: long
+        entity_mapping: pressure_1_collection_interval.collection_interval
+      - key: pressure_2_collection_interval.enable
+        type: boolean
+        entity_mapping: pressure_2_collection_interval.enable
+      - key: pressure_2_collection_interval.collection_interval
+        type: long
+        entity_mapping: pressure_2_collection_interval.collection_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: valve_1_task.task_id
+        type: long
+        entity_mapping: valve_1_task.task_id
+      - key: valve_1_task.valve_opening
+        type: long
+        entity_mapping: valve_1_task.valve_opening
+      - key: valve_1_task.time
+        type: long
+        entity_mapping: valve_1_task.time
+      - key: valve_1_task.pulse
+        type: long
+        entity_mapping: valve_1_task.pulse
+      - key: valve_2_task.task_id
+        type: long
+        entity_mapping: valve_2_task.task_id
+      - key: valve_2_task.valve_opening
+        type: long
+        entity_mapping: valve_2_task.valve_opening
+      - key: valve_2_task.time
+        type: long
+        entity_mapping: valve_2_task.time
+      - key: valve_2_task.pulse
+        type: long
+        entity_mapping: valve_2_task.pulse
+      - key: clear_valve_1_pulse
+        type: boolean
+        entity_mapping: clear_valve_1_pulse
+      - key: clear_valve_2_pulse
+        type: boolean
+        entity_mapping: clear_valve_2_pulse
+      - key: valve_1_config.valve_type
+        type: long
+        entity_mapping: valve_1_config.valve_type
+      - key: valve_1_config.auto_calibration_enable
+        type: boolean
+        entity_mapping: valve_1_config.auto_calibration_enable
+      - key: valve_1_config.report_after_calibration_enable
+        type: boolean
+        entity_mapping: valve_1_config.report_after_calibration_enable
+      - key: valve_1_config.stall_strategy
+        type: long
+        entity_mapping: valve_1_config.stall_strategy
+      - key: valve_1_config.open_time_1
+        type: long
+        entity_mapping: valve_1_config.open_time_1
+      - key: valve_1_config.open_time_2
+        type: long
+        entity_mapping: valve_1_config.open_time_2
+      - key: valve_1_config.stall_current
+        type: long
+        entity_mapping: valve_1_config.stall_current
+      - key: valve_1_config.stall_time
+        type: long
+        entity_mapping: valve_1_config.stall_time
+      - key: valve_1_config.protect_time
+        type: long
+        entity_mapping: valve_1_config.protect_time
+      - key: valve_1_config.close_delay_time
+        type: long
+        entity_mapping: valve_1_config.close_delay_time
+      - key: valve_1_config.open_delay_time
+        type: long
+        entity_mapping: valve_1_config.open_delay_time
+      - key: valve_2_config.valve_type
+        type: long
+        entity_mapping: valve_2_config.valve_type
+      - key: valve_2_config.auto_calibration_enable
+        type: boolean
+        entity_mapping: valve_2_config.auto_calibration_enable
+      - key: valve_2_config.report_after_calibration_enable
+        type: boolean
+        entity_mapping: valve_2_config.report_after_calibration_enable
+      - key: valve_2_config.stall_strategy
+        type: long
+        entity_mapping: valve_2_config.stall_strategy
+      - key: valve_2_config.open_time_1
+        type: long
+        entity_mapping: valve_2_config.open_time_1
+      - key: valve_2_config.open_time_2
+        type: long
+        entity_mapping: valve_2_config.open_time_2
+      - key: valve_2_config.stall_current
+        type: long
+        entity_mapping: valve_2_config.stall_current
+      - key: valve_2_config.stall_time
+        type: long
+        entity_mapping: valve_2_config.stall_time
+      - key: valve_2_config.protect_time
+        type: long
+        entity_mapping: valve_2_config.protect_time
+      - key: valve_2_config.close_delay_time
+        type: long
+        entity_mapping: valve_2_config.close_delay_time
+      - key: valve_2_config.open_delay_time
+        type: long
+        entity_mapping: valve_2_config.open_delay_time
+      - key: valve_filter_config.mode
+        type: long
+        entity_mapping: valve_filter_config.mode
+      - key: valve_filter_config.time
+        type: long
+        entity_mapping: valve_filter_config.time
+      - key: pressure_1_calibration_settings.enable
+        type: boolean
+        entity_mapping: pressure_1_calibration_settings.enable
+      - key: pressure_1_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pressure_1_calibration_settings.calibration_value
+      - key: pressure_2_calibration_settings.enable
+        type: boolean
+        entity_mapping: pressure_2_calibration_settings.enable
+      - key: pressure_2_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pressure_2_calibration_settings.calibration_value
+      - key: wiring_switch_enable
+        type: boolean
+        entity_mapping: wiring_switch_enable
+      - key: valve_change_report_enable
+        type: boolean
+        entity_mapping: valve_change_report_enable
+      - key: query_valve_opening_duration.valve_1
+        type: boolean
+        entity_mapping: query_valve_opening_duration.valve_1
+      - key: query_valve_opening_duration.valve_2
+        type: boolean
+        entity_mapping: query_valve_opening_duration.valve_2
+      - key: gpio_1_type
+        type: long
+        entity_mapping: gpio_1_type
+      - key: gpio_2_type
+        type: long
+        entity_mapping: gpio_2_type
+      - key: query_device_config
+        type: boolean
+        entity_mapping: query_device_config
+      - key: query_pressure_calibration_settings
+        type: boolean
+        entity_mapping: query_pressure_calibration_settings
+      - key: query_gpio_type
+        type: boolean
+        entity_mapping: query_gpio_type
+      - key: query_valve_config
+        type: boolean
+        entity_mapping: query_valve_config
+      - key: query_pressure_config
+        type: boolean
+        entity_mapping: query_pressure_config
+      - key: query_rule_config
+        type: boolean
+        entity_mapping: query_rule_config
+      - key: pressure_1_config.enable
+        type: boolean
+        entity_mapping: pressure_1_config.enable
+      - key: pressure_1_config.collection_interval
+        type: long
+        entity_mapping: pressure_1_config.collection_interval
+      - key: pressure_1_config.display_unit
+        type: long
+        entity_mapping: pressure_1_config.display_unit
+      - key: pressure_1_config.mode
+        type: long
+        entity_mapping: pressure_1_config.mode
+      - key: pressure_1_config.signal_type
+        type: long
+        entity_mapping: pressure_1_config.signal_type
+      - key: pressure_1_config.osl
+        type: long
+        entity_mapping: pressure_1_config.osl
+      - key: pressure_1_config.osh
+        type: long
+        entity_mapping: pressure_1_config.osh
+      - key: pressure_1_config.power_supply_time
+        type: long
+        entity_mapping: pressure_1_config.power_supply_time
+      - key: pressure_1_config.range_min
+        type: long
+        entity_mapping: pressure_1_config.range_min
+      - key: pressure_1_config.range_max
+        type: long
+        entity_mapping: pressure_1_config.range_max
+      - key: pressure_2_config.enable
+        type: boolean
+        entity_mapping: pressure_2_config.enable
+      - key: pressure_2_config.collection_interval
+        type: long
+        entity_mapping: pressure_2_config.collection_interval
+      - key: pressure_2_config.display_unit
+        type: long
+        entity_mapping: pressure_2_config.display_unit
+      - key: pressure_2_config.mode
+        type: long
+        entity_mapping: pressure_2_config.mode
+      - key: pressure_2_config.signal_type
+        type: long
+        entity_mapping: pressure_2_config.signal_type
+      - key: pressure_2_config.osl
+        type: long
+        entity_mapping: pressure_2_config.osl
+      - key: pressure_2_config.osh
+        type: long
+        entity_mapping: pressure_2_config.osh
+      - key: pressure_2_config.power_supply_time
+        type: long
+        entity_mapping: pressure_2_config.power_supply_time
+      - key: pressure_2_config.range_min
+        type: long
+        entity_mapping: pressure_2_config.range_min
+      - key: pressure_2_config.range_max
+        type: long
+        entity_mapping: pressure_2_config.range_max
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: response_enable
+        type: boolean
+        entity_mapping: response_enable
+      - key: class_a_response_time
+        type: long
+        entity_mapping: class_a_response_time
+      - key: gpio_jitter_time
+        type: long
+        entity_mapping: gpio_jitter_time
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      min: 0
+      max: 100
+      unit: '%'
+    identifier: battery
+  - name: Valve 1 Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': 2_way_ball_valve
+        '1': 3_way_ball_valve
+    identifier: valve_1_type
+  - name: Valve 1 Opening
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: valve_1_opening
+  - name: Valve 1 Direction
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': left
+        '1': right
+    identifier: valve_1_direction
+  - name: Valve 2 Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': 2_way_ball_valve
+        '1': 3_way_ball_valve
+    identifier: valve_2_type
+  - name: Valve 2 Opening
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: valve_2_opening
+  - name: Valve 2 Direction
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': left
+        '1': right
+    identifier: valve_2_direction
+  - name: Valve 1 Pulse
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: valve_1_pulse
+  - name: Valve 2 Pulse
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: valve_2_pulse
+  - name: GPIO 1
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': low
+        'true': high
+    identifier: gpio_1
+  - name: GPIO 2
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': low
+        'true': high
+    identifier: gpio_2
+  - name: Pressure 1
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: kPa
+    identifier: pressure_1
+  - name: Pressure 2
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: kPa
+    identifier: pressure_2
+  - identifier: pressure_1_alarm_event
+    name: Pressure 1 Alarm Event (Source)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Pressure 1 Alarm Event (Source)
+        value_type: long
+        attributes:
+          enum:
+            '0': every change
+            '1': valve 1 opening
+            '2': valve 2 opening
+            '3': valve 1 opening or valve 2 opening
+        identifier: source
+      - name: Pressure 1 Alarm Event (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': none
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Pressure 1 Alarm Event (Min Threshold)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: threshold_min
+      - name: Pressure 1 Alarm Event (Max Threshold)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: threshold_max
+      - name: Pressure 1 Alarm Event (Pressure)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: pressure
+      - name: Pressure 1 Alarm Event (Alarm)
+        value_type: long
+        attributes:
+          enum:
+            '0': pipe pressure threshold alarm release
+            '1': pipe pressure threshold alarm
+        identifier: alarm
+  - identifier: pressure_2_alarm_event
+    name: Pressure 2 Alarm Event (Source)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Pressure 2 Alarm Event (Source)
+        value_type: long
+        attributes:
+          enum:
+            '0': every change
+            '1': valve 1 opening
+            '2': valve 2 opening
+            '3': valve 1 opening or valve 2 opening
+        identifier: source
+      - name: Pressure 2 Alarm Event (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': none
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Pressure 2 Alarm Event (Min Threshold)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: threshold_min
+      - name: Pressure 2 Alarm Event (Max Threshold)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: threshold_max
+      - name: Pressure 2 Alarm Event (Pressure)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: pressure
+      - name: Pressure 2 Alarm Event (Alarm)
+        value_type: long
+        attributes:
+          enum:
+            '0': pipe pressure threshold alarm release
+            '1': pipe pressure threshold alarm
+        identifier: alarm
+  - identifier: valve_1_calibration_event
+    name: Valve 1 Calibration Event (Source Value)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Valve 1 Calibration Event (Source Value)
+        value_type: long
+        attributes:
+          unit: '%'
+        identifier: source_value
+      - name: Valve 1 Calibration Event (Target Value)
+        value_type: long
+        attributes:
+          unit: '%'
+        identifier: target_value
+      - name: Valve 1 Calibration Event (Result)
+        value_type: long
+        attributes:
+          enum:
+            '0': success
+            '1': failed
+        identifier: result
+  - name: Valve 1 Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': low battery power
+        '1': shutdown after getting io feedback
+        '2': incorrect opening time
+        '3': timeout
+        '4': valve stall
+    identifier: valve_1_sensor_status
+  - name: Valve 2 Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': low battery power
+        '1': shutdown after getting io feedback
+        '2': incorrect opening time
+        '3': timeout
+        '4': valve stall
+    identifier: valve_2_sensor_status
+  - name: Pressure 1 Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': read error
+    identifier: pressure_1_sensor_status
+  - name: Pressure 2 Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': read error
+    identifier: pressure_2_sensor_status
+  - name: Valve 1 Opening Duration
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: s
+    identifier: valve_1_opening_duration
+  - name: Valve 2 Opening Duration
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: s
+    identifier: valve_2_opening_duration
+  - name: Custom Message
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 8
+    identifier: custom_message
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      min: 1
+      max: 1440
+      unit: min
+    identifier: report_interval
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - identifier: pressure_1_collection_interval
+    name: Pressure 1 Collection Interval (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pressure 1 Collection Interval (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pressure 1 Collection Interval (Collection Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: collection_interval
+  - identifier: pressure_2_collection_interval
+    name: Pressure 2 Collection Interval (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pressure 2 Collection Interval (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pressure 2 Collection Interval (Collection Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: collection_interval
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - identifier: valve_1_task
+    name: Valve 1 Task (Task ID)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve 1 Task (Task ID)
+        value_type: long
+        identifier: task_id
+      - name: Valve 1 Task (Valve Opening)
+        value_type: long
+        identifier: valve_opening
+        attributes:
+          min: 0
+          max: 100
+          unit: '%'
+      - name: Valve 1 Task (Time)
+        value_type: long
+        attributes:
+          unit: min
+          optional: true
+        identifier: time
+      - name: Valve 1 Task (Pulse)
+        value_type: long
+        identifier: pulse
+        attributes:
+          optional: true
+  - identifier: valve_2_task
+    name: Valve 2 Task (Task ID)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve 2 Task (Task ID)
+        value_type: long
+        identifier: task_id
+      - name: Valve 2 Task (Valve Opening)
+        value_type: long
+        identifier: valve_opening
+        attributes:
+          min: 0
+          max: 100
+          unit: '%'
+      - name: Valve 2 Task (Time)
+        value_type: long
+        attributes:
+          unit: min
+          optional: true
+        identifier: time
+      - name: Valve 2 Task (Pulse)
+        value_type: long
+        identifier: pulse
+        attributes:
+          optional: true
+  - name: Clear Valve 1 Pulse
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_valve_1_pulse
+  - name: Clear Valve 2 Pulse
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_valve_2_pulse
+  - identifier: valve_1_config
+    name: Valve 1 Config (Valve Type)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve 1 Config (Valve Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': 2_way_ball_valve
+            '1': 3_way_ball_valve
+        identifier: valve_type
+      - name: Valve 1 Config (Auto Calibration Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: auto_calibration_enable
+      - name: Valve 1 Config (Report After Calibration Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: report_after_calibration_enable
+      - name: Valve 1 Config (Stall Strategy)
+        value_type: long
+        attributes:
+          enum:
+            '0': close
+            '1': keep
+        identifier: stall_strategy
+      - name: Valve 1 Config (Open Time 1)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: open_time_1
+      - name: Valve 1 Config (Open Time 2)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: open_time_2
+      - name: Valve 1 Config (Stall Current)
+        value_type: long
+        attributes:
+          unit: mA
+        identifier: stall_current
+      - name: Valve 1 Config (Stall Time)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: stall_time
+      - name: Valve 1 Config (Protect Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: protect_time
+      - name: Valve 1 Config (Close Delay Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: close_delay_time
+      - name: Valve 1 Config (Open Delay Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: open_delay_time
+  - identifier: valve_2_config
+    name: Valve 2 Config (Valve Type)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve 2 Config (Valve Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': 2_way_ball_valve
+            '1': 3_way_ball_valve
+        identifier: valve_type
+      - name: Valve 2 Config (Auto Calibration Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: auto_calibration_enable
+      - name: Valve 2 Config (Report After Calibration Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: report_after_calibration_enable
+      - name: Valve 2 Config (Stall Strategy)
+        value_type: long
+        attributes:
+          enum:
+            '0': close
+            '1': keep
+        identifier: stall_strategy
+      - name: Valve 2 Config (Open Time 1)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: open_time_1
+      - name: Valve 2 Config (Open Time 2)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: open_time_2
+      - name: Valve 2 Config (Stall Current)
+        value_type: long
+        attributes:
+          unit: mA
+        identifier: stall_current
+      - name: Valve 2 Config (Stall Time)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: stall_time
+      - name: Valve 2 Config (Protect Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: protect_time
+      - name: Valve 2 Config (Close Delay Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: close_delay_time
+      - name: Valve 2 Config (Open Delay Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: open_delay_time
+  - identifier: valve_filter_config
+    name: Valve Filter Config (Mode)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve Filter Config (Mode)
+        value_type: long
+        attributes:
+          enum:
+            '1': hardware
+            '2': software
+        identifier: mode
+      - name: Valve Filter Config (Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: time
+  - identifier: pressure_1_calibration_settings
+    name: Pressure 1 Calibration (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pressure 1 Calibration (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pressure 1 Calibration (Calibration)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: calibration_value
+  - identifier: pressure_2_calibration_settings
+    name: Pressure 2 Calibration (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pressure 2 Calibration (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pressure 2 Calibration (Calibration)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: calibration_value
+  - name: Wiring Switch Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: wiring_switch_enable
+  - name: Valve Change Report Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: valve_change_report_enable
+  - identifier: query_valve_opening_duration
+    name: Query Valve Opening Duration (Valve 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Query Valve Opening Duration (Valve 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: valve_1
+      - name: Query Valve Opening Duration (Valve 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: valve_2
+  - name: GPIO 1 Type
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': counter
+        '1': feedback
+    identifier: gpio_1_type
+  - name: GPIO 2 Type
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': counter
+        '1': feedback
+    identifier: gpio_2_type
+  - name: Query Device Config
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_config
+  - name: Query Pressure Calibration Config
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_pressure_calibration_settings
+  - name: Query GPIO Type
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_gpio_type
+  - name: Query Valve Config
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_valve_config
+  - name: Query Pressure Config
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_pressure_config
+  - name: Query Rule Config
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_rule_config
+  - identifier: pressure_1_config
+    name: Pressure 1 Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pressure 1 Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pressure 1 Config (Collection Interval)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: collection_interval
+      - name: Pressure 1 Config (Display Unit)
+        value_type: long
+        attributes:
+          enum:
+            '0': kPa
+            '1': Bar
+            '2': MPa
+        identifier: display_unit
+      - name: Pressure 1 Config (Mode)
+        value_type: long
+        attributes:
+          enum:
+            '0': standard
+            '1': custom
+        identifier: mode
+      - name: Pressure 1 Config (Signal Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': voltage
+            '1': current
+        identifier: signal_type
+      - name: Pressure 1 Config (OSL)
+        value_type: long
+        identifier: osl
+      - name: Pressure 1 Config (OSH)
+        value_type: long
+        identifier: osh
+      - name: Pressure 1 Config (Power Supply Time)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: power_supply_time
+      - name: Pressure 1 Config (Range Min)
+        value_type: long
+        identifier: range_min
+      - name: Pressure 1 Config (Range Max)
+        value_type: long
+        identifier: range_max
+  - identifier: pressure_2_config
+    name: Pressure 2 Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pressure 2 Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pressure 2 Config (Collection Interval)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: collection_interval
+      - name: Pressure 2 Config (Display Unit)
+        value_type: long
+        attributes:
+          enum:
+            '0': kPa
+            '1': Bar
+            '2': MPa
+        identifier: display_unit
+      - name: Pressure 2 Config (Mode)
+        value_type: long
+        attributes:
+          enum:
+            '0': standard
+            '1': custom
+        identifier: mode
+      - name: Pressure 2 Config (Signal Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': voltage
+            '1': current
+        identifier: signal_type
+      - name: Pressure 2 Config (OSL)
+        value_type: long
+        identifier: osl
+      - name: Pressure 2 Config (OSH)
+        value_type: long
+        identifier: osh
+      - name: Pressure 2 Config (Power Supply Time)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: power_supply_time
+      - name: Pressure 2 Config (Range Min)
+        value_type: long
+        identifier: range_min
+      - name: Pressure 2 Config (Range Max)
+        value_type: long
+        identifier: range_max
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - name: Response Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: response_enable
+  - name: Class A Response Time
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: class_a_response_time
+  - name: GPIO Jitter Time
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: gpio_jitter_time
+codec:
+  id: default
+  ref: uc521/codec/device-codec.yaml

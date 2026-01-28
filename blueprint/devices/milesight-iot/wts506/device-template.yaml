@@ -1,0 +1,342 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: wind_direction
+        type: double
+        entity_mapping: wind_direction
+      - key: wind_speed
+        type: double
+        entity_mapping: wind_speed
+      - key: rainfall_total
+        type: double
+        entity_mapping: rainfall_total
+      - key: rainfall_counter
+        type: long
+        entity_mapping: rainfall_counter
+      - key: pressure
+        type: double
+        entity_mapping: pressure
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: pressure_alarm
+        type: long
+        entity_mapping: pressure_alarm
+      - key: wind_speed_alarm
+        type: long
+        entity_mapping: wind_speed_alarm
+      - key: rainfall_alarm
+        type: long
+        entity_mapping: rainfall_alarm
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: power_on_run_mode
+        type: long
+        entity_mapping: power_on_run_mode
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: timestamp
+        type: long
+        entity_mapping: timestamp
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: power_on_run_mode
+        type: long
+        entity_mapping: power_on_run_mode
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Humidity
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: '%r.h.'
+    identifier: humidity
+  - name: Wind Direction
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: wind_direction
+  - name: Wind Speed
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: m/s
+    identifier: wind_speed
+  - name: Rainfall Total
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: mm
+    identifier: rainfall_total
+  - name: Rainfall Counter
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: rainfall_counter
+  - name: Barometric Pressure
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: hPa
+    identifier: pressure
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+    identifier: temperature_alarm
+  - name: Pressure Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+    identifier: pressure_alarm
+  - name: Wind Speed Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+    identifier: wind_speed_alarm
+  - name: Rainfall Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+    identifier: rainfall_alarm
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Timestamp
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      unit: s
+    identifier: timestamp
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Power On Run Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': 'on'
+        '2': keep
+    identifier: power_on_run_mode
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+codec:
+  id: default
+  ref: wts506/codec/device-codec.yaml

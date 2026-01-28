@@ -1,0 +1,440 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: people_count_all
+        type: long
+        entity_mapping: people_count_all
+      - key: region_count
+        type: long
+        entity_mapping: region_count
+      - key: region_1
+        type: long
+        entity_mapping: region_1
+      - key: region_2
+        type: long
+        entity_mapping: region_2
+      - key: region_3
+        type: long
+        entity_mapping: region_3
+      - key: region_4
+        type: long
+        entity_mapping: region_4
+      - key: region_5
+        type: long
+        entity_mapping: region_5
+      - key: region_6
+        type: long
+        entity_mapping: region_6
+      - key: region_7
+        type: long
+        entity_mapping: region_7
+      - key: region_8
+        type: long
+        entity_mapping: region_8
+      - key: people_in
+        type: long
+        entity_mapping: people_in
+      - key: people_out
+        type: long
+        entity_mapping: people_out
+      - key: people_count_max
+        type: long
+        entity_mapping: people_count_max
+      - key: region_1_count
+        type: long
+        entity_mapping: region_1_count
+      - key: region_2_count
+        type: long
+        entity_mapping: region_2_count
+      - key: region_3_count
+        type: long
+        entity_mapping: region_3_count
+      - key: region_4_count
+        type: long
+        entity_mapping: region_4_count
+      - key: region_5_count
+        type: long
+        entity_mapping: region_5_count
+      - key: region_6_count
+        type: long
+        entity_mapping: region_6_count
+      - key: region_7_count
+        type: long
+        entity_mapping: region_7_count
+      - key: region_8_count
+        type: long
+        entity_mapping: region_8_count
+      - key: region_9_count
+        type: long
+        entity_mapping: region_9_count
+      - key: region_10_count
+        type: long
+        entity_mapping: region_10_count
+      - key: region_11_count
+        type: long
+        entity_mapping: region_11_count
+      - key: region_12_count
+        type: long
+        entity_mapping: region_12_count
+      - key: region_13_count
+        type: long
+        entity_mapping: region_13_count
+      - key: region_14_count
+        type: long
+        entity_mapping: region_14_count
+      - key: region_15_count
+        type: long
+        entity_mapping: region_15_count
+      - key: region_16_count
+        type: long
+        entity_mapping: region_16_count
+      - key: a_to_a
+        type: long
+        entity_mapping: a_to_a
+      - key: a_to_b
+        type: long
+        entity_mapping: a_to_b
+      - key: a_to_c
+        type: long
+        entity_mapping: a_to_c
+      - key: a_to_d
+        type: long
+        entity_mapping: a_to_d
+      - key: b_to_a
+        type: long
+        entity_mapping: b_to_a
+      - key: b_to_b
+        type: long
+        entity_mapping: b_to_b
+      - key: b_to_c
+        type: long
+        entity_mapping: b_to_c
+      - key: b_to_d
+        type: long
+        entity_mapping: b_to_d
+      - key: c_to_a
+        type: long
+        entity_mapping: c_to_a
+      - key: c_to_b
+        type: long
+        entity_mapping: c_to_b
+      - key: c_to_c
+        type: long
+        entity_mapping: c_to_c
+      - key: c_to_d
+        type: long
+        entity_mapping: c_to_d
+      - key: d_to_a
+        type: long
+        entity_mapping: d_to_a
+      - key: d_to_b
+        type: long
+        entity_mapping: d_to_b
+      - key: d_to_c
+        type: long
+        entity_mapping: d_to_c
+      - key: d_to_d
+        type: long
+        entity_mapping: d_to_d
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 12
+    identifier: sn
+  - name: People Count All
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: people_count_all
+  - name: Region Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_count
+  - name: Region 1
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1
+  - name: Region 2
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2
+  - name: Region 3
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3
+  - name: Region 4
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4
+  - name: Region 5
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_5
+  - name: Region 6
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_6
+  - name: Region 7
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_7
+  - name: Region 8
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_8
+  - name: People IN
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: people_in
+  - name: People OUT
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: people_out
+  - name: People Count Max
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: people_count_max
+  - name: Region 1 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1_count
+  - name: Region 2 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2_count
+  - name: Region 3 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3_count
+  - name: Region 4 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4_count
+  - name: Region 5 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_5_count
+  - name: Region 6 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_6_count
+  - name: Region 7 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_7_count
+  - name: Region 8 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_8_count
+  - name: Region 9 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_9_count
+  - name: Region 10 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_10_count
+  - name: Region 11 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_11_count
+  - name: Region 12 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_12_count
+  - name: Region 13 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_13_count
+  - name: Region 14 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_14_count
+  - name: Region 15 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_15_count
+  - name: Region 16 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_16_count
+  - name: A to A
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: a_to_a
+  - name: A to B
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: a_to_b
+  - name: A to C
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: a_to_c
+  - name: A to D
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: a_to_d
+  - name: B to A
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: b_to_a
+  - name: B to B
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: b_to_b
+  - name: B to C
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: b_to_c
+  - name: B to D
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: b_to_d
+  - name: C to A
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: c_to_a
+  - name: C to B
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: c_to_b
+  - name: C to C
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: c_to_c
+  - name: C to D
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: c_to_d
+  - name: D to A
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: d_to_a
+  - name: D to B
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: d_to_b
+  - name: D to C
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: d_to_c
+  - name: D to D
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: d_to_d
+codec:
+  id: default
+  ref: vs121/codec/device-codec.yaml

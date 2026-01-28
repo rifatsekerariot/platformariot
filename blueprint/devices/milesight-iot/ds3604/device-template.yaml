@@ -1,0 +1,831 @@
+metadata:
+  lora_device_profile_class: ClassB-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: button_status
+        type: long
+        entity_mapping: button_status
+      - key: current_template_id
+        type: long
+        entity_mapping: current_template_id
+      - key: template_1.text_1
+        type: string
+        entity_mapping: template_1.text_1
+      - key: template_1.text_2
+        type: string
+        entity_mapping: template_1.text_2
+      - key: template_1.text_3
+        type: string
+        entity_mapping: template_1.text_3
+      - key: template_1.text_4
+        type: string
+        entity_mapping: template_1.text_4
+      - key: template_1.text_5
+        type: string
+        entity_mapping: template_1.text_5
+      - key: template_1.text_6
+        type: string
+        entity_mapping: template_1.text_6
+      - key: template_1.text_7
+        type: string
+        entity_mapping: template_1.text_7
+      - key: template_1.text_8
+        type: string
+        entity_mapping: template_1.text_8
+      - key: template_1.text_9
+        type: string
+        entity_mapping: template_1.text_9
+      - key: template_1.text_10
+        type: string
+        entity_mapping: template_1.text_10
+      - key: template_1.qrcode
+        type: string
+        entity_mapping: template_1.qrcode
+      - key: template_2.text_1
+        type: string
+        entity_mapping: template_2.text_1
+      - key: template_2.text_2
+        type: string
+        entity_mapping: template_2.text_2
+      - key: template_2.text_3
+        type: string
+        entity_mapping: template_2.text_3
+      - key: template_2.text_4
+        type: string
+        entity_mapping: template_2.text_4
+      - key: template_2.text_5
+        type: string
+        entity_mapping: template_2.text_5
+      - key: template_2.text_6
+        type: string
+        entity_mapping: template_2.text_6
+      - key: template_2.text_7
+        type: string
+        entity_mapping: template_2.text_7
+      - key: template_2.text_8
+        type: string
+        entity_mapping: template_2.text_8
+      - key: template_2.text_9
+        type: string
+        entity_mapping: template_2.text_9
+      - key: template_2.text_10
+        type: string
+        entity_mapping: template_2.text_10
+      - key: template_2.qrcode
+        type: string
+        entity_mapping: template_2.qrcode
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: button_visible
+        type: boolean
+        entity_mapping: button_visible
+      - key: button_enable
+        type: boolean
+        entity_mapping: button_enable
+      - key: block_visible.text_1
+        type: boolean
+        entity_mapping: block_visible.text_1
+      - key: block_visible.text_2
+        type: boolean
+        entity_mapping: block_visible.text_2
+      - key: block_visible.text_3
+        type: boolean
+        entity_mapping: block_visible.text_3
+      - key: block_visible.text_4
+        type: boolean
+        entity_mapping: block_visible.text_4
+      - key: block_visible.text_5
+        type: boolean
+        entity_mapping: block_visible.text_5
+      - key: block_visible.text_6
+        type: boolean
+        entity_mapping: block_visible.text_6
+      - key: block_visible.text_7
+        type: boolean
+        entity_mapping: block_visible.text_7
+      - key: block_visible.text_8
+        type: boolean
+        entity_mapping: block_visible.text_8
+      - key: block_visible.text_9
+        type: boolean
+        entity_mapping: block_visible.text_9
+      - key: block_visible.text_10
+        type: boolean
+        entity_mapping: block_visible.text_10
+      - key: block_visible.qrcode
+        type: boolean
+        entity_mapping: block_visible.qrcode
+      - key: block_visible.image_1
+        type: boolean
+        entity_mapping: block_visible.image_1
+      - key: block_visible.image_2
+        type: boolean
+        entity_mapping: block_visible.image_2
+      - key: block_visible.battery_status
+        type: boolean
+        entity_mapping: block_visible.battery_status
+      - key: block_visible.connect_status
+        type: boolean
+        entity_mapping: block_visible.connect_status
+  output:
+    type: object
+    properties:
+      - key: current_template_id
+        type: long
+        entity_mapping: current_template_id
+      - key: template_1.text_1
+        type: string
+        entity_mapping: template_1.text_1
+      - key: template_1.text_2
+        type: string
+        entity_mapping: template_1.text_2
+      - key: template_1.text_3
+        type: string
+        entity_mapping: template_1.text_3
+      - key: template_1.text_4
+        type: string
+        entity_mapping: template_1.text_4
+      - key: template_1.text_5
+        type: string
+        entity_mapping: template_1.text_5
+      - key: template_1.text_6
+        type: string
+        entity_mapping: template_1.text_6
+      - key: template_1.text_7
+        type: string
+        entity_mapping: template_1.text_7
+      - key: template_1.text_8
+        type: string
+        entity_mapping: template_1.text_8
+      - key: template_1.text_9
+        type: string
+        entity_mapping: template_1.text_9
+      - key: template_1.text_10
+        type: string
+        entity_mapping: template_1.text_10
+      - key: template_1.qrcode
+        type: string
+        entity_mapping: template_1.qrcode
+      - key: template_2.text_1
+        type: string
+        entity_mapping: template_2.text_1
+      - key: template_2.text_2
+        type: string
+        entity_mapping: template_2.text_2
+      - key: template_2.text_3
+        type: string
+        entity_mapping: template_2.text_3
+      - key: template_2.text_4
+        type: string
+        entity_mapping: template_2.text_4
+      - key: template_2.text_5
+        type: string
+        entity_mapping: template_2.text_5
+      - key: template_2.text_6
+        type: string
+        entity_mapping: template_2.text_6
+      - key: template_2.text_7
+        type: string
+        entity_mapping: template_2.text_7
+      - key: template_2.text_8
+        type: string
+        entity_mapping: template_2.text_8
+      - key: template_2.text_9
+        type: string
+        entity_mapping: template_2.text_9
+      - key: template_2.text_10
+        type: string
+        entity_mapping: template_2.text_10
+      - key: template_2.qrcode
+        type: string
+        entity_mapping: template_2.qrcode
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: beep
+        type: boolean
+        entity_mapping: beep
+      - key: refresh_display
+        type: boolean
+        entity_mapping: refresh_display
+      - key: report_battery
+        type: boolean
+        entity_mapping: report_battery
+      - key: report_buzzer
+        type: boolean
+        entity_mapping: report_buzzer
+      - key: report_current_template_id
+        type: boolean
+        entity_mapping: report_current_template_id
+      - key: report_current_display
+        type: boolean
+        entity_mapping: report_current_display
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: button_visible
+        type: boolean
+        entity_mapping: button_visible
+      - key: button_enable
+        type: boolean
+        entity_mapping: button_enable
+      - key: block_visible.text_1
+        type: boolean
+        entity_mapping: block_visible.text_1
+      - key: block_visible.text_2
+        type: boolean
+        entity_mapping: block_visible.text_2
+      - key: block_visible.text_3
+        type: boolean
+        entity_mapping: block_visible.text_3
+      - key: block_visible.text_4
+        type: boolean
+        entity_mapping: block_visible.text_4
+      - key: block_visible.text_5
+        type: boolean
+        entity_mapping: block_visible.text_5
+      - key: block_visible.text_6
+        type: boolean
+        entity_mapping: block_visible.text_6
+      - key: block_visible.text_7
+        type: boolean
+        entity_mapping: block_visible.text_7
+      - key: block_visible.text_8
+        type: boolean
+        entity_mapping: block_visible.text_8
+      - key: block_visible.text_9
+        type: boolean
+        entity_mapping: block_visible.text_9
+      - key: block_visible.text_10
+        type: boolean
+        entity_mapping: block_visible.text_10
+      - key: block_visible.qrcode
+        type: boolean
+        entity_mapping: block_visible.qrcode
+      - key: block_visible.image_1
+        type: boolean
+        entity_mapping: block_visible.image_1
+      - key: block_visible.image_2
+        type: boolean
+        entity_mapping: block_visible.image_2
+      - key: block_visible.battery_status
+        type: boolean
+        entity_mapping: block_visible.battery_status
+      - key: block_visible.connect_status
+        type: boolean
+        entity_mapping: block_visible.connect_status
+      - key: clear_image.background_image
+        type: boolean
+        entity_mapping: clear_image.background_image
+      - key: clear_image.logo_1
+        type: boolean
+        entity_mapping: clear_image.logo_1
+      - key: clear_image.logo_2
+        type: boolean
+        entity_mapping: clear_image.logo_2
+      - key: switch_template_button_enable
+        type: boolean
+        entity_mapping: switch_template_button_enable
+      - key: multicast_config.group_1
+        type: boolean
+        entity_mapping: multicast_config.group_1
+      - key: multicast_config.group_2
+        type: boolean
+        entity_mapping: multicast_config.group_2
+      - key: multicast_config.group_3
+        type: boolean
+        entity_mapping: multicast_config.group_3
+      - key: multicast_config.group_4
+        type: boolean
+        entity_mapping: multicast_config.group_4
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Button Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': single_click
+        '1': double_click
+        '2': short_press
+        '3': long_press
+    identifier: button_status
+  - name: Current Template ID
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: current_template_id
+  - identifier: template_1
+    name: Template 1 (Text 1)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Template 1 (Text 1)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_1
+      - name: Template 1 (Text 2)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_2
+      - name: Template 1 (Text 3)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_3
+      - name: Template 1 (Text 4)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_4
+      - name: Template 1 (Text 5)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_5
+      - name: Template 1 (Text 6)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_6
+      - name: Template 1 (Text 7)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_7
+      - name: Template 1 (Text 8)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_8
+      - name: Template 1 (Text 9)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_9
+      - name: Template 1 (Text 10)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_10
+      - name: Template 1 (QRCode)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: qrcode
+  - identifier: template_2
+    name: Template 2 (Text 1)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Template 2 (Text 1)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_1
+      - name: Template 2 (Text 2)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_2
+      - name: Template 2 (Text 3)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_3
+      - name: Template 2 (Text 4)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_4
+      - name: Template 2 (Text 5)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_5
+      - name: Template 2 (Text 6)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_6
+      - name: Template 2 (Text 7)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_7
+      - name: Template 2 (Text 8)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_8
+      - name: Template 2 (Text 9)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_9
+      - name: Template 2 (Text 10)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: text_10
+      - name: Template 2 (QRCode)
+        value_type: string
+        attributes:
+          max_length: 255
+        identifier: qrcode
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Beep
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: beep
+  - name: Refresh Display
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: refresh_display
+  - name: Report Battery
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_battery
+  - name: Report Buzzer
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_buzzer
+  - name: Report Current Template ID
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_current_template_id
+  - name: Report Current Display
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_current_display
+  - name: Buzzer Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: buzzer_enable
+  - name: Button Visible
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': hide
+        'true': show
+    identifier: button_visible
+  - name: Button Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: button_enable
+  - identifier: block_visible
+    name: Block Visible (Text 1)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Block Visible (Text 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_1
+      - name: Block Visible (Text 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_2
+      - name: Block Visible (Text 3)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_3
+      - name: Block Visible (Text 4)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_4
+      - name: Block Visible (Text 5)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_5
+      - name: Block Visible (Text 6)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_6
+      - name: Block Visible (Text 7)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_7
+      - name: Block Visible (Text 8)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_8
+      - name: Block Visible (Text 9)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_9
+      - name: Block Visible (Text 10)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: text_10
+      - name: Block Visible (QRCode)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: qrcode
+      - name: Block Visible (Image 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: image_1
+      - name: Block Visible (Image 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: image_2
+      - name: Block Visible (Battery Status)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: battery_status
+      - name: Block Visible (Connect Status)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': hide
+            'true': show
+        identifier: connect_status
+  - identifier: clear_image
+    name: Clear Image (Background Image)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Clear Image (Background Image)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: background_image
+      - name: Clear Image (Logo 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: logo_1
+      - name: Clear Image (Logo 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: logo_2
+  - name: Switch Template Button Enable
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: switch_template_button_enable
+  - identifier: multicast_config
+    name: Multicast Config (Group 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Multicast Config (Group 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group_1
+      - name: Multicast Config (Group 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group_2
+      - name: Multicast Config (Group 3)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group_3
+      - name: Multicast Config (Group 4)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group_4
+codec:
+  id: default
+  ref: ds3604/codec/device-codec.yaml

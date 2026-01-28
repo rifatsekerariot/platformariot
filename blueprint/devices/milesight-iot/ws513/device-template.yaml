@@ -1,0 +1,547 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: voltage
+        type: double
+        entity_mapping: voltage
+      - key: active_power
+        type: long
+        entity_mapping: active_power
+      - key: power_factor
+        type: long
+        entity_mapping: power_factor
+      - key: power_consumption
+        type: long
+        entity_mapping: power_consumption
+      - key: current
+        type: long
+        entity_mapping: current
+      - key: socket_status
+        type: boolean
+        entity_mapping: socket_status
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: temperature_mutation
+        type: double
+        entity_mapping: temperature_mutation
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: current_alarm_config.enable
+        type: boolean
+        entity_mapping: current_alarm_config.enable
+      - key: current_alarm_config.threshold
+        type: long
+        entity_mapping: current_alarm_config.threshold
+      - key: over_current_protection.enable
+        type: boolean
+        entity_mapping: over_current_protection.enable
+      - key: over_current_protection.trip_current
+        type: long
+        entity_mapping: over_current_protection.trip_current
+      - key: overload_current_protection.enable
+        type: boolean
+        entity_mapping: overload_current_protection.enable
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: child_lock_config.lock_time
+        type: long
+        entity_mapping: child_lock_config.lock_time
+      - key: power_consumption_enable
+        type: boolean
+        entity_mapping: power_consumption_enable
+      - key: reset_power_consumption
+        type: boolean
+        entity_mapping: reset_power_consumption
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: led_indicator_reserve
+        type: boolean
+        entity_mapping: led_indicator_reserve
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_alarm_config.alarm_interval
+        type: long
+        entity_mapping: temperature_alarm_config.alarm_interval
+      - key: temperature_alarm_config.alarm_times
+        type: long
+        entity_mapping: temperature_alarm_config.alarm_times
+  output:
+    type: object
+    properties:
+      - key: socket_status
+        type: boolean
+        entity_mapping: socket_status
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: delay_task.socket_status
+        type: boolean
+        entity_mapping: delay_task.socket_status
+      - key: delay_task.frame_count
+        type: long
+        entity_mapping: delay_task.frame_count
+      - key: delay_task.delay_time
+        type: long
+        entity_mapping: delay_task.delay_time
+      - key: cancel_delay_task
+        type: long
+        entity_mapping: cancel_delay_task
+      - key: current_alarm_config.enable
+        type: boolean
+        entity_mapping: current_alarm_config.enable
+      - key: current_alarm_config.threshold
+        type: long
+        entity_mapping: current_alarm_config.threshold
+      - key: over_current_protection.enable
+        type: boolean
+        entity_mapping: over_current_protection.enable
+      - key: over_current_protection.trip_current
+        type: long
+        entity_mapping: over_current_protection.trip_current
+      - key: overload_current_protection.enable
+        type: boolean
+        entity_mapping: overload_current_protection.enable
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: child_lock_config.lock_time
+        type: long
+        entity_mapping: child_lock_config.lock_time
+      - key: power_consumption_enable
+        type: boolean
+        entity_mapping: power_consumption_enable
+      - key: reset_power_consumption
+        type: boolean
+        entity_mapping: reset_power_consumption
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: led_indicator_reserve
+        type: boolean
+        entity_mapping: led_indicator_reserve
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_alarm_config.alarm_interval
+        type: long
+        entity_mapping: temperature_alarm_config.alarm_interval
+      - key: temperature_alarm_config.alarm_times
+        type: long
+        entity_mapping: temperature_alarm_config.alarm_times
+      - key: d2d_command
+        type: string
+        entity_mapping: d2d_command
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Voltage
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: V
+    identifier: voltage
+  - name: Active Power
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: W
+    identifier: active_power
+  - name: Power Factor
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: power_factor
+  - name: Power Consumption
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: Wh
+    identifier: power_consumption
+  - name: Current
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: mA
+    identifier: current
+  - name: Socket Status
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: socket_status
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Temperature Mutation
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature_mutation
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+        '2': overheat alarm
+        '3': mutation alarm
+    identifier: temperature_alarm
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Report Interval
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - identifier: delay_task
+    name: Delay Task (Socket Status)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Delay Task (Socket Status)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: socket_status
+      - name: Delay Task (Frame Count)
+        value_type: long
+        identifier: frame_count
+      - name: Delay Task (Delay Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: delay_time
+  - name: Cancel Delay Task
+    type: service
+    access_mod: W
+    value_type: long
+    identifier: cancel_delay_task
+  - identifier: current_alarm_config
+    name: Current Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Current Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Current Alarm Config (Threshold)
+        value_type: long
+        attributes:
+          unit: A
+        identifier: threshold
+  - identifier: over_current_protection
+    name: Over Current Protection (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Over Current Protection (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Over Current Protection (Trip Current)
+        value_type: long
+        attributes:
+          unit: A
+        identifier: trip_current
+  - identifier: overload_current_protection
+    name: Overload Current Protection (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Overload Current Protection (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+  - identifier: child_lock_config
+    name: Child Lock Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Child Lock Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Child Lock Config (Lock Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: lock_time
+  - name: Power Consumption Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: power_consumption_enable
+  - name: Reset Power Consumption
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reset_power_consumption
+  - name: LED Indicator Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: led_indicator_enable
+  - name: LED Indicator Reserve
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: led_indicator_reserve
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration Config (Calibration Value)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - identifier: temperature_alarm_config
+    name: Temperature Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Config (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Config (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+      - name: Temperature Alarm Config (Alarm Interval)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: alarm_interval
+      - name: Temperature Alarm Config (Alarm Times)
+        value_type: long
+        identifier: alarm_times
+  - name: D2D Command
+    type: service
+    access_mod: W
+    value_type: string
+    attributes:
+      max_length: 4
+    identifier: d2d_command
+codec:
+  id: default
+  ref: ws513/codec/device-codec.yaml

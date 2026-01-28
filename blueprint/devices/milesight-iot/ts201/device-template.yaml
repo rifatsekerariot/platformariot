@@ -1,0 +1,533 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: temperature_mutation
+        type: double
+        entity_mapping: temperature_mutation
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: temperature_sensor_status
+        type: boolean
+        entity_mapping: temperature_sensor_status
+      - key: sensor_1_type
+        type: long
+        entity_mapping: sensor_1_type
+      - key: sensor_1_sn
+        type: string
+        entity_mapping: sensor_1_sn
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: alarm_release_enable
+        type: boolean
+        entity_mapping: alarm_release_enable
+      - key: alarm_report_counts
+        type: long
+        entity_mapping: alarm_report_counts
+      - key: temperature_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_alarm_config.enable
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_mutation_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_mutation_alarm_config.enable
+      - key: temperature_mutation_alarm_config.mutation
+        type: double
+        entity_mapping: temperature_mutation_alarm_config.mutation
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: ack_retry_times
+        type: long
+        entity_mapping: ack_retry_times
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: alarm_release_enable
+        type: boolean
+        entity_mapping: alarm_release_enable
+      - key: alarm_report_counts
+        type: long
+        entity_mapping: alarm_report_counts
+      - key: temperature_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_alarm_config.enable
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_mutation_alarm_config.enable
+        type: boolean
+        entity_mapping: temperature_mutation_alarm_config.enable
+      - key: temperature_mutation_alarm_config.mutation
+        type: double
+        entity_mapping: temperature_mutation_alarm_config.mutation
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: retransmit_config.enable
+        type: boolean
+        entity_mapping: retransmit_config.enable
+      - key: retransmit_config.interval
+        type: long
+        entity_mapping: retransmit_config.interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+      - key: fetch_sensor_id
+        type: long
+        entity_mapping: fetch_sensor_id
+      - key: ack_retry_times
+        type: long
+        entity_mapping: ack_retry_times
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Temperature Mutation
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: temperature_mutation
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold alarm release
+        '1': threshold alarm
+        '2': mutation alarm
+    identifier: temperature_alarm
+  - name: Temperature Sensor Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': read error
+        'true': out of range
+    identifier: temperature_sensor_status
+  - name: Sensor 1 Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': DS18B20
+        '2': SHT4X
+    identifier: sensor_1_type
+  - name: Sensor 1 SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sensor_1_sn
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: collection_interval
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration Settings (Calibration Value)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - identifier: humidity_calibration_settings
+    name: Humidity Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Humidity Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Humidity Calibration Settings (Calibration Value)
+        value_type: double
+        attributes:
+          unit: '%r.h.'
+        identifier: calibration_value
+  - name: Alarm Release Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: alarm_release_enable
+  - name: Alarm Report Counts
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: alarm_report_counts
+  - identifier: temperature_alarm_config
+    name: Temperature Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Config (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Config (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+  - identifier: temperature_mutation_alarm_config
+    name: Temperature Mutation Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Mutation Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Mutation Alarm Config (Mutation)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: mutation
+  - name: History Enable
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Clear History Data
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - identifier: retransmit_config
+    name: Retransmit Config (enable)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Retransmit Config (enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Retransmit Config (Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+  - name: Fetch Sensor ID
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      enum:
+        '0': all
+        '1': sensor_1
+    identifier: fetch_sensor_id
+  - name: Ack Retry Times
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: ack_retry_times
+codec:
+  id: default
+  ref: ts201/codec/device-codec.yaml

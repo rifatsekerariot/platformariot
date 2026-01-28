@@ -1,0 +1,459 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: distance
+        type: double
+        entity_mapping: distance
+      - key: position
+        type: boolean
+        entity_mapping: position
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: distance_alarm
+        type: long
+        entity_mapping: distance_alarm
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: people_existing_height
+        type: long
+        entity_mapping: people_existing_height
+      - key: install_height
+        type: long
+        entity_mapping: install_height
+      - key: install_height_enable
+        type: boolean
+        entity_mapping: install_height_enable
+      - key: working_mode
+        type: long
+        entity_mapping: working_mode
+      - key: tilt_linkage_distance_enable
+        type: boolean
+        entity_mapping: tilt_linkage_distance_enable
+      - key: tof_detection_enable
+        type: boolean
+        entity_mapping: tof_detection_enable
+      - key: standard_mode_alarm_config.condition
+        type: long
+        entity_mapping: standard_mode_alarm_config.condition
+      - key: standard_mode_alarm_config.alarm_release_enable
+        type: boolean
+        entity_mapping: standard_mode_alarm_config.alarm_release_enable
+      - key: standard_mode_alarm_config.threshold_min
+        type: long
+        entity_mapping: standard_mode_alarm_config.threshold_min
+      - key: standard_mode_alarm_config.threshold_max
+        type: long
+        entity_mapping: standard_mode_alarm_config.threshold_max
+      - key: bin_mode_alarm_config.condition
+        type: long
+        entity_mapping: bin_mode_alarm_config.condition
+      - key: bin_mode_alarm_config.alarm_release_enable
+        type: boolean
+        entity_mapping: bin_mode_alarm_config.alarm_release_enable
+      - key: bin_mode_alarm_config.threshold_min
+        type: long
+        entity_mapping: bin_mode_alarm_config.threshold_min
+      - key: bin_mode_alarm_config.threshold_max
+        type: long
+        entity_mapping: bin_mode_alarm_config.threshold_max
+      - key: recollection_config.counts
+        type: long
+        entity_mapping: recollection_config.counts
+      - key: recollection_config.interval
+        type: long
+        entity_mapping: recollection_config.interval
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: people_existing_height
+        type: long
+        entity_mapping: people_existing_height
+      - key: install_height
+        type: long
+        entity_mapping: install_height
+      - key: install_height_enable
+        type: boolean
+        entity_mapping: install_height_enable
+      - key: working_mode
+        type: long
+        entity_mapping: working_mode
+      - key: tilt_linkage_distance_enable
+        type: boolean
+        entity_mapping: tilt_linkage_distance_enable
+      - key: tof_detection_enable
+        type: boolean
+        entity_mapping: tof_detection_enable
+      - key: standard_mode_alarm_config.condition
+        type: long
+        entity_mapping: standard_mode_alarm_config.condition
+      - key: standard_mode_alarm_config.alarm_release_enable
+        type: boolean
+        entity_mapping: standard_mode_alarm_config.alarm_release_enable
+      - key: standard_mode_alarm_config.threshold_min
+        type: long
+        entity_mapping: standard_mode_alarm_config.threshold_min
+      - key: standard_mode_alarm_config.threshold_max
+        type: long
+        entity_mapping: standard_mode_alarm_config.threshold_max
+      - key: bin_mode_alarm_config.condition
+        type: long
+        entity_mapping: bin_mode_alarm_config.condition
+      - key: bin_mode_alarm_config.alarm_release_enable
+        type: boolean
+        entity_mapping: bin_mode_alarm_config.alarm_release_enable
+      - key: bin_mode_alarm_config.threshold_min
+        type: long
+        entity_mapping: bin_mode_alarm_config.threshold_min
+      - key: bin_mode_alarm_config.threshold_max
+        type: long
+        entity_mapping: bin_mode_alarm_config.threshold_max
+      - key: recollection_config.counts
+        type: long
+        entity_mapping: recollection_config.counts
+      - key: recollection_config.interval
+        type: long
+        entity_mapping: recollection_config.interval
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Distance
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: mm
+    identifier: distance
+  - name: Position
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': tilt
+    identifier: position
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold_alarm_release
+        '1': threshold_alarm
+    identifier: temperature_alarm
+  - name: Distance Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': threshold_alarm_release
+        '1': threshold_alarm
+    identifier: distance_alarm
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: collection_interval
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: People Existing Height
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: mm
+    identifier: people_existing_height
+  - name: Install Height
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: mm
+    identifier: install_height
+  - name: Install Height Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: install_height_enable
+  - name: Working Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': standard
+        '1': bin
+    identifier: working_mode
+  - name: Tilt Linkage Distance Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: tilt_linkage_distance_enable
+  - name: TOF Detection Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: tof_detection_enable
+  - identifier: standard_mode_alarm_config
+    name: Standard Mode Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Standard Mode Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Standard Mode Alarm Config (Alarm Release Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: alarm_release_enable
+      - name: Standard Mode Alarm Config (Threshold Min)
+        value_type: long
+        attributes:
+          unit: mm
+        identifier: threshold_min
+      - name: Standard Mode Alarm Config (Threshold Max)
+        value_type: long
+        attributes:
+          unit: mm
+        identifier: threshold_max
+  - identifier: bin_mode_alarm_config
+    name: Bin Mode Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Bin Mode Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Bin Mode Alarm Config (Alarm Release Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: alarm_release_enable
+      - name: Bin Mode Alarm Config (Threshold Min)
+        value_type: long
+        attributes:
+          unit: mm
+        identifier: threshold_min
+      - name: Bin Mode Alarm Config (Threshold Max)
+        value_type: long
+        attributes:
+          unit: mm
+        identifier: threshold_max
+  - identifier: recollection_config
+    name: Recollection Config (Counts)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Recollection Config (Counts)
+        value_type: long
+        identifier: counts
+      - name: Recollection Config (Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: interval
+codec:
+  id: default
+  ref: em400_tld/codec/device-codec.yaml

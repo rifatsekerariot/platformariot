@@ -1,0 +1,443 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: angle_x
+        type: double
+        entity_mapping: angle_x
+      - key: angle_y
+        type: double
+        entity_mapping: angle_y
+      - key: angle_z
+        type: double
+        entity_mapping: angle_z
+      - key: threshold_x
+        type: boolean
+        entity_mapping: threshold_x
+      - key: threshold_y
+        type: boolean
+        entity_mapping: threshold_y
+      - key: threshold_z
+        type: boolean
+        entity_mapping: threshold_z
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: angle_x_alarm_config.condition
+        type: long
+        entity_mapping: angle_x_alarm_config.condition
+      - key: angle_x_alarm_config.threshold_min
+        type: double
+        entity_mapping: angle_x_alarm_config.threshold_min
+      - key: angle_x_alarm_config.threshold_max
+        type: double
+        entity_mapping: angle_x_alarm_config.threshold_max
+      - key: angle_x_alarm_config.lock_time
+        type: long
+        entity_mapping: angle_x_alarm_config.lock_time
+      - key: angle_x_alarm_config.continue_time
+        type: long
+        entity_mapping: angle_x_alarm_config.continue_time
+      - key: angle_y_alarm_config.condition
+        type: long
+        entity_mapping: angle_y_alarm_config.condition
+      - key: angle_y_alarm_config.threshold_min
+        type: double
+        entity_mapping: angle_y_alarm_config.threshold_min
+      - key: angle_y_alarm_config.threshold_max
+        type: double
+        entity_mapping: angle_y_alarm_config.threshold_max
+      - key: angle_y_alarm_config.lock_time
+        type: long
+        entity_mapping: angle_y_alarm_config.lock_time
+      - key: angle_y_alarm_config.continue_time
+        type: long
+        entity_mapping: angle_y_alarm_config.continue_time
+      - key: angle_z_alarm_config.condition
+        type: long
+        entity_mapping: angle_z_alarm_config.condition
+      - key: angle_z_alarm_config.threshold_min
+        type: double
+        entity_mapping: angle_z_alarm_config.threshold_min
+      - key: angle_z_alarm_config.threshold_max
+        type: double
+        entity_mapping: angle_z_alarm_config.threshold_max
+      - key: angle_z_alarm_config.lock_time
+        type: long
+        entity_mapping: angle_z_alarm_config.lock_time
+      - key: angle_z_alarm_config.continue_time
+        type: long
+        entity_mapping: angle_z_alarm_config.continue_time
+      - key: angle_alarm_condition
+        type: string
+        entity_mapping: angle_alarm_condition
+      - key: initial_surface
+        type: long
+        entity_mapping: initial_surface
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: angle_x_alarm_config.condition
+        type: long
+        entity_mapping: angle_x_alarm_config.condition
+      - key: angle_x_alarm_config.threshold_min
+        type: double
+        entity_mapping: angle_x_alarm_config.threshold_min
+      - key: angle_x_alarm_config.threshold_max
+        type: double
+        entity_mapping: angle_x_alarm_config.threshold_max
+      - key: angle_x_alarm_config.lock_time
+        type: long
+        entity_mapping: angle_x_alarm_config.lock_time
+      - key: angle_x_alarm_config.continue_time
+        type: long
+        entity_mapping: angle_x_alarm_config.continue_time
+      - key: angle_y_alarm_config.condition
+        type: long
+        entity_mapping: angle_y_alarm_config.condition
+      - key: angle_y_alarm_config.threshold_min
+        type: double
+        entity_mapping: angle_y_alarm_config.threshold_min
+      - key: angle_y_alarm_config.threshold_max
+        type: double
+        entity_mapping: angle_y_alarm_config.threshold_max
+      - key: angle_y_alarm_config.lock_time
+        type: long
+        entity_mapping: angle_y_alarm_config.lock_time
+      - key: angle_y_alarm_config.continue_time
+        type: long
+        entity_mapping: angle_y_alarm_config.continue_time
+      - key: angle_z_alarm_config.condition
+        type: long
+        entity_mapping: angle_z_alarm_config.condition
+      - key: angle_z_alarm_config.threshold_min
+        type: double
+        entity_mapping: angle_z_alarm_config.threshold_min
+      - key: angle_z_alarm_config.threshold_max
+        type: double
+        entity_mapping: angle_z_alarm_config.threshold_max
+      - key: angle_z_alarm_config.lock_time
+        type: long
+        entity_mapping: angle_z_alarm_config.lock_time
+      - key: angle_z_alarm_config.continue_time
+        type: long
+        entity_mapping: angle_z_alarm_config.continue_time
+      - key: angle_alarm_condition
+        type: string
+        entity_mapping: angle_alarm_condition
+      - key: initial_surface
+        type: long
+        entity_mapping: initial_surface
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Angle X
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: angle_x
+  - name: Angle Y
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: angle_y
+  - name: Angle Z
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: angle_z
+  - name: Threshold X
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': trigger
+    identifier: threshold_x
+  - name: Threshold Y
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': trigger
+    identifier: threshold_y
+  - name: Threshold Z
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': trigger
+    identifier: threshold_z
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - identifier: angle_x_alarm_config
+    name: Angle X Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Angle X Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+            '5': mutation
+        identifier: condition
+      - name: Angle X Alarm Config (Threshold Min)
+        value_type: double
+        identifier: threshold_min
+      - name: Angle X Alarm Config (Threshold Max)
+        value_type: double
+        identifier: threshold_max
+      - name: Angle X Alarm Config (Lock Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: lock_time
+      - name: Angle X Alarm Config (Continue Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: continue_time
+  - identifier: angle_y_alarm_config
+    name: Angle Y Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Angle Y Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+            '5': mutation
+        identifier: condition
+      - name: Angle Y Alarm Config (Threshold Min)
+        value_type: double
+        identifier: threshold_min
+      - name: Angle Y Alarm Config (Threshold Max)
+        value_type: double
+        identifier: threshold_max
+      - name: Angle Y Alarm Config (Lock Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: lock_time
+      - name: Angle Y Alarm Config (Continue Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: continue_time
+  - identifier: angle_z_alarm_config
+    name: Angle Z Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Angle Z Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+            '5': mutation
+        identifier: condition
+      - name: Angle Z Alarm Config (Threshold Min)
+        value_type: double
+        identifier: threshold_min
+      - name: Angle Z Alarm Config (Threshold Max)
+        value_type: double
+        identifier: threshold_max
+      - name: Angle Z Alarm Config (Lock Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: lock_time
+      - name: Angle Z Alarm Config (Continue Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: continue_time
+  - name: Angle Alarm Condition
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 10
+    identifier: angle_alarm_condition
+  - name: Initial Surface
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '252': clear_zero_calibration
+        '253': set_zero_calibration
+        '254': reset_zero_reference_point
+        '255': current_plane
+    identifier: initial_surface
+codec:
+  id: default
+  ref: em310_tilt/codec/device-codec.yaml

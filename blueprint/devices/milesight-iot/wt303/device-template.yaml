@@ -1,0 +1,2168 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: product_name
+        type: string
+        entity_mapping: product_name
+      - key: product_pn
+        type: string
+        entity_mapping: product_pn
+      - key: product_sn
+        type: string
+        entity_mapping: product_sn
+      - key: version.hardware_version
+        type: string
+        entity_mapping: version.hardware_version
+      - key: version.firmware_version
+        type: string
+        entity_mapping: version.firmware_version
+      - key: oem_id
+        type: string
+        entity_mapping: oem_id
+      - key: product_frequency_band
+        type: string
+        entity_mapping: product_frequency_band
+      - key: device_status
+        type: long
+        entity_mapping: device_status
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: target_temperature
+        type: double
+        entity_mapping: target_temperature
+      - key: temperature_data_source
+        type: long
+        entity_mapping: temperature_data_source
+      - key: temperature_control_status
+        type: long
+        entity_mapping: temperature_control_status
+      - key: valve_status
+        type: long
+        entity_mapping: valve_status
+      - key: fan_status
+        type: long
+        entity_mapping: fan_status
+      - key: plan_id
+        type: long
+        entity_mapping: plan_id
+      - key: temperature_alarm.type
+        type: long
+        entity_mapping: temperature_alarm.type
+      - key: temperature_alarm.temperature
+        type: double
+        entity_mapping: temperature_alarm.temperature
+      - key: humidity_alarm
+        type: long
+        entity_mapping: humidity_alarm
+      - key: target_temperature_alarm
+        type: long
+        entity_mapping: target_temperature_alarm
+      - key: relay_status.gl_status
+        type: boolean
+        entity_mapping: relay_status.gl_status
+      - key: relay_status.gm_status
+        type: boolean
+        entity_mapping: relay_status.gm_status
+      - key: relay_status.gh_status
+        type: boolean
+        entity_mapping: relay_status.gh_status
+      - key: relay_status.valve_1_status
+        type: boolean
+        entity_mapping: relay_status.valve_1_status
+      - key: relay_status.valve_2_status
+        type: boolean
+        entity_mapping: relay_status.valve_2_status
+      - key: collection_interval.unit
+        type: long
+        entity_mapping: collection_interval.unit
+      - key: collection_interval.seconds_of_time
+        type: long
+        entity_mapping: collection_interval.seconds_of_time
+      - key: collection_interval.minutes_of_time
+        type: long
+        entity_mapping: collection_interval.minutes_of_time
+      - key: reporting_interval.unit
+        type: long
+        entity_mapping: reporting_interval.unit
+      - key: reporting_interval.seconds_of_time
+        type: long
+        entity_mapping: reporting_interval.seconds_of_time
+      - key: reporting_interval.minutes_of_time
+        type: long
+        entity_mapping: reporting_interval.minutes_of_time
+      - key: temperature_unit
+        type: long
+        entity_mapping: temperature_unit
+      - key: support_mode
+        type: long
+        entity_mapping: support_mode
+      - key: intelligent_display_enable
+        type: boolean
+        entity_mapping: intelligent_display_enable
+      - key: screen_object_settings.enable
+        type: boolean
+        entity_mapping: screen_object_settings.enable
+      - key: screen_object_settings.environment_temperature_enable
+        type: boolean
+        entity_mapping: screen_object_settings.environment_temperature_enable
+      - key: screen_object_settings.environment_humidity_enable
+        type: boolean
+        entity_mapping: screen_object_settings.environment_humidity_enable
+      - key: screen_object_settings.target_temperature_enable
+        type: boolean
+        entity_mapping: screen_object_settings.target_temperature_enable
+      - key: screen_object_settings.schedule_name_enable
+        type: boolean
+        entity_mapping: screen_object_settings.schedule_name_enable
+      - key: system_status
+        type: long
+        entity_mapping: system_status
+      - key: temperature_control_mode
+        type: long
+        entity_mapping: temperature_control_mode
+      - key: target_temperature_resolution
+        type: long
+        entity_mapping: target_temperature_resolution
+      - key: target_temperature_tolerance
+        type: double
+        entity_mapping: target_temperature_tolerance
+      - key: heating_target_temperature
+        type: double
+        entity_mapping: heating_target_temperature
+      - key: cooling_target_temperature
+        type: double
+        entity_mapping: cooling_target_temperature
+      - key: heating_target_temperature_range.min
+        type: double
+        entity_mapping: heating_target_temperature_range.min
+      - key: heating_target_temperature_range.max
+        type: double
+        entity_mapping: heating_target_temperature_range.max
+      - key: cooling_target_temperature_range.min
+        type: double
+        entity_mapping: cooling_target_temperature_range.min
+      - key: cooling_target_temperature_range.max
+        type: double
+        entity_mapping: cooling_target_temperature_range.max
+      - key: dehumidify_config.enable
+        type: boolean
+        entity_mapping: dehumidify_config.enable
+      - key: dehumidify_config.temperature_tolerance
+        type: double
+        entity_mapping: dehumidify_config.temperature_tolerance
+      - key: target_humidity_range.min
+        type: double
+        entity_mapping: target_humidity_range.min
+      - key: target_humidity_range.max
+        type: double
+        entity_mapping: target_humidity_range.max
+      - key: fan_mode
+        type: long
+        entity_mapping: fan_mode
+      - key: fan_speed_config.delta_1
+        type: double
+        entity_mapping: fan_speed_config.delta_1
+      - key: fan_speed_config.delta_2
+        type: double
+        entity_mapping: fan_speed_config.delta_2
+      - key: fan_delay_config.enable
+        type: boolean
+        entity_mapping: fan_delay_config.enable
+      - key: fan_delay_config.delay_time
+        type: long
+        entity_mapping: fan_delay_config.delay_time
+      - key: child_lock_settings.enable
+        type: boolean
+        entity_mapping: child_lock_settings.enable
+      - key: child_lock_settings.system_button
+        type: boolean
+        entity_mapping: child_lock_settings.system_button
+      - key: child_lock_settings.temperature_button
+        type: boolean
+        entity_mapping: child_lock_settings.temperature_button
+      - key: child_lock_settings.fan_button
+        type: boolean
+        entity_mapping: child_lock_settings.fan_button
+      - key: child_lock_settings.temperature_control_button
+        type: boolean
+        entity_mapping: child_lock_settings.temperature_control_button
+      - key: child_lock_settings.reboot_reset_button
+        type: boolean
+        entity_mapping: child_lock_settings.reboot_reset_button
+      - key: temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: temperature_alarm_settings.enable
+      - key: temperature_alarm_settings.condition
+        type: long
+        entity_mapping: temperature_alarm_settings.condition
+      - key: temperature_alarm_settings.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_min
+      - key: temperature_alarm_settings.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_max
+      - key: high_temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: high_temperature_alarm_settings.enable
+      - key: high_temperature_alarm_settings.delta_temperature
+        type: double
+        entity_mapping: high_temperature_alarm_settings.delta_temperature
+      - key: high_temperature_alarm_settings.duration
+        type: long
+        entity_mapping: high_temperature_alarm_settings.duration
+      - key: low_temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: low_temperature_alarm_settings.enable
+      - key: low_temperature_alarm_settings.delta_temperature
+        type: double
+        entity_mapping: low_temperature_alarm_settings.delta_temperature
+      - key: low_temperature_alarm_settings.duration
+        type: long
+        entity_mapping: low_temperature_alarm_settings.duration
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: valve_interface_settings.mode
+        type: long
+        entity_mapping: valve_interface_settings.mode
+      - key: valve_interface_settings.four_pipe_two_wire#cooling_valve
+        type: long
+        entity_mapping: valve_interface_settings.four_pipe_two_wire#cooling_valve
+      - key: valve_interface_settings.four_pipe_two_wire#heating_valve
+        type: long
+        entity_mapping: valve_interface_settings.four_pipe_two_wire#heating_valve
+      - key: valve_interface_settings.two_pipe_two_wire#valve
+        type: long
+        entity_mapping: valve_interface_settings.two_pipe_two_wire#valve
+      - key: valve_interface_settings.two_pipe_three_wire#no_valve
+        type: long
+        entity_mapping: valve_interface_settings.two_pipe_three_wire#no_valve
+      - key: valve_interface_settings.two_pipe_three_wire#nc_valve
+        type: long
+        entity_mapping: valve_interface_settings.two_pipe_three_wire#nc_valve
+      - key: di_settings.enable
+        type: boolean
+        entity_mapping: di_settings.enable
+      - key: di_settings.type
+        type: long
+        entity_mapping: di_settings.type
+      - key: di_settings.card_control#mode
+        type: long
+        entity_mapping: di_settings.card_control#mode
+      - key: di_settings.card_control#system_status
+        type: boolean
+        entity_mapping: di_settings.card_control#system_status
+      - key: di_settings.card_control#in_plan_id
+        type: long
+        entity_mapping: di_settings.card_control#in_plan_id
+      - key: di_settings.card_control#out_plan_id
+        type: long
+        entity_mapping: di_settings.card_control#out_plan_id
+      - key: di_settings.magnet_detection#mode
+        type: long
+        entity_mapping: di_settings.magnet_detection#mode
+      - key: window_opening_detection_settings.enable
+        type: boolean
+        entity_mapping: window_opening_detection_settings.enable
+      - key: window_opening_detection_settings.type
+        type: long
+        entity_mapping: window_opening_detection_settings.type
+      - key: >-
+          window_opening_detection_settings.temperature_detection#delta_temperature
+        type: long
+        entity_mapping: >-
+          window_opening_detection_settings.temperature_detection#delta_temperature
+      - key: window_opening_detection_settings.temperature_detection#duration
+        type: long
+        entity_mapping: window_opening_detection_settings.temperature_detection#duration
+      - key: window_opening_detection_settings.magnet_detection#duration
+        type: long
+        entity_mapping: window_opening_detection_settings.magnet_detection#duration
+      - key: freeze_protection_settings.enable
+        type: boolean
+        entity_mapping: freeze_protection_settings.enable
+      - key: freeze_protection_settings.target_temperature
+        type: double
+        entity_mapping: freeze_protection_settings.target_temperature
+      - key: temperature_source_settings.source
+        type: long
+        entity_mapping: temperature_source_settings.source
+      - key: temperature_source_settings.duration
+        type: long
+        entity_mapping: temperature_source_settings.duration
+      - key: temperature_source_settings.missing_data_action
+        type: long
+        entity_mapping: temperature_source_settings.missing_data_action
+      - key: d2d_pairing_enable
+        type: boolean
+        entity_mapping: d2d_pairing_enable
+      - key: d2d_master_enable
+        type: boolean
+        entity_mapping: d2d_master_enable
+      - key: d2d_slave_enable
+        type: boolean
+        entity_mapping: d2d_slave_enable
+      - key: timed_system_control_settings.enable
+        type: boolean
+        entity_mapping: timed_system_control_settings.enable
+      - key: temporary_unlock_settings.system_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.system_button
+      - key: temporary_unlock_settings.temperature_up_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.temperature_up_button
+      - key: temporary_unlock_settings.temperature_down_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.temperature_down_button
+      - key: temporary_unlock_settings.fan_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.fan_button
+      - key: temporary_unlock_settings.temperature_control_mode_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.temperature_control_mode_button
+      - key: temporary_unlock_settings.duration
+        type: long
+        entity_mapping: temporary_unlock_settings.duration
+      - key: temperature_control_with_standby_fan_mode
+        type: long
+        entity_mapping: temperature_control_with_standby_fan_mode
+      - key: valve_opening_negative_valve_mode
+        type: long
+        entity_mapping: valve_opening_negative_valve_mode
+      - key: relay_changes_report_enable
+        type: boolean
+        entity_mapping: relay_changes_report_enable
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: daylight_saving_time.enable
+        type: boolean
+        entity_mapping: daylight_saving_time.enable
+      - key: daylight_saving_time.offset
+        type: long
+        entity_mapping: daylight_saving_time.offset
+      - key: daylight_saving_time.start_month
+        type: long
+        entity_mapping: daylight_saving_time.start_month
+      - key: daylight_saving_time.start_week_num
+        type: long
+        entity_mapping: daylight_saving_time.start_week_num
+      - key: daylight_saving_time.start_week_day
+        type: long
+        entity_mapping: daylight_saving_time.start_week_day
+      - key: daylight_saving_time.start_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.start_hour_min
+      - key: daylight_saving_time.end_month
+        type: long
+        entity_mapping: daylight_saving_time.end_month
+      - key: daylight_saving_time.end_week_num
+        type: long
+        entity_mapping: daylight_saving_time.end_week_num
+      - key: daylight_saving_time.end_week_day
+        type: long
+        entity_mapping: daylight_saving_time.end_week_day
+      - key: daylight_saving_time.end_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.end_hour_min
+      - key: auto_provisioning_enable
+        type: boolean
+        entity_mapping: auto_provisioning_enable
+      - key: history_transmit_settings.enable
+        type: boolean
+        entity_mapping: history_transmit_settings.enable
+      - key: history_transmit_settings.retransmission_interval
+        type: long
+        entity_mapping: history_transmit_settings.retransmission_interval
+      - key: history_transmit_settings.resend_interval
+        type: long
+        entity_mapping: history_transmit_settings.resend_interval
+      - key: opening_window_alarm
+        type: long
+        entity_mapping: opening_window_alarm
+  output:
+    type: object
+    properties:
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: collection_interval.unit
+        type: long
+        entity_mapping: collection_interval.unit
+      - key: collection_interval.seconds_of_time
+        type: long
+        entity_mapping: collection_interval.seconds_of_time
+      - key: collection_interval.minutes_of_time
+        type: long
+        entity_mapping: collection_interval.minutes_of_time
+      - key: reporting_interval.unit
+        type: long
+        entity_mapping: reporting_interval.unit
+      - key: reporting_interval.seconds_of_time
+        type: long
+        entity_mapping: reporting_interval.seconds_of_time
+      - key: reporting_interval.minutes_of_time
+        type: long
+        entity_mapping: reporting_interval.minutes_of_time
+      - key: temperature_unit
+        type: long
+        entity_mapping: temperature_unit
+      - key: support_mode
+        type: long
+        entity_mapping: support_mode
+      - key: intelligent_display_enable
+        type: boolean
+        entity_mapping: intelligent_display_enable
+      - key: screen_object_settings.enable
+        type: boolean
+        entity_mapping: screen_object_settings.enable
+      - key: screen_object_settings.environment_temperature_enable
+        type: boolean
+        entity_mapping: screen_object_settings.environment_temperature_enable
+      - key: screen_object_settings.environment_humidity_enable
+        type: boolean
+        entity_mapping: screen_object_settings.environment_humidity_enable
+      - key: screen_object_settings.target_temperature_enable
+        type: boolean
+        entity_mapping: screen_object_settings.target_temperature_enable
+      - key: screen_object_settings.schedule_name_enable
+        type: boolean
+        entity_mapping: screen_object_settings.schedule_name_enable
+      - key: system_status
+        type: long
+        entity_mapping: system_status
+      - key: temperature_control_mode
+        type: long
+        entity_mapping: temperature_control_mode
+      - key: target_temperature_resolution
+        type: long
+        entity_mapping: target_temperature_resolution
+      - key: target_temperature_tolerance
+        type: double
+        entity_mapping: target_temperature_tolerance
+      - key: heating_target_temperature
+        type: double
+        entity_mapping: heating_target_temperature
+      - key: cooling_target_temperature
+        type: double
+        entity_mapping: cooling_target_temperature
+      - key: heating_target_temperature_range.min
+        type: double
+        entity_mapping: heating_target_temperature_range.min
+      - key: heating_target_temperature_range.max
+        type: double
+        entity_mapping: heating_target_temperature_range.max
+      - key: cooling_target_temperature_range.min
+        type: double
+        entity_mapping: cooling_target_temperature_range.min
+      - key: cooling_target_temperature_range.max
+        type: double
+        entity_mapping: cooling_target_temperature_range.max
+      - key: dehumidify_config.enable
+        type: boolean
+        entity_mapping: dehumidify_config.enable
+      - key: dehumidify_config.temperature_tolerance
+        type: double
+        entity_mapping: dehumidify_config.temperature_tolerance
+      - key: target_humidity_range.min
+        type: double
+        entity_mapping: target_humidity_range.min
+      - key: target_humidity_range.max
+        type: double
+        entity_mapping: target_humidity_range.max
+      - key: fan_mode
+        type: long
+        entity_mapping: fan_mode
+      - key: fan_speed_config.delta_1
+        type: double
+        entity_mapping: fan_speed_config.delta_1
+      - key: fan_speed_config.delta_2
+        type: double
+        entity_mapping: fan_speed_config.delta_2
+      - key: fan_delay_config.enable
+        type: boolean
+        entity_mapping: fan_delay_config.enable
+      - key: fan_delay_config.delay_time
+        type: long
+        entity_mapping: fan_delay_config.delay_time
+      - key: child_lock_settings.enable
+        type: boolean
+        entity_mapping: child_lock_settings.enable
+      - key: child_lock_settings.system_button
+        type: boolean
+        entity_mapping: child_lock_settings.system_button
+      - key: child_lock_settings.temperature_button
+        type: boolean
+        entity_mapping: child_lock_settings.temperature_button
+      - key: child_lock_settings.fan_button
+        type: boolean
+        entity_mapping: child_lock_settings.fan_button
+      - key: child_lock_settings.temperature_control_button
+        type: boolean
+        entity_mapping: child_lock_settings.temperature_control_button
+      - key: child_lock_settings.reboot_reset_button
+        type: boolean
+        entity_mapping: child_lock_settings.reboot_reset_button
+      - key: temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: temperature_alarm_settings.enable
+      - key: temperature_alarm_settings.condition
+        type: long
+        entity_mapping: temperature_alarm_settings.condition
+      - key: temperature_alarm_settings.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_min
+      - key: temperature_alarm_settings.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_max
+      - key: high_temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: high_temperature_alarm_settings.enable
+      - key: high_temperature_alarm_settings.delta_temperature
+        type: double
+        entity_mapping: high_temperature_alarm_settings.delta_temperature
+      - key: high_temperature_alarm_settings.duration
+        type: long
+        entity_mapping: high_temperature_alarm_settings.duration
+      - key: low_temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: low_temperature_alarm_settings.enable
+      - key: low_temperature_alarm_settings.delta_temperature
+        type: double
+        entity_mapping: low_temperature_alarm_settings.delta_temperature
+      - key: low_temperature_alarm_settings.duration
+        type: long
+        entity_mapping: low_temperature_alarm_settings.duration
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: valve_interface_settings.mode
+        type: long
+        entity_mapping: valve_interface_settings.mode
+      - key: valve_interface_settings.four_pipe_two_wire#cooling_valve
+        type: long
+        entity_mapping: valve_interface_settings.four_pipe_two_wire#cooling_valve
+      - key: valve_interface_settings.four_pipe_two_wire#heating_valve
+        type: long
+        entity_mapping: valve_interface_settings.four_pipe_two_wire#heating_valve
+      - key: valve_interface_settings.two_pipe_two_wire#valve
+        type: long
+        entity_mapping: valve_interface_settings.two_pipe_two_wire#valve
+      - key: valve_interface_settings.two_pipe_three_wire#no_valve
+        type: long
+        entity_mapping: valve_interface_settings.two_pipe_three_wire#no_valve
+      - key: valve_interface_settings.two_pipe_three_wire#nc_valve
+        type: long
+        entity_mapping: valve_interface_settings.two_pipe_three_wire#nc_valve
+      - key: di_settings.enable
+        type: boolean
+        entity_mapping: di_settings.enable
+      - key: di_settings.type
+        type: long
+        entity_mapping: di_settings.type
+      - key: di_settings.card_control#mode
+        type: long
+        entity_mapping: di_settings.card_control#mode
+      - key: di_settings.card_control#system_status
+        type: boolean
+        entity_mapping: di_settings.card_control#system_status
+      - key: di_settings.card_control#in_plan_id
+        type: long
+        entity_mapping: di_settings.card_control#in_plan_id
+      - key: di_settings.card_control#out_plan_id
+        type: long
+        entity_mapping: di_settings.card_control#out_plan_id
+      - key: di_settings.magnet_detection#mode
+        type: long
+        entity_mapping: di_settings.magnet_detection#mode
+      - key: window_opening_detection_settings.enable
+        type: boolean
+        entity_mapping: window_opening_detection_settings.enable
+      - key: window_opening_detection_settings.type
+        type: long
+        entity_mapping: window_opening_detection_settings.type
+      - key: >-
+          window_opening_detection_settings.temperature_detection#delta_temperature
+        type: long
+        entity_mapping: >-
+          window_opening_detection_settings.temperature_detection#delta_temperature
+      - key: window_opening_detection_settings.temperature_detection#duration
+        type: long
+        entity_mapping: window_opening_detection_settings.temperature_detection#duration
+      - key: window_opening_detection_settings.magnet_detection#duration
+        type: long
+        entity_mapping: window_opening_detection_settings.magnet_detection#duration
+      - key: freeze_protection_settings.enable
+        type: boolean
+        entity_mapping: freeze_protection_settings.enable
+      - key: freeze_protection_settings.target_temperature
+        type: double
+        entity_mapping: freeze_protection_settings.target_temperature
+      - key: temperature_source_settings.source
+        type: long
+        entity_mapping: temperature_source_settings.source
+      - key: temperature_source_settings.duration
+        type: long
+        entity_mapping: temperature_source_settings.duration
+      - key: temperature_source_settings.missing_data_action
+        type: long
+        entity_mapping: temperature_source_settings.missing_data_action
+      - key: d2d_pairing_enable
+        type: boolean
+        entity_mapping: d2d_pairing_enable
+      - key: d2d_master_enable
+        type: boolean
+        entity_mapping: d2d_master_enable
+      - key: d2d_slave_enable
+        type: boolean
+        entity_mapping: d2d_slave_enable
+      - key: timed_system_control_settings.enable
+        type: boolean
+        entity_mapping: timed_system_control_settings.enable
+      - key: temporary_unlock_settings.system_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.system_button
+      - key: temporary_unlock_settings.temperature_up_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.temperature_up_button
+      - key: temporary_unlock_settings.temperature_down_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.temperature_down_button
+      - key: temporary_unlock_settings.fan_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.fan_button
+      - key: temporary_unlock_settings.temperature_control_mode_button
+        type: boolean
+        entity_mapping: temporary_unlock_settings.temperature_control_mode_button
+      - key: temporary_unlock_settings.duration
+        type: long
+        entity_mapping: temporary_unlock_settings.duration
+      - key: temperature_control_with_standby_fan_mode
+        type: long
+        entity_mapping: temperature_control_with_standby_fan_mode
+      - key: valve_opening_negative_valve_mode
+        type: long
+        entity_mapping: valve_opening_negative_valve_mode
+      - key: relay_changes_report_enable
+        type: boolean
+        entity_mapping: relay_changes_report_enable
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: daylight_saving_time.enable
+        type: boolean
+        entity_mapping: daylight_saving_time.enable
+      - key: daylight_saving_time.offset
+        type: long
+        entity_mapping: daylight_saving_time.offset
+      - key: daylight_saving_time.start_month
+        type: long
+        entity_mapping: daylight_saving_time.start_month
+      - key: daylight_saving_time.start_week_num
+        type: long
+        entity_mapping: daylight_saving_time.start_week_num
+      - key: daylight_saving_time.start_week_day
+        type: long
+        entity_mapping: daylight_saving_time.start_week_day
+      - key: daylight_saving_time.start_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.start_hour_min
+      - key: daylight_saving_time.end_month
+        type: long
+        entity_mapping: daylight_saving_time.end_month
+      - key: daylight_saving_time.end_week_num
+        type: long
+        entity_mapping: daylight_saving_time.end_week_num
+      - key: daylight_saving_time.end_week_day
+        type: long
+        entity_mapping: daylight_saving_time.end_week_day
+      - key: daylight_saving_time.end_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.end_hour_min
+      - key: auto_provisioning_enable
+        type: boolean
+        entity_mapping: auto_provisioning_enable
+      - key: history_transmit_settings.enable
+        type: boolean
+        entity_mapping: history_transmit_settings.enable
+      - key: history_transmit_settings.retransmission_interval
+        type: long
+        entity_mapping: history_transmit_settings.retransmission_interval
+      - key: history_transmit_settings.resend_interval
+        type: long
+        entity_mapping: history_transmit_settings.resend_interval
+      - key: reconnect
+        type: boolean
+        entity_mapping: reconnect
+      - key: synchronize_time
+        type: boolean
+        entity_mapping: synchronize_time
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit_history
+        type: boolean
+        entity_mapping: stop_transmit_history.stop_transmit_history
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: stop_transmit_history.fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: stop_transmit_history.fetch_history.end_time
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: opening_window_alarm
+        type: long
+        entity_mapping: opening_window_alarm
+      - key: insert_plan_id
+        type: long
+        entity_mapping: insert_plan_id
+      - key: clear_plan.plan_1
+        type: boolean
+        entity_mapping: clear_plan.plan_1
+      - key: clear_plan.plan_2
+        type: boolean
+        entity_mapping: clear_plan.plan_2
+      - key: clear_plan.plan_3
+        type: boolean
+        entity_mapping: clear_plan.plan_3
+      - key: clear_plan.plan_4
+        type: boolean
+        entity_mapping: clear_plan.plan_4
+      - key: clear_plan.plan_5
+        type: boolean
+        entity_mapping: clear_plan.plan_5
+      - key: clear_plan.plan_6
+        type: boolean
+        entity_mapping: clear_plan.plan_6
+      - key: clear_plan.plan_7
+        type: boolean
+        entity_mapping: clear_plan.plan_7
+      - key: clear_plan.plan_8
+        type: boolean
+        entity_mapping: clear_plan.plan_8
+      - key: clear_plan.plan_9
+        type: boolean
+        entity_mapping: clear_plan.plan_9
+      - key: clear_plan.plan_10
+        type: boolean
+        entity_mapping: clear_plan.plan_10
+      - key: clear_plan.plan_11
+        type: boolean
+        entity_mapping: clear_plan.plan_11
+      - key: clear_plan.plan_12
+        type: boolean
+        entity_mapping: clear_plan.plan_12
+      - key: clear_plan.plan_13
+        type: boolean
+        entity_mapping: clear_plan.plan_13
+      - key: clear_plan.plan_14
+        type: boolean
+        entity_mapping: clear_plan.plan_14
+      - key: clear_plan.plan_15
+        type: boolean
+        entity_mapping: clear_plan.plan_15
+      - key: clear_plan.plan_16
+        type: boolean
+        entity_mapping: clear_plan.plan_16
+      - key: clear_plan.reset
+        type: boolean
+        entity_mapping: clear_plan.reset
+initial_entities:
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: Product Name
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 32
+    identifier: product_name
+  - name: Product PN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 32
+    identifier: product_pn
+  - name: Product SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: product_sn
+  - identifier: version
+    name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Hardware Version
+        value_type: string
+        attributes:
+          max_length: 6
+        identifier: hardware_version
+      - name: Firmware Version
+        value_type: string
+        attributes:
+          max_length: 16
+        identifier: firmware_version
+  - name: OEM ID
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 2
+    identifier: oem_id
+  - name: Product Frequency Band
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: product_frequency_band
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': 'on'
+    identifier: device_status
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Temperature
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Humidity
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: '%r.h.'
+    identifier: humidity
+  - name: Target Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: target_temperature
+  - name: Temperature Data Source
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': internal
+        '1': ntc
+        '2': lorawan
+        '3': d2d
+    identifier: temperature_data_source
+  - name: Temperature Control Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': standby
+        '1': heating
+        '2': cooling
+    identifier: temperature_control_status
+  - name: Valve Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '100': 'on'
+    identifier: valve_status
+  - name: Fan Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': low
+        '2': medium
+        '3': high
+    identifier: fan_status
+  - name: Plan ID
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': plan_1
+        '1': plan_2
+        '2': plan_3
+        '3': plan_4
+        '4': plan_5
+        '5': plan_6
+        '6': plan_7
+        '7': plan_8
+        '8': plan_9
+        '9': plan_10
+        '10': plan_11
+        '11': plan_12
+        '12': plan_13
+        '13': plan_14
+        '14': plan_15
+        '15': plan_16
+        '255': no_plan
+    identifier: plan_id
+  - identifier: temperature_alarm
+    name: Temperature Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Temperature Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+            '3': no data
+            '16': below threshold temperature alarm release
+            '17': below threshold temperature alarm
+            '18': above threshold temperature alarm release
+            '19': above threshold temperature alarm
+            '20': between threshold temperature alarm release
+            '21': between threshold temperature alarm
+            '22': outside threshold temperature alarm release
+            '23': outside threshold temperature alarm
+            '32': continuous low temperature alarm release
+            '33': continuous low temperature alarm
+            '34': continuous high temperature alarm
+            '48': freeze alarm release
+            '49': freeze alarm
+            '50': window open alarm release
+            '51': window open alarm
+        identifier: type
+      - name: Temperature Alarm (Temperature)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature
+  - name: Humidity Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': collection error
+        '1': lower range error
+        '2': over range error
+        '3': no data
+    identifier: humidity_alarm
+  - name: Target Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '3': no data
+    identifier: target_temperature_alarm
+  - identifier: relay_status
+    name: Relay Status (GL)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Relay Status (GL)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: gl_status
+      - name: Relay Status (GM)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: gm_status
+      - name: Relay Status (GH)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: gh_status
+      - name: Relay Status (Valve 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: valve_1_status
+      - name: Relay Status (Valve 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: valve_2_status
+  - identifier: collection_interval
+    name: Collection Interval (Unit)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Collection Interval (Unit)
+        value_type: long
+        attributes:
+          enum:
+            '0': seconds
+            '1': minutes
+        identifier: unit
+      - name: Collection Interval (Seconds of Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: seconds_of_time
+      - name: Collection Interval (Minutes of Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: minutes_of_time
+  - identifier: reporting_interval
+    name: Reporting Interval (Unit)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Reporting Interval (Unit)
+        value_type: long
+        attributes:
+          enum:
+            '0': seconds
+            '1': minutes
+        identifier: unit
+      - name: Reporting Interval (Seconds of Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: seconds_of_time
+      - name: Reporting Interval (Minutes of Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: minutes_of_time
+  - name: Temperature Unit
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': celsius
+        '1': fahrenheit
+    identifier: temperature_unit
+  - name: Support Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '3': fan_and_heating
+        '5': fan_and_cooling
+        '7': fan_and_heating_and_cooling
+    identifier: support_mode
+  - name: Intelligent Display Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: intelligent_display_enable
+  - identifier: screen_object_settings
+    name: Screen Object Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Screen Object Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Screen Object Settings (Environment Temperature Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: environment_temperature_enable
+      - name: Screen Object Settings (Environment Humidity Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: environment_humidity_enable
+      - name: Screen Object Settings (Target Temperature Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: target_temperature_enable
+      - name: Screen Object Settings (Schedule Name Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: schedule_name_enable
+  - name: System Status
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': 'on'
+    identifier: system_status
+  - name: Temperature Control Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': fan
+        '1': heating
+        '2': cooling
+    identifier: temperature_control_mode
+  - name: Target Temperature Resolution
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': '0.5'
+        '1': '1'
+    identifier: target_temperature_resolution
+  - name: Target Temperature Tolerance
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: target_temperature_tolerance
+  - name: Heating Target Temperature
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: heating_target_temperature
+  - name: Cooling Target Temperature
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: cooling_target_temperature
+  - identifier: heating_target_temperature_range
+    name: Heating Target Temperature Range (Min)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Heating Target Temperature Range (Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: min
+      - name: Heating Target Temperature Range (Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: max
+  - identifier: cooling_target_temperature_range
+    name: Cooling Target Temperature Range (Min)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Cooling Target Temperature Range (Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: min
+      - name: Cooling Target Temperature Range (Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: max
+  - identifier: dehumidify_config
+    name: Dehumidify Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Dehumidify Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Dehumidify Config (Temperature Tolerance)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature_tolerance
+  - identifier: target_humidity_range
+    name: Target Humidity Range (Min)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Target Humidity Range (Min)
+        value_type: double
+        attributes:
+          unit: '%r.h.'
+        identifier: min
+      - name: Target Humidity Range (Max)
+        value_type: double
+        attributes:
+          unit: '%r.h.'
+        identifier: max
+  - name: Fan Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': auto
+        '1': low
+        '2': medium
+        '3': high
+    identifier: fan_mode
+  - identifier: fan_speed_config
+    name: Fan Speed Config (Delta 1)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Fan Speed Config (Delta 1)
+        value_type: double
+        identifier: delta_1
+      - name: Fan Speed Config (Delta 2)
+        value_type: double
+        identifier: delta_2
+  - identifier: fan_delay_config
+    name: Fan Delay Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Fan Delay Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Fan Delay Config (Delay Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: delay_time
+  - identifier: child_lock_settings
+    name: Child Lock Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Child Lock Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Child Lock Settings (System Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: system_button
+      - name: Child Lock Settings (Temperature Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: temperature_button
+      - name: Child Lock Settings (Fan Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: fan_button
+      - name: Child Lock Settings (Temperature Control Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: temperature_control_button
+      - name: Child Lock Settings (Reboot Reset Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: reboot_reset_button
+  - identifier: temperature_alarm_settings
+    name: Temperature Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Alarm Settings (Threshold Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Settings (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Settings (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+  - identifier: high_temperature_alarm_settings
+    name: High Temperature Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: High Temperature Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: High Temperature Alarm Settings (Delta Temperature)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: delta_temperature
+      - name: High Temperature Alarm Settings (Duration)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: duration
+  - identifier: low_temperature_alarm_settings
+    name: Low Temperature Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Low Temperature Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Low Temperature Alarm Settings (Delta Temperature)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: delta_temperature
+      - name: Low Temperature Alarm Settings (Duration)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: duration
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration Config (Calibration Value)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - identifier: humidity_calibration_settings
+    name: Humidity Calibration Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Humidity Calibration Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Humidity Calibration Config (Calibration Value)
+        value_type: double
+        attributes:
+          unit: '%r.h.'
+        identifier: calibration_value
+  - identifier: valve_interface_settings
+    name: Valve Interface Settings (Mode)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve Interface Settings (Mode)
+        value_type: long
+        attributes:
+          enum:
+            '0': four_pipe_two_wire
+            '1': two_pipe_two_wire
+            '2': two_pipe_three_wire
+        identifier: mode
+      - name: Valve Interface Settings (Four Pipe Two Wire Cooling Valve)
+        value_type: long
+        attributes:
+          enum:
+            '0': valve_1
+            '1': valve_2
+        identifier: four_pipe_two_wire#cooling_valve
+      - name: Valve Interface Settings (Four Pipe Two Wire Heating Valve)
+        value_type: long
+        attributes:
+          enum:
+            '0': valve_1
+            '1': valve_2
+        identifier: four_pipe_two_wire#heating_valve
+      - name: Valve Interface Settings (Two Pipe Two Wire Valve)
+        value_type: long
+        attributes:
+          enum:
+            '0': valve_1
+            '1': valve_2
+        identifier: two_pipe_two_wire#valve
+      - name: Valve Interface Settings (Two Pipe Three Wire NO Valve)
+        value_type: long
+        attributes:
+          enum:
+            '0': valve_1
+            '1': valve_2
+        identifier: two_pipe_three_wire#no_valve
+      - name: Valve Interface Settings (Two Pipe Three Wire NC Valve)
+        value_type: long
+        attributes:
+          enum:
+            '0': valve_1
+            '1': valve_2
+        identifier: two_pipe_three_wire#nc_valve
+  - identifier: di_settings
+    name: DI Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: DI Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: DI Settings (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': card_control
+            '1': magnet_detection
+        identifier: type
+      - name: DI Settings (Card Control Mode)
+        value_type: long
+        attributes:
+          enum:
+            '0': power
+            '1': plan
+        identifier: card_control#mode
+      - name: DI Settings (Card Control System Status)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: card_control#system_status
+      - name: DI Settings (Card Control In Plan ID)
+        value_type: long
+        identifier: card_control#in_plan_id
+      - name: DI Settings (Card Control Out Plan ID)
+        value_type: long
+        identifier: card_control#out_plan_id
+      - name: DI Settings (Magnet Detection Mode)
+        value_type: long
+        attributes:
+          enum:
+            '0': normally_close
+            '1': normally_open
+        identifier: magnet_detection#mode
+  - identifier: window_opening_detection_settings
+    name: Window Open Detection (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Window Open Detection (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Window Open Detection (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': temperature_detection
+            '1': magnet_detection
+        identifier: type
+      - name: Window Open Detection (Temperature Detection (Delta))
+        value_type: long
+        attributes:
+          unit: °C
+        identifier: temperature_detection#delta_temperature
+      - name: Window Open Detection (Temperature Detection (Duration))
+        value_type: long
+        attributes:
+          unit: min
+        identifier: temperature_detection#duration
+      - name: Window Open Detection (Magnet Detection (Duration))
+        value_type: long
+        attributes:
+          unit: min
+        identifier: magnet_detection#duration
+  - identifier: freeze_protection_settings
+    name: Freeze Protection Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Freeze Protection Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Freeze Protection Settings (Target Temperature)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: target_temperature
+  - identifier: temperature_source_settings
+    name: Temperature Source Settings (Source)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Source Settings (Source)
+        value_type: long
+        attributes:
+          enum:
+            '0': internal
+            '1': ntc
+            '2': lorawan
+            '3': d2d
+        identifier: source
+      - name: Temperature Source Settings (Duration)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: duration
+      - name: Temperature Source Settings (Missing Data Action)
+        value_type: long
+        attributes:
+          enum:
+            '0': hold
+            '1': off_or_fan_control
+            '2': switch_to_internal
+        identifier: missing_data_action
+  - name: D2D Pairing Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_pairing_enable
+  - name: D2D Master Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_master_enable
+  - name: D2D Slave Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_slave_enable
+  - identifier: timed_system_control_settings
+    name: Timed System Control Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Timed System Control Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+  - identifier: temporary_unlock_settings
+    name: Temporary Unlock Settings (System Button)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temporary Unlock Settings (System Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: system_button
+      - name: Temporary Unlock Settings (Temperature Up Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: temperature_up_button
+      - name: Temporary Unlock Settings (Temperature Down Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: temperature_down_button
+      - name: Temporary Unlock Settings (Fan Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: fan_button
+      - name: Temporary Unlock Settings (Temperature Control Mode Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: temperature_control_mode_button
+      - name: Temporary Unlock Settings (Duration)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: duration
+  - name: Temperature Control With Standby Fan Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': low
+        '1': stop
+    identifier: temperature_control_with_standby_fan_mode
+  - name: Valve Opening Negative Valve Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': low
+        '1': stop
+    identifier: valve_opening_negative_valve_mode
+  - name: Relay Changes Report Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: relay_changes_report_enable
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - identifier: daylight_saving_time
+    name: Daylight Saving Time (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Daylight Saving Time (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Daylight Saving Time (Offset)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: offset
+      - name: Daylight Saving Time (Start Month)
+        value_type: long
+        identifier: start_month
+      - name: Daylight Saving Time (Start Week Num)
+        value_type: long
+        identifier: start_week_num
+      - name: Daylight Saving Time (Start Week Day)
+        value_type: long
+        identifier: start_week_day
+      - name: Daylight Saving Time (Start Hour Min)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: start_hour_min
+      - name: Daylight Saving Time (End Month)
+        value_type: long
+        identifier: end_month
+      - name: Daylight Saving Time (End Week Num)
+        value_type: long
+        identifier: end_week_num
+      - name: Daylight Saving Time (End Week Day)
+        value_type: long
+        identifier: end_week_day
+      - name: Daylight Saving Time (End Hour Min)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: end_hour_min
+  - name: Auto Provisioning Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: auto_provisioning_enable
+  - identifier: history_transmit_settings
+    name: History Transmit Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: History Transmit Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: History Transmit Settings (Retransmission Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: retransmission_interval
+      - name: History Transmit Settings (Resend Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: resend_interval
+  - name: Reconnect
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reconnect
+  - name: Synchronize Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: synchronize_time
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - identifier: stop_transmit_history
+    name: Stop Transmit History
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Stop Transmit History
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: stop_transmit_history
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Opening Window Alarm
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': release
+        '1': trigger
+    identifier: opening_window_alarm
+  - name: Insert Plan ID
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      enum:
+        '1': plan_1
+        '2': plan_2
+        '3': plan_3
+        '4': plan_4
+        '5': plan_5
+        '6': plan_6
+        '7': plan_7
+        '8': plan_8
+        '9': plan_9
+        '10': plan_10
+        '11': plan_11
+        '12': plan_12
+        '13': plan_13
+        '14': plan_14
+        '15': plan_15
+        '16': plan_16
+    identifier: insert_plan_id
+  - identifier: clear_plan
+    name: Clear Plan (Plan 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Clear Plan (Plan 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_1
+      - name: Clear Plan (Plan 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_2
+      - name: Clear Plan (Plan 3)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_3
+      - name: Clear Plan (Plan 4)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_4
+      - name: Clear Plan (Plan 5)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_5
+      - name: Clear Plan (Plan 6)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_6
+      - name: Clear Plan (Plan 7)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_7
+      - name: Clear Plan (Plan 8)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_8
+      - name: Clear Plan (Plan 9)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_9
+      - name: Clear Plan (Plan 10)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_10
+      - name: Clear Plan (Plan 11)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_11
+      - name: Clear Plan (Plan 12)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_12
+      - name: Clear Plan (Plan 13)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_13
+      - name: Clear Plan (Plan 14)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_14
+      - name: Clear Plan (Plan 15)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_15
+      - name: Clear Plan (Plan 16)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: plan_16
+      - name: Clear Plan (reset to default)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: reset
+codec:
+  id: default
+  ref: wt303/codec/device-codec.yaml

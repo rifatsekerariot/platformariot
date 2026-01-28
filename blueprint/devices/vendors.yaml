@@ -1,0 +1,5 @@
+vendors:
+  - id: milesight-iot
+    name: Milesight IoT
+    work_dir: devices/milesight-iot
+    model_index: models.yaml

@@ -1,0 +1,956 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: target_temperature
+        type: double
+        entity_mapping: target_temperature.target_temperature
+      - key: temperature_tolerance
+        type: double
+        entity_mapping: target_temperature.temperature_tolerance
+      - key: valve_opening
+        type: long
+        entity_mapping: valve_opening
+      - key: tamper_status
+        type: boolean
+        entity_mapping: tamper_status
+      - key: window_detection
+        type: boolean
+        entity_mapping: window_detection
+      - key: motor_calibration_result
+        type: long
+        entity_mapping: motor_calibration_result
+      - key: motor_stroke
+        type: long
+        entity_mapping: motor_stroke
+      - key: freeze_protection
+        type: boolean
+        entity_mapping: freeze_protection
+      - key: motor_position
+        type: long
+        entity_mapping: motor_position
+      - key: time_sync_enable
+        type: boolean
+        entity_mapping: time_sync_enable
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: temperature_control.enable
+        type: boolean
+        entity_mapping: temperature_control.enable
+      - key: temperature_control.mode
+        type: long
+        entity_mapping: temperature_control.mode
+      - key: target_temperature_range.min
+        type: long
+        entity_mapping: target_temperature_range.min
+      - key: target_temperature_range.max
+        type: long
+        entity_mapping: target_temperature_range.max
+      - key: open_window_detection.enable
+        type: boolean
+        entity_mapping: open_window_detection.enable
+      - key: open_window_detection.temperature_threshold
+        type: double
+        entity_mapping: open_window_detection.temperature_threshold
+      - key: open_window_detection.time
+        type: long
+        entity_mapping: open_window_detection.time
+      - key: valve_control_algorithm
+        type: long
+        entity_mapping: valve_control_algorithm
+      - key: freeze_protection_config.enable
+        type: boolean
+        entity_mapping: freeze_protection_config.enable
+      - key: freeze_protection_config.temperature
+        type: double
+        entity_mapping: freeze_protection_config.temperature
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: offline_control_mode
+        type: long
+        entity_mapping: offline_control_mode
+      - key: outside_temperature
+        type: double
+        entity_mapping: outside_temperature
+      - key: outside_temperature_control.enable
+        type: boolean
+        entity_mapping: outside_temperature_control.enable
+      - key: outside_temperature_control.timeout
+        type: long
+        entity_mapping: outside_temperature_control.timeout
+      - key: display_ambient_temperature
+        type: boolean
+        entity_mapping: display_ambient_temperature
+      - key: window_detection_valve_strategy
+        type: long
+        entity_mapping: window_detection_valve_strategy
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: effective_stroke.enable
+        type: boolean
+        entity_mapping: effective_stroke.enable
+      - key: effective_stroke.rate
+        type: long
+        entity_mapping: effective_stroke.rate
+      - key: heating_date.enable
+        type: boolean
+        entity_mapping: heating_date.enable
+      - key: heating_date.report_interval
+        type: long
+        entity_mapping: heating_date.report_interval
+      - key: heating_date.start_month
+        type: long
+        entity_mapping: heating_date.start_month
+      - key: heating_date.start_day
+        type: long
+        entity_mapping: heating_date.start_day
+      - key: heating_date.end_month
+        type: long
+        entity_mapping: heating_date.end_month
+      - key: heating_date.end_day
+        type: long
+        entity_mapping: heating_date.end_day
+      - key: change_report_enable
+        type: boolean
+        entity_mapping: change_report_enable
+  output:
+    type: object
+    properties:
+      - key: target_temperature
+        type: double
+        entity_mapping: target_temperature.target_temperature
+      - key: temperature_tolerance
+        type: double
+        entity_mapping: target_temperature.temperature_tolerance
+      - key: valve_opening
+        type: long
+        entity_mapping: valve_opening
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: time_sync_enable
+        type: boolean
+        entity_mapping: time_sync_enable
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: report_heating_date
+        type: boolean
+        entity_mapping: report_heating_date
+      - key: report_heating_schedule
+        type: boolean
+        entity_mapping: report_heating_schedule
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: temperature_control.enable
+        type: boolean
+        entity_mapping: temperature_control.enable
+      - key: temperature_control.mode
+        type: long
+        entity_mapping: temperature_control.mode
+      - key: target_temperature_range.min
+        type: long
+        entity_mapping: target_temperature_range.min
+      - key: target_temperature_range.max
+        type: long
+        entity_mapping: target_temperature_range.max
+      - key: open_window_detection.enable
+        type: boolean
+        entity_mapping: open_window_detection.enable
+      - key: open_window_detection.temperature_threshold
+        type: double
+        entity_mapping: open_window_detection.temperature_threshold
+      - key: open_window_detection.time
+        type: long
+        entity_mapping: open_window_detection.time
+      - key: restore_open_window_detection
+        type: boolean
+        entity_mapping: restore_open_window_detection
+      - key: valve_calibration
+        type: boolean
+        entity_mapping: valve_calibration
+      - key: valve_control_algorithm
+        type: long
+        entity_mapping: valve_control_algorithm
+      - key: freeze_protection_config.enable
+        type: boolean
+        entity_mapping: freeze_protection_config.enable
+      - key: freeze_protection_config.temperature
+        type: double
+        entity_mapping: freeze_protection_config.temperature
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: offline_control_mode
+        type: long
+        entity_mapping: offline_control_mode
+      - key: outside_temperature
+        type: double
+        entity_mapping: outside_temperature
+      - key: outside_temperature_control.enable
+        type: boolean
+        entity_mapping: outside_temperature_control.enable
+      - key: outside_temperature_control.timeout
+        type: long
+        entity_mapping: outside_temperature_control.timeout
+      - key: display_ambient_temperature
+        type: boolean
+        entity_mapping: display_ambient_temperature
+      - key: window_detection_valve_strategy
+        type: long
+        entity_mapping: window_detection_valve_strategy
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: effective_stroke.enable
+        type: boolean
+        entity_mapping: effective_stroke.enable
+      - key: effective_stroke.rate
+        type: long
+        entity_mapping: effective_stroke.rate
+      - key: heating_date.enable
+        type: boolean
+        entity_mapping: heating_date.enable
+      - key: heating_date.report_interval
+        type: long
+        entity_mapping: heating_date.report_interval
+      - key: heating_date.start_month
+        type: long
+        entity_mapping: heating_date.start_month
+      - key: heating_date.start_day
+        type: long
+        entity_mapping: heating_date.start_day
+      - key: heating_date.end_month
+        type: long
+        entity_mapping: heating_date.end_month
+      - key: heating_date.end_day
+        type: long
+        entity_mapping: heating_date.end_day
+      - key: change_report_enable
+        type: boolean
+        entity_mapping: change_report_enable
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: Tsl Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Ambient Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - identifier: target_temperature
+    name: Target Temperature
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Target Temperature
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: target_temperature
+      - name: Temperature Tolerance
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature_tolerance
+  - name: Valve Opening
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: valve_opening
+  - name: Tamper Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': installed
+        'true': uninstalled
+    identifier: tamper_status
+  - name: Window Detection
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': open
+    identifier: window_detection
+  - name: Motor Stroke Calibration Result
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': success
+        '1': 'fail: out of range'
+        '2': 'fail: uninstalled'
+        '3': calibration cleared
+        '4': temperature control disabled
+    identifier: motor_calibration_result
+  - name: Motor Stroke
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: motor_stroke
+  - name: Freeze Protection
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': triggered
+    identifier: freeze_protection
+  - name: Motor Position
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: motor_position
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Time Sync Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: time_sync_enable
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Report Heating Date
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_heating_date
+  - name: Report Heating Schedule
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_heating_schedule
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration Temperature
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - identifier: temperature_control
+    name: Temperature Control Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Control Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Control Mode
+        value_type: long
+        attributes:
+          enum:
+            '0': auto
+            '1': manual
+        identifier: mode
+  - identifier: target_temperature_range
+    name: Target Temperature Range (Min)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Target Temperature Range (Min)
+        value_type: long
+        attributes:
+          unit: °C
+        identifier: min
+      - name: Target Temperature Range (Max)
+        value_type: long
+        attributes:
+          unit: °C
+        identifier: max
+  - identifier: open_window_detection
+    name: Open Window Detection Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Open Window Detection Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Open Window Detection Temperature Threshold
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature_threshold
+      - name: Open Window Detection Time
+        value_type: long
+        attributes:
+          unit: min
+        identifier: time
+  - name: Restore Open Window Detection
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: restore_open_window_detection
+  - name: Valve Calibration
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: valve_calibration
+  - name: Valve Control Algorithm
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': rate
+        '1': pid
+    identifier: valve_control_algorithm
+  - identifier: freeze_protection_config
+    name: Freeze Protection Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Freeze Protection Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Freeze Protection Temperature
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature
+  - identifier: child_lock_config
+    name: Child Lock Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Child Lock Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+  - name: Offline Control Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': keep
+        '1': embedded temperature control
+        '2': 'off'
+    identifier: offline_control_mode
+  - name: Outside Temperature
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: outside_temperature
+  - identifier: outside_temperature_control
+    name: Outside Temperature Control Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Outside Temperature Control Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Outside Temperature Control Timeout
+        value_type: long
+        attributes:
+          unit: min
+        identifier: timeout
+  - name: Display Ambient Temperature
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: display_ambient_temperature
+  - name: Window Detection Valve Strategy
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': keep
+        '1': close
+    identifier: window_detection_valve_strategy
+  - identifier: dst_config
+    name: Daylight Saving Time Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Daylight Saving Time Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Daylight Saving Time Offset
+        value_type: long
+        attributes:
+          unit: min
+        identifier: offset
+      - name: Daylight Saving Time Start Month
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: start_month
+      - name: Daylight Saving Time Start Week Number
+        value_type: long
+        identifier: start_week_num
+      - name: Daylight Saving Time Start Week Day
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: start_week_day
+      - name: Daylight Saving Time Start Time
+        value_type: long
+        attributes:
+          unit: min
+        identifier: start_time
+      - name: Daylight Saving Time End Month
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: end_month
+      - name: Daylight Saving Time End Week Number
+        value_type: long
+        identifier: end_week_num
+      - name: Daylight Saving Time End Week Day
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: end_week_day
+      - name: Daylight Saving Time End Time
+        value_type: long
+        attributes:
+          unit: min
+        identifier: end_time
+  - identifier: effective_stroke
+    name: Effective Stroke Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Effective Stroke Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Effective Stroke Rate
+        value_type: long
+        identifier: rate
+  - identifier: heating_date
+    name: Heating Date Enable
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Heating Date Enable
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Heating Date Report Interval
+        value_type: long
+        attributes:
+          unit: min
+        identifier: report_interval
+      - name: Heating Date Start Month
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: start_month
+      - name: Heating Date Start Day
+        value_type: long
+        identifier: start_day
+      - name: Heating Date End Month
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: end_month
+      - name: Heating Date End Day
+        value_type: long
+        identifier: end_day
+  - name: Change Report Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: change_report_enable
+codec:
+  id: default
+  ref: wt101/codec/device-codec.yaml

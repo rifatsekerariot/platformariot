@@ -1,0 +1,340 @@
+models:
+  - id: am102
+    name: AM102
+    template: am102/device-template.yaml
+  - id: am102l
+    name: AM102L
+    template: am102l/device-template.yaml
+  - id: am103
+    name: AM103
+    template: am103/device-template.yaml
+  - id: am103l
+    name: AM103L
+    template: am103l/device-template.yaml
+  - id: am104
+    name: AM104
+    template: am104/device-template.yaml
+  - id: am107
+    name: AM107
+    template: am107/device-template.yaml
+  - id: am307
+    name: AM307
+    template: am307/device-template.yaml
+  - id: am307l
+    name: AM307L
+    template: am307l/device-template.yaml
+  - id: am308
+    name: AM308
+    template: am308/device-template.yaml
+  - id: am308l
+    name: AM308L
+    template: am308l/device-template.yaml
+  - id: am319_hcho
+    name: AM319-HCHO
+    template: am319_hcho/device-template.yaml
+  - id: am319_hcho_ir
+    name: AM319-HCHO-IR
+    template: am319_hcho_ir/device-template.yaml
+  - id: am319_o3
+    name: AM319-O3
+    template: am319_o3/device-template.yaml
+  - id: am319l_hcho_ir
+    name: AM319L-HCHO-IR
+    template: am319l_hcho_ir/device-template.yaml
+  - id: am319l_o3
+    name: AM319L-O3
+    template: am319l_o3/device-template.yaml
+  - id: at101
+    name: AT101
+    template: at101/device-template.yaml
+  - id: ct101
+    name: CT101
+    template: ct101/device-template.yaml
+  - id: ct103
+    name: CT103
+    template: ct103/device-template.yaml
+  - id: ct105
+    name: CT105
+    template: ct105/device-template.yaml
+  - id: ct303
+    name: CT303
+    template: ct303/device-template.yaml
+  - id: ct305
+    name: CT305
+    template: ct305/device-template.yaml
+  - id: ct310
+    name: CT310
+    template: ct310/device-template.yaml
+  - id: ds3604
+    name: DS3604
+    template: ds3604/device-template.yaml
+  - id: em300_cl
+    name: EM300-CL
+    template: em300_cl/device-template.yaml
+  - id: em300_di
+    name: EM300-DI
+    template: em300_di/device-template.yaml
+  - id: em300_di_hall
+    name: EM300-DI-Hall
+    template: em300_di_hall/device-template.yaml
+  - id: em300_mcs
+    name: EM300-MCS
+    template: em300_mcs/device-template.yaml
+  - id: em300_mld
+    name: EM300-MLD
+    template: em300_mld/device-template.yaml
+  - id: em300_sld
+    name: EM300-SLD
+    template: em300_sld/device-template.yaml
+  - id: em300_th
+    name: EM300-TH
+    template: em300_th/device-template.yaml
+  - id: em300_zld
+    name: EM300-ZLD
+    template: em300_zld/device-template.yaml
+  - id: em310_tilt
+    name: EM310-TILT
+    template: em310_tilt/device-template.yaml
+  - id: em310_udl
+    name: EM310-UDL
+    template: em310_udl/device-template.yaml
+  - id: em320_th
+    name: EM320-TH
+    template: em320_th/device-template.yaml
+  - id: em320_tilt
+    name: EM320-TILT
+    template: em320_tilt/device-template.yaml
+  - id: em400_mud
+    name: EM400-MUD
+    template: em400_mud/device-template.yaml
+  - id: em400_tld
+    name: EM400-TLD
+    template: em400_tld/device-template.yaml
+  - id: em400_udl
+    name: EM400-UDL
+    template: em400_udl/device-template.yaml
+  - id: em410_rdl
+    name: EM410-RDL
+    template: em410_rdl/device-template.yaml
+  - id: em500_co2
+    name: EM500-CO2
+    template: em500_co2/device-template.yaml
+  - id: em500_lgt
+    name: EM500-LGT
+    template: em500_lgt/device-template.yaml
+  - id: em500_pp
+    name: EM500-PP
+    template: em500_pp/device-template.yaml
+  - id: em500_pt100
+    name: EM500-PT100
+    template: em500_pt100/device-template.yaml
+  - id: em500_smtc
+    name: EM500-SMTC
+    template: em500_smtc/device-template.yaml
+  - id: em500_swl
+    name: EM500-SWL
+    template: em500_swl/device-template.yaml
+  - id: em500_udl
+    name: EM500-UDL
+    template: em500_udl/device-template.yaml
+  - id: gs101
+    name: GS101
+    template: gs101/device-template.yaml
+  - id: gs301
+    name: GS301
+    template: gs301/device-template.yaml
+  - id: gs601
+    name: GS601
+    template: gs601/device-template.yaml
+  - id: ts101
+    name: TS101
+    template: ts101/device-template.yaml
+  - id: ts201
+    name: TS201
+    template: ts201/device-template.yaml
+  - id: ts201_v2
+    name: TS201 v2
+    template: ts201_v2/device-template.yaml
+  - id: ts301
+    name: TS301
+    template: ts301/device-template.yaml
+  - id: ts302
+    name: TS302
+    template: ts302/device-template.yaml
+  - id: uc11_n1
+    name: UC11-N1
+    template: uc11_n1/device-template.yaml
+  - id: uc11_t1
+    name: UC11-T1
+    template: uc11_t1/device-template.yaml
+  - id: uc1114
+    name: UC1114
+    template: uc1114/device-template.yaml
+  - id: uc1122
+    name: UC1122
+    template: uc1122/device-template.yaml
+  - id: uc1152
+    name: UC1152
+    template: uc1152/device-template.yaml
+  - id: uc501
+    name: UC501
+    template: uc501/device-template.yaml
+  - id: uc502
+    name: UC502
+    template: uc502/device-template.yaml
+  - id: uc511_di
+    name: UC511-DI
+    template: uc511_di/device-template.yaml
+  - id: uc512_di
+    name: UC512-DI
+    template: uc512_di/device-template.yaml
+  - id: uc521
+    name: UC521
+    template: uc521/device-template.yaml
+  - id: uc100
+    name: UC100
+    template: uc100/device-template.yaml
+  - id: uc100_v2
+    name: UC100-V2
+    template: uc100_v2/device-template.yaml
+  - id: uc300
+    name: UC300
+    template: uc300/device-template.yaml
+  - id: vs121
+    name: VS121
+    template: vs121/device-template.yaml
+  - id: vs132
+    name: VS132
+    template: vs132/device-template.yaml
+  - id: vs133
+    name: VS133
+    template: vs133/device-template.yaml
+  - id: vs135
+    name: VS135
+    template: vs135/device-template.yaml
+  - id: vs321
+    name: VS321
+    template: vs321/device-template.yaml
+  - id: vs330
+    name: VS330
+    template: vs330/device-template.yaml
+  - id: vs340
+    name: VS340
+    template: vs340/device-template.yaml
+  - id: vs341
+    name: VS341
+    template: vs341/device-template.yaml
+  - id: vs350
+    name: VS350
+    template: vs350/device-template.yaml
+  - id: vs351
+    name: VS351
+    template: vs351/device-template.yaml
+  - id: vs360
+    name: VS360
+    template: vs360/device-template.yaml
+  - id: vs370
+    name: VS370
+    template: vs370/device-template.yaml
+  - id: vs373
+    name: VS373
+    template: vs373/device-template.yaml
+  - id: ws101
+    name: WS101
+    template: ws101/device-template.yaml
+  - id: ws136
+    name: WS136
+    template: ws136/device-template.yaml
+  - id: ws156
+    name: WS156
+    template: ws156/device-template.yaml
+  - id: ws201
+    name: WS201
+    template: ws201/device-template.yaml
+  - id: ws202
+    name: WS202
+    template: ws202/device-template.yaml
+  - id: ws203
+    name: WS203
+    template: ws203/device-template.yaml
+  - id: ws301
+    name: WS301
+    template: ws301/device-template.yaml
+  - id: ws302
+    name: WS302
+    template: ws302/device-template.yaml
+  - id: ws303
+    name: WS303
+    template: ws303/device-template.yaml
+  - id: ws501
+    name: WS501
+    template: ws501/device-template.yaml
+  - id: ws502
+    name: WS502
+    template: ws502/device-template.yaml
+  - id: ws503
+    name: WS503
+    template: ws503/device-template.yaml
+  - id: ws501_3w_w11
+    name: WS501(3W-EU)
+    template: ws501_3w_w11/device-template.yaml
+  - id: ws502_3w_w11
+    name: WS502(3W-EU)
+    template: ws502_3w_w11/device-template.yaml
+  - id: ws501_3w_w12
+    name: WS501(3W-US)
+    template: ws501_3w_w12/device-template.yaml
+  - id: ws501_2w_w11
+    name: WS501(2W-EU/CN)
+    template: ws501_2w_w11/device-template.yaml
+  - id: ws502_2w_w11
+    name: WS502(2W-EU/CN)
+    template: ws502_2w_w11/device-template.yaml
+  - id: ws503_2w_w11
+    name: WS503(2W-EU/CN)
+    template: ws503_2w_w11/device-template.yaml
+  - id: ws513
+    name: WS513
+    template: ws513/device-template.yaml
+  - id: ws515
+    name: WS515
+    template: ws515/device-template.yaml
+  - id: ws513_w11
+    name: WS513(W11)
+    template: ws513_w11/device-template.yaml
+  - id: ws523
+    name: WS523
+    template: ws523/device-template.yaml
+  - id: ws525
+    name: WS525
+    template: ws525/device-template.yaml
+  - id: ws558
+    name: WS558
+    template: ws558/device-template.yaml
+  - id: wt101
+    name: WT101
+    template: wt101/device-template.yaml
+  - id: wt201
+    name: WT201
+    template: wt201/device-template.yaml
+  - id: wt201_v2
+    name: WT201 V2
+    template: wt201_v2/device-template.yaml
+  - id: wt301
+    name: WT301
+    template: wt301/device-template.yaml
+  - id: wt303
+    name: WT303
+    template: wt303/device-template.yaml
+  - id: wt304
+    name: WT304
+    template: wt304/device-template.yaml
+  - id: wts305
+    name: WTS305
+    template: wts305/device-template.yaml
+  - id: wts505
+    name: WTS505
+    template: wts505/device-template.yaml
+  - id: wts506
+    name: WTS506
+    template: wts506/device-template.yaml

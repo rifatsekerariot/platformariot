@@ -1,0 +1,544 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: occupancy
+        type: boolean
+        entity_mapping: occupancy
+      - key: illuminance
+        type: long
+        entity_mapping: illuminance
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: pir_idle_interval
+        type: long
+        entity_mapping: pir_idle_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: pir_window_time
+        type: long
+        entity_mapping: pir_window_time
+      - key: pir_pulse_times
+        type: long
+        entity_mapping: pir_pulse_times
+      - key: pir_sensitivity
+        type: long
+        entity_mapping: pir_sensitivity
+      - key: radar_sensitivity
+        type: long
+        entity_mapping: radar_sensitivity
+      - key: pir_illuminance_threshold.enable
+        type: boolean
+        entity_mapping: pir_illuminance_threshold.enable
+      - key: pir_illuminance_threshold.upper_limit
+        type: long
+        entity_mapping: pir_illuminance_threshold.upper_limit
+      - key: pir_illuminance_threshold.lower_limit
+        type: long
+        entity_mapping: pir_illuminance_threshold.lower_limit
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: bluetooth_enable
+        type: boolean
+        entity_mapping: bluetooth_enable
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: long
+        entity_mapping: report_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: pir_idle_interval
+        type: long
+        entity_mapping: pir_idle_interval
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: pir_window_time
+        type: long
+        entity_mapping: pir_window_time
+      - key: pir_pulse_times
+        type: long
+        entity_mapping: pir_pulse_times
+      - key: pir_sensitivity
+        type: long
+        entity_mapping: pir_sensitivity
+      - key: radar_sensitivity
+        type: long
+        entity_mapping: radar_sensitivity
+      - key: pir_illuminance_threshold.enable
+        type: boolean
+        entity_mapping: pir_illuminance_threshold.enable
+      - key: pir_illuminance_threshold.upper_limit
+        type: long
+        entity_mapping: pir_illuminance_threshold.upper_limit
+      - key: pir_illuminance_threshold.lower_limit
+        type: long
+        entity_mapping: pir_illuminance_threshold.lower_limit
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: bluetooth_enable
+        type: boolean
+        entity_mapping: bluetooth_enable
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Occupancy
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': vacant
+        'true': occupied
+    identifier: occupancy
+  - name: Illuminance
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': dim
+        '1': bright
+        '254': disable
+    identifier: illuminance
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      enum:
+        '0': plan
+        '1': periodic
+    identifier: report_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: PIR Idle Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: pir_idle_interval
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - name: PIR Window Time
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 2s
+        '1': 4s
+        '2': 6s
+        '3': 8s
+    identifier: pir_window_time
+  - name: PIR Pulse Times
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 1_times
+        '1': 2_times
+        '2': 3_times
+        '3': 4_times
+    identifier: pir_pulse_times
+  - name: PIR Sensitivity
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': low
+        '1': medium
+        '2': high
+    identifier: pir_sensitivity
+  - name: Radar Sensitivity
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': low
+        '1': medium
+        '2': high
+    identifier: radar_sensitivity
+  - identifier: pir_illuminance_threshold
+    name: PIR Illuminance Threshold (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PIR Illuminance Threshold (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: PIR Illuminance Threshold (Upper Limit)
+        value_type: long
+        identifier: upper_limit
+      - name: PIR Illuminance Threshold (Lower Limit)
+        value_type: long
+        identifier: lower_limit
+  - identifier: dst_config
+    name: Daylight Saving Time (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Daylight Saving Time (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Daylight Saving Time (Offset)
+        value_type: long
+        identifier: offset
+      - name: Daylight Saving Time (Start Month)
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: start_month
+      - name: Daylight Saving Time (Start Week Number)
+        value_type: long
+        identifier: start_week_num
+      - name: Daylight Saving Time (Start Week Day)
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: start_week_day
+      - name: Daylight Saving Time (Start Time)
+        value_type: long
+        identifier: start_time
+      - name: Daylight Saving Time (End Month)
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: end_month
+      - name: Daylight Saving Time (End Week Number)
+        value_type: long
+        identifier: end_week_num
+      - name: Daylight Saving Time (End Week Day)
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: end_week_day
+      - name: Daylight Saving Time (End Time)
+        value_type: long
+        identifier: end_time
+  - name: Bluetooth Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: bluetooth_enable
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+codec:
+  id: default
+  ref: vs370/codec/device-codec.yaml

@@ -1,0 +1,609 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: modbus_chn_1
+        type: double
+        entity_mapping: modbus_chn_1
+      - key: modbus_chn_2
+        type: double
+        entity_mapping: modbus_chn_2
+      - key: modbus_chn_3
+        type: double
+        entity_mapping: modbus_chn_3
+      - key: modbus_chn_4
+        type: double
+        entity_mapping: modbus_chn_4
+      - key: modbus_chn_5
+        type: double
+        entity_mapping: modbus_chn_5
+      - key: modbus_chn_6
+        type: double
+        entity_mapping: modbus_chn_6
+      - key: modbus_chn_7
+        type: double
+        entity_mapping: modbus_chn_7
+      - key: modbus_chn_8
+        type: double
+        entity_mapping: modbus_chn_8
+      - key: modbus_chn_9
+        type: double
+        entity_mapping: modbus_chn_9
+      - key: modbus_chn_10
+        type: double
+        entity_mapping: modbus_chn_10
+      - key: modbus_chn_11
+        type: double
+        entity_mapping: modbus_chn_11
+      - key: modbus_chn_12
+        type: double
+        entity_mapping: modbus_chn_12
+      - key: modbus_chn_13
+        type: double
+        entity_mapping: modbus_chn_13
+      - key: modbus_chn_14
+        type: double
+        entity_mapping: modbus_chn_14
+      - key: modbus_chn_15
+        type: double
+        entity_mapping: modbus_chn_15
+      - key: modbus_chn_16
+        type: double
+        entity_mapping: modbus_chn_16
+      - key: modbus_chn_17
+        type: double
+        entity_mapping: modbus_chn_17
+      - key: modbus_chn_18
+        type: double
+        entity_mapping: modbus_chn_18
+      - key: modbus_chn_19
+        type: double
+        entity_mapping: modbus_chn_19
+      - key: modbus_chn_20
+        type: double
+        entity_mapping: modbus_chn_20
+      - key: modbus_chn_21
+        type: double
+        entity_mapping: modbus_chn_21
+      - key: modbus_chn_22
+        type: double
+        entity_mapping: modbus_chn_22
+      - key: modbus_chn_23
+        type: double
+        entity_mapping: modbus_chn_23
+      - key: modbus_chn_24
+        type: double
+        entity_mapping: modbus_chn_24
+      - key: modbus_chn_25
+        type: double
+        entity_mapping: modbus_chn_25
+      - key: modbus_chn_26
+        type: double
+        entity_mapping: modbus_chn_26
+      - key: modbus_chn_27
+        type: double
+        entity_mapping: modbus_chn_27
+      - key: modbus_chn_28
+        type: double
+        entity_mapping: modbus_chn_28
+      - key: modbus_chn_29
+        type: double
+        entity_mapping: modbus_chn_29
+      - key: modbus_chn_30
+        type: double
+        entity_mapping: modbus_chn_30
+      - key: modbus_chn_31
+        type: double
+        entity_mapping: modbus_chn_31
+      - key: modbus_chn_32
+        type: double
+        entity_mapping: modbus_chn_32
+      - key: custom_message
+        type: string
+        entity_mapping: custom_message
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+  output:
+    type: object
+    properties:
+      - key: modbus_chn_1
+        type: double
+        entity_mapping: modbus_chn_1
+      - key: modbus_chn_2
+        type: double
+        entity_mapping: modbus_chn_2
+      - key: modbus_chn_3
+        type: double
+        entity_mapping: modbus_chn_3
+      - key: modbus_chn_4
+        type: double
+        entity_mapping: modbus_chn_4
+      - key: modbus_chn_5
+        type: double
+        entity_mapping: modbus_chn_5
+      - key: modbus_chn_6
+        type: double
+        entity_mapping: modbus_chn_6
+      - key: modbus_chn_7
+        type: double
+        entity_mapping: modbus_chn_7
+      - key: modbus_chn_8
+        type: double
+        entity_mapping: modbus_chn_8
+      - key: modbus_chn_9
+        type: double
+        entity_mapping: modbus_chn_9
+      - key: modbus_chn_10
+        type: double
+        entity_mapping: modbus_chn_10
+      - key: modbus_chn_11
+        type: double
+        entity_mapping: modbus_chn_11
+      - key: modbus_chn_12
+        type: double
+        entity_mapping: modbus_chn_12
+      - key: modbus_chn_13
+        type: double
+        entity_mapping: modbus_chn_13
+      - key: modbus_chn_14
+        type: double
+        entity_mapping: modbus_chn_14
+      - key: modbus_chn_15
+        type: double
+        entity_mapping: modbus_chn_15
+      - key: modbus_chn_16
+        type: double
+        entity_mapping: modbus_chn_16
+      - key: modbus_chn_17
+        type: double
+        entity_mapping: modbus_chn_17
+      - key: modbus_chn_18
+        type: double
+        entity_mapping: modbus_chn_18
+      - key: modbus_chn_19
+        type: double
+        entity_mapping: modbus_chn_19
+      - key: modbus_chn_20
+        type: double
+        entity_mapping: modbus_chn_20
+      - key: modbus_chn_21
+        type: double
+        entity_mapping: modbus_chn_21
+      - key: modbus_chn_22
+        type: double
+        entity_mapping: modbus_chn_22
+      - key: modbus_chn_23
+        type: double
+        entity_mapping: modbus_chn_23
+      - key: modbus_chn_24
+        type: double
+        entity_mapping: modbus_chn_24
+      - key: modbus_chn_25
+        type: double
+        entity_mapping: modbus_chn_25
+      - key: modbus_chn_26
+        type: double
+        entity_mapping: modbus_chn_26
+      - key: modbus_chn_27
+        type: double
+        entity_mapping: modbus_chn_27
+      - key: modbus_chn_28
+        type: double
+        entity_mapping: modbus_chn_28
+      - key: modbus_chn_29
+        type: double
+        entity_mapping: modbus_chn_29
+      - key: modbus_chn_30
+        type: double
+        entity_mapping: modbus_chn_30
+      - key: modbus_chn_31
+        type: double
+        entity_mapping: modbus_chn_31
+      - key: modbus_chn_32
+        type: double
+        entity_mapping: modbus_chn_32
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Modbus Channel 1
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_1
+  - name: Modbus Channel 2
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_2
+  - name: Modbus Channel 3
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_3
+  - name: Modbus Channel 4
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_4
+  - name: Modbus Channel 5
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_5
+  - name: Modbus Channel 6
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_6
+  - name: Modbus Channel 7
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_7
+  - name: Modbus Channel 8
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_8
+  - name: Modbus Channel 9
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_9
+  - name: Modbus Channel 10
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_10
+  - name: Modbus Channel 11
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_11
+  - name: Modbus Channel 12
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_12
+  - name: Modbus Channel 13
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_13
+  - name: Modbus Channel 14
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_14
+  - name: Modbus Channel 15
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_15
+  - name: Modbus Channel 16
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_16
+  - name: Modbus Channel 17
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_17
+  - name: Modbus Channel 18
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_18
+  - name: Modbus Channel 19
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_19
+  - name: Modbus Channel 20
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_20
+  - name: Modbus Channel 21
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_21
+  - name: Modbus Channel 22
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_22
+  - name: Modbus Channel 23
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_23
+  - name: Modbus Channel 24
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_24
+  - name: Modbus Channel 25
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_25
+  - name: Modbus Channel 26
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_26
+  - name: Modbus Channel 27
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_27
+  - name: Modbus Channel 28
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_28
+  - name: Modbus Channel 29
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_29
+  - name: Modbus Channel 30
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_30
+  - name: Modbus Channel 31
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_31
+  - name: Modbus Channel 32
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_32
+  - name: Custom Message
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 255
+    identifier: custom_message
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Confirm Mode Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: confirm_mode_enable
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+codec:
+  id: default
+  ref: uc100/codec/device-codec.yaml

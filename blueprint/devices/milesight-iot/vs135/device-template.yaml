@@ -1,0 +1,649 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: line_1_total_in
+        type: long
+        entity_mapping: line_1_total_in
+      - key: line_1_total_out
+        type: long
+        entity_mapping: line_1_total_out
+      - key: line_1_period_in
+        type: long
+        entity_mapping: line_1_period_in
+      - key: line_1_period_out
+        type: long
+        entity_mapping: line_1_period_out
+      - key: line_1_child_total_in
+        type: long
+        entity_mapping: line_1_child_total_in
+      - key: line_1_child_total_out
+        type: long
+        entity_mapping: line_1_child_total_out
+      - key: line_1_child_period_in
+        type: long
+        entity_mapping: line_1_child_period_in
+      - key: line_1_child_period_out
+        type: long
+        entity_mapping: line_1_child_period_out
+      - key: line_2_total_in
+        type: long
+        entity_mapping: line_2_total_in
+      - key: line_2_total_out
+        type: long
+        entity_mapping: line_2_total_out
+      - key: line_2_period_in
+        type: long
+        entity_mapping: line_2_period_in
+      - key: line_2_period_out
+        type: long
+        entity_mapping: line_2_period_out
+      - key: line_2_child_total_in
+        type: long
+        entity_mapping: line_2_child_total_in
+      - key: line_2_child_total_out
+        type: long
+        entity_mapping: line_2_child_total_out
+      - key: line_2_child_period_in
+        type: long
+        entity_mapping: line_2_child_period_in
+      - key: line_2_child_period_out
+        type: long
+        entity_mapping: line_2_child_period_out
+      - key: line_3_total_in
+        type: long
+        entity_mapping: line_3_total_in
+      - key: line_3_total_out
+        type: long
+        entity_mapping: line_3_total_out
+      - key: line_3_period_in
+        type: long
+        entity_mapping: line_3_period_in
+      - key: line_3_period_out
+        type: long
+        entity_mapping: line_3_period_out
+      - key: line_3_child_total_in
+        type: long
+        entity_mapping: line_3_child_total_in
+      - key: line_3_child_total_out
+        type: long
+        entity_mapping: line_3_child_total_out
+      - key: line_3_child_period_in
+        type: long
+        entity_mapping: line_3_child_period_in
+      - key: line_3_child_period_out
+        type: long
+        entity_mapping: line_3_child_period_out
+      - key: line_4_total_out
+        type: long
+        entity_mapping: line_4_total_out
+      - key: line_4_period_in
+        type: long
+        entity_mapping: line_4_period_in
+      - key: line_4_period_out
+        type: long
+        entity_mapping: line_4_period_out
+      - key: line_4_child_total_out
+        type: long
+        entity_mapping: line_4_child_total_out
+      - key: line_4_child_period_in
+        type: long
+        entity_mapping: line_4_child_period_in
+      - key: line_4_child_period_out
+        type: long
+        entity_mapping: line_4_child_period_out
+      - key: region_1_count
+        type: long
+        entity_mapping: region_1_count
+      - key: region_2_count
+        type: long
+        entity_mapping: region_2_count
+      - key: region_3_count
+        type: long
+        entity_mapping: region_3_count
+      - key: region_4_count
+        type: long
+        entity_mapping: region_4_count
+      - key: region_1_child_count
+        type: long
+        entity_mapping: region_1_child_count
+      - key: region_2_child_count
+        type: long
+        entity_mapping: region_2_child_count
+      - key: region_3_child_count
+        type: long
+        entity_mapping: region_3_child_count
+      - key: region_4_child_count
+        type: long
+        entity_mapping: region_4_child_count
+      - key: region_1_avg_dwell
+        type: long
+        entity_mapping: region_1_avg_dwell
+      - key: region_1_max_dwell
+        type: long
+        entity_mapping: region_1_max_dwell
+      - key: region_1_child_avg_dwell
+        type: long
+        entity_mapping: region_1_child_avg_dwell
+      - key: region_1_child_max_dwell
+        type: long
+        entity_mapping: region_1_child_max_dwell
+      - key: region_2_avg_dwell
+        type: long
+        entity_mapping: region_2_avg_dwell
+      - key: region_2_max_dwell
+        type: long
+        entity_mapping: region_2_max_dwell
+      - key: region_2_child_avg_dwell
+        type: long
+        entity_mapping: region_2_child_avg_dwell
+      - key: region_2_child_max_dwell
+        type: long
+        entity_mapping: region_2_child_max_dwell
+      - key: region_3_avg_dwell
+        type: long
+        entity_mapping: region_3_avg_dwell
+      - key: region_3_max_dwell
+        type: long
+        entity_mapping: region_3_max_dwell
+      - key: region_3_child_avg_dwell
+        type: long
+        entity_mapping: region_3_child_avg_dwell
+      - key: region_3_child_max_dwell
+        type: long
+        entity_mapping: region_3_child_max_dwell
+      - key: region_4_avg_dwell
+        type: long
+        entity_mapping: region_4_avg_dwell
+      - key: region_4_max_dwell
+        type: long
+        entity_mapping: region_4_max_dwell
+      - key: region_4_child_avg_dwell
+        type: long
+        entity_mapping: region_4_child_avg_dwell
+      - key: region_4_child_max_dwell
+        type: long
+        entity_mapping: region_4_child_max_dwell
+      - key: master_occlusion_alarm
+        type: long
+        entity_mapping: master_occlusion_alarm
+      - key: region_1_occlusion_alarm
+        type: long
+        entity_mapping: region_1_occlusion_alarm
+      - key: region_2_occlusion_alarm
+        type: long
+        entity_mapping: region_2_occlusion_alarm
+      - key: region_3_occlusion_alarm
+        type: long
+        entity_mapping: region_3_occlusion_alarm
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: adr_enable
+        type: boolean
+        entity_mapping: adr_enable
+      - key: wifi_enable
+        type: boolean
+        entity_mapping: wifi_enable
+      - key: periodic_report_enable
+        type: boolean
+        entity_mapping: periodic_report_enable
+      - key: trigger_report_enable
+        type: boolean
+        entity_mapping: trigger_report_enable
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: confirm_mode_enable
+        type: boolean
+        entity_mapping: confirm_mode_enable
+      - key: adr_enable
+        type: boolean
+        entity_mapping: adr_enable
+      - key: wifi_enable
+        type: boolean
+        entity_mapping: wifi_enable
+      - key: periodic_report_enable
+        type: boolean
+        entity_mapping: periodic_report_enable
+      - key: trigger_report_enable
+        type: boolean
+        entity_mapping: trigger_report_enable
+      - key: clear_total_count
+        type: boolean
+        entity_mapping: clear_total_count
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 11
+    identifier: firmware_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: Line 1 Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_total_in
+  - name: Line 1 Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_total_out
+  - name: Line 1 Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_period_in
+  - name: Line 1 Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_period_out
+  - name: Line 1 Child Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_child_total_in
+  - name: Line 1 Child Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_child_total_out
+  - name: Line 1 Child Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_child_period_in
+  - name: Line 1 Child Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_1_child_period_out
+  - name: Line 2 Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_total_in
+  - name: Line 2 Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_total_out
+  - name: Line 2 Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_period_in
+  - name: Line 2 Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_period_out
+  - name: Line 2 Child Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_child_total_in
+  - name: Line 2 Child Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_child_total_out
+  - name: Line 2 Child Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_child_period_in
+  - name: Line 2 Child Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_2_child_period_out
+  - name: Line 3 Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_total_in
+  - name: Line 3 Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_total_out
+  - name: Line 3 Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_period_in
+  - name: Line 3 Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_period_out
+  - name: Line 3 Child Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_child_total_in
+  - name: Line 3 Child Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_child_total_out
+  - name: Line 3 Child Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_child_period_in
+  - name: Line 3 Child Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_3_child_period_out
+  - name: Line 4 Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_4_total_out
+  - name: Line 4 Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_4_period_in
+  - name: Line 4 Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_4_period_out
+  - name: Line 4 Child Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_4_child_total_out
+  - name: Line 4 Child Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_4_child_period_in
+  - name: Line 4 Child Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: line_4_child_period_out
+  - name: Region 1 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1_count
+  - name: Region 2 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2_count
+  - name: Region 3 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3_count
+  - name: Region 4 Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4_count
+  - name: Region 1 Child Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1_child_count
+  - name: Region 2 Child Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2_child_count
+  - name: Region 3 Child Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3_child_count
+  - name: Region 4 Child Count
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4_child_count
+  - name: Region 1 Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1_avg_dwell
+  - name: Region 1 Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1_max_dwell
+  - name: Region 1 Child Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1_child_avg_dwell
+  - name: Region 1 Child Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_1_child_max_dwell
+  - name: Region 2 Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2_avg_dwell
+  - name: Region 2 Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2_max_dwell
+  - name: Region 2 Child Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2_child_avg_dwell
+  - name: Region 2 Child Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_2_child_max_dwell
+  - name: Region 3 Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3_avg_dwell
+  - name: Region 3 Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3_max_dwell
+  - name: Region 3 Child Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3_child_avg_dwell
+  - name: Region 3 Child Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_3_child_max_dwell
+  - name: Region 4 Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4_avg_dwell
+  - name: Region 4 Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4_max_dwell
+  - name: Region 4 Child Average Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4_child_avg_dwell
+  - name: Region 4 Child Maximum Dwell
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: region_4_child_max_dwell
+  - name: Master Occlusion Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': alarm_released
+        '1': alarm_triggered
+    identifier: master_occlusion_alarm
+  - name: Region 1 Occlusion Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': alarm_released
+        '1': alarm_triggered
+    identifier: region_1_occlusion_alarm
+  - name: Region 2 Occlusion Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': alarm_released
+        '1': alarm_triggered
+    identifier: region_2_occlusion_alarm
+  - name: Region 3 Occlusion Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': alarm_released
+        '1': alarm_triggered
+    identifier: region_3_occlusion_alarm
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Confirm Mode Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: confirm_mode_enable
+  - name: ADR Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: adr_enable
+  - name: WiFi Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: wifi_enable
+  - name: Periodic Report Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: periodic_report_enable
+  - name: Trigger Report Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: trigger_report_enable
+  - name: Clear Total Count
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_total_count
+codec:
+  id: default
+  ref: vs135/codec/device-codec.yaml

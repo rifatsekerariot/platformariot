@@ -1,0 +1,380 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: switch_1
+        type: boolean
+        entity_mapping: switch_1
+      - key: switch_1_change
+        type: boolean
+        entity_mapping: switch_1_change
+      - key: switch_2
+        type: boolean
+        entity_mapping: switch_2
+      - key: switch_2_change
+        type: boolean
+        entity_mapping: switch_2_change
+      - key: voltage
+        type: double
+        entity_mapping: voltage
+      - key: active_power
+        type: long
+        entity_mapping: active_power
+      - key: power_factor
+        type: long
+        entity_mapping: power_factor
+      - key: power_consumption
+        type: long
+        entity_mapping: power_consumption
+      - key: current
+        type: long
+        entity_mapping: current
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: led_mode
+        type: long
+        entity_mapping: led_mode
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: child_lock_config.lock_time
+        type: long
+        entity_mapping: child_lock_config.lock_time
+      - key: power_consumption_enable
+        type: boolean
+        entity_mapping: power_consumption_enable
+  output:
+    type: object
+    properties:
+      - key: switch_1
+        type: boolean
+        entity_mapping: switch_1
+      - key: switch_2
+        type: boolean
+        entity_mapping: switch_2
+      - key: switch_2_change
+        type: boolean
+        entity_mapping: switch_2_change
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: report_attribute
+        type: boolean
+        entity_mapping: report_attribute
+      - key: delay_task.switch_1
+        type: boolean
+        entity_mapping: delay_task.switch_1
+      - key: delay_task.switch_2
+        type: boolean
+        entity_mapping: delay_task.switch_2
+      - key: delay_task.frame_count
+        type: long
+        entity_mapping: delay_task.frame_count
+      - key: delay_task.delay_time
+        type: long
+        entity_mapping: delay_task.delay_time
+      - key: cancel_delay_task
+        type: boolean
+        entity_mapping: cancel_delay_task
+      - key: led_mode
+        type: long
+        entity_mapping: led_mode
+      - key: child_lock_config.enable
+        type: boolean
+        entity_mapping: child_lock_config.enable
+      - key: child_lock_config.lock_time
+        type: long
+        entity_mapping: child_lock_config.lock_time
+      - key: power_consumption_enable
+        type: boolean
+        entity_mapping: power_consumption_enable
+      - key: clear_power_consumption
+        type: boolean
+        entity_mapping: clear_power_consumption
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Switch 1
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: switch_1
+  - name: Changing Status of Switch 1
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: switch_1_change
+  - name: Switch 2
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: switch_2
+  - name: Changing Status of Switch 2
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: switch_2_change
+  - name: Voltage
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: V
+    identifier: voltage
+  - name: Active Power
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: W
+    identifier: active_power
+  - name: Power Factor
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: power_factor
+  - name: Power Consumption
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: Wh
+    identifier: power_consumption
+  - name: Current
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: mA
+    identifier: current
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Report Attribute
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_attribute
+  - identifier: delay_task
+    name: Delay Task (Switch 1)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Delay Task (Switch 1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: switch_1
+      - name: Delay Task (Switch 2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: switch_2
+      - name: Delay Task (Frame Count)
+        value_type: long
+        identifier: frame_count
+      - name: Delay Task (Delay Time)
+        value_type: long
+        identifier: delay_time
+  - name: Cancel Delay Task
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: cancel_delay_task
+  - name: LED Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': on_inverted
+        '2': on_synced
+    identifier: led_mode
+  - identifier: child_lock_config
+    name: Child Lock Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Child Lock Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Child Lock Config (Lock Time)
+        value_type: long
+        identifier: lock_time
+  - name: Power Consumption Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: power_consumption_enable
+  - name: Clear Power Consumption
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_power_consumption
+codec:
+  id: default
+  ref: ws502_3w_w11/codec/device-codec.yaml

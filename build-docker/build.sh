@@ -1,4 +1,7 @@
 #!/bin/bash
+# LEGACY: platformariot icin build, build-docker/ icinde "docker compose build" kullanilir;
+# *-local.dockerfiles backend/, web/, blueprint/ yerel alir; git clone YOK.
+# Bu script Milesight git URL'leri ile clone+build yapar; platformariot CI bunu kullanmaz.
 set -e
 
 # context

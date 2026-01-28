@@ -1,0 +1,266 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: thermostat_status
+        type: boolean
+        entity_mapping: thermostat_status
+      - key: btn_lock_enable
+        type: boolean
+        entity_mapping: btn_lock_enable
+      - key: mode
+        type: long
+        entity_mapping: mode
+      - key: fan_speed
+        type: long
+        entity_mapping: fan_speed
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: target_temperature
+        type: double
+        entity_mapping: target_temperature
+      - key: card_mode
+        type: long
+        entity_mapping: card_mode
+      - key: control_mode
+        type: long
+        entity_mapping: control_mode
+      - key: server_temperature
+        type: double
+        entity_mapping: server_temperature
+  output:
+    type: object
+    properties:
+      - key: thermostat_status
+        type: boolean
+        entity_mapping: thermostat_status
+      - key: btn_lock_enable
+        type: boolean
+        entity_mapping: btn_lock_enable
+      - key: mode
+        type: long
+        entity_mapping: mode
+      - key: fan_speed
+        type: long
+        entity_mapping: fan_speed
+      - key: target_temperature
+        type: double
+        entity_mapping: target_temperature
+      - key: card_mode
+        type: long
+        entity_mapping: card_mode
+      - key: control_mode
+        type: long
+        entity_mapping: control_mode
+      - key: server_temperature
+        type: double
+        entity_mapping: server_temperature
+      - key: query_thermostat_status
+        type: boolean
+        entity_mapping: query_thermostat_status
+      - key: query_button_lock_enable
+        type: boolean
+        entity_mapping: query_button_lock_enable
+      - key: query_mode
+        type: boolean
+        entity_mapping: query_mode
+      - key: query_fan_speed
+        type: boolean
+        entity_mapping: query_fan_speed
+      - key: query_temperature
+        type: boolean
+        entity_mapping: query_temperature
+      - key: query_target_temperature
+        type: boolean
+        entity_mapping: query_target_temperature
+      - key: query_card_mode
+        type: boolean
+        entity_mapping: query_card_mode
+      - key: query_control_mode
+        type: boolean
+        entity_mapping: query_control_mode
+      - key: query_server_temperature
+        type: boolean
+        entity_mapping: query_server_temperature
+      - key: query_all
+        type: boolean
+        entity_mapping: query_all
+initial_entities:
+  - name: Thermostat Status
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: thermostat_status
+  - name: Button Lock Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: btn_lock_enable
+  - name: Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': cool
+        '1': heat
+        '2': fan
+    identifier: mode
+  - name: Fan Speed
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': auto
+        '1': high
+        '2': medium
+        '3': low
+    identifier: fan_speed
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Target Temperature
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: target_temperature
+  - name: Card Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': remove
+        '1': insert
+    identifier: card_mode
+  - name: Control Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': auto
+        '1': manual
+    identifier: control_mode
+  - name: Server Temperature
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: server_temperature
+  - name: Query Thermostat Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_thermostat_status
+  - name: Query Button Lock Enable
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_button_lock_enable
+  - name: Query Mode
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_mode
+  - name: Query Fan Speed
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_fan_speed
+  - name: Query Temperature
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_temperature
+  - name: Query Target Temperature
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_target_temperature
+  - name: Query Card Mode
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_card_mode
+  - name: Query Control Mode
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_control_mode
+  - name: Query Server Temperature
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_server_temperature
+  - name: Query All
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_all
+codec:
+  id: default
+  ref: wt301/codec/device-codec.yaml

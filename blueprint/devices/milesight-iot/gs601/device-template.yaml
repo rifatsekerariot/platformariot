@@ -1,0 +1,1368 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: product_name
+        type: string
+        entity_mapping: product_name
+      - key: product_pn
+        type: string
+        entity_mapping: product_pn
+      - key: product_sn
+        type: string
+        entity_mapping: product_sn
+      - key: version.hardware_version
+        type: string
+        entity_mapping: version.hardware_version
+      - key: version.firmware_version
+        type: string
+        entity_mapping: version.firmware_version
+      - key: oem_id
+        type: string
+        entity_mapping: oem_id
+      - key: product_frequency_band
+        type: string
+        entity_mapping: product_frequency_band
+      - key: device_status
+        type: long
+        entity_mapping: device_status
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: vaping_index
+        type: long
+        entity_mapping: vaping_index
+      - key: vaping_index_alarm.type
+        type: long
+        entity_mapping: vaping_index_alarm.type
+      - key: vaping_index_alarm.vaping_index
+        type: long
+        entity_mapping: vaping_index_alarm.vaping_index
+      - key: pm1_0
+        type: long
+        entity_mapping: pm1_0
+      - key: pm1_0_alarm.type
+        type: long
+        entity_mapping: pm1_0_alarm.type
+      - key: pm1_0_alarm.pm1_0
+        type: long
+        entity_mapping: pm1_0_alarm.pm1_0
+      - key: pm2_5
+        type: long
+        entity_mapping: pm2_5
+      - key: pm2_5_alarm.type
+        type: long
+        entity_mapping: pm2_5_alarm.type
+      - key: pm2_5_alarm.pm2_5
+        type: long
+        entity_mapping: pm2_5_alarm.pm2_5
+      - key: pm10
+        type: long
+        entity_mapping: pm10
+      - key: pm10_alarm.type
+        type: long
+        entity_mapping: pm10_alarm.type
+      - key: pm10_alarm.pm10
+        type: long
+        entity_mapping: pm10_alarm.pm10
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: temperature_alarm.type
+        type: long
+        entity_mapping: temperature_alarm.type
+      - key: temperature_alarm.temperature
+        type: double
+        entity_mapping: temperature_alarm.temperature
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: humidity_alarm.type
+        type: long
+        entity_mapping: humidity_alarm.type
+      - key: tvoc
+        type: long
+        entity_mapping: tvoc
+      - key: tvoc_alarm.type
+        type: long
+        entity_mapping: tvoc_alarm.type
+      - key: tvoc_alarm.tvoc
+        type: long
+        entity_mapping: tvoc_alarm.tvoc
+      - key: tamper_status
+        type: long
+        entity_mapping: tamper_status
+      - key: tamper_status_alarm.type
+        type: long
+        entity_mapping: tamper_status_alarm.type
+      - key: buzzer
+        type: long
+        entity_mapping: buzzer
+      - key: occupancy_status
+        type: long
+        entity_mapping: occupancy_status
+      - key: reporting_interval.unit
+        type: long
+        entity_mapping: reporting_interval.unit
+      - key: reporting_interval.seconds_of_time
+        type: long
+        entity_mapping: reporting_interval.seconds_of_time
+      - key: reporting_interval.minutes_of_time
+        type: long
+        entity_mapping: reporting_interval.minutes_of_time
+      - key: temperature_unit
+        type: long
+        entity_mapping: temperature_unit
+      - key: led_status
+        type: boolean
+        entity_mapping: led_status
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: buzzer_sleep.item_1#enable
+        type: boolean
+        entity_mapping: buzzer_sleep.item_1#enable
+      - key: buzzer_sleep.item_1#start_time
+        type: long
+        entity_mapping: buzzer_sleep.item_1#start_time
+      - key: buzzer_sleep.item_1#end_time
+        type: long
+        entity_mapping: buzzer_sleep.item_1#end_time
+      - key: buzzer_sleep.item_2#enable
+        type: boolean
+        entity_mapping: buzzer_sleep.item_2#enable
+      - key: buzzer_sleep.item_2#start_time
+        type: long
+        entity_mapping: buzzer_sleep.item_2#start_time
+      - key: buzzer_sleep.item_2#end_time
+        type: long
+        entity_mapping: buzzer_sleep.item_2#end_time
+      - key: buzzer_button_stop_enable
+        type: boolean
+        entity_mapping: buzzer_button_stop_enable
+      - key: buzzer_silent_time
+        type: long
+        entity_mapping: buzzer_silent_time
+      - key: tamper_alarm_enable
+        type: boolean
+        entity_mapping: tamper_alarm_enable
+      - key: temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: temperature_alarm_settings.enable
+      - key: temperature_alarm_settings.condition
+        type: long
+        entity_mapping: temperature_alarm_settings.condition
+      - key: temperature_alarm_settings.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_min
+      - key: temperature_alarm_settings.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_max
+      - key: pm1_0_alarm_settings.enable
+        type: boolean
+        entity_mapping: pm1_0_alarm_settings.enable
+      - key: pm1_0_alarm_settings.threshold_max
+        type: long
+        entity_mapping: pm1_0_alarm_settings.threshold_max
+      - key: pm2_5_alarm_settings.enable
+        type: boolean
+        entity_mapping: pm2_5_alarm_settings.enable
+      - key: pm2_5_alarm_settings.threshold_max
+        type: long
+        entity_mapping: pm2_5_alarm_settings.threshold_max
+      - key: pm10_alarm_settings.enable
+        type: boolean
+        entity_mapping: pm10_alarm_settings.enable
+      - key: pm10_alarm_settings.threshold_max
+        type: long
+        entity_mapping: pm10_alarm_settings.threshold_max
+      - key: tvoc_alarm_settings.enable
+        type: boolean
+        entity_mapping: tvoc_alarm_settings.enable
+      - key: tvoc_alarm_settings.threshold_max
+        type: long
+        entity_mapping: tvoc_alarm_settings.threshold_max
+      - key: vaping_index_alarm_settings.enable
+        type: boolean
+        entity_mapping: vaping_index_alarm_settings.enable
+      - key: vaping_index_alarm_settings.threshold_max
+        type: long
+        entity_mapping: vaping_index_alarm_settings.threshold_max
+      - key: alarm_reporting_times
+        type: long
+        entity_mapping: alarm_reporting_times
+      - key: alarm_deactivation_enable
+        type: boolean
+        entity_mapping: alarm_deactivation_enable
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: pm1_0_calibration_settings.enable
+        type: boolean
+        entity_mapping: pm1_0_calibration_settings.enable
+      - key: pm1_0_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pm1_0_calibration_settings.calibration_value
+      - key: pm2_5_calibration_settings.enable
+        type: boolean
+        entity_mapping: pm2_5_calibration_settings.enable
+      - key: pm2_5_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pm2_5_calibration_settings.calibration_value
+      - key: pm10_calibration_settings.enable
+        type: boolean
+        entity_mapping: pm10_calibration_settings.enable
+      - key: pm10_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pm10_calibration_settings.calibration_value
+      - key: tvoc_calibration_settings.enable
+        type: boolean
+        entity_mapping: tvoc_calibration_settings.enable
+      - key: tvoc_calibration_settings.calibration_value
+        type: long
+        entity_mapping: tvoc_calibration_settings.calibration_value
+      - key: vaping_index_calibration_settings.enable
+        type: boolean
+        entity_mapping: vaping_index_calibration_settings.enable
+      - key: vaping_index_calibration_settings.calibration_value
+        type: long
+        entity_mapping: vaping_index_calibration_settings.calibration_value
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: daylight_saving_time.daylight_saving_time_enable
+        type: boolean
+        entity_mapping: daylight_saving_time.daylight_saving_time_enable
+      - key: daylight_saving_time.daylight_saving_time_offset
+        type: long
+        entity_mapping: daylight_saving_time.daylight_saving_time_offset
+      - key: daylight_saving_time.start_month
+        type: long
+        entity_mapping: daylight_saving_time.start_month
+      - key: daylight_saving_time.start_week_num
+        type: long
+        entity_mapping: daylight_saving_time.start_week_num
+      - key: daylight_saving_time.start_week_day
+        type: long
+        entity_mapping: daylight_saving_time.start_week_day
+      - key: daylight_saving_time.start_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.start_hour_min
+      - key: daylight_saving_time.end_month
+        type: long
+        entity_mapping: daylight_saving_time.end_month
+      - key: daylight_saving_time.end_week_num
+        type: long
+        entity_mapping: daylight_saving_time.end_week_num
+      - key: daylight_saving_time.end_week_day
+        type: long
+        entity_mapping: daylight_saving_time.end_week_day
+      - key: daylight_saving_time.end_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.end_hour_min
+  output:
+    type: object
+    properties:
+      - key: reporting_interval.unit
+        type: long
+        entity_mapping: reporting_interval.unit
+      - key: reporting_interval.seconds_of_time
+        type: long
+        entity_mapping: reporting_interval.seconds_of_time
+      - key: reporting_interval.minutes_of_time
+        type: long
+        entity_mapping: reporting_interval.minutes_of_time
+      - key: temperature_unit
+        type: long
+        entity_mapping: temperature_unit
+      - key: led_status
+        type: boolean
+        entity_mapping: led_status
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: buzzer_sleep.item_1#enable
+        type: boolean
+        entity_mapping: buzzer_sleep.item_1#enable
+      - key: buzzer_sleep.item_1#start_time
+        type: long
+        entity_mapping: buzzer_sleep.item_1#start_time
+      - key: buzzer_sleep.item_1#end_time
+        type: long
+        entity_mapping: buzzer_sleep.item_1#end_time
+      - key: buzzer_sleep.item_2#enable
+        type: boolean
+        entity_mapping: buzzer_sleep.item_2#enable
+      - key: buzzer_sleep.item_2#start_time
+        type: long
+        entity_mapping: buzzer_sleep.item_2#start_time
+      - key: buzzer_sleep.item_2#end_time
+        type: long
+        entity_mapping: buzzer_sleep.item_2#end_time
+      - key: buzzer_button_stop_enable
+        type: boolean
+        entity_mapping: buzzer_button_stop_enable
+      - key: buzzer_silent_time
+        type: long
+        entity_mapping: buzzer_silent_time
+      - key: tamper_alarm_enable
+        type: boolean
+        entity_mapping: tamper_alarm_enable
+      - key: temperature_alarm_settings.enable
+        type: boolean
+        entity_mapping: temperature_alarm_settings.enable
+      - key: temperature_alarm_settings.condition
+        type: long
+        entity_mapping: temperature_alarm_settings.condition
+      - key: temperature_alarm_settings.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_min
+      - key: temperature_alarm_settings.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_max
+      - key: pm1_0_alarm_settings.enable
+        type: boolean
+        entity_mapping: pm1_0_alarm_settings.enable
+      - key: pm1_0_alarm_settings.threshold_max
+        type: long
+        entity_mapping: pm1_0_alarm_settings.threshold_max
+      - key: pm2_5_alarm_settings.enable
+        type: boolean
+        entity_mapping: pm2_5_alarm_settings.enable
+      - key: pm2_5_alarm_settings.threshold_max
+        type: long
+        entity_mapping: pm2_5_alarm_settings.threshold_max
+      - key: pm10_alarm_settings.enable
+        type: boolean
+        entity_mapping: pm10_alarm_settings.enable
+      - key: pm10_alarm_settings.threshold_max
+        type: long
+        entity_mapping: pm10_alarm_settings.threshold_max
+      - key: tvoc_alarm_settings.enable
+        type: boolean
+        entity_mapping: tvoc_alarm_settings.enable
+      - key: tvoc_alarm_settings.threshold_max
+        type: long
+        entity_mapping: tvoc_alarm_settings.threshold_max
+      - key: vaping_index_alarm_settings.enable
+        type: boolean
+        entity_mapping: vaping_index_alarm_settings.enable
+      - key: vaping_index_alarm_settings.threshold_max
+        type: long
+        entity_mapping: vaping_index_alarm_settings.threshold_max
+      - key: alarm_reporting_times
+        type: long
+        entity_mapping: alarm_reporting_times
+      - key: alarm_deactivation_enable
+        type: boolean
+        entity_mapping: alarm_deactivation_enable
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: pm1_0_calibration_settings.enable
+        type: boolean
+        entity_mapping: pm1_0_calibration_settings.enable
+      - key: pm1_0_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pm1_0_calibration_settings.calibration_value
+      - key: pm2_5_calibration_settings.enable
+        type: boolean
+        entity_mapping: pm2_5_calibration_settings.enable
+      - key: pm2_5_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pm2_5_calibration_settings.calibration_value
+      - key: pm10_calibration_settings.enable
+        type: boolean
+        entity_mapping: pm10_calibration_settings.enable
+      - key: pm10_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pm10_calibration_settings.calibration_value
+      - key: tvoc_calibration_settings.enable
+        type: boolean
+        entity_mapping: tvoc_calibration_settings.enable
+      - key: tvoc_calibration_settings.calibration_value
+        type: long
+        entity_mapping: tvoc_calibration_settings.calibration_value
+      - key: vaping_index_calibration_settings.enable
+        type: boolean
+        entity_mapping: vaping_index_calibration_settings.enable
+      - key: vaping_index_calibration_settings.calibration_value
+        type: long
+        entity_mapping: vaping_index_calibration_settings.calibration_value
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: daylight_saving_time.daylight_saving_time_enable
+        type: boolean
+        entity_mapping: daylight_saving_time.daylight_saving_time_enable
+      - key: daylight_saving_time.daylight_saving_time_offset
+        type: long
+        entity_mapping: daylight_saving_time.daylight_saving_time_offset
+      - key: daylight_saving_time.start_month
+        type: long
+        entity_mapping: daylight_saving_time.start_month
+      - key: daylight_saving_time.start_week_num
+        type: long
+        entity_mapping: daylight_saving_time.start_week_num
+      - key: daylight_saving_time.start_week_day
+        type: long
+        entity_mapping: daylight_saving_time.start_week_day
+      - key: daylight_saving_time.start_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.start_hour_min
+      - key: daylight_saving_time.end_month
+        type: long
+        entity_mapping: daylight_saving_time.end_month
+      - key: daylight_saving_time.end_week_num
+        type: long
+        entity_mapping: daylight_saving_time.end_week_num
+      - key: daylight_saving_time.end_week_day
+        type: long
+        entity_mapping: daylight_saving_time.end_week_day
+      - key: daylight_saving_time.end_hour_min
+        type: long
+        entity_mapping: daylight_saving_time.end_hour_min
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: synchronize_time
+        type: boolean
+        entity_mapping: synchronize_time
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: reconnect
+        type: boolean
+        entity_mapping: reconnect
+      - key: stop_buzzer_alarm
+        type: boolean
+        entity_mapping: stop_buzzer_alarm
+      - key: execute_tvoc_self_clean
+        type: boolean
+        entity_mapping: execute_tvoc_self_clean
+initial_entities:
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: Product Name
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 32
+    identifier: product_name
+  - name: Product PN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 32
+    identifier: product_pn
+  - name: Product SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: product_sn
+  - identifier: version
+    name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Hardware Version
+        value_type: string
+        attributes:
+          max_length: 6
+        identifier: hardware_version
+      - name: Firmware Version
+        value_type: string
+        attributes:
+          max_length: 16
+        identifier: firmware_version
+  - name: OEM ID
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 2
+    identifier: oem_id
+  - name: Product Frequency Band
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: product_frequency_band
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': 'on'
+    identifier: device_status
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Vaping Index
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: vaping_index
+  - identifier: vaping_index_alarm
+    name: Vaping Index Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Vaping Index Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+            '16': alarm deactivation
+            '17': alarm trigger
+            '32': interference alarm deactivation
+            '33': interference alarm trigger
+        identifier: type
+      - name: Vaping Index Alarm (Vaping Index)
+        value_type: long
+        identifier: vaping_index
+  - name: PM1.0
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: µg/m³
+    identifier: pm1_0
+  - identifier: pm1_0_alarm
+    name: PM1.0 Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: PM1.0 Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+            '16': alarm deactivation
+            '17': alarm trigger
+        identifier: type
+      - name: PM1.0 Alarm (PM1.0)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: pm1_0
+  - name: PM2.5
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: µg/m³
+    identifier: pm2_5
+  - identifier: pm2_5_alarm
+    name: PM2.5 Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: PM2.5 Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+            '16': alarm deactivation
+            '17': alarm trigger
+        identifier: type
+      - name: PM2.5 Alarm (PM2.5)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: pm2_5
+  - name: PM10
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: µg/m³
+    identifier: pm10
+  - identifier: pm10_alarm
+    name: PM10 Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: PM10 Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+            '16': alarm deactivation
+            '17': alarm trigger
+        identifier: type
+      - name: PM10 Alarm (PM10)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: pm10
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - identifier: temperature_alarm
+    name: Temperature Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Temperature Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+            '16': alarm deactivation
+            '17': alarm trigger
+            '32': burning alarm deactivation
+            '33': burning alarm trigger
+        identifier: type
+      - name: Temperature Alarm (Temperature)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature
+  - name: Humidity
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: '%'
+    identifier: humidity
+  - identifier: humidity_alarm
+    name: Humidity Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Humidity Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+        identifier: type
+  - name: TVOC
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: µg/m³
+    identifier: tvoc
+  - identifier: tvoc_alarm
+    name: TVOC Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: TVOC Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': collection error
+            '1': lower range error
+            '2': over range error
+            '16': alarm deactivation
+            '17': alarm trigger
+        identifier: type
+      - name: TVOC Alarm (TVOC)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: tvoc
+  - name: Tamper Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': triggered
+    identifier: tamper_status
+  - identifier: tamper_status_alarm
+    name: Tamper Status Alarm (Type)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Tamper Status Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '32': alarm deactivation
+            '33': alarm trigger
+        identifier: type
+  - name: Buzzer
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': triggered
+    identifier: buzzer
+  - name: Occupancy Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': vacant
+        '1': occupied
+    identifier: occupancy_status
+  - identifier: reporting_interval
+    name: Reporting Interval Unit
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Reporting Interval Unit
+        value_type: long
+        attributes:
+          enum:
+            '0': second
+            '1': minute
+        identifier: unit
+      - name: Reporting Interval
+        value_type: long
+        attributes:
+          unit: s
+        identifier: seconds_of_time
+      - name: Reporting Interval
+        value_type: long
+        attributes:
+          unit: min
+        identifier: minutes_of_time
+  - name: Temperature Unit
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': celsius
+        '1': fahrenheit
+    identifier: temperature_unit
+  - name: LED Indicator
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: led_status
+  - name: Buzzer Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: buzzer_enable
+  - identifier: buzzer_sleep
+    name: Hibernate Period 1 (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Hibernate Period 1 (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: item_1#enable
+      - name: Hibernate Period 1 (Start Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: item_1#start_time
+      - name: Hibernate Period 1 (End Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: item_1#end_time
+      - name: Hibernate Period 2
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: item_2#enable
+      - name: Start Time
+        value_type: long
+        attributes:
+          unit: min
+        identifier: item_2#start_time
+      - name: End Time
+        value_type: long
+        attributes:
+          unit: min
+        identifier: item_2#end_time
+  - name: Stop Buzzer
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: buzzer_button_stop_enable
+  - name: Buzzer Silence Time
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: buzzer_silent_time
+  - name: Tampering Alarm Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: tamper_alarm_enable
+  - identifier: temperature_alarm_settings
+    name: Temperature Threshold Alarm
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Threshold Alarm
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Alarm Settings (Threshold Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Settings (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Settings (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+  - identifier: pm1_0_alarm_settings
+    name: PM1.0 Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PM1.0 Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: PM1.0 Alarm Settings (Threshold Max)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: threshold_max
+  - identifier: pm2_5_alarm_settings
+    name: PM2.5 Threshold Alarm
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PM2.5 Threshold Alarm
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: PM2.5 Alarm Settings (Threshold Max)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: threshold_max
+  - identifier: pm10_alarm_settings
+    name: PM10 Threshold Alarm
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PM10 Threshold Alarm
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: PM10 Alarm Settings (Threshold Max)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: threshold_max
+  - identifier: tvoc_alarm_settings
+    name: TVOC Threshold Alarm
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: TVOC Threshold Alarm
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: TVOC Alarm Settings (Threshold Max)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: threshold_max
+  - identifier: vaping_index_alarm_settings
+    name: Vaping Index Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Vaping Index Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Vaping Index Alarm Settings (Threshold Max)
+        value_type: long
+        identifier: threshold_max
+  - name: Alarm Reporting Times
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: alarm_reporting_times
+  - name: Threshold Alarm Release
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: alarm_deactivation_enable
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration Settings (Calibration Value)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - identifier: humidity_calibration_settings
+    name: Humidity Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Humidity Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Humidity Calibration Settings (Calibration Value)
+        value_type: double
+        attributes:
+          unit: '%'
+        identifier: calibration_value
+  - identifier: pm1_0_calibration_settings
+    name: PM1.0 Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PM1.0 Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: PM1.0 Calibration Settings (Calibration Value)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: calibration_value
+  - identifier: pm2_5_calibration_settings
+    name: PM2.5 Calibration
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PM2.5 Calibration
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Calibration Value
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: calibration_value
+  - identifier: pm10_calibration_settings
+    name: PM10 Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: PM10 Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: PM10 Calibration Settings (Calibration Value)
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: calibration_value
+  - identifier: tvoc_calibration_settings
+    name: TVOC Calibration
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: TVOC Calibration
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Calibration Value
+        value_type: long
+        attributes:
+          unit: µg/m³
+        identifier: calibration_value
+  - identifier: vaping_index_calibration_settings
+    name: Vaping Index Calibration Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Vaping Index Calibration Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Vaping Index Calibration Settings (Calibration Value)
+        value_type: long
+        identifier: calibration_value
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - identifier: daylight_saving_time
+    name: Daylight Saving Time
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Daylight Saving Time
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: daylight_saving_time_enable
+      - name: DST Bias
+        value_type: long
+        attributes:
+          unit: min
+        identifier: daylight_saving_time_offset
+      - name: Month
+        value_type: long
+        attributes:
+          enum:
+            '1': Jan.
+            '2': Feb.
+            '3': Mar.
+            '4': Apr.
+            '5': May
+            '6': Jun.
+            '7': Jul.
+            '8': Aug.
+            '9': Sep.
+            '10': Oct.
+            '11': Nov.
+            '12': Dec.
+        identifier: start_month
+      - name: Number of Week
+        value_type: long
+        attributes:
+          enum:
+            '1': 1st
+            '2': 2nd
+            '3': 3rd
+            '4': 4th
+            '5': last
+        identifier: start_week_num
+      - name: Week
+        value_type: long
+        attributes:
+          enum:
+            '1': Mon.
+            '2': Tues.
+            '3': Wed.
+            '4': Thurs.
+            '5': Fri.
+            '6': Sat.
+            '7': Sun.
+        identifier: start_week_day
+      - name: Time
+        value_type: long
+        attributes:
+          unit: min
+        identifier: start_hour_min
+      - name: Month
+        value_type: long
+        attributes:
+          enum:
+            '1': Jan.
+            '2': Feb.
+            '3': Mar.
+            '4': Apr.
+            '5': May
+            '6': Jun.
+            '7': Jul.
+            '8': Aug.
+            '9': Sep.
+            '10': Oct.
+            '11': Nov.
+            '12': Dec.
+        identifier: end_month
+      - name: Number of Week
+        value_type: long
+        attributes:
+          enum:
+            '1': 1st
+            '2': 2nd
+            '3': 3rd
+            '4': 4th
+            '5': last
+        identifier: end_week_num
+      - name: Week
+        value_type: long
+        attributes:
+          enum:
+            '1': Mon.
+            '2': Tues.
+            '3': Wed.
+            '4': Thurs.
+            '5': Fri.
+            '6': Sat.
+            '7': Sun.
+        identifier: end_week_day
+      - name: Time
+        value_type: long
+        attributes:
+          unit: min
+        identifier: end_hour_min
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Synchronize Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: synchronize_time
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Reconnect
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reconnect
+  - name: Stop Buzzer Alarm
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_buzzer_alarm
+  - name: Execute TVOC Self Clean
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: execute_tvoc_self_clean
+codec:
+  id: default
+  ref: gs601/codec/device-codec.yaml

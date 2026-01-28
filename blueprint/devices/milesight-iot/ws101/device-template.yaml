@@ -1,0 +1,220 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: button_event.status
+        type: long
+        entity_mapping: button_event.status
+      - key: button_event.msgid
+        type: long
+        entity_mapping: button_event.msgid
+      - key: reporting_interval
+        type: long
+        entity_mapping: reporting_interval
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: double_click_enable
+        type: boolean
+        entity_mapping: double_click_enable
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: reporting_interval
+        type: long
+        entity_mapping: reporting_interval
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: double_click_enable
+        type: boolean
+        entity_mapping: double_click_enable
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 12
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - identifier: button_event
+    name: Button Status
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Button Status
+        value_type: long
+        attributes:
+          enum:
+            '1': short press
+            '2': long press
+            '3': double press
+        identifier: status
+      - name: Button Event Message Id
+        value_type: long
+        identifier: msgid
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Reporting Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: reporting_interval
+  - name: LED Indicator Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: led_indicator_enable
+  - name: Double Click Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: double_click_enable
+  - name: Buzzer Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: buzzer_enable
+codec:
+  id: default
+  ref: ws101/codec/device-codec.yaml

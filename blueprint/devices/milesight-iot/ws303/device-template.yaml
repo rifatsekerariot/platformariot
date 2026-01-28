@@ -1,0 +1,305 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: leakage_status
+        type: boolean
+        entity_mapping: leakage_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: leakage_alarm_config.enable
+        type: boolean
+        entity_mapping: leakage_alarm_config.enable
+      - key: leakage_alarm_config.alarm_interval
+        type: long
+        entity_mapping: leakage_alarm_config.alarm_interval
+      - key: leakage_alarm_config.alarm_count
+        type: long
+        entity_mapping: leakage_alarm_config.alarm_count
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: find_device_enable
+        type: boolean
+        entity_mapping: find_device_enable
+      - key: find_device_time
+        type: long
+        entity_mapping: find_device_time
+      - key: lora_report_settings.lora_uplink_enable
+        type: boolean
+        entity_mapping: lora_report_settings.lora_uplink_enable
+      - key: lora_report_settings.d2d_uplink_enable
+        type: boolean
+        entity_mapping: lora_report_settings.d2d_uplink_enable
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: leakage_alarm_config.enable
+        type: boolean
+        entity_mapping: leakage_alarm_config.enable
+      - key: leakage_alarm_config.alarm_interval
+        type: long
+        entity_mapping: leakage_alarm_config.alarm_interval
+      - key: leakage_alarm_config.alarm_count
+        type: long
+        entity_mapping: leakage_alarm_config.alarm_count
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: find_device_enable
+        type: boolean
+        entity_mapping: find_device_enable
+      - key: find_device_time
+        type: long
+        entity_mapping: find_device_time
+      - key: stop_alarming
+        type: boolean
+        entity_mapping: stop_alarming
+      - key: lora_report_settings.lora_uplink_enable
+        type: boolean
+        entity_mapping: lora_report_settings.lora_uplink_enable
+      - key: lora_report_settings.d2d_uplink_enable
+        type: boolean
+        entity_mapping: lora_report_settings.d2d_uplink_enable
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Leakage Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': leak
+    identifier: leakage_status
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - identifier: leakage_alarm_config
+    name: Leakage Alarm Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Leakage Alarm Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Leakage Alarm Config (Alarm Interval)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: alarm_interval
+      - name: Leakage Alarm Config (Alarm Count)
+        value_type: long
+        identifier: alarm_count
+  - name: Buzzer Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: buzzer_enable
+  - name: Find Device Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: find_device_enable
+  - name: Find Device Time
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: find_device_time
+  - name: Stop Alarming
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_alarming
+  - identifier: lora_report_settings
+    name: Lora Report Settings (Lora Uplink Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Lora Report Settings (Lora Uplink Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: lora_uplink_enable
+      - name: Lora Report Settings (D2D Uplink Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: d2d_uplink_enable
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+codec:
+  id: default
+  ref: ws303/codec/device-codec.yaml

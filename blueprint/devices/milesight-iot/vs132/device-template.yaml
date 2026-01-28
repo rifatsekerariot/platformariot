@@ -1,0 +1,112 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: total_counter_in
+        type: long
+        entity_mapping: total_counter_in
+      - key: total_counter_out
+        type: long
+        entity_mapping: total_counter_out
+      - key: periodic_counter_in
+        type: long
+        entity_mapping: periodic_counter_in
+      - key: periodic_counter_out
+        type: long
+        entity_mapping: periodic_counter_out
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: Total Counter All
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: total_counter_in
+  - name: Total Counter Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: total_counter_out
+  - name: Periodic Counter In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: periodic_counter_in
+  - name: Periodic Counter Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: periodic_counter_out
+codec:
+  id: default
+  ref: vs132/codec/device-codec.yaml

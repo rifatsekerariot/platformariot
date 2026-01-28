@@ -1,0 +1,408 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: total_current
+        type: double
+        entity_mapping: total_current
+      - key: current
+        type: long
+        entity_mapping: current
+      - key: current_sensor_status
+        type: long
+        entity_mapping: current_sensor_status
+      - key: current_max
+        type: long
+        entity_mapping: current_max
+      - key: current_min
+        type: long
+        entity_mapping: current_min
+      - key: current_alarm.current_threshold_alarm
+        type: boolean
+        entity_mapping: current_alarm.current_threshold_alarm
+      - key: current_alarm.current_threshold_alarm_release
+        type: boolean
+        entity_mapping: current_alarm.current_threshold_alarm_release
+      - key: current_alarm.current_over_range_alarm
+        type: boolean
+        entity_mapping: current_alarm.current_over_range_alarm
+      - key: current_alarm.current_over_range_alarm_release
+        type: boolean
+        entity_mapping: current_alarm.current_over_range_alarm_release
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: temperature_sensor_status
+        type: long
+        entity_mapping: temperature_sensor_status
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: current_alarm_config.condition
+        type: long
+        entity_mapping: current_alarm_config.condition
+      - key: current_alarm_config.threshold_min
+        type: long
+        entity_mapping: current_alarm_config.threshold_min
+      - key: current_alarm_config.threshold_max
+        type: long
+        entity_mapping: current_alarm_config.threshold_max
+      - key: current_alarm_config.alarm_interval
+        type: long
+        entity_mapping: current_alarm_config.alarm_interval
+      - key: current_alarm_config.alarm_counts
+        type: long
+        entity_mapping: current_alarm_config.alarm_counts
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: alarm_report_counts
+        type: long
+        entity_mapping: alarm_report_counts
+      - key: alarm_report_interval
+        type: long
+        entity_mapping: alarm_report_interval
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: clear_current_cumulative
+        type: boolean
+        entity_mapping: clear_current_cumulative
+      - key: current_alarm_config.condition
+        type: long
+        entity_mapping: current_alarm_config.condition
+      - key: current_alarm_config.threshold_min
+        type: long
+        entity_mapping: current_alarm_config.threshold_min
+      - key: current_alarm_config.threshold_max
+        type: long
+        entity_mapping: current_alarm_config.threshold_max
+      - key: current_alarm_config.alarm_interval
+        type: long
+        entity_mapping: current_alarm_config.alarm_interval
+      - key: current_alarm_config.alarm_counts
+        type: long
+        entity_mapping: current_alarm_config.alarm_counts
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: alarm_report_counts
+        type: long
+        entity_mapping: alarm_report_counts
+      - key: alarm_report_interval
+        type: long
+        entity_mapping: alarm_report_interval
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Total Current
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: total_current
+  - name: Current
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: A
+    identifier: current
+  - name: Current Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': over range alarm
+        '2': read failed
+    identifier: current_sensor_status
+  - name: Current Max
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: A
+    identifier: current_max
+  - name: Current Min
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: A
+    identifier: current_min
+  - identifier: current_alarm
+    name: Current Threshold Alarm
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Current Threshold Alarm
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: current_threshold_alarm
+      - name: Current Threshold Alarm Release
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: current_threshold_alarm_release
+      - name: Current Over Range Alarm
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: current_over_range_alarm
+      - name: Current Over Range Alarm Release
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: current_over_range_alarm_release
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Temperature Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': over range alarm
+        '2': read failed
+    identifier: temperature_sensor_status
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': temperature threshold alarm release
+        '1': temperature threshold alarm
+    identifier: temperature_alarm
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Clear Current Cumulative
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_current_cumulative
+  - identifier: current_alarm_config
+    name: Current Threshold Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Current Threshold Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Current Threshold Alarm Config (Min Threshold)
+        value_type: long
+        identifier: threshold_min
+      - name: Current Threshold Alarm Config (Max Threshold)
+        value_type: long
+        identifier: threshold_max
+      - name: Current Threshold Alarm Config (Alarm Interval)
+        value_type: long
+        identifier: alarm_interval
+      - name: Current Threshold Alarm Config (Alarm Counts)
+        value_type: long
+        identifier: alarm_counts
+  - identifier: temperature_alarm_config
+    name: Temperature Threshold Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Threshold Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Threshold Alarm Config (Min Threshold)
+        value_type: double
+        identifier: threshold_min
+      - name: Temperature Threshold Alarm Config (Max Threshold)
+        value_type: double
+        identifier: threshold_max
+  - name: Alarm Report Counts
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: alarm_report_counts
+  - name: Alarm Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: alarm_report_interval
+codec:
+  id: default
+  ref: ct105/codec/device-codec.yaml

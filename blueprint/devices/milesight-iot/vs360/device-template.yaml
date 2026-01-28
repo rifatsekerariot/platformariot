@@ -1,0 +1,779 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery_main
+        type: long
+        entity_mapping: battery_main
+      - key: battery_node
+        type: long
+        entity_mapping: battery_node
+      - key: total_in
+        type: long
+        entity_mapping: total_in
+      - key: total_out
+        type: long
+        entity_mapping: total_out
+      - key: total_count_alarm
+        type: long
+        entity_mapping: total_count_alarm
+      - key: period_in
+        type: long
+        entity_mapping: period_in
+      - key: period_out
+        type: long
+        entity_mapping: period_out
+      - key: period_count_alarm
+        type: long
+        entity_mapping: period_count_alarm
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: report_type
+        type: long
+        entity_mapping: report_type
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_cumulative_enable
+        type: boolean
+        entity_mapping: report_cumulative_enable
+      - key: reset_cumulative_enable
+        type: boolean
+        entity_mapping: reset_cumulative_enable
+      - key: reset_cumulative_schedule_config.weekday
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.weekday
+      - key: reset_cumulative_schedule_config.hour
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.hour
+      - key: reset_cumulative_schedule_config.minute
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.minute
+      - key: counting_mode
+        type: long
+        entity_mapping: counting_mode
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: hibernate_config.enable
+        type: boolean
+        entity_mapping: hibernate_config.enable
+      - key: hibernate_config.lora_uplink_enable
+        type: boolean
+        entity_mapping: hibernate_config.lora_uplink_enable
+      - key: hibernate_config.start_time
+        type: long
+        entity_mapping: hibernate_config.start_time
+      - key: hibernate_config.end_time
+        type: long
+        entity_mapping: hibernate_config.end_time
+      - key: hibernate_config.weekdays#monday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#monday
+      - key: hibernate_config.weekdays#tuesday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#tuesday
+      - key: hibernate_config.weekdays#wednesday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#wednesday
+      - key: hibernate_config.weekdays#thursday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#thursday
+      - key: hibernate_config.weekdays#friday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#friday
+      - key: hibernate_config.weekdays#saturday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#saturday
+      - key: hibernate_config.weekdays#sunday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#sunday
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: people_period_alarm_config.condition
+        type: long
+        entity_mapping: people_period_alarm_config.condition
+      - key: people_period_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_out
+      - key: people_period_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_in
+      - key: people_cumulative_alarm_config.condition
+        type: long
+        entity_mapping: people_cumulative_alarm_config.condition
+      - key: people_cumulative_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_out
+      - key: people_cumulative_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_in
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+  output:
+    type: object
+    properties:
+      - key: timestamp
+        type: long
+        entity_mapping: timestamp
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: report_type
+        type: long
+        entity_mapping: report_type
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_cumulative_enable
+        type: boolean
+        entity_mapping: report_cumulative_enable
+      - key: reset_cumulative_enable
+        type: boolean
+        entity_mapping: reset_cumulative_enable
+      - key: reset_cumulative_schedule_config.weekday
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.weekday
+      - key: reset_cumulative_schedule_config.hour
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.hour
+      - key: reset_cumulative_schedule_config.minute
+        type: long
+        entity_mapping: reset_cumulative_schedule_config.minute
+      - key: reset_cumulative_in
+        type: boolean
+        entity_mapping: reset_cumulative_in
+      - key: reset_cumulative_out
+        type: boolean
+        entity_mapping: reset_cumulative_out
+      - key: counting_mode
+        type: long
+        entity_mapping: counting_mode
+      - key: led_indicator_enable
+        type: boolean
+        entity_mapping: led_indicator_enable
+      - key: hibernate_config.enable
+        type: boolean
+        entity_mapping: hibernate_config.enable
+      - key: hibernate_config.lora_uplink_enable
+        type: boolean
+        entity_mapping: hibernate_config.lora_uplink_enable
+      - key: hibernate_config.start_time
+        type: long
+        entity_mapping: hibernate_config.start_time
+      - key: hibernate_config.end_time
+        type: long
+        entity_mapping: hibernate_config.end_time
+      - key: hibernate_config.weekdays#monday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#monday
+      - key: hibernate_config.weekdays#tuesday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#tuesday
+      - key: hibernate_config.weekdays#wednesday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#wednesday
+      - key: hibernate_config.weekdays#thursday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#thursday
+      - key: hibernate_config.weekdays#friday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#friday
+      - key: hibernate_config.weekdays#saturday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#saturday
+      - key: hibernate_config.weekdays#sunday
+        type: boolean
+        entity_mapping: hibernate_config.weekdays#sunday
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: people_period_alarm_config.condition
+        type: long
+        entity_mapping: people_period_alarm_config.condition
+      - key: people_period_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_out
+      - key: people_period_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_period_alarm_config.threshold_in
+      - key: people_cumulative_alarm_config.condition
+        type: long
+        entity_mapping: people_cumulative_alarm_config.condition
+      - key: people_cumulative_alarm_config.threshold_out
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_out
+      - key: people_cumulative_alarm_config.threshold_in
+        type: long
+        entity_mapping: people_cumulative_alarm_config.threshold_in
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery (Main)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery_main
+  - name: Battery (Node)
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery_node
+  - name: Total In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: total_in
+  - name: Total Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: total_out
+  - name: Total Count Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': alarm_release
+        '1': alarm
+    identifier: total_count_alarm
+  - name: Period In
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: period_in
+  - name: Period Out
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: period_out
+  - name: Period Count Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': alarm_release
+        '1': alarm
+    identifier: period_count_alarm
+  - name: Timestamp
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      unit: s
+    identifier: timestamp
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Report Type
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': period
+        '1': immediately
+    identifier: report_type
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - name: Report Cumulative Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: report_cumulative_enable
+  - name: Clear Cumulative Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: reset_cumulative_enable
+  - identifier: reset_cumulative_schedule_config
+    name: Reset Cumulative Schedule Config (Weekday)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Reset Cumulative Schedule Config (Weekday)
+        value_type: long
+        attributes:
+          enum:
+            '0': everyday
+            '1': sunday
+            '2': monday
+            '3': tuesday
+            '4': wednesday
+            '5': thursday
+            '6': friday
+            '7': saturday
+        identifier: weekday
+      - name: Reset Cumulative Schedule Config (Hour)
+        value_type: long
+        attributes:
+          unit: h
+        identifier: hour
+      - name: Reset Cumulative Schedule Config (Minute)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: minute
+  - name: Reset Cumulative In
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reset_cumulative_in
+  - name: Reset Cumulative Out
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reset_cumulative_out
+  - name: Counting Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': high_mode
+        '1': low_mode
+    identifier: counting_mode
+  - name: LED Indicator Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: led_indicator_enable
+  - identifier: hibernate_config
+    name: Hibernate Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Hibernate Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Hibernate Config (LoRa Uplink Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: lora_uplink_enable
+      - name: Hibernate Config (Start Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: start_time
+      - name: Hibernate Config (End Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: end_time
+      - name: Hibernate Config (Weekdays Monday)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: weekdays#monday
+      - name: Hibernate Config (Weekdays Tuesday)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: weekdays#tuesday
+      - name: Hibernate Config (Weekdays Wednesday)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: weekdays#wednesday
+      - name: Hibernate Config (Weekdays Thursday)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: weekdays#thursday
+      - name: Hibernate Config (Weekdays Friday)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: weekdays#friday
+      - name: Hibernate Config (Weekdays Saturday)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: weekdays#saturday
+      - name: Hibernate Config (Weekdays Sunday)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: weekdays#sunday
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - identifier: people_period_alarm_config
+    name: Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Period People Alarm Config (Threshold Out)
+        value_type: long
+        identifier: threshold_out
+      - name: Period People Alarm Config (Threshold In)
+        value_type: long
+        identifier: threshold_in
+  - identifier: people_cumulative_alarm_config
+    name: Cumulative People Alarm Config (Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Cumulative People Alarm Config (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Cumulative People Alarm Config (Threshold Out)
+        value_type: long
+        identifier: threshold_out
+      - name: Cumulative People Alarm Config (Threshold In)
+        value_type: long
+        identifier: threshold_in
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+codec:
+  id: default
+  ref: vs360/codec/device-codec.yaml

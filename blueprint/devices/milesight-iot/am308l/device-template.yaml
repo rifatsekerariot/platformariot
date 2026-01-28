@@ -1,0 +1,598 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: pir
+        type: boolean
+        entity_mapping: pir
+      - key: light_level
+        type: long
+        entity_mapping: light_level
+      - key: co2
+        type: long
+        entity_mapping: co2
+      - key: tvoc
+        type: double
+        entity_mapping: tvoc
+      - key: pressure
+        type: double
+        entity_mapping: pressure
+      - key: pm2_5
+        type: long
+        entity_mapping: pm2_5
+      - key: pm10
+        type: long
+        entity_mapping: pm10
+      - key: buzzer_status
+        type: boolean
+        entity_mapping: buzzer_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: time_sync_enable
+        type: long
+        entity_mapping: time_sync_enable
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: tvoc_unit
+        type: long
+        entity_mapping: tvoc_unit
+      - key: pm2_5_collection_interval
+        type: long
+        entity_mapping: pm2_5_collection_interval
+      - key: co2_abc_calibration_enable
+        type: boolean
+        entity_mapping: co2_abc_calibration_enable
+      - key: co2_calibration_enable
+        type: boolean
+        entity_mapping: co2_calibration_enable
+      - key: co2_calibration_settings.mode
+        type: long
+        entity_mapping: co2_calibration_settings.mode
+      - key: co2_calibration_settings.calibration_value
+        type: long
+        entity_mapping: co2_calibration_settings.calibration_value
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: led_indicator_mode
+        type: long
+        entity_mapping: led_indicator_mode
+      - key: child_lock_settings.off_button
+        type: boolean
+        entity_mapping: child_lock_settings.off_button
+      - key: child_lock_settings.on_button
+        type: boolean
+        entity_mapping: child_lock_settings.on_button
+      - key: child_lock_settings.collection_button
+        type: boolean
+        entity_mapping: child_lock_settings.collection_button
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: stop_buzzer
+        type: boolean
+        entity_mapping: stop_buzzer
+      - key: query_status
+        type: boolean
+        entity_mapping: query_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: time_sync_enable
+        type: long
+        entity_mapping: time_sync_enable
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: tvoc_unit
+        type: long
+        entity_mapping: tvoc_unit
+      - key: pm2_5_collection_interval
+        type: long
+        entity_mapping: pm2_5_collection_interval
+      - key: co2_abc_calibration_enable
+        type: boolean
+        entity_mapping: co2_abc_calibration_enable
+      - key: co2_calibration_enable
+        type: boolean
+        entity_mapping: co2_calibration_enable
+      - key: co2_calibration_settings.mode
+        type: long
+        entity_mapping: co2_calibration_settings.mode
+      - key: co2_calibration_settings.calibration_value
+        type: long
+        entity_mapping: co2_calibration_settings.calibration_value
+      - key: buzzer_enable
+        type: boolean
+        entity_mapping: buzzer_enable
+      - key: led_indicator_mode
+        type: long
+        entity_mapping: led_indicator_mode
+      - key: child_lock_settings.off_button
+        type: boolean
+        entity_mapping: child_lock_settings.off_button
+      - key: child_lock_settings.on_button
+        type: boolean
+        entity_mapping: child_lock_settings.on_button
+      - key: child_lock_settings.collection_button
+        type: boolean
+        entity_mapping: child_lock_settings.collection_button
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Humidity
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: '%r.h.'
+    identifier: humidity
+  - name: PIR
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': idle
+        'true': trigger
+    identifier: pir
+  - name: Light Level
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: light_level
+  - name: CO2
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: ppm
+    identifier: co2
+  - name: TVOC
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: tvoc
+  - name: Barometric Pressure
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: hPa
+    identifier: pressure
+  - name: PM2.5
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: µg/m³
+    identifier: pm2_5
+  - name: PM10
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: µg/m³
+    identifier: pm10
+  - name: Buzzer Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: buzzer_status
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Stop Buzzer
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_buzzer
+  - name: Query Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Time Sync Enable
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': disable
+        '2': enable
+    identifier: time_sync_enable
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - name: TVOC Unit
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': iaq
+        '1': µg/m³
+    identifier: tvoc_unit
+  - name: PM2.5 Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: pm2_5_collection_interval
+  - name: CO2 ABC Calibration Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: co2_abc_calibration_enable
+  - name: CO2 Calibration Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: co2_calibration_enable
+  - identifier: co2_calibration_settings
+    name: CO2 Calibration Mode
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: CO2 Calibration Mode
+        value_type: long
+        attributes:
+          enum:
+            '0': factory
+            '1': abc
+            '2': manual
+            '3': background
+            '4': zero
+        identifier: mode
+      - name: CO2 Calibration Value
+        value_type: long
+        attributes:
+          unit: ppm
+        identifier: calibration_value
+  - name: Buzzer Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: buzzer_enable
+  - name: LED Indicator Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': 'on'
+        '2': blink
+    identifier: led_indicator_mode
+  - identifier: child_lock_settings
+    name: Child Lock (Off Button)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Child Lock (Off Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: off_button
+      - name: Child Lock (On Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: on_button
+      - name: Child Lock (Collection Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: collection_button
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+codec:
+  id: default
+  ref: am308l/codec/device-codec.yaml

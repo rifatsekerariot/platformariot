@@ -1,0 +1,258 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: button_1
+        type: boolean
+        entity_mapping: button_1
+      - key: button_2
+        type: boolean
+        entity_mapping: button_2
+      - key: button_3
+        type: boolean
+        entity_mapping: button_3
+      - key: button_4
+        type: boolean
+        entity_mapping: button_4
+      - key: button_5
+        type: boolean
+        entity_mapping: button_5
+      - key: button_6
+        type: boolean
+        entity_mapping: button_6
+      - key: button_1_msgid
+        type: long
+        entity_mapping: button_1_msgid
+      - key: button_2_msgid
+        type: long
+        entity_mapping: button_2_msgid
+      - key: button_3_msgid
+        type: long
+        entity_mapping: button_3_msgid
+      - key: button_4_msgid
+        type: long
+        entity_mapping: button_4_msgid
+      - key: button_5_msgid
+        type: long
+        entity_mapping: button_5_msgid
+      - key: button_6_msgid
+        type: long
+        entity_mapping: button_6_msgid
+      - key: button_1_d2d
+        type: long
+        entity_mapping: button_1_d2d
+      - key: button_2_d2d
+        type: long
+        entity_mapping: button_2_d2d
+      - key: button_3_d2d
+        type: long
+        entity_mapping: button_3_d2d
+      - key: button_4_d2d
+        type: long
+        entity_mapping: button_4_d2d
+      - key: button_5_d2d
+        type: long
+        entity_mapping: button_5_d2d
+      - key: button_6_d2d
+        type: long
+        entity_mapping: button_6_d2d
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Button 1
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': released
+        'true': pressed
+    identifier: button_1
+  - name: Button 2
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': released
+        'true': pressed
+    identifier: button_2
+  - name: Button 3
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': released
+        'true': pressed
+    identifier: button_3
+  - name: Button 4
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': released
+        'true': pressed
+    identifier: button_4
+  - name: Button 5
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': released
+        'true': pressed
+    identifier: button_5
+  - name: Button 6
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': released
+        'true': pressed
+    identifier: button_6
+  - name: Button 1 Press Message Id
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_1_msgid
+  - name: Button 2 Press Message Id
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_2_msgid
+  - name: Button 3 Press Message Id
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_3_msgid
+  - name: Button 4 Press Message Id
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_4_msgid
+  - name: Button 5 Press Message Id
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_5_msgid
+  - name: Button 6 Press Message Id
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_6_msgid
+  - name: Button 1 D2D Command
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_1_d2d
+  - name: Button 2 D2D Command
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_2_d2d
+  - name: Button 3 D2D Command
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_3_d2d
+  - name: Button 4 D2D Command
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_4_d2d
+  - name: Button 5 D2D Command
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_5_d2d
+  - name: Button 6 D2D Command
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: button_6_d2d
+codec:
+  id: default
+  ref: ws136/codec/device-codec.yaml

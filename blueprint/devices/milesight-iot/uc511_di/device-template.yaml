@@ -1,0 +1,810 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: long
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: valve_1
+        type: boolean
+        entity_mapping: valve_1
+      - key: valve_1_result
+        type: boolean
+        entity_mapping: valve_1_result
+      - key: valve_2
+        type: boolean
+        entity_mapping: valve_2
+      - key: valve_2_result
+        type: boolean
+        entity_mapping: valve_2_result
+      - key: valve_1_pulse
+        type: long
+        entity_mapping: valve_1_pulse
+      - key: valve_2_pulse
+        type: long
+        entity_mapping: valve_2_pulse
+      - key: gpio_1
+        type: boolean
+        entity_mapping: gpio_1
+      - key: gpio_2
+        type: boolean
+        entity_mapping: gpio_2
+      - key: pressure
+        type: long
+        entity_mapping: pressure
+      - key: pressure_sensor_status
+        type: long
+        entity_mapping: pressure_sensor_status
+      - key: custom_message
+        type: string
+        entity_mapping: custom_message
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: sync_time_type
+        type: long
+        entity_mapping: sync_time_type
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: response_enable
+        type: boolean
+        entity_mapping: response_enable
+      - key: class_a_response_time
+        type: long
+        entity_mapping: class_a_response_time
+      - key: valve_1_task.time_rule_enable
+        type: boolean
+        entity_mapping: valve_1_task.time_rule_enable
+      - key: valve_1_task.pulse_rule_enable
+        type: boolean
+        entity_mapping: valve_1_task.pulse_rule_enable
+      - key: valve_1_task.sequence_id
+        type: long
+        entity_mapping: valve_1_task.sequence_id
+      - key: valve_1_task.duration
+        type: long
+        entity_mapping: valve_1_task.duration
+      - key: valve_1_task.valve_status
+        type: boolean
+        entity_mapping: valve_1_task.valve_status
+      - key: valve_1_task.valve_pulse
+        type: long
+        entity_mapping: valve_1_task.valve_pulse
+      - key: valve_2_task.time_rule_enable
+        type: boolean
+        entity_mapping: valve_2_task.time_rule_enable
+      - key: valve_2_task.pulse_rule_enable
+        type: boolean
+        entity_mapping: valve_2_task.pulse_rule_enable
+      - key: valve_2_task.sequence_id
+        type: long
+        entity_mapping: valve_2_task.sequence_id
+      - key: valve_2_task.duration
+        type: long
+        entity_mapping: valve_2_task.duration
+      - key: valve_2_task.valve_status
+        type: boolean
+        entity_mapping: valve_2_task.valve_status
+      - key: valve_2_task.valve_pulse
+        type: long
+        entity_mapping: valve_2_task.valve_pulse
+      - key: pulse_filter_config.mode
+        type: long
+        entity_mapping: pulse_filter_config.mode
+      - key: pulse_filter_config.time
+        type: long
+        entity_mapping: pulse_filter_config.time
+      - key: gpio_jitter_time
+        type: long
+        entity_mapping: gpio_jitter_time
+      - key: valve_power_supply_config.counts
+        type: long
+        entity_mapping: valve_power_supply_config.counts
+      - key: valve_power_supply_config.control_pulse_time
+        type: long
+        entity_mapping: valve_power_supply_config.control_pulse_time
+      - key: valve_power_supply_config.power_time
+        type: long
+        entity_mapping: valve_power_supply_config.power_time
+      - key: pressure_calibration_settings.enable
+        type: boolean
+        entity_mapping: pressure_calibration_settings.enable
+      - key: pressure_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pressure_calibration_settings.calibration_value
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+  output:
+    type: object
+    properties:
+      - key: valve_1_pulse
+        type: long
+        entity_mapping: valve_1_pulse
+      - key: valve_2_pulse
+        type: long
+        entity_mapping: valve_2_pulse
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: sync_time_type
+        type: long
+        entity_mapping: sync_time_type
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: d2d_enable
+        type: boolean
+        entity_mapping: d2d_enable
+      - key: response_enable
+        type: boolean
+        entity_mapping: response_enable
+      - key: class_a_response_time
+        type: long
+        entity_mapping: class_a_response_time
+      - key: valve_1_task.time_rule_enable
+        type: boolean
+        entity_mapping: valve_1_task.time_rule_enable
+      - key: valve_1_task.pulse_rule_enable
+        type: boolean
+        entity_mapping: valve_1_task.pulse_rule_enable
+      - key: valve_1_task.sequence_id
+        type: long
+        entity_mapping: valve_1_task.sequence_id
+      - key: valve_1_task.duration
+        type: long
+        entity_mapping: valve_1_task.duration
+      - key: valve_1_task.valve_status
+        type: boolean
+        entity_mapping: valve_1_task.valve_status
+      - key: valve_1_task.valve_pulse
+        type: long
+        entity_mapping: valve_1_task.valve_pulse
+      - key: valve_2_task.time_rule_enable
+        type: boolean
+        entity_mapping: valve_2_task.time_rule_enable
+      - key: valve_2_task.pulse_rule_enable
+        type: boolean
+        entity_mapping: valve_2_task.pulse_rule_enable
+      - key: valve_2_task.sequence_id
+        type: long
+        entity_mapping: valve_2_task.sequence_id
+      - key: valve_2_task.duration
+        type: long
+        entity_mapping: valve_2_task.duration
+      - key: valve_2_task.valve_status
+        type: boolean
+        entity_mapping: valve_2_task.valve_status
+      - key: valve_2_task.valve_pulse
+        type: long
+        entity_mapping: valve_2_task.valve_pulse
+      - key: clear_valve_1_pulse
+        type: boolean
+        entity_mapping: clear_valve_1_pulse
+      - key: clear_valve_2_pulse
+        type: boolean
+        entity_mapping: clear_valve_2_pulse
+      - key: pulse_filter_config.mode
+        type: long
+        entity_mapping: pulse_filter_config.mode
+      - key: pulse_filter_config.time
+        type: long
+        entity_mapping: pulse_filter_config.time
+      - key: gpio_jitter_time
+        type: long
+        entity_mapping: gpio_jitter_time
+      - key: valve_power_supply_config.counts
+        type: long
+        entity_mapping: valve_power_supply_config.counts
+      - key: valve_power_supply_config.control_pulse_time
+        type: long
+        entity_mapping: valve_power_supply_config.control_pulse_time
+      - key: valve_power_supply_config.power_time
+        type: long
+        entity_mapping: valve_power_supply_config.power_time
+      - key: pressure_calibration_settings.enable
+        type: boolean
+        entity_mapping: pressure_calibration_settings.enable
+      - key: pressure_calibration_settings.calibration_value
+        type: long
+        entity_mapping: pressure_calibration_settings.calibration_value
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': normal
+        '1': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      min: 0
+      max: 100
+      unit: '%'
+    identifier: battery
+  - name: Valve 1
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': close
+        'true': open
+    identifier: valve_1
+  - name: Valve 1 Delay Control Result
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': success
+        'true': failed
+    identifier: valve_1_result
+  - name: Valve 2
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': close
+        'true': open
+    identifier: valve_2
+  - name: Valve 2 Delay Control Result
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': success
+        'true': failed
+    identifier: valve_2_result
+  - name: Valve 1 pulse
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: valve_1_pulse
+  - name: Valve 2 pulse
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: valve_2_pulse
+  - name: GPIO 1
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: gpio_1
+  - name: GPIO 2
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: gpio_2
+  - name: Pressure
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: kPa
+    identifier: pressure
+  - name: Pressure Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': sensor error
+    identifier: pressure_sensor_status
+  - name: Custom Message
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 8
+    identifier: custom_message
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: collection_interval
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      min: 60
+      max: 64800
+      unit: s
+    identifier: report_interval
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - name: Sync Time Type
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '1': v1.0.2
+        '2': v1.0.3
+        '3': v1.1.0
+    identifier: sync_time_type
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - name: D2D Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_enable
+  - name: Response Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: response_enable
+  - name: Class A Response Time
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: class_a_response_time
+  - identifier: valve_1_task
+    name: Valve 1 Task (Time Rule Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve 1 Task (Time Rule Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: time_rule_enable
+      - name: Valve 1 Task (Pulse Rule Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: pulse_rule_enable
+      - name: Valve 1 Task (Sequence ID)
+        value_type: long
+        identifier: sequence_id
+      - name: Valve 1 Task (Duration)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: duration
+      - name: Valve 1 Task (Valve Status)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': close
+            'true': open
+        identifier: valve_status
+      - name: Valve 1 Task (Valve Pulse)
+        value_type: long
+        identifier: valve_pulse
+  - identifier: valve_2_task
+    name: Valve 2 Task (Time Rule Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve 2 Task (Time Rule Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: time_rule_enable
+      - name: Valve 2 Task (Pulse Rule Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: pulse_rule_enable
+      - name: Valve 2 Task (Sequence ID)
+        value_type: long
+        identifier: sequence_id
+      - name: Valve 2 Task (Duration)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: duration
+      - name: Valve 2 Task (Valve Status)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': close
+            'true': open
+        identifier: valve_status
+      - name: Valve 2 Task (Valve Pulse)
+        value_type: long
+        identifier: valve_pulse
+  - name: Clear Valve 1 Pulse
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_valve_1_pulse
+  - name: Clear Valve 2 Pulse
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_valve_2_pulse
+  - identifier: pulse_filter_config
+    name: Pulse Filter Config (Mode)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pulse Filter Config (Mode)
+        value_type: long
+        attributes:
+          enum:
+            '1': hardware
+            '2': software
+        identifier: mode
+      - name: Pulse Filter Config (Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: time
+  - name: GPIO Jitter Time
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: gpio_jitter_time
+  - identifier: valve_power_supply_config
+    name: Valve Power Supply Config (Counts)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Valve Power Supply Config (Counts)
+        value_type: long
+        identifier: counts
+      - name: Valve Power Supply Config (Control Pulse Time)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: control_pulse_time
+      - name: Valve Power Supply Config (Power Time)
+        value_type: long
+        attributes:
+          unit: ms
+        identifier: power_time
+  - identifier: pressure_calibration_settings
+    name: Pressure Calibration (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pressure Calibration (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pressure Calibration (Calibration Value)
+        value_type: long
+        attributes:
+          unit: kPa
+        identifier: calibration_value
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+codec:
+  id: default
+  ref: uc511_di/codec/device-codec.yaml

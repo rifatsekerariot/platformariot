@@ -1,0 +1,713 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: gpio
+        type: boolean
+        entity_mapping: gpio
+      - key: pulse
+        type: long
+        entity_mapping: pulse
+      - key: water_conv
+        type: double
+        entity_mapping: water_conv
+      - key: pulse_conv
+        type: double
+        entity_mapping: pulse_conv
+      - key: water
+        type: double
+        entity_mapping: water
+      - key: gpio_type
+        type: long
+        entity_mapping: gpio_type
+      - key: gpio_alarm
+        type: long
+        entity_mapping: gpio_alarm
+      - key: water_alarm
+        type: long
+        entity_mapping: water_alarm
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: temperature_alarm_settings.condition
+        type: long
+        entity_mapping: temperature_alarm_settings.condition
+      - key: temperature_alarm_settings.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_min
+      - key: temperature_alarm_settings.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_max
+      - key: water_flow_alarm_settings.enable
+        type: boolean
+        entity_mapping: water_flow_alarm_settings.enable
+      - key: water_flow_alarm_settings.duration
+        type: long
+        entity_mapping: water_flow_alarm_settings.duration
+      - key: water_flow_timeout_alarm_settings.enable
+        type: boolean
+        entity_mapping: water_flow_timeout_alarm_settings.enable
+      - key: water_flow_timeout_alarm_settings.duration
+        type: long
+        entity_mapping: water_flow_timeout_alarm_settings.duration
+      - key: water_outage_timeout_alarm_settings.enable
+        type: boolean
+        entity_mapping: water_outage_timeout_alarm_settings.enable
+      - key: water_outage_timeout_alarm_settings.duration
+        type: long
+        entity_mapping: water_outage_timeout_alarm_settings.duration
+      - key: pulse_conversion_settings.enable
+        type: boolean
+        entity_mapping: pulse_conversion_settings.enable
+      - key: pulse_conversion_settings.water
+        type: double
+        entity_mapping: pulse_conversion_settings.water
+      - key: pulse_conversion_settings.pulse
+        type: double
+        entity_mapping: pulse_conversion_settings.pulse
+      - key: pulse_conversion_settings.unit
+        type: string
+        entity_mapping: pulse_conversion_settings.unit
+      - key: pulse_filter_enable
+        type: boolean
+        entity_mapping: pulse_filter_enable
+      - key: water_flow_determination
+        type: long
+        entity_mapping: water_flow_determination
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: gpio_mode
+        type: long
+        entity_mapping: gpio_mode
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: query_device_status
+        type: boolean
+        entity_mapping: query_device_status
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: temperature_alarm_settings.condition
+        type: long
+        entity_mapping: temperature_alarm_settings.condition
+      - key: temperature_alarm_settings.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_min
+      - key: temperature_alarm_settings.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_settings.threshold_max
+      - key: clear_counter
+        type: boolean
+        entity_mapping: clear_counter
+      - key: stop_counter
+        type: boolean
+        entity_mapping: stop_counter
+      - key: start_counter
+        type: boolean
+        entity_mapping: start_counter
+      - key: counter
+        type: long
+        entity_mapping: counter
+      - key: water_flow_alarm_settings.enable
+        type: boolean
+        entity_mapping: water_flow_alarm_settings.enable
+      - key: water_flow_alarm_settings.duration
+        type: long
+        entity_mapping: water_flow_alarm_settings.duration
+      - key: water_flow_timeout_alarm_settings.enable
+        type: boolean
+        entity_mapping: water_flow_timeout_alarm_settings.enable
+      - key: water_flow_timeout_alarm_settings.duration
+        type: long
+        entity_mapping: water_flow_timeout_alarm_settings.duration
+      - key: water_outage_timeout_alarm_settings.enable
+        type: boolean
+        entity_mapping: water_outage_timeout_alarm_settings.enable
+      - key: water_outage_timeout_alarm_settings.duration
+        type: long
+        entity_mapping: water_outage_timeout_alarm_settings.duration
+      - key: pulse_conversion_settings.enable
+        type: boolean
+        entity_mapping: pulse_conversion_settings.enable
+      - key: pulse_conversion_settings.water
+        type: double
+        entity_mapping: pulse_conversion_settings.water
+      - key: pulse_conversion_settings.pulse
+        type: double
+        entity_mapping: pulse_conversion_settings.pulse
+      - key: pulse_conversion_settings.unit
+        type: string
+        entity_mapping: pulse_conversion_settings.unit
+      - key: pulse_filter_enable
+        type: boolean
+        entity_mapping: pulse_filter_enable
+      - key: water_flow_determination
+        type: long
+        entity_mapping: water_flow_determination
+      - key: d2d_key
+        type: string
+        entity_mapping: d2d_key
+      - key: gpio_mode
+        type: long
+        entity_mapping: gpio_mode
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: retransmit_enable
+        type: boolean
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Humidity
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: '%r.h.'
+    identifier: humidity
+  - name: GPIO
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': low
+        'true': high
+    identifier: gpio
+  - name: Pulse
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: pulse
+  - name: Water Conversion Coefficient
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: water_conv
+  - name: Pulse Conversion Coefficient
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: pulse_conv
+  - name: Water
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: water
+  - name: GPIO Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': gpio
+        '2': counter
+    identifier: gpio_type
+  - name: GPIO Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': gpio alarm release
+        '1': gpio alarm
+    identifier: gpio_alarm
+  - name: Water Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': water outage timeout alarm
+        '2': water outage timeout alarm release
+        '3': water flow timeout alarm
+        '4': water flow timeout alarm release
+    identifier: water_alarm
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Query Device Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: query_device_status
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: report_interval
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: collection_interval
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - identifier: temperature_alarm_settings
+    name: Temperature Alarm Settings (Threshold Condition)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm Settings (Threshold Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm Settings (Threshold Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm Settings (Threshold Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+  - name: Clear Counter
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_counter
+  - name: Stop Counter
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_counter
+  - name: Start Counter
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: start_counter
+  - name: Counter
+    type: service
+    access_mod: W
+    value_type: long
+    identifier: counter
+  - identifier: water_flow_alarm_settings
+    name: Water Flow Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Water Flow Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Water Flow Alarm Settings (Duration)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: duration
+  - identifier: water_flow_timeout_alarm_settings
+    name: Water Flow Timeout Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Water Flow Timeout Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Water Flow Timeout Alarm Settings (Duration)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: duration
+  - identifier: water_outage_timeout_alarm_settings
+    name: Water Outage Timeout Alarm Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Water Outage Timeout Alarm Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Water Outage Timeout Alarm Settings (Duration)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: duration
+  - identifier: pulse_conversion_settings
+    name: Pulse Conversion Settings (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Pulse Conversion Settings (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Pulse Conversion Settings (Water)
+        value_type: double
+        identifier: water
+      - name: Pulse Conversion Settings (Pulse)
+        value_type: double
+        identifier: pulse
+      - name: Pulse Conversion Settings (Unit)
+        value_type: string
+        attributes:
+          max_length: 4
+        identifier: unit
+  - name: Pulse Filter Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: pulse_filter_enable
+  - name: Water Flow Determination
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: water_flow_determination
+  - name: D2D Key
+    type: property
+    access_mod: RW
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: d2d_key
+  - name: GPIO Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '1': digital
+        '2': counter
+    identifier: gpio_mode
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: resend_interval
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+codec:
+  id: default
+  ref: em300_di/codec/device-codec.yaml

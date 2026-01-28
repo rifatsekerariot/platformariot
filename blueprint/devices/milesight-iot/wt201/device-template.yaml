@@ -1,0 +1,1837 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: temperature_alarm
+        type: long
+        entity_mapping: temperature_alarm
+      - key: temperature_sensor_status
+        type: long
+        entity_mapping: temperature_sensor_status
+      - key: target_temperature
+        type: double
+        entity_mapping: target_temperature.target_temperature
+      - key: temperature_control_mode
+        type: long
+        entity_mapping: target_temperature.temperature_control_mode
+      - key: temperature_unit
+        type: long
+        entity_mapping: target_temperature.temperature_unit
+      - key: temperature_control_status
+        type: long
+        entity_mapping: temperature_control_status
+      - key: fan_mode
+        type: long
+        entity_mapping: fan_mode
+      - key: fan_status
+        type: long
+        entity_mapping: fan_status
+      - key: plan_type
+        type: long
+        entity_mapping: plan_type
+      - key: system_status
+        type: boolean
+        entity_mapping: system_status
+      - key: humidity
+        type: double
+        entity_mapping: humidity
+      - key: humidity_sensor_status
+        type: long
+        entity_mapping: humidity_sensor_status
+      - key: wires_relay.y1
+        type: boolean
+        entity_mapping: wires_relay.y1
+      - key: wires_relay.y2_gl
+        type: boolean
+        entity_mapping: wires_relay.y2_gl
+      - key: wires_relay.w1
+        type: boolean
+        entity_mapping: wires_relay.w1
+      - key: wires_relay.w2_aux
+        type: boolean
+        entity_mapping: wires_relay.w2_aux
+      - key: wires_relay.e
+        type: boolean
+        entity_mapping: wires_relay.e
+      - key: wires_relay.g
+        type: boolean
+        entity_mapping: wires_relay.g
+      - key: wires_relay.ob
+        type: boolean
+        entity_mapping: wires_relay.ob
+      - key: temperature_control_support_mode.heat
+        type: boolean
+        entity_mapping: temperature_control_support_mode.heat
+      - key: temperature_control_support_mode.em_heat
+        type: boolean
+        entity_mapping: temperature_control_support_mode.em_heat
+      - key: temperature_control_support_mode.cool
+        type: boolean
+        entity_mapping: temperature_control_support_mode.cool
+      - key: temperature_control_support_mode.auto
+        type: boolean
+        entity_mapping: temperature_control_support_mode.auto
+      - key: temperature_control_support_status.stage_1_heat
+        type: boolean
+        entity_mapping: temperature_control_support_status.stage_1_heat
+      - key: temperature_control_support_status.stage_2_heat
+        type: boolean
+        entity_mapping: temperature_control_support_status.stage_2_heat
+      - key: temperature_control_support_status.stage_3_heat
+        type: boolean
+        entity_mapping: temperature_control_support_status.stage_3_heat
+      - key: temperature_control_support_status.stage_4_heat
+        type: boolean
+        entity_mapping: temperature_control_support_status.stage_4_heat
+      - key: temperature_control_support_status.aux_heat
+        type: boolean
+        entity_mapping: temperature_control_support_status.aux_heat
+      - key: temperature_control_support_status.stage_1_cool
+        type: boolean
+        entity_mapping: temperature_control_support_status.stage_1_cool
+      - key: temperature_control_support_status.stage_2_cool
+        type: boolean
+        entity_mapping: temperature_control_support_status.stage_2_cool
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: temperature_control_enable
+        type: boolean
+        entity_mapping: temperature_control_enable
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: temperature_tolerance.target_temperature_tolerance
+        type: double
+        entity_mapping: temperature_tolerance.target_temperature_tolerance
+      - key: temperature_tolerance.auto_temperature_tolerance
+        type: double
+        entity_mapping: temperature_tolerance.auto_temperature_tolerance
+      - key: temperature_level_up_condition.type
+        type: long
+        entity_mapping: temperature_level_up_condition.type
+      - key: temperature_level_up_condition.time
+        type: long
+        entity_mapping: temperature_level_up_condition.time
+      - key: temperature_level_up_condition.temperature_tolerance
+        type: double
+        entity_mapping: temperature_level_up_condition.temperature_tolerance
+      - key: outside_temperature_control.enable
+        type: boolean
+        entity_mapping: outside_temperature_control.enable
+      - key: outside_temperature_control.timeout
+        type: long
+        entity_mapping: outside_temperature_control.timeout
+      - key: outside_temperature
+        type: double
+        entity_mapping: outside_temperature
+      - key: humidity_range.min
+        type: long
+        entity_mapping: humidity_range.min
+      - key: humidity_range.max
+        type: long
+        entity_mapping: humidity_range.max
+      - key: temperature_dehumidify.enable
+        type: boolean
+        entity_mapping: temperature_dehumidify.enable
+      - key: temperature_dehumidify.temperature_tolerance
+        type: double
+        entity_mapping: temperature_dehumidify.temperature_tolerance
+      - key: fan_dehumidify.enable
+        type: boolean
+        entity_mapping: fan_dehumidify.enable
+      - key: fan_dehumidify.execute_time
+        type: long
+        entity_mapping: fan_dehumidify.execute_time
+      - key: freeze_protection_config.enable
+        type: boolean
+        entity_mapping: freeze_protection_config.enable
+      - key: freeze_protection_config.temperature
+        type: double
+        entity_mapping: freeze_protection_config.temperature
+      - key: fan_delay_enable
+        type: boolean
+        entity_mapping: fan_delay_enable.fan_delay_enable
+      - key: fan_delay_time
+        type: long
+        entity_mapping: fan_delay_enable.fan_delay_time
+      - key: fan_execute_time
+        type: long
+        entity_mapping: fan_execute_time
+      - key: card_config.enable
+        type: boolean
+        entity_mapping: card_config.enable
+      - key: card_config.action_type
+        type: long
+        entity_mapping: card_config.action_type
+      - key: card_config.in_plan_type
+        type: long
+        entity_mapping: card_config.in_plan_type
+      - key: card_config.out_plan_type
+        type: long
+        entity_mapping: card_config.out_plan_type
+      - key: card_config.invert
+        type: boolean
+        entity_mapping: card_config.invert
+      - key: wires_relay_config.y1
+        type: boolean
+        entity_mapping: wires_relay_config.y1
+      - key: wires_relay_config.y2_gl
+        type: boolean
+        entity_mapping: wires_relay_config.y2_gl
+      - key: wires_relay_config.w1
+        type: boolean
+        entity_mapping: wires_relay_config.w1
+      - key: wires_relay_config.w2_aux
+        type: boolean
+        entity_mapping: wires_relay_config.w2_aux
+      - key: wires_relay_config.e
+        type: boolean
+        entity_mapping: wires_relay_config.e
+      - key: wires_relay_config.g
+        type: boolean
+        entity_mapping: wires_relay_config.g
+      - key: wires_relay_config.ob
+        type: boolean
+        entity_mapping: wires_relay_config.ob
+      - key: d2d_master_enable
+        type: boolean
+        entity_mapping: d2d_master_enable
+      - key: d2d_slave_enable
+        type: boolean
+        entity_mapping: d2d_slave_enable
+      - key: child_lock_config.power_button
+        type: boolean
+        entity_mapping: child_lock_config.power_button
+      - key: child_lock_config.up_button
+        type: boolean
+        entity_mapping: child_lock_config.up_button
+      - key: child_lock_config.down_button
+        type: boolean
+        entity_mapping: child_lock_config.down_button
+      - key: child_lock_config.fan_button
+        type: boolean
+        entity_mapping: child_lock_config.fan_button
+      - key: child_lock_config.mode_button
+        type: boolean
+        entity_mapping: child_lock_config.mode_button
+      - key: child_lock_config.reset_button
+        type: boolean
+        entity_mapping: child_lock_config.reset_button
+      - key: wires.y1
+        type: boolean
+        entity_mapping: wires.y1
+      - key: wires.gh
+        type: boolean
+        entity_mapping: wires.gh
+      - key: wires.ob
+        type: boolean
+        entity_mapping: wires.ob
+      - key: wires.w1
+        type: boolean
+        entity_mapping: wires.w1
+      - key: wires.e
+        type: boolean
+        entity_mapping: wires.e
+      - key: wires.di
+        type: boolean
+        entity_mapping: wires.di
+      - key: wires.pek
+        type: boolean
+        entity_mapping: wires.pek
+      - key: wires.w2
+        type: boolean
+        entity_mapping: wires.w2
+      - key: wires.aux
+        type: boolean
+        entity_mapping: wires.aux
+      - key: wires.y2
+        type: boolean
+        entity_mapping: wires.y2
+      - key: wires.gl
+        type: boolean
+        entity_mapping: wires.gl
+      - key: ob_mode
+        type: long
+        entity_mapping: ob_mode
+      - key: multicast_group_config.group1_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group1_enable
+      - key: multicast_group_config.group2_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group2_enable
+      - key: multicast_group_config.group3_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group3_enable
+      - key: multicast_group_config.group4_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group4_enable
+      - key: control_permission
+        type: long
+        entity_mapping: control_permission
+      - key: offline_control_mode
+        type: long
+        entity_mapping: offline_control_mode
+      - key: temperature_alarm_config.alarm_type
+        type: long
+        entity_mapping: temperature_alarm_config.alarm_type
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_alarm_config.lock_time
+        type: long
+        entity_mapping: temperature_alarm_config.lock_time
+      - key: temperature_alarm_config.continue_time
+        type: long
+        entity_mapping: temperature_alarm_config.continue_time
+      - key: screen_display_mode
+        type: long
+        entity_mapping: screen_display_mode
+      - key: retransmit_enable
+        type: long
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+  output:
+    type: object
+    properties:
+      - key: target_temperature
+        type: double
+        entity_mapping: target_temperature.target_temperature
+      - key: temperature_control_mode
+        type: long
+        entity_mapping: target_temperature.temperature_control_mode
+      - key: temperature_unit
+        type: long
+        entity_mapping: target_temperature.temperature_unit
+      - key: fan_mode
+        type: long
+        entity_mapping: fan_mode
+      - key: plan_type
+        type: long
+        entity_mapping: plan_type
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: long
+        entity_mapping: report_status
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: collection_interval
+        type: long
+        entity_mapping: collection_interval
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: dst_config.enable
+        type: boolean
+        entity_mapping: dst_config.enable
+      - key: dst_config.offset
+        type: long
+        entity_mapping: dst_config.offset
+      - key: dst_config.start_month
+        type: long
+        entity_mapping: dst_config.start_month
+      - key: dst_config.start_week_num
+        type: long
+        entity_mapping: dst_config.start_week_num
+      - key: dst_config.start_week_day
+        type: long
+        entity_mapping: dst_config.start_week_day
+      - key: dst_config.start_time
+        type: long
+        entity_mapping: dst_config.start_time
+      - key: dst_config.end_month
+        type: long
+        entity_mapping: dst_config.end_month
+      - key: dst_config.end_week_num
+        type: long
+        entity_mapping: dst_config.end_week_num
+      - key: dst_config.end_week_day
+        type: long
+        entity_mapping: dst_config.end_week_day
+      - key: dst_config.end_time
+        type: long
+        entity_mapping: dst_config.end_time
+      - key: temperature_control_enable
+        type: boolean
+        entity_mapping: temperature_control_enable
+      - key: temperature_calibration_settings.enable
+        type: boolean
+        entity_mapping: temperature_calibration_settings.enable
+      - key: temperature_calibration_settings.calibration_value
+        type: double
+        entity_mapping: temperature_calibration_settings.calibration_value
+      - key: humidity_calibration_settings.enable
+        type: boolean
+        entity_mapping: humidity_calibration_settings.enable
+      - key: humidity_calibration_settings.calibration_value
+        type: double
+        entity_mapping: humidity_calibration_settings.calibration_value
+      - key: temperature_tolerance.target_temperature_tolerance
+        type: double
+        entity_mapping: temperature_tolerance.target_temperature_tolerance
+      - key: temperature_tolerance.auto_temperature_tolerance
+        type: double
+        entity_mapping: temperature_tolerance.auto_temperature_tolerance
+      - key: temperature_level_up_condition.type
+        type: long
+        entity_mapping: temperature_level_up_condition.type
+      - key: temperature_level_up_condition.time
+        type: long
+        entity_mapping: temperature_level_up_condition.time
+      - key: temperature_level_up_condition.temperature_tolerance
+        type: double
+        entity_mapping: temperature_level_up_condition.temperature_tolerance
+      - key: outside_temperature_control.enable
+        type: boolean
+        entity_mapping: outside_temperature_control.enable
+      - key: outside_temperature_control.timeout
+        type: long
+        entity_mapping: outside_temperature_control.timeout
+      - key: outside_temperature
+        type: double
+        entity_mapping: outside_temperature
+      - key: humidity_range.min
+        type: long
+        entity_mapping: humidity_range.min
+      - key: humidity_range.max
+        type: long
+        entity_mapping: humidity_range.max
+      - key: temperature_dehumidify.enable
+        type: boolean
+        entity_mapping: temperature_dehumidify.enable
+      - key: temperature_dehumidify.temperature_tolerance
+        type: double
+        entity_mapping: temperature_dehumidify.temperature_tolerance
+      - key: fan_dehumidify.enable
+        type: boolean
+        entity_mapping: fan_dehumidify.enable
+      - key: fan_dehumidify.execute_time
+        type: long
+        entity_mapping: fan_dehumidify.execute_time
+      - key: freeze_protection_config.enable
+        type: boolean
+        entity_mapping: freeze_protection_config.enable
+      - key: freeze_protection_config.temperature
+        type: double
+        entity_mapping: freeze_protection_config.temperature
+      - key: fan_delay_enable
+        type: boolean
+        entity_mapping: fan_delay_enable.fan_delay_enable
+      - key: fan_delay_time
+        type: long
+        entity_mapping: fan_delay_enable.fan_delay_time
+      - key: fan_execute_time
+        type: long
+        entity_mapping: fan_execute_time
+      - key: card_config.enable
+        type: boolean
+        entity_mapping: card_config.enable
+      - key: card_config.action_type
+        type: long
+        entity_mapping: card_config.action_type
+      - key: card_config.in_plan_type
+        type: long
+        entity_mapping: card_config.in_plan_type
+      - key: card_config.out_plan_type
+        type: long
+        entity_mapping: card_config.out_plan_type
+      - key: card_config.invert
+        type: boolean
+        entity_mapping: card_config.invert
+      - key: wires_relay_config.y1
+        type: boolean
+        entity_mapping: wires_relay_config.y1
+      - key: wires_relay_config.y2_gl
+        type: boolean
+        entity_mapping: wires_relay_config.y2_gl
+      - key: wires_relay_config.w1
+        type: boolean
+        entity_mapping: wires_relay_config.w1
+      - key: wires_relay_config.w2_aux
+        type: boolean
+        entity_mapping: wires_relay_config.w2_aux
+      - key: wires_relay_config.e
+        type: boolean
+        entity_mapping: wires_relay_config.e
+      - key: wires_relay_config.g
+        type: boolean
+        entity_mapping: wires_relay_config.g
+      - key: wires_relay_config.ob
+        type: boolean
+        entity_mapping: wires_relay_config.ob
+      - key: d2d_master_enable
+        type: boolean
+        entity_mapping: d2d_master_enable
+      - key: d2d_slave_enable
+        type: boolean
+        entity_mapping: d2d_slave_enable
+      - key: child_lock_config.power_button
+        type: boolean
+        entity_mapping: child_lock_config.power_button
+      - key: child_lock_config.up_button
+        type: boolean
+        entity_mapping: child_lock_config.up_button
+      - key: child_lock_config.down_button
+        type: boolean
+        entity_mapping: child_lock_config.down_button
+      - key: child_lock_config.fan_button
+        type: boolean
+        entity_mapping: child_lock_config.fan_button
+      - key: child_lock_config.mode_button
+        type: boolean
+        entity_mapping: child_lock_config.mode_button
+      - key: child_lock_config.reset_button
+        type: boolean
+        entity_mapping: child_lock_config.reset_button
+      - key: wires.y1
+        type: boolean
+        entity_mapping: wires.y1
+      - key: wires.gh
+        type: boolean
+        entity_mapping: wires.gh
+      - key: wires.ob
+        type: boolean
+        entity_mapping: wires.ob
+      - key: wires.w1
+        type: boolean
+        entity_mapping: wires.w1
+      - key: wires.e
+        type: boolean
+        entity_mapping: wires.e
+      - key: wires.di
+        type: boolean
+        entity_mapping: wires.di
+      - key: wires.pek
+        type: boolean
+        entity_mapping: wires.pek
+      - key: wires.w2
+        type: boolean
+        entity_mapping: wires.w2
+      - key: wires.aux
+        type: boolean
+        entity_mapping: wires.aux
+      - key: wires.y2
+        type: boolean
+        entity_mapping: wires.y2
+      - key: wires.gl
+        type: boolean
+        entity_mapping: wires.gl
+      - key: ob_mode
+        type: long
+        entity_mapping: ob_mode
+      - key: multicast_group_config.group1_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group1_enable
+      - key: multicast_group_config.group2_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group2_enable
+      - key: multicast_group_config.group3_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group3_enable
+      - key: multicast_group_config.group4_enable
+        type: boolean
+        entity_mapping: multicast_group_config.group4_enable
+      - key: control_permission
+        type: long
+        entity_mapping: control_permission
+      - key: offline_control_mode
+        type: long
+        entity_mapping: offline_control_mode
+      - key: temperature_alarm_config.alarm_type
+        type: long
+        entity_mapping: temperature_alarm_config.alarm_type
+      - key: temperature_alarm_config.condition
+        type: long
+        entity_mapping: temperature_alarm_config.condition
+      - key: temperature_alarm_config.threshold_min
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_min
+      - key: temperature_alarm_config.threshold_max
+        type: double
+        entity_mapping: temperature_alarm_config.threshold_max
+      - key: temperature_alarm_config.lock_time
+        type: long
+        entity_mapping: temperature_alarm_config.lock_time
+      - key: temperature_alarm_config.continue_time
+        type: long
+        entity_mapping: temperature_alarm_config.continue_time
+      - key: screen_display_mode
+        type: long
+        entity_mapping: screen_display_mode
+      - key: retransmit_enable
+        type: long
+        entity_mapping: retransmit_enable
+      - key: retransmit_interval
+        type: long
+        entity_mapping: retransmit_interval
+      - key: resend_interval
+        type: long
+        entity_mapping: resend_interval
+      - key: history_enable
+        type: boolean
+        entity_mapping: history_enable
+      - key: fetch_history.start_time
+        type: long
+        entity_mapping: fetch_history.start_time
+      - key: fetch_history.end_time
+        type: long
+        entity_mapping: fetch_history.end_time
+      - key: stop_transmit
+        type: boolean
+        entity_mapping: stop_transmit
+      - key: clear_history
+        type: boolean
+        entity_mapping: clear_history
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Ambient Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': emergency heating timeout alarm
+        '2': auxiliary heating timeout alarm
+        '3': persistent low temperature alarm
+        '4': persistent low temperature alarm release
+        '5': persistent high temperature alarm
+        '6': persistent high temperature alarm release
+        '7': freeze protection alarm
+        '8': freeze protection alarm release
+        '9': threshold alarm
+        '10': threshold alarm release
+    identifier: temperature_alarm
+  - name: Temperature Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': read failed
+        '2': out of range
+    identifier: temperature_sensor_status
+  - identifier: target_temperature
+    name: Target Temperature
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Target Temperature
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: target_temperature
+      - name: Temperature Control Mode
+        value_type: long
+        attributes:
+          enum:
+            '0': heat
+            '1': em_heat
+            '2': cool
+            '3': auto
+        identifier: temperature_control_mode
+      - name: Temperature Unit
+        value_type: long
+        attributes:
+          enum:
+            '0': celsius
+            '1': fahrenheit
+        identifier: temperature_unit
+  - name: Temperature Control Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': standby
+        '1': stage-1 heat
+        '2': stage-2 heat
+        '3': stage-3 heat
+        '4': stage-4 heat
+        '5': em_heat
+        '6': stage-1 cool
+        '7': stage-2 cool
+    identifier: temperature_control_status
+  - name: Fan Control Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': auto
+        '1': 'on'
+        '2': circulate
+        '3': disable
+    identifier: fan_mode
+  - name: Fan Control Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': 'off'
+        '1': high speed
+        '2': low speed
+        '3': 'on'
+    identifier: fan_status
+  - name: Plan Type
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': wake
+        '1': away
+        '2': home
+        '3': sleep
+        '255': not executed
+    identifier: plan_type
+  - name: System Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: system_status
+  - name: Humidity
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: '%r.h.'
+    identifier: humidity
+  - name: Humidity Sensor Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '1': read failed
+        '2': out of range
+    identifier: humidity_sensor_status
+  - identifier: wires_relay
+    name: Wires Relay (Y1)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Wires Relay (Y1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: y1
+      - name: Wires Relay (Y2/GL)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: y2_gl
+      - name: Wires Relay (W1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: w1
+      - name: Wires Relay (W2/AUX)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: w2_aux
+      - name: Wires Relay (E)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: e
+      - name: Wires Relay (G)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: g
+      - name: Wires Relay (OB)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: ob
+  - identifier: temperature_control_support_mode
+    name: Temperature Control Support Mode (Heat)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Temperature Control Support Mode (Heat)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: heat
+      - name: Temperature Control Support Mode (EM Heat)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: em_heat
+      - name: Temperature Control Support Mode (Cool)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: cool
+      - name: Temperature Control Support Mode (Auto)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: auto
+  - identifier: temperature_control_support_status
+    name: Temperature Control Support Status (Stage 1 Heat)
+    type: property
+    access_mod: R
+    value_type: object
+    children:
+      - name: Temperature Control Support Status (Stage 1 Heat)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: stage_1_heat
+      - name: Temperature Control Support Status (Stage 2 Heat)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: stage_2_heat
+      - name: Temperature Control Support Status (Stage 3 Heat)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: stage_3_heat
+      - name: Temperature Control Support Status (Stage 4 Heat)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: stage_4_heat
+      - name: Temperature Control Support Status (Aux Heat)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: aux_heat
+      - name: Temperature Control Support Status (Stage 1 Cool)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: stage_1_cool
+      - name: Temperature Control Support Status (Stage 2 Cool)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: stage_2_cool
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: long
+    attributes:
+      enum:
+        '0': plan
+        '1': periodic
+    identifier: report_status
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Collection Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: s
+    identifier: collection_interval
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '60': UTC+1
+        '120': UTC+2
+        '180': UTC+3
+        '210': UTC+3:30
+        '240': UTC+4
+        '270': UTC+4:30
+        '300': UTC+5
+        '330': UTC+5:30
+        '345': UTC+5:45
+        '360': UTC+6
+        '390': UTC+6:30
+        '420': UTC+7
+        '480': UTC+8
+        '540': UTC+9
+        '570': UTC+9:30
+        '600': UTC+10
+        '630': UTC+10:30
+        '660': UTC+11
+        '720': UTC+12
+        '765': UTC+12:45
+        '780': UTC+13
+        '840': UTC+14
+        '-720': UTC-12
+        '-660': UTC-11
+        '-600': UTC-10
+        '-570': UTC-9:30
+        '-540': UTC-9
+        '-480': UTC-8
+        '-420': UTC-7
+        '-360': UTC-6
+        '-300': UTC-5
+        '-240': UTC-4
+        '-210': UTC-3:30
+        '-180': UTC-3
+        '-120': UTC-2
+        '-60': UTC-1
+    identifier: time_zone
+  - identifier: dst_config
+    name: Daylight Saving Time (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Daylight Saving Time (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Daylight Saving Time (Offset)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: offset
+      - name: Daylight Saving Time (Start Month)
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: start_month
+      - name: Daylight Saving Time (Start Week Number)
+        value_type: long
+        identifier: start_week_num
+      - name: Daylight Saving Time (Start Week Day)
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: start_week_day
+      - name: Daylight Saving Time (Start Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: start_time
+      - name: Daylight Saving Time (End Month)
+        value_type: long
+        attributes:
+          enum:
+            '1': January
+            '2': February
+            '3': March
+            '4': April
+            '5': May
+            '6': June
+            '7': July
+            '8': August
+            '9': September
+            '10': October
+            '11': November
+            '12': December
+        identifier: end_month
+      - name: Daylight Saving Time (End Week Number)
+        value_type: long
+        identifier: end_week_num
+      - name: Daylight Saving Time (End Week Day)
+        value_type: long
+        attributes:
+          enum:
+            '1': Monday
+            '2': Tuesday
+            '3': Wednesday
+            '4': Thursday
+            '5': Friday
+            '6': Saturday
+            '7': Sunday
+        identifier: end_week_day
+      - name: Daylight Saving Time (End Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: end_time
+  - name: Temperature Control Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: temperature_control_enable
+  - identifier: temperature_calibration_settings
+    name: Temperature Calibration (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Calibration (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Calibration (Temperature)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: calibration_value
+  - identifier: humidity_calibration_settings
+    name: Humidity Calibration (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Humidity Calibration (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Humidity Calibration (Humidity)
+        value_type: double
+        attributes:
+          unit: '%r.h.'
+        identifier: calibration_value
+  - identifier: temperature_tolerance
+    name: Temperature Tolerance (Target Temperature Tolerance)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Tolerance (Target Temperature Tolerance)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: target_temperature_tolerance
+      - name: Temperature Tolerance (Auto Temperature Tolerance)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: auto_temperature_tolerance
+  - identifier: temperature_level_up_condition
+    name: Temperature Level Up Condition (Type)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Level Up Condition (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': heat
+            '1': cool
+        identifier: type
+      - name: Temperature Level Up Condition (Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: time
+      - name: Temperature Level Up Condition (Temperature Tolerance)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature_tolerance
+  - identifier: outside_temperature_control
+    name: Outside Temperature Control (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Outside Temperature Control (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Outside Temperature Control (Timeout)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: timeout
+  - name: Outside Temperature
+    type: property
+    access_mod: RW
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: outside_temperature
+  - identifier: humidity_range
+    name: Humidity Range (Min)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Humidity Range (Min)
+        value_type: long
+        attributes:
+          unit: '%r.h.'
+        identifier: min
+      - name: Humidity Range (Max)
+        value_type: long
+        attributes:
+          unit: '%r.h.'
+        identifier: max
+  - identifier: temperature_dehumidify
+    name: Temperature Dehumidify (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Dehumidify (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Temperature Dehumidify (Temperature Tolerance)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature_tolerance
+  - identifier: fan_dehumidify
+    name: Fan Dehumidify (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Fan Dehumidify (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Fan Dehumidify (Execute Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: execute_time
+  - identifier: freeze_protection_config
+    name: Freeze Protection (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Freeze Protection (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Freeze Protection (Temperature)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: temperature
+  - identifier: fan_delay_enable
+    name: Fan Delay (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Fan Delay (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: fan_delay_enable
+      - name: Fan Delay (Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: fan_delay_time
+  - name: Fan Execute Time
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: fan_execute_time
+  - identifier: card_config
+    name: Card Config (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Card Config (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Card Config (Action Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': power
+            '1': plan
+        identifier: action_type
+      - name: Card Config (In Plan Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': wake
+            '1': away
+            '2': home
+            '3': sleep
+        identifier: in_plan_type
+      - name: Card Config (Out Plan Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': wake
+            '1': away
+            '2': home
+            '3': sleep
+        identifier: out_plan_type
+      - name: Card Config (Invert)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'no'
+            'true': 'yes'
+        identifier: invert
+  - identifier: wires_relay_config
+    name: Wires Relay Y1
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Wires Relay Y1
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: y1
+      - name: Wires Relay Y2/GL
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: y2_gl
+      - name: Wires Relay W1
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: w1
+      - name: Wires Relay W2/AUX
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: w2_aux
+      - name: Wires Relay E
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: e
+      - name: Wires Relay G
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: g
+      - name: Wires Relay O/B
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: ob
+  - name: D2D Master Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_master_enable
+  - name: D2D Slave Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: d2d_slave_enable
+  - identifier: child_lock_config
+    name: Child Lock (Power Button)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Child Lock (Power Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: power_button
+      - name: Child Lock (Up Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: up_button
+      - name: Child Lock (Down Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: down_button
+      - name: Child Lock (Fan Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: fan_button
+      - name: Child Lock (Mode Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: mode_button
+      - name: Child Lock (Reset Button)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: reset_button
+  - identifier: wires
+    name: Wires (Y1)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Wires (Y1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: y1
+      - name: Wires (GH)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: gh
+      - name: Wires (OB)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: ob
+      - name: Wires (W1)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: w1
+      - name: Wires (E)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: e
+      - name: Wires (DI)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: di
+      - name: Wires (PEK)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: pek
+      - name: Wires (W2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: w2
+      - name: Wires (AUX)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: aux
+      - name: Wires (Y2)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: y2
+      - name: Wires (GL)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': 'off'
+            'true': 'on'
+        identifier: gl
+  - name: OB Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': on cool
+        '1': on heat
+        '3': hold
+    identifier: ob_mode
+  - identifier: multicast_group_config
+    name: Multicast (Group 1 Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Multicast (Group 1 Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group1_enable
+      - name: Multicast (Group 2 Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group2_enable
+      - name: Multicast (Group 3 Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group3_enable
+      - name: Multicast (Group 4 Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: group4_enable
+  - name: Control Permission
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': thermostat
+        '1': remote control
+    identifier: control_permission
+  - name: Offline Control Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': keep
+        '1': thermostat
+        '2': 'off'
+    identifier: offline_control_mode
+  - identifier: temperature_alarm_config
+    name: Temperature Alarm (Type)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Temperature Alarm (Type)
+        value_type: long
+        attributes:
+          enum:
+            '0': temperature threshold
+            '1': continuous low temperature
+            '2': continuous high temperature
+        identifier: alarm_type
+      - name: Temperature Alarm (Condition)
+        value_type: long
+        attributes:
+          enum:
+            '0': disable
+            '1': below
+            '2': above
+            '3': between
+            '4': outside
+        identifier: condition
+      - name: Temperature Alarm (Min)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_min
+      - name: Temperature Alarm (Max)
+        value_type: double
+        attributes:
+          unit: °C
+        identifier: threshold_max
+      - name: Temperature Alarm (Lock Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: lock_time
+      - name: Temperature Alarm (Continue Time)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: continue_time
+  - name: Screen Display Mode
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': 'on'
+        '1': without plan show
+        '2': disable all
+    identifier: screen_display_mode
+  - name: Retransmit Enable
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': disable
+        '1': enable
+    identifier: retransmit_enable
+  - name: Retransmit Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: retransmit_interval
+  - name: Resend Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    identifier: resend_interval
+  - name: History Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: history_enable
+  - identifier: fetch_history
+    name: Fetch History (Start Time)
+    type: service
+    access_mod: W
+    value_type: object
+    children:
+      - name: Fetch History (Start Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: start_time
+      - name: Fetch History (End Time)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: end_time
+  - name: Stop Transmit
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: stop_transmit
+  - name: Clear History
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: clear_history
+codec:
+  id: default
+  ref: wt201/codec/device-codec.yaml

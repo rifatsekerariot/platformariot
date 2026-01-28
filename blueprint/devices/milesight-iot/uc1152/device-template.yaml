@@ -1,0 +1,299 @@
+metadata:
+  lora_device_profile_class: ClassC-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: gpio_input_1
+        type: boolean
+        entity_mapping: gpio_input_1
+      - key: gpio_input_2
+        type: boolean
+        entity_mapping: gpio_input_2
+      - key: gpio_counter_1
+        type: long
+        entity_mapping: gpio_counter_1
+      - key: gpio_counter_2
+        type: long
+        entity_mapping: gpio_counter_2
+      - key: gpio_output_1
+        type: boolean
+        entity_mapping: gpio_output_1
+      - key: gpio_output_2
+        type: boolean
+        entity_mapping: gpio_output_2
+      - key: adc_1
+        type: double
+        entity_mapping: adc_1
+      - key: adc_1_max
+        type: double
+        entity_mapping: adc_1_max
+      - key: adc_1_min
+        type: double
+        entity_mapping: adc_1_min
+      - key: adc_1_avg
+        type: double
+        entity_mapping: adc_1_avg
+      - key: adc_2
+        type: double
+        entity_mapping: adc_2
+      - key: adc_2_max
+        type: double
+        entity_mapping: adc_2_max
+      - key: adc_2_min
+        type: double
+        entity_mapping: adc_2_min
+      - key: adc_2_avg
+        type: double
+        entity_mapping: adc_2_avg
+      - key: modbus_chn_1
+        type: double
+        entity_mapping: modbus_chn_1
+      - key: modbus_chn_2
+        type: double
+        entity_mapping: modbus_chn_2
+      - key: modbus_chn_3
+        type: double
+        entity_mapping: modbus_chn_3
+      - key: modbus_chn_4
+        type: double
+        entity_mapping: modbus_chn_4
+      - key: modbus_chn_5
+        type: double
+        entity_mapping: modbus_chn_5
+      - key: modbus_chn_6
+        type: double
+        entity_mapping: modbus_chn_6
+      - key: modbus_chn_7
+        type: double
+        entity_mapping: modbus_chn_7
+      - key: modbus_chn_8
+        type: double
+        entity_mapping: modbus_chn_8
+  output:
+    type: object
+    properties:
+      - key: modbus_chn_1
+        type: double
+        entity_mapping: modbus_chn_1
+      - key: modbus_chn_2
+        type: double
+        entity_mapping: modbus_chn_2
+      - key: modbus_chn_3
+        type: double
+        entity_mapping: modbus_chn_3
+      - key: modbus_chn_4
+        type: double
+        entity_mapping: modbus_chn_4
+      - key: modbus_chn_5
+        type: double
+        entity_mapping: modbus_chn_5
+      - key: modbus_chn_6
+        type: double
+        entity_mapping: modbus_chn_6
+      - key: modbus_chn_7
+        type: double
+        entity_mapping: modbus_chn_7
+      - key: modbus_chn_8
+        type: double
+        entity_mapping: modbus_chn_8
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 12
+    identifier: sn
+  - name: GPIO Input (Channel 1)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': low
+        'true': high
+    identifier: gpio_input_1
+  - name: GPIO Input (Channel 2)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': low
+        'true': high
+    identifier: gpio_input_2
+  - name: GPIO Counter (Channel 1)
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: gpio_counter_1
+  - name: GPIO Counter (Channel 2)
+    type: property
+    access_mod: R
+    value_type: long
+    identifier: gpio_counter_2
+  - name: GPIO Output (Channel 1)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': low
+        'true': high
+    identifier: gpio_output_1
+  - name: GPIO Output (Channel 2)
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': low
+        'true': high
+    identifier: gpio_output_2
+  - name: ADC 1
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_1
+  - name: ADC Max (Channel 1)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_1_max
+  - name: ADC Min (Channel 1)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_1_min
+  - name: ADC Avg (Channel 1)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_1_avg
+  - name: ADC 2
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_2
+  - name: ADC Max (Channel 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_2_max
+  - name: ADC Min (Channel 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_2_min
+  - name: ADC Avg (Channel 2)
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: adc_2_avg
+  - name: Modbus Channel 1
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_1
+  - name: Modbus Channel 2
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_2
+  - name: Modbus Channel 3
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_3
+  - name: Modbus Channel 4
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_4
+  - name: Modbus Channel 5
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_5
+  - name: Modbus Channel 6
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_6
+  - name: Modbus Channel 7
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_7
+  - name: Modbus Channel 8
+    type: property
+    access_mod: RW
+    value_type: double
+    identifier: modbus_chn_8
+codec:
+  id: default
+  ref: uc1152/codec/device-codec.yaml

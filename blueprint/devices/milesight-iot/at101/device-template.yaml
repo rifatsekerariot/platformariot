@@ -1,0 +1,614 @@
+metadata:
+  lora_device_profile_class: ClassA-OTAA
+definition:
+  input:
+    type: object
+    properties:
+      - key: device_id
+        type: string
+        required: true
+        is_device_id: true
+      - key: ipso_version
+        type: string
+        entity_mapping: ipso_version
+      - key: hardware_version
+        type: string
+        entity_mapping: hardware_version
+      - key: firmware_version
+        type: string
+        entity_mapping: firmware_version
+      - key: tsl_version
+        type: string
+        entity_mapping: tsl_version
+      - key: sn
+        type: string
+        entity_mapping: sn
+      - key: lorawan_class
+        type: long
+        entity_mapping: lorawan_class
+      - key: reset_event
+        type: boolean
+        entity_mapping: reset_event
+      - key: device_status
+        type: boolean
+        entity_mapping: device_status
+      - key: battery
+        type: long
+        entity_mapping: battery
+      - key: temperature
+        type: double
+        entity_mapping: temperature
+      - key: latitude
+        type: double
+        entity_mapping: latitude
+      - key: longitude
+        type: double
+        entity_mapping: longitude
+      - key: motion_status
+        type: long
+        entity_mapping: motion_status
+      - key: geofence_status
+        type: long
+        entity_mapping: geofence_status
+      - key: position
+        type: boolean
+        entity_mapping: position
+      - key: tamper_status
+        type: boolean
+        entity_mapping: tamper_status
+      - key: temperature_alarm
+        type: boolean
+        entity_mapping: temperature_alarm
+      - key: wifi_scan_result
+        type: boolean
+        entity_mapping: wifi_scan_result
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: motion_report_interval
+        type: long
+        entity_mapping: motion_report_interval
+      - key: report_strategy
+        type: long
+        entity_mapping: report_strategy
+      - key: positioning_strategy
+        type: long
+        entity_mapping: positioning_strategy
+      - key: gnss_positioning_timeout
+        type: long
+        entity_mapping: gnss_positioning_timeout
+      - key: wifi_positioning_config.mode
+        type: long
+        entity_mapping: wifi_positioning_config.mode
+      - key: wifi_positioning_config.num_of_bssid
+        type: long
+        entity_mapping: wifi_positioning_config.num_of_bssid
+      - key: wifi_positioning_config.timeout
+        type: long
+        entity_mapping: wifi_positioning_config.timeout
+      - key: motion_detection_config.delta_g
+        type: long
+        entity_mapping: motion_detection_config.delta_g
+      - key: motion_detection_config.duration
+        type: long
+        entity_mapping: motion_detection_config.duration
+      - key: static_detection_config.delta_g
+        type: long
+        entity_mapping: static_detection_config.delta_g
+      - key: static_detection_config.duration
+        type: long
+        entity_mapping: static_detection_config.duration
+      - key: motion_report_config.enable
+        type: boolean
+        entity_mapping: motion_report_config.enable
+      - key: motion_report_config.interval
+        type: long
+        entity_mapping: motion_report_config.interval
+      - key: geofence_center_config.latitude
+        type: double
+        entity_mapping: geofence_center_config.latitude
+      - key: geofence_center_config.longitude
+        type: double
+        entity_mapping: geofence_center_config.longitude
+      - key: geofence_center_config.radius
+        type: long
+        entity_mapping: geofence_center_config.radius
+      - key: tamper_detection_enable
+        type: boolean
+        entity_mapping: tamper_detection_enable
+      - key: geofence_alarm_config.enable
+        type: boolean
+        entity_mapping: geofence_alarm_config.enable
+      - key: geofence_alarm_config.interval
+        type: long
+        entity_mapping: geofence_alarm_config.interval
+      - key: geofence_alarm_config.counts
+        type: long
+        entity_mapping: geofence_alarm_config.counts
+      - key: bluetooth_enable
+        type: boolean
+        entity_mapping: bluetooth_enable
+      - key: time_sync_enable
+        type: boolean
+        entity_mapping: time_sync_enable
+  output:
+    type: object
+    properties:
+      - key: reboot
+        type: boolean
+        entity_mapping: reboot
+      - key: report_status
+        type: boolean
+        entity_mapping: report_status
+      - key: time_zone
+        type: long
+        entity_mapping: time_zone
+      - key: sync_time
+        type: boolean
+        entity_mapping: sync_time
+      - key: report_interval
+        type: long
+        entity_mapping: report_interval
+      - key: motion_report_interval
+        type: long
+        entity_mapping: motion_report_interval
+      - key: report_strategy
+        type: long
+        entity_mapping: report_strategy
+      - key: positioning_strategy
+        type: long
+        entity_mapping: positioning_strategy
+      - key: gnss_positioning_timeout
+        type: long
+        entity_mapping: gnss_positioning_timeout
+      - key: wifi_positioning_config.mode
+        type: long
+        entity_mapping: wifi_positioning_config.mode
+      - key: wifi_positioning_config.num_of_bssid
+        type: long
+        entity_mapping: wifi_positioning_config.num_of_bssid
+      - key: wifi_positioning_config.timeout
+        type: long
+        entity_mapping: wifi_positioning_config.timeout
+      - key: motion_detection_config.delta_g
+        type: long
+        entity_mapping: motion_detection_config.delta_g
+      - key: motion_detection_config.duration
+        type: long
+        entity_mapping: motion_detection_config.duration
+      - key: static_detection_config.delta_g
+        type: long
+        entity_mapping: static_detection_config.delta_g
+      - key: static_detection_config.duration
+        type: long
+        entity_mapping: static_detection_config.duration
+      - key: motion_report_config.enable
+        type: boolean
+        entity_mapping: motion_report_config.enable
+      - key: motion_report_config.interval
+        type: long
+        entity_mapping: motion_report_config.interval
+      - key: geofence_center_config.latitude
+        type: double
+        entity_mapping: geofence_center_config.latitude
+      - key: geofence_center_config.longitude
+        type: double
+        entity_mapping: geofence_center_config.longitude
+      - key: geofence_center_config.radius
+        type: long
+        entity_mapping: geofence_center_config.radius
+      - key: tamper_detection_enable
+        type: boolean
+        entity_mapping: tamper_detection_enable
+      - key: geofence_alarm_config.enable
+        type: boolean
+        entity_mapping: geofence_alarm_config.enable
+      - key: geofence_alarm_config.interval
+        type: long
+        entity_mapping: geofence_alarm_config.interval
+      - key: geofence_alarm_config.counts
+        type: long
+        entity_mapping: geofence_alarm_config.counts
+      - key: bluetooth_enable
+        type: boolean
+        entity_mapping: bluetooth_enable
+      - key: time_sync_enable
+        type: boolean
+        entity_mapping: time_sync_enable
+initial_entities:
+  - name: IPSO Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: ipso_version
+  - name: Hardware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: hardware_version
+  - name: Firmware Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: firmware_version
+  - name: TSL Version
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 6
+    identifier: tsl_version
+  - name: SN
+    type: property
+    access_mod: R
+    value_type: string
+    attributes:
+      max_length: 16
+    identifier: sn
+  - name: LoRaWAN Class Type
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': Class A
+        '1': Class B
+        '2': Class C
+        '3': Class CtoB
+    identifier: lorawan_class
+  - name: Reset Event
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': reset
+    identifier: reset_event
+  - name: Device Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'off'
+        'true': 'on'
+    identifier: device_status
+  - name: Battery
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      unit: '%'
+    identifier: battery
+  - name: Temperature
+    type: property
+    access_mod: R
+    value_type: double
+    attributes:
+      unit: °C
+    identifier: temperature
+  - name: Latitude
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: latitude
+  - name: Longitude
+    type: property
+    access_mod: R
+    value_type: double
+    identifier: longitude
+  - name: Motion Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': unknown
+        '1': start
+        '2': moving
+        '3': stop
+    identifier: motion_status
+  - name: Geofence Status
+    type: property
+    access_mod: R
+    value_type: long
+    attributes:
+      enum:
+        '0': inside
+        '1': outside
+        '2': unset
+        '3': unknown
+    identifier: geofence_status
+  - name: Position
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': tilt
+    identifier: position
+  - name: Tamper Status
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': installed
+        'true': uninstalled
+    identifier: tamper_status
+  - name: Temperature Alarm
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': normal
+        'true': abnormal
+    identifier: temperature_alarm
+  - name: WiFi Scan Result
+    type: property
+    access_mod: R
+    value_type: boolean
+    attributes:
+      enum:
+        'false': success
+        'true': timeout
+    identifier: wifi_scan_result
+  - name: Reboot
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: reboot
+  - name: Report Status
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: report_status
+  - name: Time Zone
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': UTC
+        '10': UTC+1
+        '20': UTC+2
+        '30': UTC+3
+        '35': UTC+3:30
+        '40': UTC+4
+        '45': UTC+4:30
+        '50': UTC+5
+        '55': UTC+5:30
+        '57': UTC+5:45
+        '60': UTC+6
+        '65': UTC+6:30
+        '70': UTC+7
+        '80': UTC+8
+        '90': UTC+9
+        '95': UTC+9:30
+        '100': UTC+10
+        '105': UTC+10:30
+        '110': UTC+11
+        '120': UTC+12
+        '127': UTC+12:45
+        '130': UTC+13
+        '140': UTC+14
+        '-120': UTC-12
+        '-110': UTC-11
+        '-100': UTC-10
+        '-95': UTC-9:30
+        '-90': UTC-9
+        '-80': UTC-8
+        '-70': UTC-7
+        '-60': UTC-6
+        '-50': UTC-5
+        '-40': UTC-4
+        '-35': UTC-3:30
+        '-30': UTC-3
+        '-20': UTC-2
+        '-10': UTC-1
+    identifier: time_zone
+  - name: Sync Time
+    type: service
+    access_mod: W
+    value_type: boolean
+    attributes:
+      enum:
+        'false': 'no'
+        'true': 'yes'
+    identifier: sync_time
+  - name: Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: report_interval
+  - name: Motion Report Interval
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: motion_report_interval
+  - name: Report Strategy
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': periodic
+        '1': motion
+        '2': timing
+    identifier: report_strategy
+  - name: Positioning Strategy
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      enum:
+        '0': gnss
+        '1': wifi
+        '2': wifi_gnss
+    identifier: positioning_strategy
+  - name: GNSS Positioning Timeout
+    type: property
+    access_mod: RW
+    value_type: long
+    attributes:
+      unit: min
+    identifier: gnss_positioning_timeout
+  - identifier: wifi_positioning_config
+    name: WiFi Positioning (Mode)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: WiFi Positioning (Mode)
+        value_type: long
+        attributes:
+          enum:
+            '0': low_power
+            '1': high_accuracy
+        identifier: mode
+      - name: WiFi Positioning Number of BSSID
+        value_type: long
+        identifier: num_of_bssid
+      - name: WiFi Positioning (Timeout)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: timeout
+  - identifier: motion_detection_config
+    name: Motion Detection (Delta G)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Motion Detection (Delta G)
+        value_type: long
+        identifier: delta_g
+      - name: Motion Detection (Duration)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: duration
+  - identifier: static_detection_config
+    name: Static Detection (Delta G)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Static Detection (Delta G)
+        value_type: long
+        identifier: delta_g
+      - name: Static Detection (Duration)
+        value_type: long
+        attributes:
+          unit: s
+        identifier: duration
+  - identifier: motion_report_config
+    name: Motion Report (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Motion Report (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Motion Report (Interval)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: interval
+  - identifier: geofence_center_config
+    name: Geofence Center (Latitude)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Geofence Center (Latitude)
+        value_type: double
+        identifier: latitude
+      - name: Geofence Center (Longitude)
+        value_type: double
+        identifier: longitude
+      - name: Geofence Center (Radius)
+        value_type: long
+        attributes:
+          unit: m
+        identifier: radius
+  - name: Tamper Detection Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: tamper_detection_enable
+  - identifier: geofence_alarm_config
+    name: Geofence Alarm (Enable)
+    type: property
+    access_mod: RW
+    value_type: object
+    children:
+      - name: Geofence Alarm (Enable)
+        value_type: boolean
+        attributes:
+          enum:
+            'false': disable
+            'true': enable
+        identifier: enable
+      - name: Geofence Alarm (Interval)
+        value_type: long
+        attributes:
+          unit: min
+        identifier: interval
+      - name: Geofence Alarm (Counts)
+        value_type: long
+        identifier: counts
+  - name: Bluetooth Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: bluetooth_enable
+  - name: Time Sync Enable
+    type: property
+    access_mod: RW
+    value_type: boolean
+    attributes:
+      enum:
+        'false': disable
+        'true': enable
+    identifier: time_sync_enable
+codec:
+  id: default
+  ref: at101/codec/device-codec.yaml

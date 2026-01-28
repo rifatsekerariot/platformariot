@@ -36,6 +36,7 @@ services:
       - "JAVA_OPTS=-Xmx1024m -Xms1024m"
       - "SPRING_OPTS=--spring.profiles.active=dev"
       - "DB_TYPE=postgres"
+      - "BLUEPRINT_LIBRARY_DEFAULT_ADDRESS_LOCAL_ZIP_FILE=/default_local_blueprint.zip"
       - "SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver"
       - "SPRING_DATASOURCE_USERNAME=${POSTGRES_USER:-postgres}"
       - "SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD:-postgres}"
