@@ -97,6 +97,21 @@ export interface DeviceAlarmDetail {
     device_name: string;
 }
 
+/** Alarm rule (if-then) from backend */
+export interface AlarmRuleItem {
+    id: ApiKey;
+    name: string;
+    device_ids: ApiKey[];
+    device_names: string[];
+    entity_key: string;
+    condition_op: string;
+    condition_value: string;
+    action_raise_alarm: boolean;
+    action_notify_email: boolean;
+    action_notify_webhook: boolean;
+    enabled: boolean;
+}
+
 /**
  * Device alarm data search condition
  */
@@ -296,6 +311,57 @@ export interface DeviceAPISchema extends APISchema {
         };
         response: void;
     };
+    /** List alarm rules */
+    getAlarmRules: {
+        request: { page_number?: number; page_size?: number };
+        response: { content: AlarmRuleItem[]; totalElements: number };
+    };
+    /** Get alarm rule by id */
+    getAlarmRule: {
+        request: { id: ApiKey };
+        response: AlarmRuleItem;
+    };
+    /** Create alarm rule */
+    createAlarmRule: {
+        request: {
+            name: string;
+            device_ids: ApiKey[];
+            entity_key: string;
+            condition_op: string;
+            condition_value?: string;
+            action_raise_alarm?: boolean;
+            action_notify_email?: boolean;
+            action_notify_webhook?: boolean;
+            enabled?: boolean;
+        };
+        response: AlarmRuleItem;
+    };
+    /** Update alarm rule */
+    updateAlarmRule: {
+        request: {
+            id: ApiKey;
+            name: string;
+            device_ids: ApiKey[];
+            entity_key: string;
+            condition_op: string;
+            condition_value?: string;
+            action_raise_alarm?: boolean;
+            action_notify_email?: boolean;
+            action_notify_webhook?: boolean;
+            enabled?: boolean;
+        };
+        response: AlarmRuleItem;
+    };
+    /** Delete alarm rule */
+    deleteAlarmRule: {
+        request: { id: ApiKey };
+        response: void;
+    };
+    /** Batch delete alarm rules */
+    batchDeleteAlarmRules: {
+        request: { ids: ApiKey[] };
+        response: void;
+    };
 }
 
 /**
@@ -343,5 +409,18 @@ export default attachAPI<DeviceAPISchema>(client, {
             return resp;
         },
         claimDeviceAlarm: `POST ${API_PREFIX}/alarms/claim`,
+        getAlarmRules: `GET ${API_PREFIX}/alarms/rules`,
+        getAlarmRule: `GET ${API_PREFIX}/alarms/rules/:id`,
+        createAlarmRule: `POST ${API_PREFIX}/alarms/rules`,
+        async updateAlarmRule(params: { id: ApiKey; name: string; device_ids: ApiKey[]; entity_key: string; condition_op: string; condition_value?: string; action_raise_alarm?: boolean; action_notify_email?: boolean; action_notify_webhook?: boolean; enabled?: boolean }) {
+            const { id, ...body } = params;
+            return client.request({
+                method: 'put',
+                url: `${API_PREFIX}/alarms/rules/${id}`,
+                data: body,
+            });
+        },
+        deleteAlarmRule: `DELETE ${API_PREFIX}/alarms/rules/:id`,
+        batchDeleteAlarmRules: `POST ${API_PREFIX}/alarms/rules/batch-delete`,
     },
 });

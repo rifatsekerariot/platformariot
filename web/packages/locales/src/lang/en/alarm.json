@@ -31,5 +31,7 @@
     "alarm.rule_tip_no_backend": "Rules are stored locally. Backend API will be connected in a future release.",
     "alarm.message.load_failed": "Unable to load alarm list. The alarm service may be unavailable.",
     "alarm.message.export_failed": "Export failed. Please try again later.",
-    "alarm.message.claim_failed": "Claim failed. Please try again."
+    "alarm.message.claim_failed": "Claim failed. Please try again.",
+    "alarm.message.rule_save_failed": "Failed to save rule. Please try again.",
+    "alarm.message.rule_delete_failed": "Failed to delete rules. Please try again."
 }

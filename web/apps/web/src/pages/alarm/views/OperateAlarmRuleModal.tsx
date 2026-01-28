@@ -97,7 +97,8 @@ interface OperateAlarmRuleModalProps {
     operateType: OperateAlarmRuleModalType;
     data?: AlarmRuleRow | null;
     onCancel: () => void;
-    onOk: (values: AlarmRuleFormValues) => void;
+    onOk: (values: AlarmRuleFormValues) => void | Promise<void>;
+    loading?: boolean;
 }
 
 const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
@@ -106,6 +107,7 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
     data,
     onCancel,
     onOk,
+    loading = false,
 }) => {
     const { getIntlText } = useI18n();
 
@@ -177,8 +179,8 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
         v?.length ? true : (getIntlText('common.placeholder.select') || 'Required'),
     );
 
-    const onSubmit: SubmitHandler<AlarmRuleFormValues> = useMemoizedFn(values => {
-        onOk(values);
+    const onSubmit: SubmitHandler<AlarmRuleFormValues> = useMemoizedFn(async values => {
+        await onOk(values);
     });
 
     const handleCancel = useMemoizedFn(() => {
@@ -191,7 +193,8 @@ const OperateAlarmRuleModal: React.FC<OperateAlarmRuleModalProps> = ({
             size="lg"
             visible={visible}
             title={operateType === 'add' ? getIntlText('alarm.rule_add') : getIntlText('alarm.rule_edit')}
-            className={classNames({ loading: formState.isSubmitting })}
+            className={classNames({ loading: loading || formState.isSubmitting })}
+            okButtonProps={{ loading: loading }}
             onOk={handleSubmit(onSubmit)}
             onOkText={getIntlText('common.button.save')}
             onCancel={handleCancel}

@@ -31,5 +31,7 @@
     "alarm.rule_tip_no_backend": "规则目前仅保存在本地，后续版本将对接后端 API。",
     "alarm.message.load_failed": "无法加载告警列表，告警服务可能不可用。",
     "alarm.message.export_failed": "导出失败，请稍后重试。",
-    "alarm.message.claim_failed": "认领失败，请重试。"
+    "alarm.message.claim_failed": "认领失败，请重试。",
+    "alarm.message.rule_save_failed": "保存规则失败，请重试。",
+    "alarm.message.rule_delete_failed": "删除规则失败，请重试。"
 }
