@@ -31,16 +31,31 @@ public class DefaultExceptionHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     public ResponseEntity<Object> noHandlerFoundException(NoHandlerFoundException e) {
         log.warn("No handler found for {} {}", e.getHttpMethod(), e.getRequestURL());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(ResponseBuilder.fail(ErrorCode.DATA_NO_FOUND.getErrorCode(), "No handler found for " + e.getHttpMethod() + " " + e.getRequestURL()));
+        return notFoundHandler(e);
     }
 
     @ResponseBody
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<Object> noResourceFoundException(NoResourceFoundException e) {
         log.warn("No resource found: {}", e.getResourcePath());
+        return notFoundResource(e);
+    }
+
+    private static ResponseEntity<Object> notFoundHandler(NoHandlerFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ResponseBuilder.fail(ErrorCode.DATA_NO_FOUND.getErrorCode(), "No handler found for " + e.getHttpMethod() + " " + e.getRequestURL()));
+    }
+
+    private static ResponseEntity<Object> notFoundResource(NoResourceFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ResponseBuilder.fail(ErrorCode.DATA_NO_FOUND.getErrorCode(), "No resource found: " + e.getResourcePath()));
+    }
+
+    private static Throwable findNoHandlerOrResourceInCauses(Throwable t) {
+        for (Throwable c = t; c != null; c = c.getCause()) {
+            if (c instanceof NoHandlerFoundException || c instanceof NoResourceFoundException) return c;
+        }
+        return null;
     }
 
     @ResponseBody
@@ -92,15 +107,33 @@ public class DefaultExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler({Exception.class})
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public com.milesight.beaveriot.base.response.ResponseBody<Object> handleException(Exception e) {
+    public ResponseEntity<Object> handleException(Exception e) {
+        Throwable u = findNoHandlerOrResourceInCauses(e);
+        if (u instanceof NoHandlerFoundException n) {
+            log.warn("No handler found (via Exception): {} {}", n.getHttpMethod(), n.getRequestURL());
+            return notFoundHandler(n);
+        }
+        if (u instanceof NoResourceFoundException n) {
+            log.warn("No resource found (via Exception): {}", n.getResourcePath());
+            return notFoundResource(n);
+        }
         log.error("Cause Exception:", e);
-        return ResponseBuilder.fail(ErrorCode.SERVER_ERROR, e.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ResponseBuilder.fail(ErrorCode.SERVER_ERROR, e.getMessage()));
     }
 
     private ResponseEntity<Object> getErrorResponse(Throwable cause) {
         if (cause != null) {
             cause = ErrorHolder.tryGetKnownCause(cause);
+            Throwable u = findNoHandlerOrResourceInCauses(cause);
+            if (u instanceof NoHandlerFoundException n) {
+                log.warn("No handler found (via cause): {} {}", n.getHttpMethod(), n.getRequestURL());
+                return notFoundHandler(n);
+            }
+            if (u instanceof NoResourceFoundException n) {
+                log.warn("No resource found (via cause): {}", n.getResourcePath());
+                return notFoundResource(n);
+            }
             if (cause instanceof ServiceException serviceException) {
                 return ResponseEntity.status(serviceException.getStatus()).body(ResponseBuilder.fail(serviceException));
             } else if (cause instanceof EventBusExecutionException eventBusExecutionException) {
@@ -143,10 +176,19 @@ public class DefaultExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler({Throwable.class})
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public com.milesight.beaveriot.base.response.ResponseBody<Object> handleException(Throwable e) {
+    public ResponseEntity<Object> handleThrowable(Throwable e) {
+        Throwable u = findNoHandlerOrResourceInCauses(e);
+        if (u instanceof NoHandlerFoundException n) {
+            log.warn("No handler found (via Throwable): {} {}", n.getHttpMethod(), n.getRequestURL());
+            return notFoundHandler(n);
+        }
+        if (u instanceof NoResourceFoundException n) {
+            log.warn("No resource found (via Throwable): {}", n.getResourcePath());
+            return notFoundResource(n);
+        }
         log.error("Cause Throwable : ", e);
-        return ResponseBuilder.fail(ErrorCode.SERVER_ERROR, e.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ResponseBuilder.fail(ErrorCode.SERVER_ERROR, e.getMessage()));
     }
 
 }
