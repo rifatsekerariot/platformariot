@@ -11,10 +11,9 @@ WORKDIR /beaver-iot-api
 COPY backend/ .
 COPY blueprint/ /tmp/blueprint/
 
-# Blueprint: zip from repo (Milesight clone yok; platformariot/blueprint kendi icinde)
-RUN apt-get update -qq && apt-get install -y -qq zip \
-  && (cd /tmp/blueprint && zip -r /default_local_blueprint.zip .) \
-  && apt-get remove -y zip && rm -rf /var/lib/apt/lists/*
+# Blueprint: zip from repo (Milesight clone yok; platformariot/blueprint kendi icinde).
+# jar (JDK) zip-uyumlu arsiv olusturur; apt-get/zip paketi gerekmez (CI exit 127 onerisi).
+RUN jar -cMf /default_local_blueprint.zip -C /tmp/blueprint .
 
 RUN mvn package -U -Dmaven.repo.local=.m2/repository -P${API_MVN_PROFILE} \
   -Dsnapshot-repository-id=${API_MVN_SNAPSHOT_REPO_ID} \
