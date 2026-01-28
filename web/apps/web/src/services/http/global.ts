@@ -101,12 +101,22 @@ export interface GlobalAPISchema extends APISchema {
  */
 export default attachAPI<GlobalAPISchema>(client, {
     apis: {
-        oauthLogin: {
-            method: 'POST',
-            path: `${API_PREFIX}/oauth2/token`,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
+        async oauthLogin(
+            params: GlobalAPISchema['oauthLogin']['request'],
+            options?: { [k: string]: unknown },
+        ) {
+            const body = new URLSearchParams(
+                Object.fromEntries(
+                    Object.entries(params).filter(([, v]) => v != null && v !== ''),
+                ) as Record<string, string>,
+            ).toString();
+            return client.request({
+                method: 'POST',
+                url: `${API_PREFIX}/oauth2/token`,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                data: body,
+                ...options,
+            });
         },
         oauthRegister: `POST ${API_PREFIX}/user/register`,
         getUserStatus: `GET ${API_PREFIX}/user/status`,

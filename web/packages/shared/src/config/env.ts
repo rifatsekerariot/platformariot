@@ -23,10 +23,10 @@ export const wsHost = !__APP_WS_HOST__ || __APP_WS_HOST__ === '/' ? host : __APP
  */
 export const appVersion = __APP_VERSION__ || '';
 
-/** OAuth Client ID */
-export const oauthClientID = __APP_OAUTH_CLIENT_ID__;
+/** OAuth Client ID (fallback: backend default iab) */
+export const oauthClientID = __APP_OAUTH_CLIENT_ID__ || 'iab';
 
-/** OAuth Client Secret */
-export const oauthClientSecret = __APP_OAUTH_CLIENT_SECRET__;
+/** OAuth Client Secret (fallback: backend default milesight*iab) */
+export const oauthClientSecret = __APP_OAUTH_CLIENT_SECRET__ || 'milesight*iab';
 
 export const enableVConsole = !!__APP_ENABLE_VCONSOLE__;
