@@ -11,6 +11,9 @@ spring:
     allow-bean-definition-overriding: true
   mvc:
     throw-exception-if-no-handler-found: true
+    # SB 3.2+: add-mappings false may not fully disable. Restrict static to /static/** so
+    # /alarms/search, /api/v1/* etc. go to controllers, not ResourceHttpRequestHandler.
+    static-path-pattern: /static/**
   servlet:
     multipart:
       max-file-size: 5MB

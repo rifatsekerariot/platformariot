@@ -55,7 +55,11 @@ Alarm sayfası için backend **tam** karşılık mevcut:
 ### 3.5 @EnableWebMvc Kaldırıldı (2026-01-31 — Kök Neden)
 - **Not:** 188.132.211.100 gibi deploy edilen sunucuda 500 devam ediyorsa, **yeni Docker imajının deploy edilmesi gerekir**. CI/CD tamamlandıktan sonra `docker compose pull` ve `docker compose up -d` ile güncelleme yapın.
 
-### 3.6 Savunmacı Hata Yönetimi (2026-01-31)
+### 3.6 static-path-pattern (2026-01-31 — No static resource düzeltmesi)
+- **Sorun:** Spring Boot 3.2+ ile `add-mappings: false` resource handler'ı tam devre dışı bırakmıyor; `/alarms/search` statik kaynak sanılıp "No static resource" 500 veriyor.
+- **Çözüm:** `spring.mvc.static-path-pattern: /static/**` eklendi. Statik kaynaklar sadece `/static/**` ile sınırlandı; `/alarms/*`, `/api/v1/*` controller'lara gidiyor.
+
+### 3.7 Savunmacı Hata Yönetimi (2026-01-31)
 - **AlarmService, AlarmRuleService:** `TenantContext.getTenantId()` yerine `tryGetTenantId()` kullanıldı; tenant yoksa 403 döner (500 değil).
 - **AlarmRuleService:** `IllegalArgumentException` yerine `ServiceException` (DATA_NO_FOUND, PARAMETER_VALIDATION_FAILED) kullanıldı.
 - **DefaultExceptionHandler:** `IllegalArgumentException` "TenantContext" içeriyorsa 403 döner.
