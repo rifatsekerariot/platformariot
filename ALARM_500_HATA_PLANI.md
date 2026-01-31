@@ -52,6 +52,10 @@ Alarm sayfası için backend **tam** karşılık mevcut:
 ### 3.4 Integration Test
 - `AlarmsControllerIntegrationTest` — Endpoint’lerin 404/500 vermemesini doğrular (401/403 beklenir)
 
+### 3.5 @EnableWebMvc Kaldırıldı (2026-01-31 — Kök Neden)
+- **Sorun:** `TraceWebMvcConfigurer` sınıfında `@EnableWebMvc` kullanımı Spring Boot'un web auto-configuration'ını devre dışı bırakıyordu. Bu da `ResourceHttpRequestHandler` sıralamasını bozup API isteklerini statik kaynak olarak işlenmeye zorluyordu → 500 "No static resource alarms/rules".
+- **Çözüm:** `@EnableWebMvc` kaldırıldı. Sadece `WebMvcConfigurer` (interceptor için) yeterli; Spring Boot otomatik yapılandırması korunuyor.
+
 ---
 
 ## 4. Yapılacaklar (Sırayla)
