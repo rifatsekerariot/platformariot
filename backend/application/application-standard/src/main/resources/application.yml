@@ -17,6 +17,9 @@ spring:
       max-request-size: 10MB
   resources:
     add-mappings: false
+  web:
+    resources:
+      add-mappings: false
   jackson:
     default-property-inclusion: non_null
     property-naming-strategy: SNAKE_CASE
