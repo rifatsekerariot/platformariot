@@ -13,6 +13,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.util.Map;
+
 /**
  * @author leon
  */
@@ -27,7 +29,13 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class StandardApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StandardApplication.class, args);
+        SpringApplication app = new SpringApplication(StandardApplication.class);
+        // Ensure resource handler does not match API paths — prevents "No static resource alarms/search" 500
+        app.setDefaultProperties(Map.of(
+                "spring.web.resources.add-mappings", "false",
+                "spring.mvc.static-path-pattern", "/static/**"
+        ));
+        app.run(args);
     }
 
 }
