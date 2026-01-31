@@ -58,6 +58,25 @@ server {
        break;
     }
 
+    # Teşhis: /__ping (debug.ping.enabled=true iken)
+    location = /__ping {
+       proxy_pass http://${BEAVER_IOT_API_HOST}:${BEAVER_IOT_API_PORT}/__ping;
+       proxy_set_header Host $host;
+       break;
+    }
+
+    # Actuator (teşhis için mappings vb.)
+    location /actuator/ {
+       proxy_pass http://${BEAVER_IOT_API_HOST}:${BEAVER_IOT_API_PORT}/actuator/;
+       proxy_set_header Host $host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_buffer_size 64k;
+       proxy_buffers   32 32k;
+       proxy_busy_buffers_size 128k;
+       break;
+    }
+
     location /api/v1/ {
        proxy_pass http://${BEAVER_IOT_API_HOST}:${BEAVER_IOT_API_PORT}/;
        proxy_set_header Host $host;

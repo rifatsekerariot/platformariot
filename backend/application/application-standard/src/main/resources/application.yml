@@ -115,7 +115,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health,metrics,prometheus,info"
+        # Teşhis için mappings eklenir; prod'da güvenlik için kaldırılabilir
+        include: "health,metrics,prometheus,info,mappings"
         exclude: shutdown,beans
   metrics:
     enable:

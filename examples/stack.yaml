@@ -35,6 +35,7 @@ services:
     environment:
       - "JAVA_OPTS=-Xmx1024m -Xms1024m"
       - "SPRING_OPTS=--spring.profiles.active=dev"
+      # Teşhis için: debug.ping.enabled=true ekle (örn. -Ddebug.ping.enabled=true)
       - "DB_TYPE=postgres"
       - "BLUEPRINT_LIBRARY_DEFAULT_ADDRESS_LOCAL_ZIP_FILE=/default_local_blueprint.zip"
       - "SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver"

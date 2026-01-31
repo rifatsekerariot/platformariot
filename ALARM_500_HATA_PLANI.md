@@ -102,7 +102,19 @@ CI/CD veya lokal build ile monolith imajı **yeniden** oluşturulmalı:
 # Sonrasında deploy
 ```
 
-### 4.5 Nginx Path Uyumu
+### 4.5 Teşhis: Actuator mappings ve /__ping
+```bash
+# Yeni imaj deploy edildikten sonra:
+
+# 1. Mappings kontrolü (alarms/search map'li mi?)
+curl -s http://188.132.211.100:9080/actuator/mappings | grep -E "alarms/search|alarms/rules"
+
+# 2. Debug ping (DispatcherServlet çalışıyor mu? debug.ping.enabled=true gerekir)
+curl http://188.132.211.100:9080/__ping
+# "ok" dönerse routing çalışıyor. "No static resource" → DispatcherServlet/routing sorunu.
+```
+
+### 4.6 Nginx Path Uyumu
 `build-docker/nginx/templates/default.conf.template`:
 ```nginx
 location /api/v1/ {
@@ -122,10 +134,85 @@ location /api/v1/ {
 - [ ] `run-alarm-api-tests.ps1 -QuickCheck` → 401
 - [ ] Monolith Docker imajı yeniden build edildi
 - [ ] Deploy sonrası alarm sayfası 500 vermiyor
+- [ ] `GET /actuator/mappings` → alarms/search map'li
+- [ ] (Opsiyonel) `debug.ping.enabled=true` ile `GET /__ping` → "ok"
 
 ---
 
-## 6. Ek Notlar
+## 6. Kritik Teşhis Kontrolü (2026-01-31)
+
+### 6.1 Aktif profile
+- **Stack env:** `SPRING_OPTS=--spring.profiles.active=dev`
+- **Sonuç:** Profile `dev`. `application-dev.yml` yok → sadece `application.yml` yüklenir. Config (add-mappings, static-path-pattern) burada, yükleniyor.
+
+### 6.2 /actuator/mappings
+- **Önce:** Sadece `health,metrics,prometheus,info` — mappings yok.
+- **Yapılan:** `mappings` eklendi. Nginx `location /actuator/` ile proxy eklendi.
+- **Kontrol:** `GET http://host:9080/actuator/mappings` → JSON'da `/alarms/search`, `/api/v1/alarms/search` arayın.
+
+### 6.3 @EnableWebMvc
+- **Grep sonucu:** Hiçbir yerde `@EnableWebMvc` yok (sadece TraceWebMvcConfigurer yorumunda).
+- **Sonuç:** Spring Boot auto-config aktif.
+
+### 6.4 WebMvcConfigurer çakışması
+- **ResourceHandlerConfig:** Sadece `/static/**` ekliyor.
+- **TraceWebMvcConfigurer:** Trace interceptor, resource handler yok.
+- **ContextWebMvcConfigurer:** Locale interceptor, resource handler yok.
+- **Sonuç:** Hiçbiri `/**` resource handler eklemiyor.
+
+### 6.5 Controller JAR'da mı?
+- **pom.xml:** `alarm-service` dependency var.
+- **Build:** `-am -pl application/application-standard` ile alarm modülü dahil.
+- **Sonuç:** AlarmsController fat JAR'da olmalı. Startup log'da mapping satırları beklenir.
+
+### 6.6 Çifte path strip (Vite + Nginx)
+- **Vite proxy:** Sadece dev modda (`npm run dev`). `rewrite` ile `/api/v1` kaldırır.
+- **Production:** Vite yok; frontend aynı origin'e `POST /api/v1/alarms/search` atar. Nginx strip eder.
+- **Sonuç:** Prod'da çifte strip yok.
+
+### 6.7 DebugController /__ping (teşhis)
+- **Eklenen:** `DebugController` — `GET /__ping` → "ok". `debug.ping.enabled=true` iken aktif.
+- **Nginx:** `location = /__ping` proxy eklendi.
+- **Kullanım:** `debug.ping.enabled=true` env ile ayağa kaldır, `GET /__ping` dene. "No static resource" verirse routing/DispatcherServlet sorunu var.
+
+### 6.8 Özet (olasılık sırasıyla)
+1. ~~Yanlış profile~~ — dev kullanılıyor, application.yml yükleniyor.
+2. Controller JAR'da — pom doğru; startup log ile doğrulanmalı.
+3. ~~WebMvcConfigurer/@EnableWebMvc override~~ — yok.
+4. ~~Çifte strip~~ — prod'da yok.
+5. **Deploy edilen imaj eski** — en olası: yeni config/handler değişiklikleri imajda yok.
+6. **Handler sıralaması** — ResourceHttpRequestHandler hâlâ önce çalışıyor olabilir (deploy sonrası kontrol).
+
+### 6.9 Senaryo analizi (/actuator/mappings tek hakem)
+
+| Senaryo | mappings'te /alarms/search | Sonuç |
+|---------|----------------------------|-------|
+| **A** | YOK | Controller ApplicationContext'te yok → %70 eski Docker imajı |
+| **B** | VAR, ama istek No static resource | İstek DispatcherServlet'e gelmiyor → Nginx/gateway sorunu |
+| **C** | VAR, /__ping çalışıyor, /alarms/search çalışmıyor | Mapping çatışması |
+
+### 6.10 Kod tabanı kontrolleri (yapıldı)
+
+- **@Controller + /alarms:** Sadece AlarmsController (@RestController). View controller çatışması yok.
+- **SpringApplication.run:** Tek main — `StandardApplication`; monolith `java -jar /application.jar` ile çalışıyor.
+- **DispatcherServlet:** Spring Boot varsayılanı `'/'`; `server.servlet.context-path` yok (sadece websocket'te).
+- **Nginx location:** `/api/v1/alarms/search` → `location /api/v1/` (en uzun prefix) → backend `/alarms/search`.
+
+### 6.11 TRACE log (kanıt için)
+
+Request Spring MVC'ye giriyor mu?
+```yaml
+# application.yml veya SPRING_OPTS ile geçici
+logging:
+  level:
+    org.springframework.web.servlet.DispatcherServlet: TRACE
+    org.springframework.web.servlet.resource: TRACE
+```
+`/alarms/search` isteği sonrası: DispatcherServlet log yoksa → request Spring'e hiç gelmiyor (nginx/servlet).
+
+---
+
+## 7. Ek Notlar
 
 - **Frontend API path:** `API_PREFIX` = `/api/v1`; istekler `/api/v1/alarms/search`, `/api/v1/alarms/rules` vb.
 - **Vite dev proxy:** `rewrite: path => path.replace(/^\/api\/v1/, '')` → backend’e `/alarms/...` gider.
@@ -134,7 +221,7 @@ location /api/v1/ {
 
 ---
 
-## 7. İlgili Dosyalar
+## 8. İlgili Dosyalar
 
 | Dosya | Açıklama |
 |-------|----------|
