@@ -77,6 +77,18 @@ server {
        break;
     }
 
+    # /alarms/* — frontend bazen /alarms veya location /'e düşerse; doğrudan backend
+    location /alarms/ {
+       proxy_pass http://${BEAVER_IOT_API_HOST}:${BEAVER_IOT_API_PORT}/alarms/;
+       proxy_set_header Host $host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_buffer_size 64k;
+       proxy_buffers   32 32k;
+       proxy_busy_buffers_size 128k;
+       break;
+    }
+
     location /api/v1/ {
        proxy_pass http://${BEAVER_IOT_API_HOST}:${BEAVER_IOT_API_PORT}/;
        proxy_set_header Host $host;
