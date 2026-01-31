@@ -53,8 +53,12 @@ Alarm sayfası için backend **tam** karşılık mevcut:
 - `AlarmsControllerIntegrationTest` — Endpoint’lerin 404/500 vermemesini doğrular (401/403 beklenir)
 
 ### 3.5 @EnableWebMvc Kaldırıldı (2026-01-31 — Kök Neden)
-- **Sorun:** `TraceWebMvcConfigurer` sınıfında `@EnableWebMvc` kullanımı Spring Boot'un web auto-configuration'ını devre dışı bırakıyordu. Bu da `ResourceHttpRequestHandler` sıralamasını bozup API isteklerini statik kaynak olarak işlenmeye zorluyordu → 500 "No static resource alarms/rules".
-- **Çözüm:** `@EnableWebMvc` kaldırıldı. Sadece `WebMvcConfigurer` (interceptor için) yeterli; Spring Boot otomatik yapılandırması korunuyor.
+- **Not:** 188.132.211.100 gibi deploy edilen sunucuda 500 devam ediyorsa, **yeni Docker imajının deploy edilmesi gerekir**. CI/CD tamamlandıktan sonra `docker compose pull` ve `docker compose up -d` ile güncelleme yapın.
+
+### 3.6 Savunmacı Hata Yönetimi (2026-01-31)
+- **AlarmService, AlarmRuleService:** `TenantContext.getTenantId()` yerine `tryGetTenantId()` kullanıldı; tenant yoksa 403 döner (500 değil).
+- **AlarmRuleService:** `IllegalArgumentException` yerine `ServiceException` (DATA_NO_FOUND, PARAMETER_VALIDATION_FAILED) kullanıldı.
+- **DefaultExceptionHandler:** `IllegalArgumentException` "TenantContext" içeriyorsa 403 döner.
 
 ---
 

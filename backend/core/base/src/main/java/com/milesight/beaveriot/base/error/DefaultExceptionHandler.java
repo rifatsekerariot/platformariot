@@ -99,10 +99,15 @@ public class DefaultExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(IllegalArgumentException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public com.milesight.beaveriot.base.response.ResponseBody<Object> illegalArgumentExceptionHandler(IllegalArgumentException e) {
+    public ResponseEntity<Object> illegalArgumentExceptionHandler(IllegalArgumentException e) {
         log.error("Cause IllegalArgumentException:", e);
-        return ResponseBuilder.fail(ErrorCode.PARAMETER_VALIDATION_FAILED, e.getMessage());
+        // TenantContext not set → 403 (auth/tenant issue), not 500
+        if (e.getMessage() != null && e.getMessage().contains("TenantContext")) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .body(ResponseBuilder.fail(ErrorCode.FORBIDDEN_PERMISSION.getErrorCode(), "Tenant context required"));
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(ResponseBuilder.fail(ErrorCode.PARAMETER_VALIDATION_FAILED, e.getMessage()));
     }
 
     @ResponseBody

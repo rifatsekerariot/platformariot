@@ -8,6 +8,8 @@ import com.milesight.beaveriot.alarm.model.request.AlarmRuleUpdateRequest;
 import com.milesight.beaveriot.alarm.model.response.AlarmRuleResponse;
 import com.milesight.beaveriot.alarm.po.AlarmRulePO;
 import com.milesight.beaveriot.alarm.repository.AlarmRuleRepository;
+import com.milesight.beaveriot.base.enums.ErrorCode;
+import com.milesight.beaveriot.base.exception.ServiceException;
 import com.milesight.beaveriot.context.security.TenantContext;
 import com.milesight.beaveriot.device.dto.DeviceNameDTO;
 import com.milesight.beaveriot.device.facade.IDeviceFacade;
@@ -53,7 +55,7 @@ public class AlarmRuleService {
 
     public AlarmRuleResponse get(Long id) {
         AlarmRulePO po = alarmRuleRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Alarm rule not found: " + id));
+                .orElseThrow(() -> ServiceException.with(ErrorCode.DATA_NO_FOUND).detailMessage("Alarm rule not found: " + id).build());
         List<Long> deviceIds = parseDeviceIds(po.getDeviceIds());
         Map<Long, String> nameMap = resolveDeviceNames(deviceIds);
         return toResponse(po, nameMap);
@@ -61,9 +63,9 @@ public class AlarmRuleService {
 
     @Transactional
     public AlarmRuleResponse create(AlarmRuleCreateRequest req) {
-        String tenantId = TenantContext.getTenantId();
+        String tenantId = TenantContext.tryGetTenantId().orElse(null);
         if (tenantId == null || tenantId.isBlank()) {
-            throw new IllegalStateException("Tenant context required");
+            throw ServiceException.with(ErrorCode.FORBIDDEN_PERMISSION).detailMessage("Tenant context required").build();
         }
         long now = System.currentTimeMillis();
         AlarmRulePO po = new AlarmRulePO();
@@ -86,7 +88,7 @@ public class AlarmRuleService {
     @Transactional
     public AlarmRuleResponse update(Long id, AlarmRuleUpdateRequest req) {
         AlarmRulePO po = alarmRuleRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Alarm rule not found: " + id));
+                .orElseThrow(() -> ServiceException.with(ErrorCode.DATA_NO_FOUND).detailMessage("Alarm rule not found: " + id).build());
         long now = System.currentTimeMillis();
         po.setName(req.getName().trim());
         po.setDeviceIds(serializeDeviceIds(req.getDeviceIds()));
@@ -105,7 +107,7 @@ public class AlarmRuleService {
     @Transactional
     public void delete(Long id) {
         if (!alarmRuleRepository.existsById(id)) {
-            throw new IllegalArgumentException("Alarm rule not found: " + id);
+            throw ServiceException.with(ErrorCode.DATA_NO_FOUND).detailMessage("Alarm rule not found: " + id).build();
         }
         alarmRuleRepository.deleteById(id);
     }
@@ -136,7 +138,7 @@ public class AlarmRuleService {
         try {
             return objectMapper.writeValueAsString(ids);
         } catch (JsonProcessingException e) {
-            throw new IllegalArgumentException("Invalid device_ids", e);
+            throw ServiceException.with(ErrorCode.PARAMETER_VALIDATION_FAILED).detailMessage("Invalid device_ids").build();
         }
     }
 

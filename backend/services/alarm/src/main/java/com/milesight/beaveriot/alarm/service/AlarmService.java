@@ -5,6 +5,8 @@ import com.milesight.beaveriot.alarm.model.request.AlarmSearchRequest;
 import com.milesight.beaveriot.alarm.model.response.AlarmDetailResponse;
 import com.milesight.beaveriot.alarm.po.AlarmPO;
 import com.milesight.beaveriot.alarm.repository.AlarmRepository;
+import com.milesight.beaveriot.base.enums.ErrorCode;
+import com.milesight.beaveriot.base.exception.ServiceException;
 import com.milesight.beaveriot.context.security.TenantContext;
 import com.milesight.beaveriot.device.dto.DeviceNameDTO;
 import com.milesight.beaveriot.device.facade.IDeviceFacade;
@@ -103,17 +105,22 @@ public class AlarmService {
 
     @Transactional(rollbackFor = Exception.class)
     public void claim(Long deviceId) {
-        alarmRepository.claimByDeviceId(TenantContext.getTenantId(), deviceId);
+        String tenantId = TenantContext.tryGetTenantId().orElse(null);
+        if (!StringUtils.hasText(tenantId)) {
+            throw ServiceException.with(ErrorCode.FORBIDDEN_PERMISSION).detailMessage("Tenant context required").build();
+        }
+        alarmRepository.claimByDeviceId(tenantId, deviceId);
     }
 
     private Specification<AlarmPO> buildSpecification(List<Long> deviceIds, Long startTimestamp, Long endTimestamp,
                                                       List<Boolean> alarmStatus, String keyword) {
         return (root, query, cb) -> {
             List<Predicate> preds = new ArrayList<>();
-            String tenantId = TenantContext.getTenantId();
-            if (StringUtils.hasText(tenantId)) {
-                preds.add(cb.equal(root.get(AlarmPO.Fields.tenantId), tenantId));
+            String tenantId = TenantContext.tryGetTenantId().orElse(null);
+            if (!StringUtils.hasText(tenantId)) {
+                throw ServiceException.with(ErrorCode.FORBIDDEN_PERMISSION).detailMessage("Tenant context required").build();
             }
+            preds.add(cb.equal(root.get(AlarmPO.Fields.tenantId), tenantId));
             if (!CollectionUtils.isEmpty(deviceIds)) {
                 preds.add(root.get(AlarmPO.Fields.deviceId).in(deviceIds));
             }
