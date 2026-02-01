@@ -1,4 +1,4 @@
-FROM maven:3.8.3-openjdk-17 AS api-builder
+FROM maven:3.8-openjdk-18 AS api-builder
 
 ARG API_GIT_REPO_URL
 ARG API_GIT_BRANCH
