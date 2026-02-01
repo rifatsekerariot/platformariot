@@ -2,7 +2,7 @@
 # Context = build-docker. Expects beaver-iot-web/ (cloned by ci-clone-web.sh).
 # Same shape as local: COPY source, pnpm build. Use for prebuilt image.
 
-FROM node:20.18.0-alpine3.20 AS web-builder
+FROM node:24.1.0-alpine3.20 AS web-builder
 
 WORKDIR /beaver-iot-web
 COPY beaver-iot-web/ .
