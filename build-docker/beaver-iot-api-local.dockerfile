@@ -1,5 +1,6 @@
 # Monorepo: build API from local backend/ (no git clone).
 # Build context: repo root. Example: docker build -f build-docker/beaver-iot-api-local.dockerfile -t api .
+# -am (also make): builds alarm-service and all modules application-standard depends on; required for /alarms/search.
 
 FROM maven:3.8.3-openjdk-17 AS api-builder
 
@@ -15,6 +16,7 @@ COPY blueprint/ /tmp/blueprint/
 # jar (JDK) zip-uyumlu arsiv olusturur; apt-get/zip paketi gerekmez (CI exit 127 onerisi).
 RUN jar -cMf /default_local_blueprint.zip -C /tmp/blueprint .
 
+# -am: include alarm-service and all dependencies of application-standard (required for alarm endpoints).
 RUN mvn package -U -Dmaven.repo.local=.m2/repository -P${API_MVN_PROFILE} \
   -Dsnapshot-repository-id=${API_MVN_SNAPSHOT_REPO_ID} \
   -Dsnapshot-repository-url=${API_MVN_SNAPSHOT_REPO_URL} \

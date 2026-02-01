@@ -64,6 +64,15 @@ jobs:
       - name: Build web + api + monolith (local dockerfiles, repo root context)
         run: sh scripts/build-prebuilt.sh
 
+      - name: Verify API image contains alarm module
+        run: |
+          echo "=== API JAR: alarm-service / AlarmsController ==="
+          if ! docker run --rm --entrypoint sh milesight/beaver-iot-api:latest -c "jar tf /application.jar | grep -E 'alarm-service|alarm/'"; then
+            echo "ERROR: API JAR does not contain alarm-service or alarm classes. Check -am and application-standard pom dependency."
+            exit 1
+          fi
+          echo "alarm module present in API image OK."
+
       - name: Log web image widget chunks (diagnostic)
         run: |
           echo "=== Web image /web/assets/js (first 60) ==="
@@ -74,7 +83,7 @@ jobs:
       - name: Verify web image
         run: sh scripts/verify-web-image.sh
 
-      - name: PostgreSQL stack smoke test
+      - name: PostgreSQL stack smoke test + alarm verification
         run: |
           cd examples
           BEAVER_IMAGE=milesight/beaver-iot:latest docker compose -f stack.yaml up -d
@@ -88,8 +97,22 @@ jobs:
             docker compose -f stack.yaml down -v
             exit 1
           fi
-          docker compose -f stack.yaml down -v
           echo "PostgreSQL smoke test OK."
+          echo "=== Alarm module verification ==="
+          if ! curl -s http://localhost:9080/actuator/mappings | grep -q '"alarms/search"\|/alarms/'; then
+            echo "ERROR: /actuator/mappings does not contain alarms mapping. Alarm controller may not be loaded."
+            docker compose -f stack.yaml logs monolith 2>&1 | tail -40
+            docker compose -f stack.yaml down -v
+            exit 1
+          fi
+          echo "alarms mapping present OK."
+          CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST http://localhost:9080/api/v1/alarms/search -H "Content-Type: application/json" -d "{}")
+          if [ "$CODE" != "401" ] && [ "$CODE" != "403" ]; then
+            echo "WARN: POST /api/v1/alarms/search returned $CODE (expected 401/403 when unauthenticated)"
+          else
+            echo "POST /api/v1/alarms/search -> $CODE (endpoint reachable)"
+          fi
+          docker compose -f stack.yaml down -v
 
       - name: Tag and push monolith to GHCR
         run: sh scripts/tag-push-ghcr.sh
