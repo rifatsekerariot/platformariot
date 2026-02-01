@@ -99,18 +99,18 @@ jobs:
           fi
           echo "PostgreSQL smoke test OK."
           echo "=== Alarm module verification ==="
-          if ! curl -s http://localhost:9080/actuator/mappings | grep -q '"alarms/search"\|/alarms/'; then
-            echo "ERROR: /actuator/mappings does not contain alarms mapping. Alarm controller may not be loaded."
-            docker compose -f stack.yaml logs monolith 2>&1 | tail -40
+          CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST http://localhost:9080/api/v1/alarms/search -H "Content-Type: application/json" -d "{}")
+          if [ "$CODE" = "401" ] || [ "$CODE" = "403" ]; then
+            echo "POST /api/v1/alarms/search -> $CODE (alarm endpoint reachable, auth required)"
+            echo "alarm verification OK."
+          else
+            echo "ERROR: POST /api/v1/alarms/search returned $CODE (expected 401/403 when unauthenticated)"
+            echo "actuator/mappings (diagnostic):"
+            curl -s http://localhost:9080/actuator/mappings 2>/dev/null | head -c 500 || true
+            echo ""
+            docker compose -f stack.yaml logs monolith 2>&1 | tail -50
             docker compose -f stack.yaml down -v
             exit 1
-          fi
-          echo "alarms mapping present OK."
-          CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST http://localhost:9080/api/v1/alarms/search -H "Content-Type: application/json" -d "{}")
-          if [ "$CODE" != "401" ] && [ "$CODE" != "403" ]; then
-            echo "WARN: POST /api/v1/alarms/search returned $CODE (expected 401/403 when unauthenticated)"
-          else
-            echo "POST /api/v1/alarms/search -> $CODE (endpoint reachable)"
           fi
           docker compose -f stack.yaml down -v
 
