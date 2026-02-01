@@ -15,7 +15,7 @@ RUN pnpm install --frozen-lockfile
 # Build apps (packages already built by postinstall script)
 RUN pnpm run build:apps
 
-FROM alpine:3.20 AS web
+FROM alpine:3.23 AS web
 COPY --from=web-builder /beaver-iot-web/apps/web/dist /web
 
 RUN apk add --no-cache envsubst nginx nginx-mod-http-headers-more

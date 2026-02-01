@@ -11,7 +11,7 @@ ENV CI=true
 RUN git checkout ${WEB_GIT_BRANCH} && npm install -g pnpm && pnpm install && pnpm build
 
 
-FROM alpine:3.20 AS web
+FROM alpine:3.23 AS web
 COPY --from=web-builder /beaver-iot-web/apps/web/dist /web
 RUN apk add --no-cache envsubst nginx nginx-mod-http-headers-more
 COPY nginx/envsubst-on-templates.sh /envsubst-on-templates.sh
