@@ -42,7 +42,7 @@ import java.util.List;
  * @date 2024/10/14 8:40
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping(value = { "/user", "/api/v1/user" })
 public class UserController {
 
     @Autowired
