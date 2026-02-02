@@ -5,8 +5,10 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.util.StringUtils;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -39,6 +41,29 @@ public class OAuth2EndpointUtils {
                         .map(AntPathRequestMatcher::new)
                         .collect(Collectors.toList())
         );
+    }
+
+    /**
+     * Request URI ile eşleşen whitelist matcher (proxy/servlet path farkları için yedek).
+     * getRequestURI() değeri /api/v1/user/status, /api/v1/user/register, /api/v1/oauth2/token
+     * veya /user/status, /user/register, /oauth2/token içeriyorsa eşleşir.
+     */
+    public static RequestMatcher getWhitelistRequestUriMatcher() {
+        return request -> {
+            String uri = request != null ? request.getRequestURI() : null;
+            if (!StringUtils.hasText(uri)) return false;
+            return uri.endsWith("/user/status") || uri.endsWith("/user/register")
+                    || uri.contains("/oauth2/token");
+        };
+    }
+
+    /** Config'den gelen liste + URI yedek matcher (whitelist chain için). */
+    public static RequestMatcher getWhitelistMatcherWithFallback(String[] whiteList) {
+        RequestMatcher configMatcher = (whiteList != null && whiteList.length > 0)
+                ? getWhiteListMatcher(whiteList)
+                : request -> false;
+        RequestMatcher uriFallback = getWhitelistRequestUriMatcher();
+        return request -> configMatcher.matches(request) || uriFallback.matches(request);
     }
 
 

@@ -77,13 +77,13 @@ public class WebSecurityConfiguration {
 
     /**
      * Whitelist (ignore-urls) istekleri için permitAll.
-     * Bu chain whitelist ile eşleşen istekleri (user/register, user/status, oauth2/token vb.) kimlik doğrulama olmadan kabul eder.
+     * Config'deki ignore-urls + request URI yedek matcher (proxy/servlet path farkları için).
      * Beaver IoT dokümantasyonu: ilk kurulumda kayıt/giriş bu endpoint'ler üzerinden yapılır.
      */
     @Bean
-    @Order(2)
+    @Order(1)
     public SecurityFilterChain whitelistSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.securityMatcher(OAuth2EndpointUtils.getWhiteListMatcher(oAuth2Properties.getIgnoreUrls()))
+        http.securityMatcher(OAuth2EndpointUtils.getWhitelistMatcherWithFallback(oAuth2Properties.getIgnoreUrls()))
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
                 .csrf(AbstractHttpConfigurer::disable);
         return http.build();
@@ -117,7 +117,7 @@ public class WebSecurityConfiguration {
     @Bean
     @Order(4)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.securityMatcher((request) -> !OAuth2EndpointUtils.getWhiteListMatcher(oAuth2Properties.getIgnoreUrls()).matches(request))
+        http.securityMatcher((request) -> !OAuth2EndpointUtils.getWhitelistMatcherWithFallback(oAuth2Properties.getIgnoreUrls()).matches(request))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(oAuth2Properties.getIgnoreUrls()).permitAll()
