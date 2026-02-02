@@ -17,6 +17,7 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -76,9 +77,21 @@ public class WebSecurityConfiguration {
     IUserFacade userFacade;
 
     /**
-     * Whitelist (ignore-urls) istekleri için permitAll.
-     * Config'deki ignore-urls + request URI yedek matcher (proxy/servlet path farkları için).
-     * Beaver IoT dokümantasyonu: ilk kurulumda kayıt/giriş bu endpoint'ler üzerinden yapılır.
+     * Kritik whitelist: sadece path string (getRequestURI + servletPath) ile eşleşen istekler.
+     * En yüksek öncelik (Order 0) — config/bean sırasından bağımsız çalışır.
+     * Beaver IoT: ilk kurulumda /user/status, /user/register, /oauth2/token kimlik doğrulama olmadan erişilebilir.
+     */
+    @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE)
+    public SecurityFilterChain criticalWhitelistSecurityFilterChain(HttpSecurity http) throws Exception {
+        http.securityMatcher(OAuth2EndpointUtils.getWhitelistRequestUriMatcher())
+                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
+                .csrf(AbstractHttpConfigurer::disable);
+        return http.build();
+    }
+
+    /**
+     * Whitelist (ignore-urls) config + URI fallback.
      */
     @Bean
     @Order(1)

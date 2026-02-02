@@ -44,16 +44,23 @@ public class OAuth2EndpointUtils {
     }
 
     /**
-     * Request URI ile eşleşen whitelist matcher (proxy/servlet path farkları için yedek).
-     * getRequestURI() değeri /api/v1/user/status, /api/v1/user/register, /api/v1/oauth2/token
-     * veya /user/status, /user/register, /oauth2/token içeriyorsa eşleşir.
+     * Request URI / servlet path ile eşleşen whitelist matcher (proxy/servlet path farkları için yedek).
+     * Hem getRequestURI() hem getServletPath()+getPathInfo() kontrol edilir.
      */
     public static RequestMatcher getWhitelistRequestUriMatcher() {
         return request -> {
-            String uri = request != null ? request.getRequestURI() : null;
-            if (!StringUtils.hasText(uri)) return false;
-            return uri.endsWith("/user/status") || uri.endsWith("/user/register")
-                    || uri.contains("/oauth2/token");
+            if (request == null) return false;
+            String uri = request.getRequestURI();
+            String path = StringUtils.hasText(uri) ? uri : "";
+            if (!path.contains("user/status") && !path.contains("user/register") && !path.contains("oauth2/token")) {
+                String servletPath = request.getServletPath();
+                String pathInfo = request.getPathInfo();
+                path = (servletPath != null ? servletPath : "") + (pathInfo != null ? pathInfo : "");
+                if (!path.contains("user/status") && !path.contains("user/register") && !path.contains("oauth2/token")) {
+                    return false;
+                }
+            }
+            return true;
         };
     }
 
