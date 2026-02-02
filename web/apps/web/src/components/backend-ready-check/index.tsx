@@ -35,6 +35,12 @@ const BackendReadyCheck: React.FC<BackendReadyCheckProps> = ({ children }) => {
                 return;
             }
 
+            const status = resp?.status ?? error?.response?.status;
+            if (status === 401 || status === 403) {
+                setIsReady(true);
+                return;
+            }
+
             currentRetry++;
             setRetryCount(currentRetry);
 

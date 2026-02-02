@@ -75,25 +75,33 @@
             const retryDelayMs = 1500;
             const statusEl = document.getElementById('status');
 
+            function goToApp(msg) {
+                statusEl.textContent = msg || 'Opening app...';
+                setTimeout(function() { window.location.href = '/'; }, 400);
+            }
+
             function checkBackend() {
                 fetch('/api/v1/user/status', {
                     method: 'GET',
                     headers: { 'Accept': 'application/json' },
                     cache: 'no-cache'
                 })
-                .then(response => {
+                .then(function(response) {
+                    var status = response.status;
                     if (response.ok) {
-                        statusEl.textContent = 'Backend ready! Redirecting...';
-                        setTimeout(function() { window.location.href = '/'; }, 400);
+                        goToApp('Backend ready! Redirecting...');
                         return;
                     }
-                    throw new Error('Backend not ready: ' + response.status);
+                    if (status === 401 || status === 403) {
+                        goToApp('Opening app...');
+                        return;
+                    }
+                    throw new Error('Backend not ready: ' + status);
                 })
                 .catch(function() {
                     retryCount++;
                     if (retryCount >= maxRetries) {
-                        statusEl.textContent = 'Opening app...';
-                        setTimeout(function() { window.location.href = '/'; }, 400);
+                        goToApp('Opening app...');
                         return;
                     }
                     statusEl.textContent = 'Checking backend... (' + retryCount + '/' + maxRetries + ')';
