@@ -75,6 +75,20 @@ public class WebSecurityConfiguration {
     @Autowired
     IUserFacade userFacade;
 
+    /**
+     * Whitelist (ignore-urls) istekleri için permitAll.
+     * Bu chain whitelist ile eşleşen istekleri (user/register, user/status, oauth2/token vb.) kimlik doğrulama olmadan kabul eder.
+     * Beaver IoT dokümantasyonu: ilk kurulumda kayıt/giriş bu endpoint'ler üzerinden yapılır.
+     */
+    @Bean
+    @Order(2)
+    public SecurityFilterChain whitelistSecurityFilterChain(HttpSecurity http) throws Exception {
+        http.securityMatcher(OAuth2EndpointUtils.getWhiteListMatcher(oAuth2Properties.getIgnoreUrls()))
+                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
+                .csrf(AbstractHttpConfigurer::disable);
+        return http.build();
+    }
+
     @Bean
     @Order(3)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {

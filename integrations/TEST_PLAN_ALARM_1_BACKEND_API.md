@@ -77,15 +77,16 @@ VALUES
 ## 3. Token alımı
 
 ```bash
-# 1) Register (ilk kurulumda)
+# 1) Register (ilk kurulumda — backend UserRegisterRequest: email, nickname, password)
 curl -s -X POST "http://localhost:9080/api/v1/user/register" \
   -H "Content-Type: application/json" \
-  -d '{"username":"testalarm","password":"Test123!","confirmPassword":"Test123!"}'
+  -H "TENANT-ID: default" \
+  -d '{"email":"testalarm@test.local","nickname":"testalarm","password":"Test123!"}'
 
-# 2) Login
+# 2) Login (username = kayıt sırasında kullanılan email)
 TOKEN=$(curl -s -X POST "http://localhost:9080/api/v1/oauth2/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=testalarm&password=Test123!&grant_type=password" \
+  -d "username=testalarm@test.local&password=Test123!&grant_type=password" \
   | jq -r '.data.access_token')
 echo "TOKEN=$TOKEN"
 ```

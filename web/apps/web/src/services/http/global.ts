@@ -118,8 +118,23 @@ export default attachAPI<GlobalAPISchema>(client, {
                 ...options,
             });
         },
-        oauthRegister: `POST ${API_PREFIX}/user/register`,
-        getUserStatus: `GET ${API_PREFIX}/user/status`,
+        async oauthRegister(params: GlobalAPISchema['oauthRegister']['request'], options?: { [k: string]: unknown }) {
+            return unauthClient.request({
+                method: 'POST',
+                url: `${API_PREFIX}/user/register`,
+                headers: { 'Content-Type': 'application/json', 'TENANT-ID': 'default' },
+                data: params,
+                ...options,
+            });
+        },
+        async getUserStatus(_params?: void, options?: { [k: string]: unknown }) {
+            return unauthClient.request({
+                method: 'GET',
+                url: `${API_PREFIX}/user/status`,
+                headers: { 'TENANT-ID': 'default' },
+                ...options,
+            });
+        },
         getUserInfo: `GET ${API_PREFIX}/user`,
         getUploadConfig: `POST ${API_PREFIX}/resource/upload-config`,
         async fileUpload(params, options) {
