@@ -1,7 +1,5 @@
 server:
   port: 9200
-  # Nginx/proxy arkasında doğru request URI için (whitelist path eşleşmesi)
-  forward-headers-strategy: framework
   undertow:
     max-http-post-size: 10MB
 

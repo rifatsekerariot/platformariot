@@ -5,10 +5,8 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
-import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.util.StringUtils;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -41,36 +39,6 @@ public class OAuth2EndpointUtils {
                         .map(AntPathRequestMatcher::new)
                         .collect(Collectors.toList())
         );
-    }
-
-    /**
-     * Request URI / servlet path ile eşleşen whitelist matcher (proxy/servlet path farkları için yedek).
-     * Hem getRequestURI() hem getServletPath()+getPathInfo() kontrol edilir.
-     */
-    public static RequestMatcher getWhitelistRequestUriMatcher() {
-        return request -> {
-            if (request == null) return false;
-            String uri = request.getRequestURI();
-            String path = StringUtils.hasText(uri) ? uri : "";
-            if (!path.contains("user/status") && !path.contains("user/register") && !path.contains("oauth2/token")) {
-                String servletPath = request.getServletPath();
-                String pathInfo = request.getPathInfo();
-                path = (servletPath != null ? servletPath : "") + (pathInfo != null ? pathInfo : "");
-                if (!path.contains("user/status") && !path.contains("user/register") && !path.contains("oauth2/token")) {
-                    return false;
-                }
-            }
-            return true;
-        };
-    }
-
-    /** Config'den gelen liste + URI yedek matcher (whitelist chain için). */
-    public static RequestMatcher getWhitelistMatcherWithFallback(String[] whiteList) {
-        RequestMatcher configMatcher = (whiteList != null && whiteList.length > 0)
-                ? getWhiteListMatcher(whiteList)
-                : request -> false;
-        RequestMatcher uriFallback = getWhitelistRequestUriMatcher();
-        return request -> configMatcher.matches(request) || uriFallback.matches(request);
     }
 
 
