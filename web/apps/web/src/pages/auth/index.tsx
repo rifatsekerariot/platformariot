@@ -28,7 +28,7 @@ export default () => {
                 return;
             }
 
-            const data = getResponseData(resp) ?? getResponseData(error?.response);
+            const data = getResponseData(resp) ?? (error?.response != null ? getResponseData(error.response as any) : undefined);
             const isInit = !!data?.init;
             setRegistered(isInit);
             iotLocalStorage.setItem(REGISTERED_KEY, isInit);
