@@ -182,7 +182,6 @@ const routes: RouteObjectType[] = [
             },
             mobileAccessible: true,
             icon: <AntFallAttentionIcon fontSize="small" />,
-            permissions: PERMISSIONS.DEVICE_MODULE,
         },
         async lazy() {
             const { default: Component } = await import('@/pages/alarm');
