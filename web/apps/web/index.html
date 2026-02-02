@@ -25,22 +25,20 @@
                     return; // Let loading.html handle it
                 }
                 
-                // Quick backend check before React app loads
+                // Backend check: 401/403 = backend up (login required). Only 5xx/network = redirect to loading.
                 fetch('/api/v1/user/status', {
                     method: 'GET',
                     headers: { 'Accept': 'application/json' },
                     cache: 'no-cache'
                 })
-                .then(response => {
-                    if (!response.ok) {
-                        // Backend not ready, redirect to loading page
-                        window.location.href = '/loading.html';
+                .then(function(response) {
+                    var status = response.status;
+                    if (response.ok || status === 401 || status === 403) {
                         return;
                     }
-                    // Backend is ready, React app will load normally via script tag above
+                    window.location.href = '/loading.html';
                 })
-                .catch(error => {
-                    // Backend not ready, redirect to loading page
+                .catch(function() {
                     window.location.href = '/loading.html';
                 });
             })();
