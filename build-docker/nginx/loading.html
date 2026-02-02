@@ -71,47 +71,35 @@
     <script>
         (function() {
             let retryCount = 0;
-            const maxRetries = 120; // 2 minutes max (120 * 1s)
+            const maxRetries = 5;   // Kısa bekleme: en fazla ~7.5 saniye (5 x 1.5s)
+            const retryDelayMs = 1500;
             const statusEl = document.getElementById('status');
-            
+
             function checkBackend() {
                 fetch('/api/v1/user/status', {
                     method: 'GET',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
+                    headers: { 'Accept': 'application/json' },
                     cache: 'no-cache'
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Backend is ready, redirect to main app
                         statusEl.textContent = 'Backend ready! Redirecting...';
-                        setTimeout(() => {
-                            window.location.href = '/';
-                        }, 500);
+                        setTimeout(function() { window.location.href = '/'; }, 400);
                         return;
                     }
                     throw new Error('Backend not ready: ' + response.status);
                 })
-                .catch(error => {
+                .catch(function() {
                     retryCount++;
-                    
                     if (retryCount >= maxRetries) {
-                        statusEl.textContent = 'Backend initialization is taking longer than expected. Please refresh the page.';
-                        statusEl.style.color = '#ffcccc';
+                        statusEl.textContent = 'Opening app...';
+                        setTimeout(function() { window.location.href = '/'; }, 400);
                         return;
                     }
-                    
-                    // Update status
-                    statusEl.textContent = 'Checking backend status... (' + retryCount + '/' + maxRetries + ')';
-                    
-                    // Exponential backoff: 1s, 2s, 3s, 4s, then 5s max
-                    const delay = Math.min(1000 + retryCount * 1000, 5000);
-                    setTimeout(checkBackend, delay);
+                    statusEl.textContent = 'Checking backend... (' + retryCount + '/' + maxRetries + ')';
+                    setTimeout(checkBackend, retryDelayMs);
                 });
             }
-            
-            // Start checking immediately
             checkBackend();
         })();
     </script>

@@ -13,6 +13,8 @@ interface BackendReadyCheckProps {
  * Polls /api/v1/user/status until backend is ready, then renders children.
  * Shows loading screen with message while waiting.
  */
+const MAX_RETRIES = 10; // En fazla 10 deneme, sonra uygulama yine de açılsın
+
 const BackendReadyCheck: React.FC<BackendReadyCheckProps> = ({ children }) => {
     const { getIntlText } = useI18n();
     const [isReady, setIsReady] = useState(false);
@@ -26,33 +28,32 @@ const BackendReadyCheck: React.FC<BackendReadyCheckProps> = ({ children }) => {
         const checkBackend = async () => {
             const [error, resp] = await awaitWrap(globalAPI.getUserStatus());
 
-            if (mounted) {
-                if (!error && isRequestSuccess(resp)) {
-                    // Backend is ready
-                    setIsReady(true);
-                    return;
-                }
+            if (!mounted) return;
 
-                // Backend not ready yet, retry after delay
-                currentRetry++;
-                setRetryCount(currentRetry);
-                
-                // Exponential backoff: 1s, 2s, 3s, 4s, then 5s max
-                const delay = Math.min(1000 + currentRetry * 1000, 5000);
-                timeoutId = setTimeout(checkBackend, delay);
+            if (!error && isRequestSuccess(resp)) {
+                setIsReady(true);
+                return;
             }
+
+            currentRetry++;
+            setRetryCount(currentRetry);
+
+            if (currentRetry >= MAX_RETRIES) {
+                setIsReady(true);
+                return;
+            }
+
+            const delay = Math.min(1000 + currentRetry * 500, 3000);
+            timeoutId = setTimeout(checkBackend, delay);
         };
 
-        // Start checking immediately
         checkBackend();
 
         return () => {
             mounted = false;
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
+            if (timeoutId) clearTimeout(timeoutId);
         };
-    }, []); // Run only once on mount
+    }, []);
 
     if (isReady) {
         return <>{children}</>;
