@@ -20,9 +20,16 @@ export default () => {
             const [error, resp] = await awaitWrap(globalAPI.getUserStatus());
 
             setLoading(false);
-            if (error || !isRequestSuccess(resp)) return;
-            const isInit = !!getResponseData(resp)?.init;
 
+            if (!error && isRequestSuccess(resp)) {
+                const isInit = !!getResponseData(resp)?.init;
+                setRegistered(isInit);
+                iotLocalStorage.setItem(REGISTERED_KEY, isInit);
+                return;
+            }
+
+            const data = getResponseData(resp) ?? getResponseData(error?.response);
+            const isInit = !!data?.init;
             setRegistered(isInit);
             iotLocalStorage.setItem(REGISTERED_KEY, isInit);
         },
@@ -31,7 +38,6 @@ export default () => {
         },
     );
 
-    // If you have registered an account, the login page is automatically redirected
     useLayoutEffect(() => {
         if (registered === undefined) return;
         if (registered) {
