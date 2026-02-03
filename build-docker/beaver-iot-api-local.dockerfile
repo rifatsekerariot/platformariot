@@ -2,7 +2,7 @@
 # Build context: repo root. Example: docker build -f build-docker/beaver-iot-api-local.dockerfile -t api .
 # -am (also make): builds alarm-service and all modules application-standard depends on; required for /alarms/search.
 
-FROM maven:3.8.3-openjdk-17 AS api-builder
+FROM maven:3.8-openjdk-18 AS api-builder
 
 ARG API_MVN_PROFILE=release
 ARG API_MVN_SNAPSHOT_REPO_ID=central-portal-snapshots
