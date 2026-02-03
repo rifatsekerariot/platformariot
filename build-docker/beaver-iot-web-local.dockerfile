@@ -1,7 +1,7 @@
 # Monorepo: build Web from local web/ (no git clone).
 # Build context: repo root. Example: docker build -f build-docker/beaver-iot-web-local.dockerfile -t web .
 
-FROM node:20.18.0-alpine3.20 AS web-builder
+FROM node:24.1.0-alpine3.20 AS web-builder
 
 WORKDIR /beaver-iot-web
 COPY web/ .
